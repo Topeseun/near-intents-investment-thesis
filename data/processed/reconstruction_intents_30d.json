@@ -1,0 +1,406 @@
+{
+  "generated_at_utc": "2026-11-10T15:54:06Z",
+  "method": "intents.near -> revenue-wallet TRANSFER receipts via NEARBlocks indexer API; USD at daily NEAR close",
+  "window": {
+    "start": "2026-10-12",
+    "end": "2026-11-10",
+    "days": 30,
+    "all_time": false
+  },
+  "wallets": [
+    "fefundsadmin.sputnik-dao.near",
+    "buybacks.multisignature.near",
+    "1csfundsadmin.sputnik-dao.near"
+  ],
+  "per_wallet": {
+    "fefundsadmin.sputnik-dao.near": {
+      "receipts_scanned": 400,
+      "pages": 4,
+      "oldest_receipt_date": "2026-10-08",
+      "sweeps_in_window": 334,
+      "sweeps_total_near": "118505.04144130597047",
+      "non_intents_receipts_in_window": 0
+    },
+    "buybacks.multisignature.near": {
+      "receipts_scanned": 800,
+      "pages": 8,
+      "oldest_receipt_date": "2026-10-11",
+      "sweeps_in_window": 780,
+      "sweeps_total_near": "283017.88903185631787",
+      "non_intents_receipts_in_window": 1
+    },
+    "1csfundsadmin.sputnik-dao.near": {
+      "receipts_scanned": 100,
+      "pages": 1,
+      "oldest_receipt_date": "2026-04-16",
+      "sweeps_in_window": 0,
+      "sweeps_total_near": "0",
+      "non_intents_receipts_in_window": 0
+    }
+  },
+  "duplicate_tx_hashes": 0,
+  "totals": {
+    "sweeps": 1114,
+    "near": "401522.93047316228834",
+    "usd": "1790278.580321465453480408321",
+    "usd_at_daily_mean_price": "1799321.707345444364907354921",
+    "price_source": "CoinGecko /coins/near/market_chart days=35 (daily close; mean shown as sensitivity)",
+    "missing_price_days": []
+  },
+  "daily": {
+    "2026-10-12": {
+      "near": "12339.09226583329504",
+      "usd": "62390.96879456315311703937208",
+      "usd_at_daily_mean_price": "69683.28155478488712490479483",
+      "price_close": 5.056366177544723,
+      "price_mean": 5.647358821340248,
+      "sweeps": 51
+    },
+    "2026-10-13": {
+      "near": "11222.10268954052440",
+      "usd": "56847.39419578046458343886686",
+      "usd_at_daily_mean_price": "57304.64477865513227578828943",
+      "price_close": 5.065663340326109,
+      "price_mean": 5.106408875768486,
+      "sweeps": 40
+    },
+    "2026-10-14": {
+      "near": "16950.36491698202851",
+      "usd": "82695.55156250956775760939704",
+      "usd_at_daily_mean_price": "84401.63275288065190295157399",
+      "price_close": 4.878688569097385,
+      "price_mean": 4.979340159710742,
+      "sweeps": 52
+    },
+    "2026-10-15": {
+      "near": "30963.11844766142968",
+      "usd": "164429.0032654326116148835407",
+      "usd_at_daily_mean_price": "151505.2654551705120131176061",
+      "price_close": 5.310479419034472,
+      "price_mean": 4.893088068996272,
+      "sweeps": 36
+    },
+    "2026-10-16": {
+      "near": "9130.73437310287074",
+      "usd": "46397.19723385670177609084437",
+      "usd_at_daily_mean_price": "47252.78618686049319950048699",
+      "price_close": 5.081431058878748,
+      "price_mean": 5.175135345745768,
+      "sweeps": 36
+    },
+    "2026-10-17": {
+      "near": "6660.54511777843307",
+      "usd": "32435.02752580968072412261197",
+      "usd_at_daily_mean_price": "33452.21541500698185160159804",
+      "price_close": 4.869725668434193,
+      "price_mean": 5.022444082799739,
+      "sweeps": 24
+    },
+    "2026-10-18": {
+      "near": "9235.66873947779445",
+      "usd": "45705.94309033498692912223414",
+      "usd_at_daily_mean_price": "44990.73729337191597755533105",
+      "price_close": 4.94885041675058,
+      "price_mean": 4.871410892105664,
+      "sweeps": 31
+    },
+    "2026-10-19": {
+      "near": "10833.41276143288259",
+      "usd": "53319.24786509717525864768178",
+      "usd_at_daily_mean_price": "54008.62425584229906711056757",
+      "price_close": 4.921740640669995,
+      "price_mean": 4.985374917875726,
+      "sweeps": 34
+    },
+    "2026-10-20": {
+      "near": "15877.58634994955333",
+      "usd": "78242.89380746330969314035884",
+      "usd_at_daily_mean_price": "76801.74612266983829765308639",
+      "price_close": 4.927883374900487,
+      "price_mean": 4.837117205973429,
+      "sweeps": 40
+    },
+    "2026-10-21": {
+      "near": "12124.28885490112712",
+      "usd": "64184.63345786602320533905742",
+      "usd_at_daily_mean_price": "62765.51600971144052924102486",
+      "price_close": 5.293888509751234,
+      "price_mean": 5.176841030502097,
+      "sweeps": 45
+    },
+    "2026-10-22": {
+      "near": "12057.38007421517625",
+      "usd": "58561.08936018099551988495109",
+      "usd_at_daily_mean_price": "60385.30006360012970185986274",
+      "price_close": 4.856866831743527,
+      "price_mean": 5.008160951377379,
+      "sweeps": 40
+    },
+    "2026-10-23": {
+      "near": "8246.07710145717668",
+      "usd": "38130.97115512824069548575542",
+      "usd_at_daily_mean_price": "40272.54018856976147220824225",
+      "price_close": 4.62413468683067,
+      "price_mean": 4.8838423038093035,
+      "sweeps": 29
+    },
+    "2026-10-24": {
+      "near": "10511.70162257472115",
+      "usd": "46966.78522919309507804661479",
+      "usd_at_daily_mean_price": "47517.86729023668426032374688",
+      "price_close": 4.468047792407669,
+      "price_mean": 4.520473373044404,
+      "sweeps": 33
+    },
+    "2026-10-25": {
+      "near": "13454.91256815408354",
+      "usd": "61867.99275302982056235847108",
+      "usd_at_daily_mean_price": "60523.55836485087728659031994",
+      "price_close": 4.598171295402008,
+      "price_mean": 4.498249844306069,
+      "sweeps": 42
+    },
+    "2026-10-26": {
+      "near": "17605.33160531075995",
+      "usd": "78425.10538564773935565104206",
+      "usd_at_daily_mean_price": "79471.93847795112379637109599",
+      "price_close": 4.454622448689936,
+      "price_mean": 4.51408358897244,
+      "sweeps": 51
+    },
+    "2026-10-27": {
+      "near": "16416.80282225098460",
+      "usd": "77126.99229600753953128729331",
+      "usd_at_daily_mean_price": "74229.64085861576959615138583",
+      "price_close": 4.698051936852848,
+      "price_mean": 4.521564988159966,
+      "sweeps": 47
+    },
+    "2026-10-28": {
+      "near": "12126.90227681150929",
+      "usd": "57377.29638482347925430550587",
+      "usd_at_daily_mean_price": "56731.82239826120049589374088",
+      "price_close": 4.731405850819598,
+      "price_mean": 4.678179233516305,
+      "sweeps": 37
+    },
+    "2026-10-29": {
+      "near": "23445.93666041096116",
+      "usd": "96179.29075601824409251742325",
+      "usd_at_daily_mean_price": "103839.4202541750859256493567",
+      "price_close": 4.10217310355612,
+      "price_mean": 4.428887689930106,
+      "sweeps": 62
+    },
+    "2026-10-30": {
+      "near": "17630.61863797493834",
+      "usd": "75936.85979249804115483280829",
+      "usd_at_daily_mean_price": "74883.14205331572929048431046",
+      "price_close": 4.307101262399048,
+      "price_mean": 4.247334911551172,
+      "sweeps": 59
+    },
+    "2026-10-31": {
+      "near": "10497.64413353150429",
+      "usd": "46408.40990149017492003101879",
+      "usd_at_daily_mean_price": "46014.67386817991167111824049",
+      "price_close": 4.4208404582179295,
+      "price_mean": 4.3833333729803385,
+      "sweeps": 33
+    },
+    "2026-11-01": {
+      "near": "6735.64583833740516",
+      "usd": "28687.07507608043354426286843",
+      "usd_at_daily_mean_price": "29378.08073795662239036252224",
+      "price_close": 4.258993979879651,
+      "price_mean": 4.361583349698233,
+      "sweeps": 25
+    },
+    "2026-11-02": {
+      "near": "8666.82430111449544",
+      "usd": "33478.91874194969161396110489",
+      "usd_at_daily_mean_price": "35471.63922990375275752740615",
+      "price_close": 3.862881902157002,
+      "price_mean": 4.092807007215127,
+      "sweeps": 26
+    },
+    "2026-11-03": {
+      "near": "11212.96611990933732",
+      "usd": "43185.82721016499563773543765",
+      "usd_at_daily_mean_price": "42999.26714338250642223301483",
+      "price_close": 3.851418683365662,
+      "price_mean": 3.834780796049545,
+      "sweeps": 33
+    },
+    "2026-11-04": {
+      "near": "12255.79289998541096",
+      "usd": "49847.77145962300214578057264",
+      "usd_at_daily_mean_price": "48781.37959049857290048572125",
+      "price_close": 4.067282457072389,
+      "price_mean": 3.9802712063253485,
+      "sweeps": 35
+    },
+    "2026-11-05": {
+      "near": "16491.85932093215911",
+      "usd": "60603.37808098037270156754856",
+      "usd_at_daily_mean_price": "64347.59531477708054803741675",
+      "price_close": 3.6747450303593134,
+      "price_mean": 3.9017792998697494,
+      "sweeps": 27
+    },
+    "2026-11-06": {
+      "near": "23636.43156245617774",
+      "usd": "87473.35068525231756972459507",
+      "usd_at_daily_mean_price": "87881.69668741055035624598020",
+      "price_close": 3.7007849706126508,
+      "price_mean": 3.718061097978968,
+      "sweeps": 42
+    },
+    "2026-11-07": {
+      "near": "11596.63867576025331",
+      "usd": "42547.46548111098901232127133",
+      "usd_at_daily_mean_price": "42940.15575641224558290329117",
+      "price_close": 3.6689481039057776,
+      "price_mean": 3.7028105261369775,
+      "sweeps": 34
+    },
+    "2026-11-08": {
+      "near": "8691.44020684114515",
+      "usd": "30793.46278378254863120718797",
+      "usd_at_daily_mean_price": "31911.15286130558867907158915",
+      "price_close": 3.54296434778952,
+      "price_mean": 3.671560995862102,
+      "sweeps": 14
+    },
+    "2026-11-09": {
+      "near": "16145.48471782628168",
+      "usd": "58783.20061972894810601757535",
+      "usd_at_daily_mean_price": "57864.31379863631686956490636",
+      "price_close": 3.6408445857823164,
+      "price_mean": 3.5839316570501065,
+      "sweeps": 36
+    },
+    "2026-11-10": {
+      "near": "8759.62481064786829",
+      "usd": "31249.47637006110969399531814",
+      "usd_at_daily_mean_price": "31710.07258245070266484840716",
+      "price_close": 3.567444616129612,
+      "price_mean": 3.620026344496529,
+      "sweeps": 20
+    }
+  },
+  "comparisons": {
+    "defillama": {
+      "fees_total30d_headline_usd": 5619218,
+      "fees_total7d_headline_usd": 1342197,
+      "fees_total24h_headline_usd": 57866,
+      "fees_series_sum_window_usd": 5456771.0,
+      "revenue_total30d_headline_usd": 1838057,
+      "revenue_total7d_headline_usd": 372840,
+      "revenue_total24h_headline_usd": 58357,
+      "revenue_series_sum_window_usd": 1756771.0,
+      "note": "headline totals are DefiLlama trailing totals at fetch time; series sums cover exactly the reconstruction window dates"
+    },
+    "revenue_near_org": {
+      "extraction_method": "SSR HTML (RSC payload) parse, no browser",
+      "net_revenue_30d_usd": 1970000.0,
+      "gross_fees_30d_usd_dashboard": 5460000.0,
+      "capture_split_by_window": {
+        "all_time": {
+          "pp_fe": 0.11962031295832648,
+          "pp_b2b": 0.052603531453343406,
+          "pp_qi": 0.01907572410843653
+        },
+        "ytd": {
+          "pp_fe": 0.13307011723295267,
+          "pp_b2b": 0.07123537973656975,
+          "pp_qi": 0.025832228617954266
+        },
+        "d30": {
+          "pp_fe": 0.2151111929937004,
+          "pp_b2b": 0.10957308305702225,
+          "pp_qi": 0.03668885003283669
+        },
+        "d7": {
+          "pp_fe": 0.18844669721669832,
+          "pp_b2b": 0.1037191082933421,
+          "pp_qi": 0.04153338326235555
+        }
+      },
+      "capture_rate_by_window": {
+        "all_time": 0.1913,
+        "ytd": 0.2301,
+        "d30": 0.3614,
+        "d7": 0.3337
+      },
+      "revenue_wallets_all_time_near": {
+        "fefundsadmin.sputnik-dao.near": {
+          "near_all_time": 1994013.6240257893,
+          "share_pct": 46.6
+        },
+        "buybacks.multisignature.near": {
+          "near_all_time": 1730368.02308756,
+          "share_pct": 40.4
+        },
+        "1csfundsadmin.sputnik-dao.near": {
+          "near_all_time": 555348.272928576,
+          "share_pct": 13.0
+        }
+      },
+      "revenue_wallets_total_near": 4279729.92
+    }
+  },
+  "archival_rpc_verification": [
+    {
+      "tx_hash": "FcNgyF6XxNToczgiubaz3etw7CB9wZFTtBxJjDgtNLjR",
+      "wallet": "fefundsadmin.sputnik-dao.near",
+      "date": "2026-10-12",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "249052164668391453873846683",
+      "nearblocks_deposit_yocto": "2.4905216466839146E+26",
+      "relative_difference": "2.459787219740436561624826600E-17",
+      "verified": true
+    },
+    {
+      "tx_hash": "4dUbA9Ad2RqVVJng5xutnEsdC6qzv6E3MVFVz4Z26Ph9",
+      "wallet": "fefundsadmin.sputnik-dao.near",
+      "date": "2026-10-19",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "199028595774419807806960311",
+      "nearblocks_deposit_yocto": "1.990285957744198E+26",
+      "relative_difference": "3.922531976183188857297408270E-17",
+      "verified": true
+    },
+    {
+      "tx_hash": "5w53NQc25GHsLAc6kqyw4e6vb3e3i6guJ4Pev6AroDPh",
+      "wallet": "buybacks.multisignature.near",
+      "date": "2026-10-26",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "296501910221336390338377268",
+      "nearblocks_deposit_yocto": "2.9650191022133638E+26",
+      "relative_difference": "3.486782685576116883969581240E-17",
+      "verified": true
+    },
+    {
+      "tx_hash": "A2kSt2edq4vAcpai5WeDymkRqK6Nx321ZCfXB6o7xmLe",
+      "wallet": "buybacks.multisignature.near",
+      "date": "2026-11-01",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "300046386102099016825177885",
+      "nearblocks_deposit_yocto": "3.0004638610209903E+26",
+      "relative_difference": "4.390928444816164267462839163E-17",
+      "verified": true
+    },
+    {
+      "tx_hash": "9Hfu9pto1UCAwcwSr7cbeJaza2qrSB9nwaoeyvycm3hy",
+      "wallet": "buybacks.multisignature.near",
+      "date": "2026-11-10",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "329982405644390914081510656",
+      "nearblocks_deposit_yocto": "3.299824056443909E+26",
+      "relative_difference": "4.267351960326967038067921572E-17",
+      "verified": true
+    }
+  ],
+  "errors": {}
+}

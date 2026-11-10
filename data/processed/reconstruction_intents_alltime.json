@@ -1,0 +1,2693 @@
+{
+  "generated_at_utc": "2026-11-10T16:26:15Z",
+  "method": "intents.near -> revenue-wallet TRANSFER receipts via NEARBlocks indexer API; USD at daily NEAR close",
+  "window": {
+    "start": null,
+    "end": "2026-11-10",
+    "days": 30,
+    "all_time": true
+  },
+  "wallets": [
+    "fefundsadmin.sputnik-dao.near",
+    "buybacks.multisignature.near",
+    "1csfundsadmin.sputnik-dao.near"
+  ],
+  "per_wallet": {
+    "fefundsadmin.sputnik-dao.near": {
+      "receipts_scanned": 1551,
+      "pages": 17,
+      "paging_stalled": false,
+      "oldest_receipt_date": "2025-09-22",
+      "sweeps_in_window": 1433,
+      "sweeps_total_near": "727724.27373003840735",
+      "non_intents_receipts_in_window": null
+    },
+    "buybacks.multisignature.near": {
+      "receipts_scanned": 3319,
+      "pages": 35,
+      "paging_stalled": false,
+      "oldest_receipt_date": "2026-03-18",
+      "sweeps_in_window": 3271,
+      "sweeps_total_near": "1728897.55212060342494",
+      "non_intents_receipts_in_window": null
+    },
+    "1csfundsadmin.sputnik-dao.near": {
+      "receipts_scanned": 547,
+      "pages": 7,
+      "paging_stalled": false,
+      "oldest_receipt_date": "2025-10-02",
+      "sweeps_in_window": 484,
+      "sweeps_total_near": "555339.97303241621847",
+      "non_intents_receipts_in_window": null
+    }
+  },
+  "duplicate_tx_hashes": 1,
+  "totals": {
+    "sweeps": 5188,
+    "near": "3011961.79888305805076",
+    "usd": "2311393.224312250912511273031",
+    "usd_at_daily_mean_price": "2319944.314195014862632922391",
+    "price_source": "CoinGecko /coins/near/market_chart days=35 (daily close; mean shown as sensitivity)",
+    "missing_price_days": [
+      "2026-01-31",
+      "2026-02-01",
+      "2026-02-02",
+      "2026-02-03",
+      "2026-02-04",
+      "2026-02-05",
+      "2026-02-06",
+      "2026-02-07",
+      "2026-02-08",
+      "2026-02-09",
+      "2026-02-10",
+      "2026-02-11",
+      "2026-02-12",
+      "2026-02-13",
+      "2026-02-14",
+      "2026-02-15",
+      "2026-02-16",
+      "2026-02-17",
+      "2026-02-18",
+      "2026-02-19",
+      "2026-02-20",
+      "2026-02-21",
+      "2026-02-22",
+      "2026-02-23",
+      "2026-02-24",
+      "2026-02-25",
+      "2026-02-26",
+      "2026-02-27",
+      "2026-02-28",
+      "2026-03-01",
+      "2026-03-02",
+      "2026-03-03",
+      "2026-03-04",
+      "2026-03-05",
+      "2026-03-06",
+      "2026-03-07",
+      "2026-03-08",
+      "2026-03-09",
+      "2026-03-10",
+      "2026-03-11",
+      "2026-03-12",
+      "2026-03-13",
+      "2026-03-14",
+      "2026-03-15",
+      "2026-03-16",
+      "2026-03-17",
+      "2026-03-18",
+      "2026-03-19",
+      "2026-03-20",
+      "2026-03-21",
+      "2026-03-22",
+      "2026-03-23",
+      "2026-03-24",
+      "2026-03-25",
+      "2026-03-26",
+      "2026-03-27",
+      "2026-03-28",
+      "2026-03-29",
+      "2026-03-30",
+      "2026-03-31",
+      "2026-04-01",
+      "2026-04-02",
+      "2026-04-03",
+      "2026-04-04",
+      "2026-04-05",
+      "2026-04-06",
+      "2026-04-07",
+      "2026-04-08",
+      "2026-04-09",
+      "2026-04-10",
+      "2026-04-11",
+      "2026-04-12",
+      "2026-04-13",
+      "2026-04-14",
+      "2026-04-15",
+      "2026-04-16",
+      "2026-04-17",
+      "2026-04-18",
+      "2026-04-19",
+      "2026-04-20",
+      "2026-04-21",
+      "2026-04-23",
+      "2026-04-24",
+      "2026-04-25",
+      "2026-04-26",
+      "2026-04-27",
+      "2026-04-28",
+      "2026-04-29",
+      "2026-04-30",
+      "2026-05-01",
+      "2026-05-02",
+      "2026-05-03",
+      "2026-05-04",
+      "2026-05-05",
+      "2026-05-06",
+      "2026-05-07",
+      "2026-05-08",
+      "2026-05-09",
+      "2026-05-10",
+      "2026-05-11",
+      "2026-05-12",
+      "2026-05-13",
+      "2026-05-14",
+      "2026-05-15",
+      "2026-05-16",
+      "2026-05-17",
+      "2026-05-18",
+      "2026-05-19",
+      "2026-05-20",
+      "2026-05-21",
+      "2026-05-22",
+      "2026-05-23",
+      "2026-05-24",
+      "2026-05-25",
+      "2026-05-26",
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29",
+      "2026-05-30",
+      "2026-05-31",
+      "2026-06-01",
+      "2026-06-02",
+      "2026-06-03",
+      "2026-06-04",
+      "2026-06-05",
+      "2026-06-06",
+      "2026-06-07",
+      "2026-06-08",
+      "2026-06-09",
+      "2026-06-10",
+      "2026-06-11",
+      "2026-06-12",
+      "2026-06-13",
+      "2026-06-14",
+      "2026-06-15",
+      "2026-06-16",
+      "2026-06-17",
+      "2026-06-18",
+      "2026-06-19",
+      "2026-06-20",
+      "2026-06-21",
+      "2026-06-22",
+      "2026-06-23",
+      "2026-06-24",
+      "2026-06-25",
+      "2026-06-26",
+      "2026-06-27",
+      "2026-06-28",
+      "2026-06-29",
+      "2026-06-30",
+      "2026-07-01",
+      "2026-07-02",
+      "2026-07-03",
+      "2026-07-04",
+      "2026-07-05",
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-11",
+      "2026-07-12",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-19",
+      "2026-07-20",
+      "2026-07-21",
+      "2026-07-22",
+      "2026-07-23",
+      "2026-07-24",
+      "2026-07-25",
+      "2026-07-26",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-01",
+      "2026-08-02",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06",
+      "2026-08-07",
+      "2026-08-08",
+      "2026-08-09",
+      "2026-08-10",
+      "2026-08-11",
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-14",
+      "2026-08-15",
+      "2026-08-16",
+      "2026-08-17",
+      "2026-08-18",
+      "2026-08-19",
+      "2026-08-20",
+      "2026-08-21",
+      "2026-08-22",
+      "2026-08-23",
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-29",
+      "2026-08-30",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04",
+      "2026-09-05",
+      "2026-09-06",
+      "2026-09-07",
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11",
+      "2026-09-12",
+      "2026-09-13",
+      "2026-09-14",
+      "2026-09-15",
+      "2026-09-16",
+      "2026-09-17",
+      "2026-09-18",
+      "2026-09-19",
+      "2026-09-20",
+      "2026-09-21",
+      "2026-09-22",
+      "2026-09-23",
+      "2026-09-24",
+      "2026-09-25",
+      "2026-09-26",
+      "2026-09-27",
+      "2026-09-28",
+      "2026-09-29",
+      "2026-09-30",
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-03",
+      "2026-10-04",
+      "2026-10-05"
+    ]
+  },
+  "daily": {
+    "2026-01-31": {
+      "near": "2835.8009707904747",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 3
+    },
+    "2026-02-01": {
+      "near": "2652.4574609338335",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 3
+    },
+    "2026-02-02": {
+      "near": "1809.2145623006961",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 2
+    },
+    "2026-02-03": {
+      "near": "6391.4073711846669",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-02-04": {
+      "near": "11749.9281334887432",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-02-05": {
+      "near": "8250.5762726972018",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-02-06": {
+      "near": "8336.8394524914771",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-02-07": {
+      "near": "3597.2137080216740",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 3
+    },
+    "2026-02-08": {
+      "near": "2394.264844344064",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 2
+    },
+    "2026-02-09": {
+      "near": "9318.3353857712523",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-02-10": {
+      "near": "8366.6062031032455",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-02-11": {
+      "near": "11063.3105950241098",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-02-12": {
+      "near": "11757.6403581085121",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-02-13": {
+      "near": "7939.8041464897061",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-02-14": {
+      "near": "6510.6969967870132",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-02-15": {
+      "near": "11221.0800764918518",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-02-16": {
+      "near": "1133.6706859196939",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 1
+    },
+    "2026-02-17": {
+      "near": "983.1485606198268",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 1
+    },
+    "2026-02-18": {
+      "near": "1947.2370986619891",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 2
+    },
+    "2026-02-19": {
+      "near": "1161.7191702499821",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 1
+    },
+    "2026-02-20": {
+      "near": "979.9384667993794",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 1
+    },
+    "2026-02-21": {
+      "near": "1236.0597752427133",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 1
+    },
+    "2026-02-22": {
+      "near": "1378.1309056010954",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 1
+    },
+    "2026-02-23": {
+      "near": "6407.7409714948296",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-02-24": {
+      "near": "8325.7646810488050",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-02-25": {
+      "near": "11967.3698759853472",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-02-26": {
+      "near": "18218.8031557316084",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-02-27": {
+      "near": "13977.6311073695739",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-02-28": {
+      "near": "1058.825635849913",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 1
+    },
+    "2026-03-01": {
+      "near": "3212.7236193537197",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 2
+    },
+    "2026-03-02": {
+      "near": "15186.3075985024269",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-03-03": {
+      "near": "10936.7624259006746",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-03-04": {
+      "near": "6855.3761149629734",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-03-05": {
+      "near": "1569.2551999279446",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 2
+    },
+    "2026-03-06": {
+      "near": "2894.5118417870393",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 3
+    },
+    "2026-03-07": {
+      "near": "6286.6521321656423",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-03-08": {
+      "near": "3476.7739176166355",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-03-09": {
+      "near": "3462.4605751666769",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-03-10": {
+      "near": "7844.7371187587338",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-03-11": {
+      "near": "8621.9689285225790",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-03-12": {
+      "near": "4615.3631734874026",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-03-13": {
+      "near": "15517.1566701295678",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 13
+    },
+    "2026-03-14": {
+      "near": "4978.2596092485057",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-03-15": {
+      "near": "6600.8650009674187",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-03-16": {
+      "near": "9684.9654591531654",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-03-17": {
+      "near": "8293.0458338435499",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-03-18": {
+      "near": "8493.8421055847905",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-03-19": {
+      "near": "8766.6877977551152",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-03-20": {
+      "near": "5909.5565454450114",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-03-21": {
+      "near": "5248.1955417231428",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-03-22": {
+      "near": "5398.6708023996937",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-03-23": {
+      "near": "11962.5704140718290",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-03-24": {
+      "near": "5016.1238671196344",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-03-25": {
+      "near": "5793.5606404433071",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-03-26": {
+      "near": "5506.3399800251151",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-03-27": {
+      "near": "9890.0756547948127",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-03-28": {
+      "near": "7114.9967145921360",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-03-29": {
+      "near": "3632.9654505021835",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-03-30": {
+      "near": "7124.9637077933813",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-03-31": {
+      "near": "11572.9469982836899",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-04-01": {
+      "near": "8638.3938878987324",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-04-02": {
+      "near": "9627.3838426805247",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-04-03": {
+      "near": "6265.6105116580869",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-04-04": {
+      "near": "2732.6784545489053",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 3
+    },
+    "2026-04-05": {
+      "near": "3377.2166847033015",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-04-06": {
+      "near": "4553.7412286140200",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-04-07": {
+      "near": "8204.2971785789446",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-04-08": {
+      "near": "9071.2725715454666",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-04-09": {
+      "near": "8067.4309303058140",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-04-10": {
+      "near": "8730.7083698275472",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-04-11": {
+      "near": "1530.1975648157743",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 2
+    },
+    "2026-04-12": {
+      "near": "5044.6889015761010",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-04-13": {
+      "near": "11720.8722957790655",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 13
+    },
+    "2026-04-14": {
+      "near": "7616.6466379394801",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-04-15": {
+      "near": "6850.8075690661870",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-04-16": {
+      "near": "2795.0051992801934",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 3
+    },
+    "2026-04-17": {
+      "near": "6508.8839210350510",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-04-18": {
+      "near": "3461.1946567658757",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-04-19": {
+      "near": "8445.8736117627919",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-04-20": {
+      "near": "6014.8997470583151",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-04-21": {
+      "near": "3283.9778845329029",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-04-23": {
+      "near": "20123.7048093402607",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-04-24": {
+      "near": "3728.5629241990928",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-04-25": {
+      "near": "3195.9626703111341",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-04-26": {
+      "near": "4333.4271219925442",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-04-27": {
+      "near": "7779.3731253993625",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-04-28": {
+      "near": "4692.9621126753785",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-04-29": {
+      "near": "8349.4493947833342",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-04-30": {
+      "near": "8621.4619483664443",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-05-01": {
+      "near": "10285.9379232139518",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-05-02": {
+      "near": "4347.3251601508033",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-05-03": {
+      "near": "6562.7483312922218",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-05-04": {
+      "near": "7439.2663717620477",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-05-05": {
+      "near": "17140.9190011912535",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-05-06": {
+      "near": "15061.4308129724187",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 16
+    },
+    "2026-05-07": {
+      "near": "8197.8711718836101",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-05-08": {
+      "near": "8622.2700752589247",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-05-09": {
+      "near": "4300.6304644548577",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-05-10": {
+      "near": "4801.4517098782603",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-05-11": {
+      "near": "9278.0492743870018",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-05-12": {
+      "near": "8764.7981422769770",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-05-13": {
+      "near": "4247.6319263498015",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-05-14": {
+      "near": "8877.7665265234901",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-05-15": {
+      "near": "11528.5233093524534",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-05-16": {
+      "near": "9092.1306873700348",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-05-17": {
+      "near": "7143.9724233684584",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-05-18": {
+      "near": "9759.2285884066644",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-05-19": {
+      "near": "8684.4110730797261",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-05-20": {
+      "near": "8098.9414964544062",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-05-21": {
+      "near": "9902.13551137854151",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-05-22": {
+      "near": "13386.06930118385882",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 20
+    },
+    "2026-05-23": {
+      "near": "23847.82894696600591",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 28
+    },
+    "2026-05-24": {
+      "near": "9115.47902039402720",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 16
+    },
+    "2026-05-25": {
+      "near": "15087.63839245029241",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 25
+    },
+    "2026-05-26": {
+      "near": "26821.88669231880786",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 35
+    },
+    "2026-05-27": {
+      "near": "12555.84422718346635",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 19
+    },
+    "2026-05-28": {
+      "near": "6536.59543425580234",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-05-29": {
+      "near": "5829.61717428833478",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-05-30": {
+      "near": "13821.04433151674685",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 16
+    },
+    "2026-05-31": {
+      "near": "14698.05825062906916",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 19
+    },
+    "2026-06-01": {
+      "near": "12331.91760043502864",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 22
+    },
+    "2026-06-02": {
+      "near": "11222.92058440322510",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 19
+    },
+    "2026-06-03": {
+      "near": "9125.83275465971372",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 21
+    },
+    "2026-06-04": {
+      "near": "20171.43033497945998",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 22
+    },
+    "2026-06-05": {
+      "near": "72720.93234088970985",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 54
+    },
+    "2026-06-06": {
+      "near": "8515.77498462306521",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 13
+    },
+    "2026-06-07": {
+      "near": "10557.51155832619367",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 16
+    },
+    "2026-06-08": {
+      "near": "10088.15947651458826",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 16
+    },
+    "2026-06-09": {
+      "near": "9082.95980172764679",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-06-10": {
+      "near": "9306.40689020370796",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-06-11": {
+      "near": "4692.55482977136946",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-06-12": {
+      "near": "8827.26523724687338",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 13
+    },
+    "2026-06-13": {
+      "near": "3341.4473340616064",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-06-14": {
+      "near": "5931.2396450119566",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-06-15": {
+      "near": "13043.22175143597986",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 18
+    },
+    "2026-06-16": {
+      "near": "7350.66312258582250",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-06-17": {
+      "near": "6873.17221029342060",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-06-18": {
+      "near": "5187.05005004396381",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-06-19": {
+      "near": "3180.8672299162681",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-06-20": {
+      "near": "7619.79863170668795",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-06-21": {
+      "near": "3469.95400613534230",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-06-22": {
+      "near": "6240.54738312750004",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-06-23": {
+      "near": "4735.04502704683166",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-06-24": {
+      "near": "7986.60760687473898",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 13
+    },
+    "2026-06-25": {
+      "near": "5950.12423290330334",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-06-26": {
+      "near": "5435.45746282515706",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-06-27": {
+      "near": "2255.21593040664946",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 4
+    },
+    "2026-06-28": {
+      "near": "5221.77941398772321",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-06-29": {
+      "near": "6464.29351515431319",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-06-30": {
+      "near": "5734.73744585157120",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-07-01": {
+      "near": "8011.37164592127514",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-07-02": {
+      "near": "8424.65350971905630",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-07-03": {
+      "near": "7985.47748087233929",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-07-04": {
+      "near": "3884.55771192542172",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-07-05": {
+      "near": "5449.38673104947553",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-07-06": {
+      "near": "9102.29150501338540",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 15
+    },
+    "2026-07-07": {
+      "near": "8517.28593644878283",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 15
+    },
+    "2026-07-08": {
+      "near": "12787.13531174948934",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 20
+    },
+    "2026-07-09": {
+      "near": "8285.04836351537102",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-07-10": {
+      "near": "7432.76990128785115",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 13
+    },
+    "2026-07-11": {
+      "near": "3918.26647445979744",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-07-12": {
+      "near": "5599.55236659193316",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-07-13": {
+      "near": "6731.29897497732395",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-07-14": {
+      "near": "9786.19632395443200",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 18
+    },
+    "2026-07-15": {
+      "near": "9435.85179719214902",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 17
+    },
+    "2026-07-16": {
+      "near": "10710.75937266141519",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 17
+    },
+    "2026-07-17": {
+      "near": "9138.2696548329838",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-07-18": {
+      "near": "9522.34242156749562",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 16
+    },
+    "2026-07-19": {
+      "near": "5650.08773103433074",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-07-20": {
+      "near": "6752.26149865372525",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-07-21": {
+      "near": "11672.59560117305245",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 21
+    },
+    "2026-07-22": {
+      "near": "23585.59016122509652",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 30
+    },
+    "2026-07-23": {
+      "near": "7588.97426503929656",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-07-24": {
+      "near": "5374.49287258187499",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-07-25": {
+      "near": "3815.06299206127796",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-07-26": {
+      "near": "6410.29602729437524",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-07-27": {
+      "near": "8421.60735623843318",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-07-28": {
+      "near": "7244.10846268980496",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-07-29": {
+      "near": "8828.8599024371210",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-07-30": {
+      "near": "10427.14552460167664",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 15
+    },
+    "2026-07-31": {
+      "near": "9359.19987565134996",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-08-01": {
+      "near": "8118.3381762076513",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-08-02": {
+      "near": "3121.37493264570346",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 5
+    },
+    "2026-08-03": {
+      "near": "6766.05018032114530",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 10
+    },
+    "2026-08-04": {
+      "near": "6861.32094237853654",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 11
+    },
+    "2026-08-05": {
+      "near": "9387.69913255266973",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-08-06": {
+      "near": "6469.42016876106775",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 9
+    },
+    "2026-08-07": {
+      "near": "13548.9939771713140",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 18
+    },
+    "2026-08-08": {
+      "near": "8535.0089290925022",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-08-09": {
+      "near": "10388.7903322552633",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-08-10": {
+      "near": "8261.13760151154706",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-08-11": {
+      "near": "11354.2673301713919",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 15
+    },
+    "2026-08-12": {
+      "near": "10961.08660148499954",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 16
+    },
+    "2026-08-13": {
+      "near": "5439.45650455581116",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 8
+    },
+    "2026-08-14": {
+      "near": "9698.7435090730996",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 12
+    },
+    "2026-08-15": {
+      "near": "4467.84135576648922",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 7
+    },
+    "2026-08-16": {
+      "near": "4054.5268162156538",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 6
+    },
+    "2026-08-17": {
+      "near": "15820.1055358151361",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 21
+    },
+    "2026-08-18": {
+      "near": "9667.45898216843374",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 14
+    },
+    "2026-08-19": {
+      "near": "35155.21482524028196",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 39
+    },
+    "2026-08-20": {
+      "near": "22616.17269468136593",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 26
+    },
+    "2026-08-21": {
+      "near": "36238.80648404038229",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 42
+    },
+    "2026-08-22": {
+      "near": "20097.55947648807938",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 23
+    },
+    "2026-08-23": {
+      "near": "16247.95628429380735",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 23
+    },
+    "2026-08-24": {
+      "near": "18553.92232739006644",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 26
+    },
+    "2026-08-25": {
+      "near": "14604.97063076156871",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 20
+    },
+    "2026-08-26": {
+      "near": "19443.74443263403243",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 22
+    },
+    "2026-08-27": {
+      "near": "13121.92647631973687",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 19
+    },
+    "2026-08-28": {
+      "near": "14369.02608294157834",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 20
+    },
+    "2026-08-29": {
+      "near": "14122.11709608485802",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 21
+    },
+    "2026-08-30": {
+      "near": "14981.18102975117062",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 21
+    },
+    "2026-08-31": {
+      "near": "12461.10031580768892",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 21
+    },
+    "2026-09-01": {
+      "near": "12197.82397072093990",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 20
+    },
+    "2026-09-02": {
+      "near": "13730.96537022903788",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 23
+    },
+    "2026-09-03": {
+      "near": "32429.98091352744498",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 45
+    },
+    "2026-09-04": {
+      "near": "50270.71356303905495",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 60
+    },
+    "2026-09-05": {
+      "near": "13223.32377806652040",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 26
+    },
+    "2026-09-06": {
+      "near": "28280.22249493145797",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 43
+    },
+    "2026-09-07": {
+      "near": "9305.24192596032386",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 20
+    },
+    "2026-09-08": {
+      "near": "11213.95341674882234",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 24
+    },
+    "2026-09-09": {
+      "near": "15838.43020962086775",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 32
+    },
+    "2026-09-10": {
+      "near": "14395.26266746759138",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 30
+    },
+    "2026-09-11": {
+      "near": "15016.42760326884002",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 34
+    },
+    "2026-09-12": {
+      "near": "11709.74863939093542",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 20
+    },
+    "2026-09-13": {
+      "near": "9821.02499337279400",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 19
+    },
+    "2026-09-14": {
+      "near": "14106.25289043551932",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 28
+    },
+    "2026-09-15": {
+      "near": "14059.20949415033717",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 28
+    },
+    "2026-09-16": {
+      "near": "15577.32502800972579",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 31
+    },
+    "2026-09-17": {
+      "near": "32536.13712881970065",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 63
+    },
+    "2026-09-18": {
+      "near": "33948.96981610076948",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 67
+    },
+    "2026-09-19": {
+      "near": "16683.44598779414983",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 45
+    },
+    "2026-09-20": {
+      "near": "11499.70083089862774",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 37
+    },
+    "2026-09-21": {
+      "near": "28351.59503726973239",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 80
+    },
+    "2026-09-22": {
+      "near": "26250.82130295429518",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 81
+    },
+    "2026-09-23": {
+      "near": "24872.66906633196805",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 74
+    },
+    "2026-09-24": {
+      "near": "17378.97918628381329",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 58
+    },
+    "2026-09-25": {
+      "near": "18909.61369598706842",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 67
+    },
+    "2026-09-26": {
+      "near": "8194.81100574083820",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 35
+    },
+    "2026-09-27": {
+      "near": "8810.77092371378665",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 37
+    },
+    "2026-09-28": {
+      "near": "13645.87102993190664",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 51
+    },
+    "2026-09-29": {
+      "near": "15152.05199414112112",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 52
+    },
+    "2026-09-30": {
+      "near": "19468.30962882607590",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 56
+    },
+    "2026-10-01": {
+      "near": "14850.81318771676534",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 46
+    },
+    "2026-10-02": {
+      "near": "11581.49377359667633",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 43
+    },
+    "2026-10-03": {
+      "near": "5350.50279066982813",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 19
+    },
+    "2026-10-04": {
+      "near": "29746.48112820649959",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 27
+    },
+    "2026-10-05": {
+      "near": "10059.81860771575923",
+      "usd": "0",
+      "usd_at_daily_mean_price": "0",
+      "price_close": null,
+      "price_mean": null,
+      "sweeps": 32
+    },
+    "2026-10-06": {
+      "near": "12163.32493421000708",
+      "usd": "61580.54465177171993042833569",
+      "usd_at_daily_mean_price": "62019.78362278562226894760735",
+      "price_close": 5.062805193880262,
+      "price_mean": 5.098916945674257,
+      "sweeps": 46
+    },
+    "2026-10-07": {
+      "near": "11888.83906607942680",
+      "usd": "63839.07535457837792938463818",
+      "usd_at_daily_mean_price": "60897.40494785639869343430918",
+      "price_close": 5.369664354925997,
+      "price_mean": 5.1222330968887855,
+      "sweeps": 45
+    },
+    "2026-10-08": {
+      "near": "26610.20343480754473",
+      "usd": "120693.1687769280937915382995",
+      "usd_at_daily_mean_price": "133661.5544494763480434289592",
+      "price_close": 4.535597372361877,
+      "price_mean": 5.022943728218177,
+      "sweeps": 86
+    },
+    "2026-10-09": {
+      "near": "23236.13055108857697",
+      "usd": "114485.7004881287551803157429",
+      "usd_at_daily_mean_price": "110426.6552660854000627664773",
+      "price_close": 4.927055313121628,
+      "price_mean": 4.7523685160613836,
+      "sweeps": 63
+    },
+    "2026-10-10": {
+      "near": "14837.49941202512416",
+      "usd": "78913.63334765621409348451996",
+      "usd_at_daily_mean_price": "77477.21960722461098479001403",
+      "price_close": 5.31852646839536,
+      "price_mean": 5.221716776914095,
+      "sweeps": 40
+    },
+    "2026-10-11": {
+      "near": "13828.18143003044291",
+      "usd": "80380.97123532966603147657314",
+      "usd_at_daily_mean_price": "75042.90974189105320359131304",
+      "price_close": 5.812837475560422,
+      "price_mean": 5.426809745128275,
+      "sweeps": 41
+    },
+    "2026-10-12": {
+      "near": "12339.09226583329504",
+      "usd": "62390.96879456315311703937208",
+      "usd_at_daily_mean_price": "69683.28155478488712490479483",
+      "price_close": 5.056366177544723,
+      "price_mean": 5.647358821340248,
+      "sweeps": 51
+    },
+    "2026-10-13": {
+      "near": "11222.10268954052440",
+      "usd": "56847.39419578046458343886686",
+      "usd_at_daily_mean_price": "57304.64477865513227578828943",
+      "price_close": 5.065663340326109,
+      "price_mean": 5.106408875768486,
+      "sweeps": 40
+    },
+    "2026-10-14": {
+      "near": "16950.36491698202851",
+      "usd": "82695.55156250956775760939704",
+      "usd_at_daily_mean_price": "84401.63275288065190295157399",
+      "price_close": 4.878688569097385,
+      "price_mean": 4.979340159710742,
+      "sweeps": 52
+    },
+    "2026-10-15": {
+      "near": "30963.11844766142968",
+      "usd": "164429.0032654326116148835407",
+      "usd_at_daily_mean_price": "151505.2654551705120131176061",
+      "price_close": 5.310479419034472,
+      "price_mean": 4.893088068996272,
+      "sweeps": 36
+    },
+    "2026-10-16": {
+      "near": "9130.73437310287074",
+      "usd": "46397.19723385670177609084437",
+      "usd_at_daily_mean_price": "47252.78618686049319950048699",
+      "price_close": 5.081431058878748,
+      "price_mean": 5.175135345745768,
+      "sweeps": 36
+    },
+    "2026-10-17": {
+      "near": "6660.54511777843307",
+      "usd": "32435.02752580968072412261197",
+      "usd_at_daily_mean_price": "33452.21541500698185160159804",
+      "price_close": 4.869725668434193,
+      "price_mean": 5.022444082799739,
+      "sweeps": 24
+    },
+    "2026-10-18": {
+      "near": "9235.66873947779445",
+      "usd": "45705.94309033498692912223414",
+      "usd_at_daily_mean_price": "44990.73729337191597755533105",
+      "price_close": 4.94885041675058,
+      "price_mean": 4.871410892105664,
+      "sweeps": 31
+    },
+    "2026-10-19": {
+      "near": "10833.41276143288259",
+      "usd": "53319.24786509717525864768178",
+      "usd_at_daily_mean_price": "54008.62425584229906711056757",
+      "price_close": 4.921740640669995,
+      "price_mean": 4.985374917875726,
+      "sweeps": 34
+    },
+    "2026-10-20": {
+      "near": "15877.58634994955333",
+      "usd": "78242.89380746330969314035884",
+      "usd_at_daily_mean_price": "76801.74612266983829765308639",
+      "price_close": 4.927883374900487,
+      "price_mean": 4.837117205973429,
+      "sweeps": 40
+    },
+    "2026-10-21": {
+      "near": "12124.28885490112712",
+      "usd": "64184.63345786602320533905742",
+      "usd_at_daily_mean_price": "62765.51600971144052924102486",
+      "price_close": 5.293888509751234,
+      "price_mean": 5.176841030502097,
+      "sweeps": 45
+    },
+    "2026-10-22": {
+      "near": "12057.38007421517625",
+      "usd": "58561.08936018099551988495109",
+      "usd_at_daily_mean_price": "60385.30006360012970185986274",
+      "price_close": 4.856866831743527,
+      "price_mean": 5.008160951377379,
+      "sweeps": 40
+    },
+    "2026-10-23": {
+      "near": "8246.07710145717668",
+      "usd": "38130.97115512824069548575542",
+      "usd_at_daily_mean_price": "40272.54018856976147220824225",
+      "price_close": 4.62413468683067,
+      "price_mean": 4.8838423038093035,
+      "sweeps": 29
+    },
+    "2026-10-24": {
+      "near": "10511.70162257472115",
+      "usd": "46966.78522919309507804661479",
+      "usd_at_daily_mean_price": "47517.86729023668426032374688",
+      "price_close": 4.468047792407669,
+      "price_mean": 4.520473373044404,
+      "sweeps": 33
+    },
+    "2026-10-25": {
+      "near": "13454.91256815408354",
+      "usd": "61867.99275302982056235847108",
+      "usd_at_daily_mean_price": "60523.55836485087728659031994",
+      "price_close": 4.598171295402008,
+      "price_mean": 4.498249844306069,
+      "sweeps": 42
+    },
+    "2026-10-26": {
+      "near": "17605.33160531075995",
+      "usd": "78425.10538564773935565104206",
+      "usd_at_daily_mean_price": "79471.93847795112379637109599",
+      "price_close": 4.454622448689936,
+      "price_mean": 4.51408358897244,
+      "sweeps": 51
+    },
+    "2026-10-27": {
+      "near": "16416.80282225098460",
+      "usd": "77126.99229600753953128729331",
+      "usd_at_daily_mean_price": "74229.64085861576959615138583",
+      "price_close": 4.698051936852848,
+      "price_mean": 4.521564988159966,
+      "sweeps": 47
+    },
+    "2026-10-28": {
+      "near": "12126.90227681150929",
+      "usd": "57377.29638482347925430550587",
+      "usd_at_daily_mean_price": "56731.82239826120049589374088",
+      "price_close": 4.731405850819598,
+      "price_mean": 4.678179233516305,
+      "sweeps": 37
+    },
+    "2026-10-29": {
+      "near": "23445.93666041096116",
+      "usd": "96179.29075601824409251742325",
+      "usd_at_daily_mean_price": "103839.4202541750859256493567",
+      "price_close": 4.10217310355612,
+      "price_mean": 4.428887689930106,
+      "sweeps": 62
+    },
+    "2026-10-30": {
+      "near": "17630.61863797493834",
+      "usd": "75936.85979249804115483280829",
+      "usd_at_daily_mean_price": "74883.14205331572929048431046",
+      "price_close": 4.307101262399048,
+      "price_mean": 4.247334911551172,
+      "sweeps": 59
+    },
+    "2026-10-31": {
+      "near": "10497.64413353150429",
+      "usd": "46408.40990149017492003101879",
+      "usd_at_daily_mean_price": "46014.67386817991167111824049",
+      "price_close": 4.4208404582179295,
+      "price_mean": 4.3833333729803385,
+      "sweeps": 33
+    },
+    "2026-11-01": {
+      "near": "6735.64583833740516",
+      "usd": "28687.07507608043354426286843",
+      "usd_at_daily_mean_price": "29378.08073795662239036252224",
+      "price_close": 4.258993979879651,
+      "price_mean": 4.361583349698233,
+      "sweeps": 25
+    },
+    "2026-11-02": {
+      "near": "8666.82430111449544",
+      "usd": "33478.91874194969161396110489",
+      "usd_at_daily_mean_price": "35471.63922990375275752740615",
+      "price_close": 3.862881902157002,
+      "price_mean": 4.092807007215127,
+      "sweeps": 26
+    },
+    "2026-11-03": {
+      "near": "11212.96611990933732",
+      "usd": "43185.82721016499563773543765",
+      "usd_at_daily_mean_price": "42999.26714338250642223301483",
+      "price_close": 3.851418683365662,
+      "price_mean": 3.834780796049545,
+      "sweeps": 33
+    },
+    "2026-11-04": {
+      "near": "12255.79289998541096",
+      "usd": "49847.77145962300214578057264",
+      "usd_at_daily_mean_price": "48781.37959049857290048572125",
+      "price_close": 4.067282457072389,
+      "price_mean": 3.9802712063253485,
+      "sweeps": 35
+    },
+    "2026-11-05": {
+      "near": "16491.85932093215911",
+      "usd": "60603.37808098037270156754856",
+      "usd_at_daily_mean_price": "64347.59531477708054803741675",
+      "price_close": 3.6747450303593134,
+      "price_mean": 3.9017792998697494,
+      "sweeps": 27
+    },
+    "2026-11-06": {
+      "near": "23636.43156245617774",
+      "usd": "87473.35068525231756972459507",
+      "usd_at_daily_mean_price": "87881.69668741055035624598020",
+      "price_close": 3.7007849706126508,
+      "price_mean": 3.718061097978968,
+      "sweeps": 42
+    },
+    "2026-11-07": {
+      "near": "11596.63867576025331",
+      "usd": "42547.46548111098901232127133",
+      "usd_at_daily_mean_price": "42940.15575641224558290329117",
+      "price_close": 3.6689481039057776,
+      "price_mean": 3.7028105261369775,
+      "sweeps": 34
+    },
+    "2026-11-08": {
+      "near": "8691.44020684114515",
+      "usd": "30793.46278378254863120718797",
+      "usd_at_daily_mean_price": "31911.15286130558867907158915",
+      "price_close": 3.54296434778952,
+      "price_mean": 3.671560995862102,
+      "sweeps": 14
+    },
+    "2026-11-09": {
+      "near": "16145.48471782628168",
+      "usd": "58783.20061972894810601757535",
+      "usd_at_daily_mean_price": "57864.31379863631686956490636",
+      "price_close": 3.6408445857823164,
+      "price_mean": 3.5839316570501065,
+      "sweeps": 36
+    },
+    "2026-11-10": {
+      "near": "9068.46042064434139",
+      "usd": "32471.02650645374176823192342",
+      "usd_at_daily_mean_price": "32807.15179670176713345719753",
+      "price_close": 3.5806548190400083,
+      "price_mean": 3.617720128327,
+      "sweeps": 21
+    }
+  },
+  "comparisons": {
+    "defillama": {
+      "fees_total30d_headline_usd": 5619218,
+      "fees_total7d_headline_usd": 1342197,
+      "fees_total24h_headline_usd": 57866,
+      "fees_series_sum_window_usd": 59750528.980000004,
+      "revenue_total30d_headline_usd": 1838057,
+      "revenue_total7d_headline_usd": 372840,
+      "revenue_total24h_headline_usd": 58357,
+      "revenue_series_sum_window_usd": 9720718.05,
+      "note": "headline totals are DefiLlama trailing totals at fetch time; series sums cover exactly the reconstruction window dates"
+    },
+    "revenue_near_org": {
+      "extraction_method": "SSR HTML (RSC payload) parse, no browser",
+      "net_revenue_30d_usd": 1970000.0,
+      "gross_fees_30d_usd_dashboard": 5460000.0,
+      "capture_split_by_window": {
+        "all_time": {
+          "pp_fe": 0.11962031295832648,
+          "pp_b2b": 0.052603531453343406,
+          "pp_qi": 0.01907572410843653
+        },
+        "ytd": {
+          "pp_fe": 0.13307011723295267,
+          "pp_b2b": 0.07123537973656975,
+          "pp_qi": 0.025832228617954266
+        },
+        "d30": {
+          "pp_fe": 0.2151111929937004,
+          "pp_b2b": 0.10957308305702225,
+          "pp_qi": 0.03668885003283669
+        },
+        "d7": {
+          "pp_fe": 0.18844669721669832,
+          "pp_b2b": 0.1037191082933421,
+          "pp_qi": 0.04153338326235555
+        }
+      },
+      "capture_rate_by_window": {
+        "all_time": 0.1913,
+        "ytd": 0.2301,
+        "d30": 0.3614,
+        "d7": 0.3337
+      },
+      "revenue_wallets_all_time_near": {
+        "fefundsadmin.sputnik-dao.near": {
+          "near_all_time": 1994013.6240257893,
+          "share_pct": 46.6
+        },
+        "buybacks.multisignature.near": {
+          "near_all_time": 1730368.02308756,
+          "share_pct": 40.4
+        },
+        "1csfundsadmin.sputnik-dao.near": {
+          "near_all_time": 555348.272928576,
+          "share_pct": 13.0
+        }
+      },
+      "revenue_wallets_total_near": 4279729.92
+    }
+  },
+  "archival_rpc_verification": [
+    {
+      "tx_hash": "J278cmxHsPmfB4p6vydbAgMrRHdJnYcTWZoqSt6kttFU",
+      "wallet": "1csfundsadmin.sputnik-dao.near",
+      "date": "2026-01-31",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "897591514823525097495819189",
+      "nearblocks_deposit_yocto": "8.975915148235251E+26",
+      "relative_difference": "2.789889130683622173428038678E-18",
+      "verified": true
+    },
+    {
+      "tx_hash": "2FTMEVHRPrS1EnhbARTMgrPJHFnnT4nj1o7RmSdG62RP",
+      "wallet": "fefundsadmin.sputnik-dao.near",
+      "date": "2026-06-25",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "564649997580317890028182572",
+      "nearblocks_deposit_yocto": "5.646499975803179E+26",
+      "relative_difference": "1.766017439251218991684079476E-17",
+      "verified": true
+    },
+    {
+      "tx_hash": "2LVL4XfZukDmbGmCztAGbF3cy4ahQaJS4XeFvkcd78G1",
+      "wallet": "fefundsadmin.sputnik-dao.near",
+      "date": "2026-09-10",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "410324367298393966160430959",
+      "nearblocks_deposit_yocto": "4.10324367298394E+26",
+      "relative_difference": "8.247028872255925141701293063E-17",
+      "verified": true
+    },
+    {
+      "tx_hash": "CsVmkdj8w4RpVef7FU4P52ToxDrEETJd8dugKU3JCEi1",
+      "wallet": "buybacks.multisignature.near",
+      "date": "2026-10-08",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "267718397236932490763772338",
+      "nearblocks_deposit_yocto": "2.677183972369325E+26",
+      "relative_difference": "3.449978693031648307598628066E-17",
+      "verified": true
+    },
+    {
+      "tx_hash": "9Hfu9pto1UCAwcwSr7cbeJaza2qrSB9nwaoeyvycm3hy",
+      "wallet": "buybacks.multisignature.near",
+      "date": "2026-11-10",
+      "final_execution_status": "FINAL",
+      "archival_deposit_yocto": "329982405644390914081510656",
+      "nearblocks_deposit_yocto": "3.299824056443909E+26",
+      "relative_difference": "4.267351960326967038067921572E-17",
+      "verified": true
+    }
+  ],
+  "errors": {},
+  "corrections": [
+    {
+      "what": "Removed 1 duplicated receipt counted twice by NEARBlocks paging overlap",
+      "receipt_id": "2fZe1oad5NFftw6VFGWKtupf6gfHTDyy5x1jh8uRBqqE",
+      "tx_hash": "GbQwoAb7q6LCyCXgcCTi9oG6CXmKVrGJL7DgREpgw6vd",
+      "wallet": "buybacks.multisignature.near",
+      "date": "2026-04-23",
+      "deposit_near_removed": "1314.3721248027202",
+      "note": "Identical receipt_id+tx_hash+deposit on two adjacent pages; the delivered script now dedupes by receipt_id (duplicate_receipts_removed). The 30d run had 0 duplicates and is unaffected."
+    }
+  ],
+  "duplicate_receipts_removed": 1
+}

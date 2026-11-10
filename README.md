@@ -41,6 +41,35 @@ and price still not tracking fees (|weekly r| < 0.30). **A missed prediction
 counts against this thesis.** The dashboard renders them from
 `data/predictions.json`.
 
+## Independent on-chain revenue check
+
+The capture rate above (35.97%) comes from revenue.near.org, a third-party
+aggregator. `src/reconstruct_intents.py` rebuilds the **retained leg**
+independently from on-chain receipts: every `intents.near` → revenue-wallet
+`TRANSFER` receipt (wallets `fefundsadmin.sputnik-dao.near`,
+`buybacks.multisignature.near`, `1csfundsadmin.sputnik-dao.near`), valued at
+each day's NEAR close, with sampled sweeps re-verified against the public
+archival RPC. Full method, results and reconciliation:
+[`docs/RECONCILIATION.md`](docs/RECONCILIATION.md).
+
+Headline, 30d window 2026-10-12 → 2026-11-10 (run 2026-11-10T15:54Z):
+**1,114 sweeps, 401,523 NEAR, $1,790,279** — 97.4% of DefiLlama's 30d
+revenue ($1,838,057) and 101.9% of its daily-series sum over the same dates
+($1,756,771), but 90.9% of revenue.near.org's displayed 30D net revenue
+($1.97M). The implied capture rate is **~32–33%** (vs 35.97% from
+revenue.near.org alone); window shifts (±2 days) and price method (daily
+mean vs close, +0.53%) do not explain the gap. No thesis number has been
+changed on this evidence — see `docs/RECONCILIATION.md` §5 for the
+sensitivity (R0 ~$21.9M/yr and DCF ~$0.38/token at 32.8% capture, same
+conclusion). Reproduce:
+
+```bash
+python3 src/reconstruct_intents.py [--days 30] [--all-time]
+```
+
+Output: `data/processed/reconstruction_intents.json` (raw sweeps cached in
+`data/raw/reconstruction_intents_receipts.json`).
+
 ## What this repo contains
 
 ```
@@ -51,6 +80,7 @@ counts against this thesis.** The dashboard renders them from
 │   ├── charts.py                 # 9 charts → dashboard/assets/*.png (+ .svg twins)
 │   ├── build.py                  # Runs model.py then charts.py (no network)
 │   ├── build_dashboard.py        # Renders dashboard/index.html from data/processed/*.json (no network)
+│   ├── reconstruct_intents.py    # Independent on-chain rebuild of retained Intents revenue (see docs/RECONCILIATION.md)
 │   └── assumptions.yaml          # THE one assumptions file (DCF knobs + scenario grid)
 ├── tests/
 │   └── test_outputs.py           # stdlib-unittest checks (see "Tests" below)
@@ -65,6 +95,7 @@ counts against this thesis.** The dashboard renders them from
 │       ├── chart_01_data.json … chart_09_data.json   # Per-chart numbers
 │       └── BUILD_NOTES.md        # Pipeline/model build notes, gaps, corrections, reproducibility
 ├── docs/                         # GitHub Pages copy of dashboard/index.html + dashboard/assets/*.svg (same content)
+│   └── RECONCILIATION.md         # On-chain revenue reconstruction: method, results, reconciliation
 └── dashboard/
     ├── index.html                # Static dashboard (single page, no server, no external JS/CSS)
     ├── BUILD_NOTES.md            # Dashboard build notes (what was built, how to regenerate, verification)
