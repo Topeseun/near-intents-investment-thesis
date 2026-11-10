@@ -57,6 +57,7 @@ def main():
     c7 = load("chart_07_data.json")
     c8 = load("chart_08_data.json")
     c9 = load("chart_09_data.json")
+    preds = json.loads((ROOT / "data" / "predictions.json").read_text())
 
     M1 = m["M1_intents_gross_fees"]
     M2 = m["M2_intents_fee_growth"]
@@ -334,6 +335,35 @@ on the latest fetch, so no daily-transaction or active-account figures are shown
 No activity series is fabricated; re-run <code>src/fetch.py</code> to restore it.</p>
 """
 
+    # Dated predictions — committed 2026-11-10, fed from data/predictions.json
+    # (the machine-readable mirror of PREDICTIONS.md).
+    pred_rows = "".join(
+        f"<tr><th scope='row'>{p['id']} · {p['title']}</th><td>{p['threshold']}</td>"
+        f"<td>{p['resolves']}</td><td>{p['source_short']}</td></tr>"
+        for p in preds["predictions"]
+    )
+    pred_section = f"""
+<h2>Dated predictions — score this thesis against reality</h2>
+<p>Seven falsifiable predictions, committed 2026-11-10 (see
+<code>PREDICTIONS.md</code> in the repo root; the commit timestamp is the
+commitment timestamp). Each names its threshold, its resolution date and the
+exact public source that decides it. <strong>A missed prediction counts
+against this thesis</strong> — that is the point: a thesis that cannot be
+wrong is not evidence.</p>
+<div class="tbl-wrap"><table>
+<tr><th>Prediction</th><th>Threshold</th><th>Resolves</th><th>Decided by</th></tr>
+{pred_rows}
+</table></div>
+<p class="note">Baselines (2026-11-10): Intents 30d fees {money_exact(F30)} ·
+capture {pct(capture)} · DCF ${vpt:.2f} vs ${price:,.2f} price · Intents 30d
+volume {money(M15['total_30d_usd_from_daily_series'])} · NEAR/Chainflip 30d
+fees 2.0× · active accounts 30d avg {num(M13['daily_avg_last_30d'])}/day ·
+price-vs-fees weekly r = {M16['pearson_price_vs_intents_fees_weekly_log_changes']:.2f}.
+Resolve by re-running <code>python3 src/fetch.py &amp;&amp; python3 src/build.py</code>
+on the resolution date and comparing against the thresholds in
+<code>PREDICTIONS.md</code>.</p>
+"""
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -488,6 +518,7 @@ the best valid cell (35% capture, 10% growth, r=12%) is
 ${c7['values_per_token_usd'][2][1]:.2f} — well under the ${price:,.2f} price.
 Full 27-cell grid (r = 10/12/15%): <code>data/processed/sensitivity.json</code>.</p>
 
+{pred_section}
 <h2>Capture is rising — the one trend that matters</h2>
 <p>Retained ÷ gross fees by window (revenue.near.org, measured from its
 server-rendered payload, cross-checked against the per-mechanism split):
