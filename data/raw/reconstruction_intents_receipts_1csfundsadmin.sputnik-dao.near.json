@@ -1,0 +1,4312 @@
+{
+  "generated_at_utc": "2026-11-10T19:27:59Z",
+  "window": {
+    "start": "2026-10-12",
+    "end": "2026-11-10",
+    "days": 30,
+    "all_time": false
+  },
+  "wallet": "1csfundsadmin.sputnik-dao.near",
+  "receipts": [
+    {
+      "id": "24688773492",
+      "receipt_id": "4v3Ws3Br7gmCpSL5kRXVFLVivfkaBtiP1MfZs9QihU4r",
+      "predecessor_account_id": "7284730c055ee99285ebbf3d29c6d3e04c9904af57236f7794937cf693d98729",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Fyu9b6FsTSJzAHzx31WwtEMmXdeouF7cyUabBxjTC4kk",
+        "block_height": 217365042,
+        "block_timestamp": 1790440634112781300
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "8av5qGRuBbhsfgFVJ3bnLSG9WamFnqpuu2CE2VZLzgJ7",
+      "included_in_block_hash": "85SaKe2x3sx6VrqKsjAVLfZLBbxyzjiT3F2C7XFLTwWY",
+      "block_timestamp": "1790440633481914487",
+      "block": {
+        "block_height": 217365041
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "9.905615998997115E+22",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "9.905615998997115E+22"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24653167866",
+      "receipt_id": "HnS619KixbJMhe5C4qUPpbCBLJfzx1iJYonUwfbnB6bB",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "HoFmbTaatVW3V8QrEXbZWUTz8d72xkwXTF6x5BsToS86",
+        "block_height": 216280814,
+        "block_timestamp": 1789783038286366000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "J3tpPjvcDtyhd7fKD58cT1yHXcG4vhpXEwxxChddFqbD",
+      "included_in_block_hash": "CgrNfebX8C1uRzCk3hPt4FPvwoDjAWkYnYhfUxNbX4Ls",
+      "block_timestamp": "1789783035741245726",
+      "block": {
+        "block_height": 216280810
+      },
+      "receipt_conversion_tokens_burnt": "30940329633400000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "2.6310700432111377E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.1554839951731E+21"
+      }
+    },
+    {
+      "id": "24613402726",
+      "receipt_id": "4sN3udXMBzec4mr33nrxXUxy5GqHzR9TZ6NyGf2M3oBH",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "3PinDypYma8i74BHhpy5LjDjaTZ9wgmv9u949qdCv9da",
+        "block_height": 214941383,
+        "block_timestamp": 1788956883642806800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3477241624123,
+        "tokens_burnt": 347724162412300000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": false
+      },
+      "transaction_hash": "DbQwfZFHV3BmRN5DhSFjageys9bXKVbvMd5U3dYzdVjs",
+      "included_in_block_hash": "2JKNQfbrhpdkAr62fMNkpfS8E1RGqgxZ3XaD8zLfoefM",
+      "block_timestamp": "1788956881642705191",
+      "block": {
+        "block_height": 214941380
+      },
+      "receipt_conversion_tokens_burnt": "52698993485500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "on_proposal_callback",
+          "deposit": 0,
+          "fee": 347724162412300000000,
+          "args": "{\"proposal_id\": 10}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.222329900582E+21"
+      }
+    },
+    {
+      "id": "24613402725",
+      "receipt_id": "4sBxF4Uut6w9Kv6kgcwzLBVKk8MTgEEu6yaETfDNN3QL",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "intents.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "3PinDypYma8i74BHhpy5LjDjaTZ9wgmv9u949qdCv9da",
+        "block_height": 214941383,
+        "block_timestamp": 1788956883642806800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 4128649392969,
+        "tokens_burnt": 412864939296900000000,
+        "executor_account_id": "intents.near",
+        "status": true
+      },
+      "transaction_hash": "DbQwfZFHV3BmRN5DhSFjageys9bXKVbvMd5U3dYzdVjs",
+      "included_in_block_hash": "2JKNQfbrhpdkAr62fMNkpfS8E1RGqgxZ3XaD8zLfoefM",
+      "block_timestamp": "1788956881642705191",
+      "block": {
+        "block_height": 214941380
+      },
+      "receipt_conversion_tokens_burnt": "52698993485500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "mt_transfer",
+          "deposit": 1,
+          "fee": 412864939296900000000,
+          "args": "{\"amount\": \"989998999899989998999899990\", \"token_id\": \"nep141:wrap.near\", \"receiver_id\": \"c0addac935f49baee1909a6fb4f08b57352a6d8c8ce7da27c59545fe45c5838c\"}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.222329900582E+21"
+      }
+    },
+    {
+      "id": "24613402667",
+      "receipt_id": "9xWS4KCs7dEJQeC5wGeM6ETpXoNDpzjUrXJtmjeTt3Kc",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "AGQDzWPHKx6ZPeW7oXYsDZrbcyJyTQQqstriWzyGrDns",
+        "block_height": 214941382,
+        "block_timestamp": 1788956882926800600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3563428119018,
+        "tokens_burnt": 356342811901800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "DbQwfZFHV3BmRN5DhSFjageys9bXKVbvMd5U3dYzdVjs",
+      "included_in_block_hash": "2JKNQfbrhpdkAr62fMNkpfS8E1RGqgxZ3XaD8zLfoefM",
+      "block_timestamp": "1788956881642705191",
+      "block": {
+        "block_height": 214941380
+      },
+      "receipt_conversion_tokens_burnt": "52698993485500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 356342811901800000000,
+          "args": "{\"id\": 10, \"action\": \"VoteApprove\", \"proposal\": {\"FunctionCall\": {\"actions\": [{\"gas\": \"150000000000000\", \"args\": \"eyJyZWNlaXZlcl9pZCI6ImMwYWRkYWM5MzVmNDliYWVlMTkwOWE2ZmI0ZjA4YjU3MzUyYTZkOGM4Y2U3ZGEyN2M1OTU0NWZlNDVjNTgzOGMiLCJhbW91bnQiOiI5ODk5OTg5OTk4OTk5ODk5OTg5OTk4OTk5OTAiLCJ0b2tlbl9pZCI6Im5lcDE0MTp3cmFwLm5lYXIifQ==\", \"deposit\": \"1\", \"method_name\": \"mt_transfer\"}], \"receiver_id\": \"intents.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.222329900582E+21"
+      }
+    },
+    {
+      "id": "24613340585",
+      "receipt_id": "5M22MZT2mFySBC1btvFcjEiJ4wsHssh8AaTkWpu3D8EU",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "7iFKWJ13ef1ANuVmRqPeR3BFupHQ9atWSTwgDXFf8AaP",
+        "block_height": 214939627,
+        "block_timestamp": 1788955800132142000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2764028182489,
+        "tokens_burnt": 276402818248900000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "FGBLaDKi419vuXgMyWfVPGk24dG6SyHVRnmeXQmobQrj",
+      "included_in_block_hash": "12ku2p3LVFVQBYZfifutxSyUUy2jfmaNpWaP3sXgU69p",
+      "block_timestamp": "1788955798839402845",
+      "block": {
+        "block_height": 214939625
+      },
+      "receipt_conversion_tokens_burnt": "52698993485500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 276402818248900000000,
+          "args": "{\"id\": 10, \"action\": \"VoteApprove\", \"proposal\": {\"FunctionCall\": {\"actions\": [{\"gas\": \"150000000000000\", \"args\": \"eyJyZWNlaXZlcl9pZCI6ImMwYWRkYWM5MzVmNDliYWVlMTkwOWE2ZmI0ZjA4YjU3MzUyYTZkOGM4Y2U3ZGEyN2M1OTU0NWZlNDVjNTgzOGMiLCJhbW91bnQiOiI5ODk5OTg5OTk4OTk5ODk5OTg5OTk4OTk5OTAiLCJ0b2tlbl9pZCI6Im5lcDE0MTp3cmFwLm5lYXIifQ==\", \"deposit\": \"1\", \"method_name\": \"mt_transfer\"}], \"receiver_id\": \"intents.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 381800805219900000000
+      }
+    },
+    {
+      "id": "24613338268",
+      "receipt_id": "GgwZpZ8NebEdaD1SJsLkuqVif3c3jHWHBewYQNLNz9WC",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "4S1dWUZoWKXuwAuiU5bjbMb1b5t3LZvP3SEnNp5a581C",
+        "block_height": 214939565,
+        "block_timestamp": 1788955762109864700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2565725580129,
+        "tokens_burnt": 256572558012900000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "3hCxcU2XWeYvvERVChhGszAu7vUMGiwhvc2YkZsnXaLL",
+      "included_in_block_hash": "8mnWz27FacF5Gdmg64UbR6kcc3mRP47v19PvjeGFCJkf",
+      "block_timestamp": "1788955760823932584",
+      "block": {
+        "block_height": 214939563
+      },
+      "receipt_conversion_tokens_burnt": "54448985826000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 256572558012900000000,
+          "args": "{\"proposal\": {\"kind\": {\"FunctionCall\": {\"actions\": [{\"gas\": \"150000000000000\", \"args\": \"eyJyZWNlaXZlcl9pZCI6ImMwYWRkYWM5MzVmNDliYWVlMTkwOWE2ZmI0ZjA4YjU3MzUyYTZkOGM4Y2U3ZGEyN2M1OTU0NWZlNDVjNTgzOGMiLCJhbW91bnQiOiI5ODk5OTg5OTk4OTk5ODk5OTg5OTk4OTk5OTAiLCJ0b2tlbl9pZCI6Im5lcDE0MTp3cmFwLm5lYXIifQ==\", \"deposit\": \"1\", \"method_name\": \"mt_transfer\"}], \"receiver_id\": \"intents.near\"}}, \"description\": \"* Proposal Action: payment-transfer <br>* Recipient: buybacks.multisignature.near <br>* Destination Network: nep141:wrap.near <br>* Network Fee: 0.09899989998999899989999 <br>* Deposit Address: c0addac935f49baee1909a6fb4f08b57352a6d8c8ce7da27c59545fe45c5838c <br>* Signature: ed25519:4SD4NrBuzChUpfmHFDXFScgieZ9iipLAPdtPwuBdfBSCFe3PVLkjum1T2TtuEyPZA92JR3xpK9ZvDf6v763vGdfo\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 365470529664900000000
+      }
+    },
+    {
+      "id": "24613338081",
+      "receipt_id": "8Zs3rd1CzdPS1Us4VVAqNaEJ9464cfCUui8j1oPJh3d2",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "A9DE158LBK3ikf3eKHmZme6LzTTxk5VZFKtwXqAo1QkP",
+        "block_height": 214939557,
+        "block_timestamp": 1788955756555881500
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "5yVRaLbpe3XotZanPbnhitJhS11cY6ySuEngjF65J4A8",
+      "included_in_block_hash": "HH9Gki1ghJXY5ZCs9j1WR6qkvCQRAYmgsKG6Y5ZB3esC",
+      "block_timestamp": "1788955755958414806",
+      "block": {
+        "block_height": 214939556
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.16E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "8.16E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24613333982",
+      "receipt_id": "AEosWgmSWCkEVHH9rNPEsWcM6MYE2kkseRDAhXiQrHgp",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "CrjjGB9CSwiyeyyZftF28xi4kxBNf3q1rpxH1wBK1bAq",
+        "block_height": 214939441,
+        "block_timestamp": 1788955685938993200
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2764155695560,
+        "tokens_burnt": 276415569556000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "5C8gR29ZGQ7cycT8p8Fgfa88X57xLPvoS6jqDsiJAtsu",
+      "included_in_block_hash": "G6oZ7rGZXxrfmuRtbea3yHBSt58r1T2Hf7qZxuCuMUHU",
+      "block_timestamp": "1788955684509508245",
+      "block": {
+        "block_height": 214939439
+      },
+      "receipt_conversion_tokens_burnt": "52689456742500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 276415569556000000000,
+          "args": "{\"id\": 8, \"action\": \"VoteReject\", \"proposal\": {\"FunctionCall\": {\"actions\": [{\"gas\": \"150000000000000\", \"args\": \"eyJyZWNlaXZlcl9pZCI6ImM2YzEyOTRmYmE5NzdkZGQxNGZjOThlNGYxZGU2MmI0OTJkNjJhNWQxNjdmZjNhNDNmMGRhODg3OGE3MTM4MTkiLCJhbW91bnQiOiI5OTAwOTkwMDk5MDA5OTAwOTkwMDk5MDA5OTEiLCJ0b2tlbl9pZCI6Im5lcDE0MTp3cmFwLm5lYXIifQ==\", \"deposit\": \"1\", \"method_name\": \"mt_transfer\"}], \"receiver_id\": \"intents.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 381794483041000000000
+      }
+    },
+    {
+      "id": "24613013536",
+      "receipt_id": "AAdEnbk4NiXXdARxfkywiUp64KjnuEerX9c2bbUijUG1",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "6WB5DsH3v64vNoFmFmBzBJgnMu84xnvA17ewisAWsjad",
+        "block_height": 214930817,
+        "block_timestamp": 1788950350545953800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3399920883452,
+        "tokens_burnt": 339992088345200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": false
+      },
+      "transaction_hash": "CMfn15uTJF5DX9wFzV5G2JdHpy3qmHa5NJNUH9uj5Jp6",
+      "included_in_block_hash": "FpygNQT1JiG8QciwFdoZNAFPtX7kq9xBhCkxrdEz4bCj",
+      "block_timestamp": "1788950348778278369",
+      "block": {
+        "block_height": 214930814
+      },
+      "receipt_conversion_tokens_burnt": "51669025241500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "on_proposal_callback",
+          "deposit": 0,
+          "fee": 339992088345200000000,
+          "args": "{\"proposal_id\": 9}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 804357082981400000000
+      }
+    },
+    {
+      "id": "24613013535",
+      "receipt_id": "6bnALp1E4P2rLBDKcp3UA6YGzwpssQ1Xus2suXzYvtvH",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "buybacks.multisignature.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "6WB5DsH3v64vNoFmFmBzBJgnMu84xnvA17ewisAWsjad",
+        "block_height": 214930817,
+        "block_timestamp": 1788950350545953800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "buybacks.multisignature.near",
+        "status": true
+      },
+      "transaction_hash": "CMfn15uTJF5DX9wFzV5G2JdHpy3qmHa5NJNUH9uj5Jp6",
+      "included_in_block_hash": "FpygNQT1JiG8QciwFdoZNAFPtX7kq9xBhCkxrdEz4bCj",
+      "block_timestamp": "1788950348778278369",
+      "block": {
+        "block_height": 214930814
+      },
+      "receipt_conversion_tokens_burnt": "51669025241500000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "5.02793E+29",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 804357082981400000000
+      }
+    },
+    {
+      "id": "24613013514",
+      "receipt_id": "H3x3oiMHeeKRTwdSrzv4ULifZkCcYrVfyyPAZEZQUFur",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "HmcWYaeevfZbaRMaoWcCqJZbTsCTRK8oDURfzwPpYZeb",
+        "block_height": 214930816,
+        "block_timestamp": 1788950349955963000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3387086879032,
+        "tokens_burnt": 338708687903200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "CMfn15uTJF5DX9wFzV5G2JdHpy3qmHa5NJNUH9uj5Jp6",
+      "included_in_block_hash": "FpygNQT1JiG8QciwFdoZNAFPtX7kq9xBhCkxrdEz4bCj",
+      "block_timestamp": "1788950348778278369",
+      "block": {
+        "block_height": 214930814
+      },
+      "receipt_conversion_tokens_burnt": "51669025241500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 338708687903200000000,
+          "args": "{\"id\": 9, \"action\": \"VoteApprove\", \"proposal\": {\"Transfer\": {\"msg\": null, \"amount\": \"502793000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 804357082981400000000
+      }
+    },
+    {
+      "id": "24613003909",
+      "receipt_id": "4hk7HrgtTxi1scoi6DLQXy7CgEEg192o3YyZqRq4gcFW",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "kQgR7axNSJL71iN2mksjtT8iaAiy1AShgxPaHW2pv9A",
+        "block_height": 214930558,
+        "block_timestamp": 1788950191571373600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "HJbcuHzAFT8qyjFKnqucqvtWEXSRyLwR8gaRgu2Q6Lkn",
+      "included_in_block_hash": "7y7fJBzXZv7ZtWSHC3ovNJzHT2xqs9PyeiVUF1Jogcb8",
+      "block_timestamp": "1788950191299687228",
+      "block": {
+        "block_height": 214930557
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "5E+23",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "5E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24613000982",
+      "receipt_id": "Dz5VQjUkpfKBKVRTSYavk17qko7aW35TUfTMQeHjYs9Y",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "8KAX9WxGpTb6Pq5ERpXMHoKZfFJkXzxC99jvFJinB8Tt",
+        "block_height": 214930463,
+        "block_timestamp": 1788950133407000300
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "ZmtCHxHCYzLTNv9kWRESMqLXvLhjivbWN1faGy9eb6h",
+      "included_in_block_hash": "97ALsggictNPnH6aAvSDd1CrApCwWeKCssBhfeU4R43r",
+      "block_timestamp": "1788950132771038066",
+      "block": {
+        "block_height": 214930462
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "5E+23",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "5E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24612986703",
+      "receipt_id": "9MrUuA9EAjY3rr6VxZmUWmQmMuSzsK7WWcjQYd6DE91E",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "2MZKWUDZukGc5xq9Gz4PCgbgVmaqSmfZ76A8SX7RNG8k",
+        "block_height": 214930026,
+        "block_timestamp": 1788949862645448700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2684632606998,
+        "tokens_burnt": 268463260699800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "6NqnuDdSB8eEASTFRRKcdoAW1dugCj4szdtui3LLVzFo",
+      "included_in_block_hash": "E3V3CPzQfBBdHSbHY23VxNmpjshJrZoqNi66vgFLbVTa",
+      "block_timestamp": "1788949861442330497",
+      "block": {
+        "block_height": 214930024
+      },
+      "receipt_conversion_tokens_burnt": "51669025241500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 268463260699800000000,
+          "args": "{\"id\": 9, \"action\": \"VoteApprove\", \"proposal\": {\"Transfer\": {\"msg\": null, \"amount\": \"502793000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 371801311182800000000
+      }
+    },
+    {
+      "id": "24612968107",
+      "receipt_id": "EayDFLZTUKMhiVk4T3EWX5JGnJVYUNcN7b61uUSMNwiF",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "B2VHwjButVtEVbU5capNXT1CS6gUKyHypMo3JurpvvrC",
+        "block_height": 214929647,
+        "block_timestamp": 1788949623640316700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "ASRWgoviJ4beFCNnzP5YpjxfsqhUQ1FyjBLsiAAmUrWD",
+      "included_in_block_hash": "FswVVj8x8DtRqYtc1gBymXAv51T73eWHzhYP96w27icN",
+      "block_timestamp": "1788949622698303170",
+      "block": {
+        "block_height": 214929646
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+23",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24612954089",
+      "receipt_id": "AVjAXGRmDqWUh7WrdMfBr5edG6P95A9E1bryvBKajf2a",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "361Rp4KC79rvryHENmsj22PNhCV79HvdFEqF2aseWvJa",
+        "block_height": 214929229,
+        "block_timestamp": 1788949363083684600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2504749838308,
+        "tokens_burnt": 250474983830800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "DbPYHP4aQjS6SqwaJujgD2HXvGkwjD3Zf79mD59nCye7",
+      "included_in_block_hash": "6ahs8d7Xns1bp2dNdwAP3szpt1SENk4edN2vHg3hvzeu",
+      "block_timestamp": "1788949361782583359",
+      "block": {
+        "block_height": 214929227
+      },
+      "receipt_conversion_tokens_burnt": "51649951755500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 250474983830800000000,
+          "args": "{\"proposal\": {\"kind\": {\"Transfer\": {\"msg\": null, \"amount\": \"502793000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}, \"description\": \"\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 353774887341800000000
+      }
+    },
+    {
+      "id": "24612953720",
+      "receipt_id": "HpCM22R7VeZEP1bNRMTtMztE17BqRQeSHVJjPFcEVDfu",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "9fAoNNUhq91Ah8S8CCF1wSV1UNb6uD9U4AEyTWKTh3ik",
+        "block_height": 214929221,
+        "block_timestamp": 1788949358095130600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "Bq4u5sMGPM3dBFwYJaAid6waR1WQrLQaerj8bTsWE7Rn",
+      "included_in_block_hash": "C9bcJPSZAzktQkyMXYtVVkbRCzc6o54jjVnZ6F4fuoaG",
+      "block_timestamp": "1788949357424612744",
+      "block": {
+        "block_height": 214929220
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "2.29E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "2.29E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24612935349",
+      "receipt_id": "juBbUFrCSemhkXqqq9Y69r53YtMy3uuCoEvGF3TFt24",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "AYu547KZZNrJEg4DaiTTn9hYBy3ezjCTJLmaRFp3FP5X",
+        "block_height": 214928722,
+        "block_timestamp": 1788949044778771000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2565858742144,
+        "tokens_burnt": 256585874214400000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "EfXGn7y2bLTcvrPcY2XRcBiyZ1maRh9voFrkou3gFtzp",
+      "included_in_block_hash": "DAEuBFzqiUz9jCAscj3sDg3jfVut4f7bHVcaDDs58jDC",
+      "block_timestamp": "1788949043510719229",
+      "block": {
+        "block_height": 214928720
+      },
+      "receipt_conversion_tokens_burnt": "54453754197500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 256585874214400000000,
+          "args": "{\"proposal\": {\"kind\": {\"FunctionCall\": {\"actions\": [{\"gas\": \"150000000000000\", \"args\": \"eyJyZWNlaXZlcl9pZCI6ImM2YzEyOTRmYmE5NzdkZGQxNGZjOThlNGYxZGU2MmI0OTJkNjJhNWQxNjdmZjNhNDNmMGRhODg3OGE3MTM4MTkiLCJhbW91bnQiOiI5OTAwOTkwMDk5MDA5OTAwOTkwMDk5MDA5OTEiLCJ0b2tlbl9pZCI6Im5lcDE0MTp3cmFwLm5lYXIifQ==\", \"deposit\": \"1\", \"method_name\": \"mt_transfer\"}], \"receiver_id\": \"intents.near\"}}, \"description\": \"* Proposal Action: payment-transfer <br>* Recipient: buybacks.multisignature.near <br>* Destination Network: nep141:wrap.near <br>* Network Fee: 0.099009900990099009900991 <br>* Deposit Address: c6c1294fba977ddd14fc98e4f1de62b492d62a5d167ff3a43f0da8878a713819 <br>* Signature: ed25519:2XFWiFqY4Wso4UaJ5yGZqq7FiVBqbfJ6iSzCRzCNcZWUFLnfGRSg365HZevmXzmnvBdsnhknqyoPApFkbKxRHcKe\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 365493382609400000000
+      }
+    },
+    {
+      "id": "24612935095",
+      "receipt_id": "BR56JdBCHogUrdcU2XT2Jjafwtp1Q79w8nafaL6rNSM2",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "A6JRxSgPX6virbyrEeZbXbjfcsdY19orHQ69Ksw84crs",
+        "block_height": 214928714,
+        "block_timestamp": 1788949039836899600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "B6wRtDAc4c2MFMMFMLMT1Sp5cEjwKDKgSa796Cbde2Vu",
+      "included_in_block_hash": "5HdivGSrF77AtukHYJn4C1bhgSoDWeiZJWNxhoKeMgEK",
+      "block_timestamp": "1788949039554507902",
+      "block": {
+        "block_height": 214928713
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.17E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "8.17E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24564139725",
+      "receipt_id": "E9xLvSireJmmMpbFbxryTioCBG3R9DcEPiggT9X1h66z",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "9V9Mn4gtQ5fyiR98dZksZ8qXxgwdjSqVTK7EVPpPnoFb",
+        "block_height": 213255699,
+        "block_timestamp": 1787908279990441700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2758185222498,
+        "tokens_burnt": 275818522249800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "6YAHL5t8aLimaKmFZR7WGdK5vWQinz94QWpXJ7niJvBD",
+      "included_in_block_hash": "2Mk9GvgdB1u6ASvESGFUkycgwojzupLFJtUtV4zQd4qq",
+      "block_timestamp": "1787908278591178312",
+      "block": {
+        "block_height": 213255697
+      },
+      "receipt_conversion_tokens_burnt": "52694225114000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 275818522249800000000,
+          "args": "{\"id\": 7, \"action\": \"VoteApprove\", \"proposal\": {\"FunctionCall\": {\"actions\": [{\"gas\": \"150000000000000\", \"args\": \"eyJyZWNlaXZlcl9pZCI6ImMxOWRhOWViZThlMGMxNDg5MmE5ODQwM2ZlNmFlNGJjNGI4MWFjMWZkODNjYjU2OGI4NDllYzY4NTcxNmM1ZTIiLCJhbW91bnQiOiI5OTAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAiLCJ0b2tlbl9pZCI6Im5lcDE0MTp3cmFwLm5lYXIifQ==\", \"deposit\": \"1\", \"method_name\": \"mt_transfer\"}], \"receiver_id\": \"intents.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 381206972477800000000
+      }
+    },
+    {
+      "id": "24564129471",
+      "receipt_id": "8wLHjQ73PP9aG9brqWRKhxuNnnxBW1QHyAmLNEbScyqz",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "BTP9ZCFMyEv1k81kg2MtNt9wwWhkT4qsnoqzNjRSaWHf",
+        "block_height": 213255352,
+        "block_timestamp": 1787908065799103700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2684616151878,
+        "tokens_burnt": 268461615187800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "3BydkQVBpJN7DZ9RRD1ied7U73M8BqXP9ZA1CCZqq66X",
+      "included_in_block_hash": "BHBnCAU3bZgMB4YLxRhCAcA8q7aubFVyeaSnunW8zp2t",
+      "block_timestamp": "1787908064637500436",
+      "block": {
+        "block_height": 213255350
+      },
+      "receipt_conversion_tokens_burnt": "51669025241500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 268461615187800000000,
+          "args": "{\"id\": 6, \"action\": \"VoteApprove\", \"proposal\": {\"Transfer\": {\"msg\": null, \"amount\": \"502793000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 371799665670800000000
+      }
+    },
+    {
+      "id": "24564127086",
+      "receipt_id": "BmycPxL254mwQcitNRHfdFxvH61o777JGRWDXtwofgpn",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "9kEAjSB4GyskNQfisd6DMNqoMS4tP5hWsmCq4mTY2dwj",
+        "block_height": 213255257,
+        "block_timestamp": 1787908006756955000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "H9tf2BtMzX7yJLoa3XjgoaShR1kc9urqBXz7i6rf6nbX",
+      "included_in_block_hash": "e6YN4PwxZoTjAZie2V9g9Nap6HZFVHGuxtkpoGVEbYY",
+      "block_timestamp": "1787908006148382971",
+      "block": {
+        "block_height": 213255256
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+24",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+24"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24564103237",
+      "receipt_id": "FF2aq98Asa6AJtKrigaTGLUs21aQX3QaURJ2z2o8kKX6",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "E2cr82aTP8Sk3EC5VGTDMK9FvqLCQXeuhCDsE7sbMJqT",
+        "block_height": 213254733,
+        "block_timestamp": 1787907681761525000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3399920883452,
+        "tokens_burnt": 339992088345200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": false
+      },
+      "transaction_hash": "EZbV4xn4b3NjJLYWjgEf1Zc1tF8FQeVGjxXQdwxKYV7S",
+      "included_in_block_hash": "2MS6hLqbiJprrTVMggSHDa2KW9FoG3HNE9bNSpC5Roy2",
+      "block_timestamp": "1787907679990708217",
+      "block": {
+        "block_height": 213254730
+      },
+      "receipt_conversion_tokens_burnt": "51645183384000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "on_proposal_callback",
+          "deposit": 0,
+          "fee": 339992088345200000000,
+          "args": "{\"proposal_id\": 5}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 804297408438400000000
+      }
+    },
+    {
+      "id": "24564103236",
+      "receipt_id": "AWa5AZv74ixovSe88AH34BphxAtxaf4mqsXX2c7YBLMv",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "buybacks.multisignature.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "E2cr82aTP8Sk3EC5VGTDMK9FvqLCQXeuhCDsE7sbMJqT",
+        "block_height": 213254733,
+        "block_timestamp": 1787907681761525000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "buybacks.multisignature.near",
+        "status": true
+      },
+      "transaction_hash": "EZbV4xn4b3NjJLYWjgEf1Zc1tF8FQeVGjxXQdwxKYV7S",
+      "included_in_block_hash": "2MS6hLqbiJprrTVMggSHDa2KW9FoG3HNE9bNSpC5Roy2",
+      "block_timestamp": "1787907679990708217",
+      "block": {
+        "block_height": 213254730
+      },
+      "receipt_conversion_tokens_burnt": "51645183384000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+24",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 804297408438400000000
+      }
+    },
+    {
+      "id": "24564103207",
+      "receipt_id": "3Hgpk8ZQJauZwC4RjXLBi9XPpgHM9ES7v5zWE26fAGj5",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "BLPK1LuorHAS2AGeVjYBpdw4fhy8Bv27xxfMJtTqipsS",
+        "block_height": 213254732,
+        "block_timestamp": 1787907681229846000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3386966970752,
+        "tokens_burnt": 338696697075200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "EZbV4xn4b3NjJLYWjgEf1Zc1tF8FQeVGjxXQdwxKYV7S",
+      "included_in_block_hash": "2MS6hLqbiJprrTVMggSHDa2KW9FoG3HNE9bNSpC5Roy2",
+      "block_timestamp": "1787907679990708217",
+      "block": {
+        "block_height": 213254730
+      },
+      "receipt_conversion_tokens_burnt": "51645183384000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 338696697075200000000,
+          "args": "{\"id\": 5, \"action\": \"VoteApprove\", \"proposal\": {\"Transfer\": {\"msg\": null, \"amount\": \"1000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 804297408438400000000
+      }
+    },
+    {
+      "id": "24560346992",
+      "receipt_id": "5a38ctPbTXs5ncyUREXZ7WA5PRipzbT22qv2qMrryr28",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "HEzpKzPbUeQwzJXTVtf8gcPXwfoEL6dSPV6HVcGyQqKs",
+        "block_height": 213126576,
+        "block_timestamp": 1787828713604715800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2562242258208,
+        "tokens_burnt": 256224225820800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "6NPov2yp2DGSBiWnQ39k9V6Q4UsMVJpeoeD51X8GLrhi",
+      "included_in_block_hash": "ASnQ4iQ32GafUEmH3HMjRoLsXkqSreSHUjAv2ZLzLSg7",
+      "block_timestamp": "1787828711919538434",
+      "block": {
+        "block_height": 213126574
+      },
+      "receipt_conversion_tokens_burnt": "54234409108500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 256224225820800000000,
+          "args": "{\"proposal\": {\"kind\": {\"FunctionCall\": {\"actions\": [{\"gas\": \"150000000000000\", \"args\": \"eyJyZWNlaXZlcl9pZCI6ImMxOWRhOWViZThlMGMxNDg5MmE5ODQwM2ZlNmFlNGJjNGI4MWFjMWZkODNjYjU2OGI4NDllYzY4NTcxNmM1ZTIiLCJhbW91bnQiOiI5OTAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAiLCJ0b2tlbl9pZCI6Im5lcDE0MTp3cmFwLm5lYXIifQ==\", \"deposit\": \"1\", \"method_name\": \"mt_transfer\"}], \"receiver_id\": \"intents.near\"}}, \"description\": \"* Proposal Action: payment-transfer <br>* Recipient: buybacks.multisignature.near <br>* Destination Network: nep141:wrap.near <br>* Deposit Address: c19da9ebe8e0c14892a98403fe6ae4bc4b81ac1fd83cb568b849ec685716c5e2 <br>* Signature: ed25519:5zhUycs7emV37F141Ro99D2Et2AfKgx31JUgXJ7HCXV29NJspag1VbG5DwKtCD9JETtpGk8Nr8W1xAXSGEuLY6YD\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 364693044037800000000
+      }
+    },
+    {
+      "id": "24560346600",
+      "receipt_id": "GNmEHzEGhsUCpoe6oaANLBUA51XZgGUnnkQ3sZNCcszD",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "9WP1aN7xYcfDkodvnszgKMykJiUCdjQ7mQgPaxkDKpJE",
+        "block_height": 213126568,
+        "block_timestamp": 1787828708590092800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "GjFUrXcHV2NyBHVNti1pYjv1DDEWNBkzycrVWDHhiS4q",
+      "included_in_block_hash": "7dFgkJJr1RhiAZq83ohe2S9BXFv54CGcGMZv5YKPfRQq",
+      "block_timestamp": "1787828707948387817",
+      "block": {
+        "block_height": 213126567
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.12E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "7.12E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24560341873",
+      "receipt_id": "FhA29Vyody29BpvtofnGoZhg5xwz8erCgAN86nk2s33x",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Bvw3gLv46s76QJ7aFTY4T6TkaFjvbgcYWStHwRKaoz5t",
+        "block_height": 213126467,
+        "block_timestamp": 1787828646221618400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2684512698718,
+        "tokens_burnt": 268451269871800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2AC2aGNfNHNhnk2T21B2MBCNLTMZ4dFTCJvymEGC7mKi",
+      "included_in_block_hash": "DioJStHX6YwtU5zscAefFkwBVs6n2tmQEoToVNpPYFcn",
+      "block_timestamp": "1787828645027793808",
+      "block": {
+        "block_height": 213126465
+      },
+      "receipt_conversion_tokens_burnt": "51645183384000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 268451269871800000000,
+          "args": "{\"id\": 5, \"action\": \"VoteApprove\", \"proposal\": {\"Transfer\": {\"msg\": null, \"amount\": \"1000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 371741636639800000000
+      }
+    },
+    {
+      "id": "24560339592",
+      "receipt_id": "2W3ZBaHEp5uZLftrMq2RpvUr2XLrzj6JPy6PAaSZWaHm",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "FBAk8bHLpBVhNgJqUu29R6uwwZyXQSxYTPqjDUWhxMuN",
+        "block_height": 213126423,
+        "block_timestamp": 1787828618294882000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2504749838308,
+        "tokens_burnt": 250474983830800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "CeJsuadnmKLCbTjbLJTyZ1KbUgt625R9jauYhhuiTE3u",
+      "included_in_block_hash": "7bEW93caHUL2ViQn58t22LAfLn9HytX1EwFPygcQYA3b",
+      "block_timestamp": "1787828615427000047",
+      "block": {
+        "block_height": 213126420
+      },
+      "receipt_conversion_tokens_burnt": "51649951755500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 250474983830800000000,
+          "args": "{\"proposal\": {\"kind\": {\"Transfer\": {\"msg\": null, \"amount\": \"502793000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}, \"description\": \"\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 353774887341800000000
+      }
+    },
+    {
+      "id": "24560339279",
+      "receipt_id": "4HXxbSZQ4EYEVTXzrR8hKuxvW7tgMMJAfkPaaKuufuGz",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "DLxwaNcPRiWTNwqBnbrizhjr8vekMyGzrcbbWzg5f3nm",
+        "block_height": 213126414,
+        "block_timestamp": 1787828611875050800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "BHzeqwQQ3FPPSBkPuAdKiiXucHXr2sCzPBnn81hCSJuM",
+      "included_in_block_hash": "8g9VMJD4QCUeb7nFYB5ovUox4rNV6U66p4xQhqg5Cxrg",
+      "block_timestamp": "1787828611175210549",
+      "block": {
+        "block_height": 213126413
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "2.24E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "2.24E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24560335119",
+      "receipt_id": "vC1yNMLBV6KrRZVQsAPLxM21UqU4btkw26Hc3SPKuzy",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "ChiDTMAWXP8vedNDE3XPGvTPUpmMGwpEqrtGqbD8FvcV",
+        "block_height": 213126318,
+        "block_timestamp": 1787828551464278000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2503419655952,
+        "tokens_burnt": 250341965595200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "GLcmz2iMjafj52SoXjCqbhwcytsuXrXXHGZ8HnudRNEk",
+      "included_in_block_hash": "93rmYG2gL1SvN4gGzm3skCwi3beua1ufcjKvd35GJ2Ld",
+      "block_timestamp": "1787828550540301254",
+      "block": {
+        "block_height": 213126316
+      },
+      "receipt_conversion_tokens_burnt": "51626109898000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 250341965595200000000,
+          "args": "{\"proposal\": {\"kind\": {\"Transfer\": {\"msg\": null, \"amount\": \"1000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}, \"description\": \"\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 353594185391200000000
+      }
+    },
+    {
+      "id": "24560334809",
+      "receipt_id": "B3uDMJaTbiTCfgMNnZcDuQgGfez3bu8GxaPoEVzafMkZ",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "4HrmS5qbTJrSqZmRU9QpRKDVkQrQjNDmaLPY3HMiuNgq",
+        "block_height": 213126311,
+        "block_timestamp": 1787828546817766400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "uP8LH7HZmMM6dXtY5aeCrNhdXoZvnEUchWKLMrWs6aW",
+      "included_in_block_hash": "4qWeDAMdGMCsXr9Q8p4inEDAVqSzSxX2VD38HErU7Xde",
+      "block_timestamp": "1787828546290308025",
+      "block": {
+        "block_height": 213126310
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "2.24E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "2.24E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24389462953",
+      "receipt_id": "AqByNtfqoqhTqWMvVaYFn1SxxKcqyEZn1mhsVUZrYVTB",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "4jcPoPbXjBx57w1JNVFsL7MDaR7jnW8nekv2KCadHPgU",
+        "block_height": 206952141,
+        "block_timestamp": 1784044924376747500
+      },
+      "receipt_outcome": {
+        "gas_burnt": 4174947687500,
+        "tokens_burnt": 417494768750000000000,
+        "executor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+        "status": true
+      },
+      "transaction_hash": "5cNcdFQCSoBuqanC9vJJpGxhuPnBCj14j187YW7a1hS6",
+      "included_in_block_hash": "7PJkgqUqh5CuWYkvqoF8a2irmFj4hd2Ugvkb6LADd3hq",
+      "block_timestamp": "1784044922547460028",
+      "block": {
+        "block_height": 206952138
+      },
+      "receipt_conversion_tokens_burnt": "68763637069000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+23",
+          "fee": 417494768750000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.4161496691509E+21"
+      }
+    },
+    {
+      "id": "24389462906",
+      "receipt_id": "CFVGCvrJ5mCB8ziRPcUr8goyhaJicYgWx3gdqiZVrExj",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Gyw5U5HREyABD1WEHsSBPFLcbCCjdYyxAZb41zk37HzK",
+        "block_height": 206952140,
+        "block_timestamp": 1784044923554406400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 8611276262629,
+        "tokens_burnt": 861127626262900000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "5cNcdFQCSoBuqanC9vJJpGxhuPnBCj14j187YW7a1hS6",
+      "included_in_block_hash": "7PJkgqUqh5CuWYkvqoF8a2irmFj4hd2Ugvkb6LADd3hq",
+      "block_timestamp": "1784044922547460028",
+      "block": {
+        "block_height": 206952138
+      },
+      "receipt_conversion_tokens_burnt": "68763637069000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 861127626262900000000,
+          "args": "{\"id\": 3, \"action\": \"VoteApprove\", \"proposal\": {\"ChangePolicy\": {\"policy\": {\"roles\": [{\"kind\": {\"Group\": [\"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\"]}, \"name\": \"Requestor\", \"permissions\": [\"call:VoteRemove\", \"transfer:AddProposal\", \"call:AddProposal\", \"transfer:VoteRemove\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\"]}, \"name\": \"Admin\", \"permissions\": [\"add_bounty:*\", \"policy_update_default_vote_policy:*\", \"policy:*\", \"add_member_to_role:*\", \"remove_member_from_role:*\", \"set_vote_token:*\", \"config:*\", \"bounty_done:*\", \"factory_info_update:*\", \"policy_add_or_update_role:*\", \"policy_remove_role:*\", \"policy_update_parameters:*\", \"upgrade_remote:*\", \"upgrade_self:*\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"vote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"config\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"policy\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_bounty\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"bounty_done\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_self\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"set_vote_token\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_remote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_member_to_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"remove_member_from_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\"]}, \"name\": \"Approver\", \"permissions\": [\"transfer:VoteReject\", \"call:VoteApprove\", \"transfer:RemoveProposal\", \"call:Finalize\", \"transfer:VoteApprove\", \"call:RemoveProposal\", \"call:VoteReject\", \"transfer:Finalize\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"vote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"config\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"policy\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_bounty\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"bounty_done\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_self\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"set_vote_token\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_remote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_member_to_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"remove_member_from_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}}}], \"bounty_bond\": \"100000000000000000000000\", \"proposal_bond\": \"100000000000000000000000\", \"proposal_period\": \"604800000000000\", \"default_vote_policy\": {\"quorum\": \"0\", \"threshold\": [1, 2], \"weight_kind\": \"RoleWeight\"}, \"bounty_forgiveness_period\": \"604800000000000\"}}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.4161496691509E+21"
+      }
+    },
+    {
+      "id": "24389459736",
+      "receipt_id": "8xVRdpbiM5FzVAiz97FUFiFGFDQS4kNtoPm778SZFiXb",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "9YByi4Q5r1uMnKHEJZhtZWYxJH8i8M6zuo4ZCTbSMMx3",
+        "block_height": 206952077,
+        "block_timestamp": 1784044883475615700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 4174947687500,
+        "tokens_burnt": 417494768750000000000,
+        "executor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+        "status": true
+      },
+      "transaction_hash": "2txpgiJ4wvBRHPkfpNYsjT7PTFqpjMXdHDBNGFKhrbyP",
+      "included_in_block_hash": "9tFwZcJA6PmXmih6Pf4HWQvkuoJNsDxoNPCi8jwL9oU5",
+      "block_timestamp": "1784044880451670930",
+      "block": {
+        "block_height": 206952072
+      },
+      "receipt_conversion_tokens_burnt": "51659488498500000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+23",
+          "fee": 417494768750000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.5356432117561E+21"
+      }
+    },
+    {
+      "id": "24389459676",
+      "receipt_id": "CeY3PZxRzwhemgsnVCKWQgtqSF6f4UoewHFZxbSLcUb7",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "ywSAtf3v26oSz7WbuYCGWUvQcrcVsaU4FNpX5eVtxh3",
+        "block_height": 206952075,
+        "block_timestamp": 1784044882281636000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 6653254311094,
+        "tokens_burnt": 665325431109400000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2txpgiJ4wvBRHPkfpNYsjT7PTFqpjMXdHDBNGFKhrbyP",
+      "included_in_block_hash": "9tFwZcJA6PmXmih6Pf4HWQvkuoJNsDxoNPCi8jwL9oU5",
+      "block_timestamp": "1784044880451670930",
+      "block": {
+        "block_height": 206952072
+      },
+      "receipt_conversion_tokens_burnt": "51659488498500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "on_proposal_callback",
+          "deposit": 0,
+          "fee": 665325431109400000000,
+          "args": "{\"proposal_id\": 4}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.5356432117561E+21"
+      }
+    },
+    {
+      "id": "24389459675",
+      "receipt_id": "BGBNVT74op7ZXt6bZhnQrMxSXLKkU3GPEAzY8iAsz86L",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "buybacks.multisignature.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "ywSAtf3v26oSz7WbuYCGWUvQcrcVsaU4FNpX5eVtxh3",
+        "block_height": 206952075,
+        "block_timestamp": 1784044882281636000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "buybacks.multisignature.near",
+        "status": true
+      },
+      "transaction_hash": "2txpgiJ4wvBRHPkfpNYsjT7PTFqpjMXdHDBNGFKhrbyP",
+      "included_in_block_hash": "9tFwZcJA6PmXmih6Pf4HWQvkuoJNsDxoNPCi8jwL9oU5",
+      "block_timestamp": "1784044880451670930",
+      "block": {
+        "block_height": 206952072
+      },
+      "receipt_conversion_tokens_burnt": "51659488498500000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.274E+27",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.5356432117561E+21"
+      }
+    },
+    {
+      "id": "24389459641",
+      "receipt_id": "9vhCj39yCDpXE9LmKN9EeqmZLazBP3YxCLcsstpTg6Bn",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "9btfUsRxjgGnbAYWs7NcsmetqvBzbzmjsWZJiayJkwHn",
+        "block_height": 206952074,
+        "block_timestamp": 1784044881675342000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3271857786497,
+        "tokens_burnt": 327185778649700000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2txpgiJ4wvBRHPkfpNYsjT7PTFqpjMXdHDBNGFKhrbyP",
+      "included_in_block_hash": "9tFwZcJA6PmXmih6Pf4HWQvkuoJNsDxoNPCi8jwL9oU5",
+      "block_timestamp": "1784044880451670930",
+      "block": {
+        "block_height": 206952072
+      },
+      "receipt_conversion_tokens_burnt": "51659488498500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 327185778649700000000,
+          "args": "{\"id\": 4, \"action\": \"VoteApprove\", \"proposal\": {\"Transfer\": {\"msg\": null, \"amount\": \"7274000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.5356432117561E+21"
+      }
+    },
+    {
+      "id": "24376397600",
+      "receipt_id": "HeBqQcfUYjX8e2YywPeVWLEzjL5ak82skZhssBNH51jM",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "2izA5YZxigMLpGj3Xz6krfcqs274jbDTYB5F5kdVN4rb",
+        "block_height": 206392468,
+        "block_timestamp": 1783702675199636500
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2423069197172,
+        "tokens_burnt": 242306919717200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "DhgMpFjozqhSzHvmNyKBy97VR4gv3BViadNqxmsseqoo",
+      "included_in_block_hash": "EPCpoeouarcJzomzGSQdGQqoCQSFXkLGSRUnqfwdENRo",
+      "block_timestamp": "1783702673935757227",
+      "block": {
+        "block_height": 206392466
+      },
+      "receipt_conversion_tokens_burnt": "51640415012500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 242306919717200000000,
+          "args": "{\"proposal\": {\"kind\": {\"Transfer\": {\"msg\": null, \"amount\": \"7274000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"buybacks.multisignature.near\"}}, \"description\": \"\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 345587749742200000000
+      }
+    },
+    {
+      "id": "24376397449",
+      "receipt_id": "DufK1mwbUHKwAfUFrLQhDCjWDK4tLdbTdrdHsSKswPzN",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Gs31R39BUnm83ajcRsuzoiPGKYaWpHYBCK3C2LcdfRCC",
+        "block_height": 206392461,
+        "block_timestamp": 1783702670729972500
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "6fWU4BT2xFRZ5DF5JbPzrUcAZLnfKupLGC1Wa5zo6n65",
+      "included_in_block_hash": "2WZQqnosiFJNCnkUsvxjh29JSSsafHe1Z2cjDJXzqY6D",
+      "block_timestamp": "1783702670129293949",
+      "block": {
+        "block_height": 206392460
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "2.24E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "2.24E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24376385913",
+      "receipt_id": "74GuHuWB5JAcmpriRVx3GTyTeTFPUWuHMWiiT2GQaCQq",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "FeeniBpah6MCXoKAs8uH6ukbvUrHrb2mh38Fkw49g2Dw",
+        "block_height": 206392007,
+        "block_timestamp": 1783702398409430300
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3927947101574,
+        "tokens_burnt": 392794710157400000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "AesY7g7xvwNrWxzAsTaZUHdRZNfAzEGKnAmxbXJGzSY7",
+      "included_in_block_hash": "4LForLd1p3UQELNnJd4Dt5jiB18ebAQjzFuhUPMPo7mu",
+      "block_timestamp": "1783702397334046857",
+      "block": {
+        "block_height": 206392005
+      },
+      "receipt_conversion_tokens_burnt": "68763637069000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 392794710157400000000,
+          "args": "{\"id\": 3, \"action\": \"VoteApprove\", \"proposal\": {\"ChangePolicy\": {\"policy\": {\"roles\": [{\"kind\": {\"Group\": [\"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\"]}, \"name\": \"Requestor\", \"permissions\": [\"call:VoteRemove\", \"transfer:AddProposal\", \"call:AddProposal\", \"transfer:VoteRemove\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\"]}, \"name\": \"Admin\", \"permissions\": [\"add_bounty:*\", \"policy_update_default_vote_policy:*\", \"policy:*\", \"add_member_to_role:*\", \"remove_member_from_role:*\", \"set_vote_token:*\", \"config:*\", \"bounty_done:*\", \"factory_info_update:*\", \"policy_add_or_update_role:*\", \"policy_remove_role:*\", \"policy_update_parameters:*\", \"upgrade_remote:*\", \"upgrade_self:*\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"vote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"config\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"policy\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_bounty\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"bounty_done\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_self\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"set_vote_token\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_remote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_member_to_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"remove_member_from_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\"]}, \"name\": \"Approver\", \"permissions\": [\"transfer:VoteReject\", \"call:VoteApprove\", \"transfer:RemoveProposal\", \"call:Finalize\", \"transfer:VoteApprove\", \"call:RemoveProposal\", \"call:VoteReject\", \"transfer:Finalize\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"vote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"config\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"policy\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_bounty\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"bounty_done\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_self\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"set_vote_token\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_remote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_member_to_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"remove_member_from_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}}}], \"bounty_bond\": \"100000000000000000000000\", \"proposal_bond\": \"100000000000000000000000\", \"proposal_period\": \"604800000000000\", \"default_vote_policy\": {\"quorum\": \"0\", \"threshold\": [1, 2], \"weight_kind\": \"RoleWeight\"}, \"bounty_forgiveness_period\": \"604800000000000\"}}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 530321984295400000000
+      }
+    },
+    {
+      "id": "24376383704",
+      "receipt_id": "2THLaXg2yddkwMVZ2sQDCE9L3mrC7AjGAU2KttuX3tNF",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "H7jHUZ57UKWbeHkNZtWp6absCLeQ5agJorLB3YYeq62u",
+        "block_height": 206391909,
+        "block_timestamp": 1783702338790610200
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3574199782808,
+        "tokens_burnt": 357419978280800000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "3qtjPe2xUPufs4UWaU2bPPcZrLhJdjkLSXVv6teXAjiE",
+      "included_in_block_hash": "7vp6va35cnywub6xxvJvCRPCmgc7BckGScZoxLYR8kVZ",
+      "block_timestamp": "1783702337580819670",
+      "block": {
+        "block_height": 206391907
+      },
+      "receipt_conversion_tokens_burnt": "69564723481000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 357419978280800000000,
+          "args": "{\"proposal\": {\"kind\": {\"ChangePolicy\": {\"policy\": {\"roles\": [{\"kind\": {\"Group\": [\"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\"]}, \"name\": \"Requestor\", \"permissions\": [\"call:AddProposal\", \"transfer:VoteRemove\", \"transfer:AddProposal\", \"call:VoteRemove\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\"]}, \"name\": \"Admin\", \"permissions\": [\"config:*\", \"policy_update_parameters:*\", \"add_bounty:*\", \"remove_member_from_role:*\", \"upgrade_self:*\", \"policy_remove_role:*\", \"set_vote_token:*\", \"upgrade_remote:*\", \"bounty_done:*\", \"add_member_to_role:*\", \"factory_info_update:*\", \"policy:*\", \"policy_add_or_update_role:*\", \"policy_update_default_vote_policy:*\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"vote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"config\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"policy\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_bounty\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"bounty_done\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_self\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"set_vote_token\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_remote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_member_to_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"remove_member_from_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\"]}, \"name\": \"Approver\", \"permissions\": [\"transfer:VoteApprove\", \"call:VoteApprove\", \"transfer:RemoveProposal\", \"call:VoteReject\", \"transfer:VoteReject\", \"transfer:Finalize\", \"call:Finalize\", \"call:RemoveProposal\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"vote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"config\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"policy\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_bounty\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"bounty_done\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_self\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"set_vote_token\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_remote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_member_to_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"remove_member_from_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}}}], \"bounty_bond\": \"100000000000000000000000\", \"proposal_bond\": \"100000000000000000000000\", \"proposal_period\": \"604800000000000\", \"default_vote_policy\": {\"quorum\": \"0\", \"threshold\": [1, 2], \"weight_kind\": \"RoleWeight\"}, \"bounty_forgiveness_period\": \"604800000000000\"}}}, \"description\": \"* Title: Update policy - Voting Thresholds <br>* Summary: f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6 requested to change voting threshold from 1 to 2.\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 496549425242800000000
+      }
+    },
+    {
+      "id": "24376383617",
+      "receipt_id": "6KQmzQZRkJsAiGCoEZYm5Ex6VyFQq4NSXDT6mU8uspkm",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "8LRkwBAvG6cB9k9N2cxGTYp5RTDBXFmA2B5HoUsMZrUN",
+        "block_height": 206391903,
+        "block_timestamp": 1783702335333548000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2MEQ9pyFkR5tq7T2b7jYCArW7uToHTBcXCD9HDTACgbp",
+      "included_in_block_hash": "7nimo92Jaaahj8T6ARhuVmVEHbQefv9NHerfiSqDjyBY",
+      "block_timestamp": "1783702334839063801",
+      "block": {
+        "block_height": 206391902
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "3.156E+22",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "3.156E+22"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24082581009",
+      "receipt_id": "5Q4uAi9FY4eJ36CcoKjjntHhVAKfTL8uc2sLEcz6cLFC",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "EGkeHAqxtELGizTFsDM5nQbYXgYGhNb2qBXVnN7CgrLw",
+        "block_height": 195261307,
+        "block_timestamp": 1776954954275908600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2eeVPaPTGxGHZ6TPXcPs1D4UwRNFqz5e866QEc4FMPPm",
+      "included_in_block_hash": "8u69Wo5zkRnQ6ZXwRJktncMKacS6Uh88rFYhH4Y3nJbT",
+      "block_timestamp": "1776954951870659467",
+      "block": {
+        "block_height": 195261303
+      },
+      "receipt_conversion_tokens_burnt": "31383715345600000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.1573276277489817E+27",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9946920686218E+21"
+      }
+    },
+    {
+      "id": "24082170974",
+      "receipt_id": "3gjbkWFZV5qQbteRBdcHg2jzzo6irXTRqwad6TEcYsUA",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "BwUcoGDTG6Ezfza9Tcfq4uHdMLsQZ4XCf3u5h1X6ykqD",
+        "block_height": 195245230,
+        "block_timestamp": 1776945417220241700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "9JT4oWoWMMYkb1Ety8kKFPPJtwhKWieDJkrw1J6E4GLQ",
+      "included_in_block_hash": "CnD36Bjd74oZbe1uiuFBidvogM7BAyb3h5GnRNaeEc3M",
+      "block_timestamp": "1776945414849351111",
+      "block": {
+        "block_height": 195245226
+      },
+      "receipt_conversion_tokens_burnt": "31369405368000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.3325677193381831E+28",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.0365157042189E+21"
+      }
+    },
+    {
+      "id": "24082161287",
+      "receipt_id": "FJRigwJ2WTSfDNkCUW4zNpLJPxysd6ZDLPqrifS5Kpx5",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "7v9DZntx4Pw2eYoEdQvC5gytkCSDx6zsh3bVYUrzKxBp",
+        "block_height": 195244856,
+        "block_timestamp": 1776945195714987500
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "CHBNRhV6nMHm4xsjJX3uGVck5Tfk9Gc7ywCrXajswUti",
+      "included_in_block_hash": "99E3kjscVqw6JVfxhincao9SANZVTbn3yRHwebVx776R",
+      "block_timestamp": "1776945193446524525",
+      "block": {
+        "block_height": 195244852
+      },
+      "receipt_conversion_tokens_burnt": "31214902328600000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "3.612181488359433E+27",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "4.0952024961372E+21"
+      }
+    },
+    {
+      "id": "24078368192",
+      "receipt_id": "ANiEc8g4hfT4soMRJ8qh1guJsFaZLKnoRTpdmpfTcbJV",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "94yGsaRzRSTiH9xfR2njosLgjbfkf4AtPvq7FeKz2DGX",
+        "block_height": 195088850,
+        "block_timestamp": 1776849350819513900
+      },
+      "receipt_outcome": {
+        "gas_burnt": 4174947687500,
+        "tokens_burnt": 417494768750000000000,
+        "executor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+        "status": true
+      },
+      "transaction_hash": "J3kVrEMzuhYZgNaHnsGuHGuYmPNdvDAUfBvHsXXS3whb",
+      "included_in_block_hash": "9wCmXPPRAMBivDsCv8Z8kAfgwRLUM4cBfxAGdLo6Tuj8",
+      "block_timestamp": "1776849349201480763",
+      "block": {
+        "block_height": 195088847
+      },
+      "receipt_conversion_tokens_burnt": "65292262617000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+23",
+          "fee": 417494768750000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.3778545008536E+21"
+      }
+    },
+    {
+      "id": "24078368176",
+      "receipt_id": "2ZjKQcTsruAS8T2hWCYxHmH1o4ZgngC8TzFXdTBDkZDp",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "7f7GTQqs2GJTqoThYNadEJ6HdP2V8Bq7fnx7iNwNiMvC",
+        "block_height": 195088849,
+        "block_timestamp": 1776849350228239000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 8297752068696,
+        "tokens_burnt": 829775206869600000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "J3kVrEMzuhYZgNaHnsGuHGuYmPNdvDAUfBvHsXXS3whb",
+      "included_in_block_hash": "9wCmXPPRAMBivDsCv8Z8kAfgwRLUM4cBfxAGdLo6Tuj8",
+      "block_timestamp": "1776849349201480763",
+      "block": {
+        "block_height": 195088847
+      },
+      "receipt_conversion_tokens_burnt": "65292262617000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 829775206869600000000,
+          "args": "{\"id\": 2, \"action\": \"VoteApprove\", \"proposal\": {\"ChangePolicy\": {\"policy\": {\"roles\": [{\"kind\": {\"Group\": [\"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\"]}, \"name\": \"Requestor\", \"permissions\": [\"call:AddProposal\", \"transfer:AddProposal\", \"transfer:VoteRemove\", \"call:VoteRemove\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\"]}, \"name\": \"Admin\", \"permissions\": [\"upgrade_remote:*\", \"upgrade_self:*\", \"add_bounty:*\", \"bounty_done:*\", \"config:*\", \"factory_info_update:*\", \"policy_update_default_vote_policy:*\", \"policy:*\", \"policy_remove_role:*\", \"policy_add_or_update_role:*\", \"remove_member_from_role:*\", \"add_member_to_role:*\", \"set_vote_token:*\", \"policy_update_parameters:*\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"vote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"config\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"policy\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_bounty\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"bounty_done\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_self\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"set_vote_token\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_remote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_member_to_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"remove_member_from_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\"]}, \"name\": \"Approver\", \"permissions\": [\"transfer:Finalize\", \"call:RemoveProposal\", \"call:Finalize\", \"transfer:RemoveProposal\", \"transfer:VoteApprove\", \"transfer:VoteReject\", \"call:VoteApprove\", \"call:VoteReject\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}}}], \"bounty_bond\": \"100000000000000000000000\", \"proposal_bond\": \"100000000000000000000000\", \"proposal_period\": \"604800000000000\", \"default_vote_policy\": {\"quorum\": \"0\", \"threshold\": [1, 2], \"weight_kind\": \"RoleWeight\"}, \"bounty_forgiveness_period\": \"604800000000000\"}}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.3778545008536E+21"
+      }
+    },
+    {
+      "id": "24078368100",
+      "receipt_id": "4atUfevhPHNqJeWyPAZWiJ6Bj3jHEt3zfCaEWSogMZVA",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "3bnUdE8GpeY1P41w7rt1LE6WdDhFfMiVV1csuDRy8bjT",
+        "block_height": 195088843,
+        "block_timestamp": 1776849346722843400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "D5vnta5gX5oTAJ4ARyF8cy1JYHL6tFrBEYaAHwpDkncd",
+      "included_in_block_hash": "6WynAfzvxESVy6S2YUbCkDq6dTw77GBYEDSLP1ULZSX",
+      "block_timestamp": "1776849346109100933",
+      "block": {
+        "block_height": 195088842
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.53E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1.53E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24078366517",
+      "receipt_id": "B43KsmhJGuYgxBDYs7jrruw7iD8aRGpooFp4enRXmZUD",
+      "predecessor_account_id": "f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Crsg5yLT1yMUwVt7PaTLH3gcGBUZGYzsN4qktSkA9zRE",
+        "block_height": 195088754,
+        "block_timestamp": 1776849294353323500
+      },
+      "receipt_outcome": {
+        "gas_burnt": 3341916234802,
+        "tokens_burnt": 334191623480200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "Axd2tb8i5asVtHH2vPKtARPPZ8wuffQLJiVZNX5NAq51",
+      "included_in_block_hash": "2ydCiYYvbNizPDHszccbNFzHSsJVgTM6dqe3GA64gsVH",
+      "block_timestamp": "1776849293251837528",
+      "block": {
+        "block_height": 195088752
+      },
+      "receipt_conversion_tokens_burnt": "66093349029000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 334191623480200000000,
+          "args": "{\"proposal\": {\"kind\": {\"ChangePolicy\": {\"policy\": {\"roles\": [{\"kind\": {\"Group\": [\"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\", \"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\"]}, \"name\": \"Requestor\", \"permissions\": [\"call:AddProposal\", \"transfer:VoteRemove\", \"transfer:AddProposal\", \"call:VoteRemove\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\"]}, \"name\": \"Admin\", \"permissions\": [\"config:*\", \"policy_update_parameters:*\", \"add_bounty:*\", \"remove_member_from_role:*\", \"upgrade_self:*\", \"policy_remove_role:*\", \"set_vote_token:*\", \"upgrade_remote:*\", \"bounty_done:*\", \"add_member_to_role:*\", \"factory_info_update:*\", \"policy:*\", \"policy_add_or_update_role:*\", \"policy_update_default_vote_policy:*\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"vote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"config\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"policy\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_bounty\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"bounty_done\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_self\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"set_vote_token\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"upgrade_remote\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"add_member_to_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}, \"remove_member_from_role\": {\"quorum\": \"0\", \"threshold\": \"2\", \"weight_kind\": \"RoleWeight\"}}}, {\"kind\": {\"Group\": [\"745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b\", \"96c39c068d823af7d8aea81237eae07bc6f5f05fc19a0b34f170d700a6601850\", \"c7b5000cd52a65f02e3e5d5c071f7cf96492b31fc19e60163fe225f66c92a483\", \"f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6\"]}, \"name\": \"Approver\", \"permissions\": [\"transfer:VoteApprove\", \"call:VoteApprove\", \"transfer:RemoveProposal\", \"call:VoteReject\", \"transfer:VoteReject\", \"transfer:Finalize\", \"call:Finalize\", \"call:RemoveProposal\"], \"vote_policy\": {\"call\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}, \"transfer\": {\"quorum\": \"0\", \"threshold\": \"1\", \"weight_kind\": \"RoleWeight\"}}}], \"bounty_bond\": \"100000000000000000000000\", \"proposal_bond\": \"100000000000000000000000\", \"proposal_period\": \"604800000000000\", \"default_vote_policy\": {\"quorum\": \"0\", \"threshold\": [1, 2], \"weight_kind\": \"RoleWeight\"}, \"bounty_forgiveness_period\": \"604800000000000\"}}}, \"description\": \"* Title: Update policy - Voting Thresholds <br>* Summary: f7e23b5d988c35bd9a598671dcdb231e9763b47ac5105eb5d0c9e1427040d6c6 requested to change voting threshold from 1 to 2.\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 466378321538200000000
+      }
+    },
+    {
+      "id": "24078366356",
+      "receipt_id": "6L3KMLHCPn6Qbd9F31AczCjej1YoxuoztizHhZTc3ti",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Hq9vWkd7TuoPpY2TSEme77M1XDqNziRr1Bseoi12AbkN",
+        "block_height": 195088747,
+        "block_timestamp": 1776849290325300700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "C9QNxX5TZEzFcdAVvqW5sGjbh718NsrEofTod9VYQ6Ta",
+      "included_in_block_hash": "GT4nMKgXNpAPQU6pobxdQP191XAwnCwuyfQ62kdPbgm3",
+      "block_timestamp": "1776849289793720468",
+      "block": {
+        "block_height": 195088746
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "2.658E+22",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "2.658E+22"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24078345059",
+      "receipt_id": "7pL29QJm7xuGdBXLHtAN15zMFwZQB557TEzjaLDpB1MS",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "FMD2YdXLQPFQkUSCFyVjYwja1MzWao1awpZWUFEHdYb8",
+        "block_height": 195087672,
+        "block_timestamp": 1776848654067707100
+      },
+      "receipt_outcome": {
+        "gas_burnt": 4174947687500,
+        "tokens_burnt": 417494768750000000000,
+        "executor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+        "status": true
+      },
+      "transaction_hash": "8Bit5x7bvChY4Tm4wQfvevAM4bDAHTKHvPYFF8tebKbk",
+      "included_in_block_hash": "DKRfMa3ky8rwGf2zv6FT5rgJDDFefHyh26aDxxMMSegv",
+      "block_timestamp": "1776848651178684462",
+      "block": {
+        "block_height": 195087667
+      },
+      "receipt_conversion_tokens_burnt": "51835918244000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+23",
+          "fee": 417494768750000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.3330360140131E+21"
+      }
+    },
+    {
+      "id": "24078345007",
+      "receipt_id": "CpCe1ZzBSrqRFBfFX4EvLjmEPCsEeP8tVtpv7ReyxcmL",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "AFeiHb3azBHE9uzhgbBWcvPxuMgKFRPzMBtctMPs87C3",
+        "block_height": 195087670,
+        "block_timestamp": 1776848652893080800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 6681389110032,
+        "tokens_burnt": 668138911003200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "8Bit5x7bvChY4Tm4wQfvevAM4bDAHTKHvPYFF8tebKbk",
+      "included_in_block_hash": "DKRfMa3ky8rwGf2zv6FT5rgJDDFefHyh26aDxxMMSegv",
+      "block_timestamp": "1776848651178684462",
+      "block": {
+        "block_height": 195087667
+      },
+      "receipt_conversion_tokens_burnt": "51835918244000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "on_proposal_callback",
+          "deposit": 0,
+          "fee": 668138911003200000000,
+          "args": "{\"proposal_id\": 1}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.3330360140131E+21"
+      }
+    },
+    {
+      "id": "24078345006",
+      "receipt_id": "FN7uEQJdnDEUEB466ki4pNWrUT6dfnDQgNwdLM1bYqq1",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "fdd59b04d49c7f535a441fa7ea24f6e5292e54f68f75ebbe2e41738301bcf9e4",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "AFeiHb3azBHE9uzhgbBWcvPxuMgKFRPzMBtctMPs87C3",
+        "block_height": 195087670,
+        "block_timestamp": 1776848652893080800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 4174947687500,
+        "tokens_burnt": 417494768750000000000,
+        "executor_account_id": "fdd59b04d49c7f535a441fa7ea24f6e5292e54f68f75ebbe2e41738301bcf9e4",
+        "status": true
+      },
+      "transaction_hash": "8Bit5x7bvChY4Tm4wQfvevAM4bDAHTKHvPYFF8tebKbk",
+      "included_in_block_hash": "DKRfMa3ky8rwGf2zv6FT5rgJDDFefHyh26aDxxMMSegv",
+      "block_timestamp": "1776848651178684462",
+      "block": {
+        "block_height": 195087667
+      },
+      "receipt_conversion_tokens_burnt": "51835918244000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "4.5E+28",
+          "fee": 417494768750000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.3330360140131E+21"
+      }
+    },
+    {
+      "id": "24078344983",
+      "receipt_id": "xX7rk1R3FTYoLSNDx6x6HhTmDF8XhZJEymgdhKRy3Ep",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "6mCkVWf1J3NyRWcfR8nAfMikH3SkY2EGAkFVBfMxt5ak",
+        "block_height": 195087669,
+        "block_timestamp": 1776848652284964400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 7262357290219,
+        "tokens_burnt": 726235729021900000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "8Bit5x7bvChY4Tm4wQfvevAM4bDAHTKHvPYFF8tebKbk",
+      "included_in_block_hash": "DKRfMa3ky8rwGf2zv6FT5rgJDDFefHyh26aDxxMMSegv",
+      "block_timestamp": "1776848651178684462",
+      "block": {
+        "block_height": 195087667
+      },
+      "receipt_conversion_tokens_burnt": "51835918244000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 726235729021900000000,
+          "args": "{\"id\": 1, \"action\": \"VoteApprove\", \"proposal\": {\"Transfer\": {\"msg\": null, \"amount\": \"45000000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"fdd59b04d49c7f535a441fa7ea24f6e5292e54f68f75ebbe2e41738301bcf9e4\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.3330360140131E+21"
+      }
+    },
+    {
+      "id": "24078344850",
+      "receipt_id": "9kaXFNBRN5V1Xvkmr3FdjUpJfaQqCyUdwwVGCLkBathC",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "6XmejZg8gVLjCPA295RUQNmPYVKHwPWj8v7fAa93bhXe",
+        "block_height": 195087662,
+        "block_timestamp": 1776848648262408000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "8BcYsPtk7ruDKujTW1uV8kXr4pj4SPqQfBoMY6ecwGak",
+      "included_in_block_hash": "7uV5FnF9UYK6KjPzRgJKho1ZB4z5SmjobAR7gxrHfbnZ",
+      "block_timestamp": "1776848647730246065",
+      "block": {
+        "block_height": 195087661
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.53E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1.53E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24078340916",
+      "receipt_id": "8p5s4Uj6Grp8WSPvaevP7h7zfW4M8oQYghDvwLK3zx48",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "CfA9DWPQgAx8V7fbrZcJMWJ2UoTpdVTZxc72dmpXEuHS",
+        "block_height": 195087433,
+        "block_timestamp": 1776848508001722000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 4174947687500,
+        "tokens_burnt": 417494768750000000000,
+        "executor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+        "status": true
+      },
+      "transaction_hash": "8Pf196B9eF9qQeCuR2396Buajx8f9WTFh3E5RQejebGk",
+      "included_in_block_hash": "GFrKWcvaRwFinANnHzs17C1syhf1NQEGFecrRGu4Wfvt",
+      "block_timestamp": "1776848504926842008",
+      "block": {
+        "block_height": 195087428
+      },
+      "receipt_conversion_tokens_burnt": "51821613129500000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+23",
+          "fee": 417494768750000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.3325281453771E+21"
+      }
+    },
+    {
+      "id": "24078340878",
+      "receipt_id": "7vCGHAsRhMAXbhFRecP2MptfDgzBoPcwnafwW5Hs6Zto",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "92hPzAczfwuJjhY6dwMjSXYUtcDCsDqyiUBMtyEbPpkB",
+        "block_height": 195087431,
+        "block_timestamp": 1776848506803391000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 6679079389975,
+        "tokens_burnt": 667907938997500000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "8Pf196B9eF9qQeCuR2396Buajx8f9WTFh3E5RQejebGk",
+      "included_in_block_hash": "GFrKWcvaRwFinANnHzs17C1syhf1NQEGFecrRGu4Wfvt",
+      "block_timestamp": "1776848504926842008",
+      "block": {
+        "block_height": 195087428
+      },
+      "receipt_conversion_tokens_burnt": "51821613129500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "on_proposal_callback",
+          "deposit": 0,
+          "fee": 667907938997500000000,
+          "args": "{\"proposal_id\": 0}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.3325281453771E+21"
+      }
+    },
+    {
+      "id": "24078340877",
+      "receipt_id": "GoquJTJJSCxwmBLVV6wLkr37pBWaL86WBQWcDeCVQtJs",
+      "predecessor_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receiver_account_id": "fdd59b04d49c7f535a441fa7ea24f6e5292e54f68f75ebbe2e41738301bcf9e4",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "92hPzAczfwuJjhY6dwMjSXYUtcDCsDqyiUBMtyEbPpkB",
+        "block_height": 195087431,
+        "block_timestamp": 1776848506803391000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 4174947687500,
+        "tokens_burnt": 417494768750000000000,
+        "executor_account_id": "fdd59b04d49c7f535a441fa7ea24f6e5292e54f68f75ebbe2e41738301bcf9e4",
+        "status": true
+      },
+      "transaction_hash": "8Pf196B9eF9qQeCuR2396Buajx8f9WTFh3E5RQejebGk",
+      "included_in_block_hash": "GFrKWcvaRwFinANnHzs17C1syhf1NQEGFecrRGu4Wfvt",
+      "block_timestamp": "1776848504926842008",
+      "block": {
+        "block_height": 195087428
+      },
+      "receipt_conversion_tokens_burnt": "51821613129500000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1E+25",
+          "fee": 417494768750000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.3325281453771E+21"
+      }
+    },
+    {
+      "id": "24078340866",
+      "receipt_id": "3xstvTgMPRW8vbfsEybqVxgLaoS9ukCXt1MvjFqjJHGG",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "7U4dV39SiW6FT98d9E3rbXHXYtsc59r2uV3jmGxgswha",
+        "block_height": 195087430,
+        "block_timestamp": 1776848506198300400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 7259874426206,
+        "tokens_burnt": 725987442620600000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "8Pf196B9eF9qQeCuR2396Buajx8f9WTFh3E5RQejebGk",
+      "included_in_block_hash": "GFrKWcvaRwFinANnHzs17C1syhf1NQEGFecrRGu4Wfvt",
+      "block_timestamp": "1776848504926842008",
+      "block": {
+        "block_height": 195087428
+      },
+      "receipt_conversion_tokens_burnt": "51821613129500000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "act_proposal",
+          "deposit": 0,
+          "fee": 725987442620600000000,
+          "args": "{\"id\": 0, \"action\": \"VoteApprove\", \"proposal\": {\"Transfer\": {\"msg\": null, \"amount\": \"10000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"fdd59b04d49c7f535a441fa7ea24f6e5292e54f68f75ebbe2e41738301bcf9e4\"}}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.3325281453771E+21"
+      }
+    },
+    {
+      "id": "24078340768",
+      "receipt_id": "AB1SVoMffyG2P5Xd4FGwAandVEsaGuAMhXMqqXVa6Qre",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "SuRddBjUu1QHr5VetXb33Rzti5nWTemfRRmZbFY7QfP",
+        "block_height": 195087423,
+        "block_timestamp": 1776848501973249800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "6vCY6AjxDXYE5Jd5AzHjaMngKxKMMSkGDZD5EeoB3hCq",
+      "included_in_block_hash": "9Uj96FoHAS2cWXRJ65m4RtiY7AP2n42i1RQb51hnJvCn",
+      "block_timestamp": "1776848501367288428",
+      "block": {
+        "block_height": 195087422
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.53E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1.53E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24078339420",
+      "receipt_id": "AfokpJC851hRkaLtUDGfNkkMuLh2VVznSfWqMkZZSwm2",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "8mhhcdYcSAHS93eALQHWTeEwkMv1n1QpUaSYdg2FNwA3",
+        "block_height": 195087355,
+        "block_timestamp": 1776848461491151400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2442220247922,
+        "tokens_burnt": 244222024792200000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2moRTED5wzSLPuyvyw7DFbPiHPvjQJSqMkTKSpi8kkE3",
+      "included_in_block_hash": "H9LKRUcvpeN7bvPt5Gd6PrFPqEeqJDQSKf3WUexoeFrh",
+      "block_timestamp": "1776848460407851350",
+      "block": {
+        "block_height": 195087353
+      },
+      "receipt_conversion_tokens_burnt": "51969432646000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 244222024792200000000,
+          "args": "{\"proposal\": {\"kind\": {\"Transfer\": {\"msg\": null, \"amount\": \"45000000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"fdd59b04d49c7f535a441fa7ea24f6e5292e54f68f75ebbe2e41738301bcf9e4\"}}, \"description\": \"* Notes: Fees accrued by mistake\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 348160890084200000000
+      }
+    },
+    {
+      "id": "24078339323",
+      "receipt_id": "2nezV2RAonXY8RdB8z6U3dgkQkmitnStEW9nU9Tvw6Zv",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "DTUftCPA2tEax73Sfwx6DRCXwyvxiRcxjoJ1pMkbRruy",
+        "block_height": 195087348,
+        "block_timestamp": 1776848457702429400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "53F5jJm32Ba7WwZ9211RjC2MZeUVjq4W8ZMiDvXywYMw",
+      "included_in_block_hash": "BjLHQTbrJpg91FCpuGwckJsZZ3xR1tZpb5mq13tCmo1U",
+      "block_timestamp": "1776848457137213967",
+      "block": {
+        "block_height": 195087347
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "2.92E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "2.92E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24078337486",
+      "receipt_id": "CL4qx1m23LRYBD7y1JiSkahx88kX9u6J4HkRfcWBhmw8",
+      "predecessor_account_id": "745def2beee571628e35743e564687bb11ae1cf312efd3c1e079d679e46e011b",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "BCJt7b43FZeYXeE9e2RJCU3bSyapF5v31VWYzB4ZHJrS",
+        "block_height": 195087260,
+        "block_timestamp": 1776848406450111700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 2437428905030,
+        "tokens_burnt": 243742890503000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "CXAdcPxyzfAodHpG8ky5LGdRdUT9AC3kcxdaFdyQdwQe",
+      "included_in_block_hash": "4VASBxco1xGzhAomGHAazNoVobPJ46U3vjoAhWoaZ6CW",
+      "block_timestamp": "1776848405282309337",
+      "block": {
+        "block_height": 195087258
+      },
+      "receipt_conversion_tokens_burnt": "51864528473000000000",
+      "actions": [
+        {
+          "action": "FUNCTION_CALL",
+          "method": "add_proposal",
+          "deposit": "1E+23",
+          "fee": 243742890503000000000,
+          "args": "{\"proposal\": {\"kind\": {\"Transfer\": {\"msg\": null, \"amount\": \"10000000000000000000000000\", \"token_id\": \"\", \"receiver_id\": \"fdd59b04d49c7f535a441fa7ea24f6e5292e54f68f75ebbe2e41738301bcf9e4\"}}, \"description\": \"* Notes: Test\"}}"
+        }
+      ],
+      "actions_agg": {
+        "deposit": "1E+23"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 347471947449000000000
+      }
+    },
+    {
+      "id": "24078337334",
+      "receipt_id": "DpaQh2YvgeXph11FzK2nMb4eRC3xkGReujpCVexrpWPf",
+      "predecessor_account_id": "sponsor.trezu.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "9pMMLMup2qdLeVGjYUZf6RuS23TyUhrKcNPonr6Wq95v",
+        "block_height": 195087253,
+        "block_timestamp": 1776848402268109000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2tX1NYZ8KLS2htNEGGGraCJS9Yo9LDDLNgtcNJhfbPfr",
+      "included_in_block_hash": "5z8Ps5bhbGz8dS8ihvW8iBkdSGYGSmWUvgD5iQyorZfg",
+      "block_timestamp": "1776848401809910273",
+      "block": {
+        "block_height": 195087252
+      },
+      "receipt_conversion_tokens_burnt": "22318256250000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "2.73E+21",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": "2.73E+21"
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": 44636512500000000000
+      }
+    },
+    {
+      "id": "24074891237",
+      "receipt_id": "HWRKJ5PVKeLes6eK9qtSkBZVg7cCfapT1sJmDhMnrZds",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "CGA3HrKACTrfFz8wKVKJLZV66UNWuQM2i4NAFneyhw3o",
+        "block_height": 194949588,
+        "block_timestamp": 1776763886041902000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "DjVdyvGwCtDLLNtVmkLFThcUptNgwiod6sum4j9hcbk8",
+      "included_in_block_hash": "B6Ycxosh264JqfNj2ed7oyqnoVvwu7UPdtawttXvgdzk",
+      "block_timestamp": "1776763883443692532",
+      "block": {
+        "block_height": 194949584
+      },
+      "receipt_conversion_tokens_burnt": "31242180723400000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.540639546966707E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8389137320296E+21"
+      }
+    },
+    {
+      "id": "24074638266",
+      "receipt_id": "FmKEccQdjGQoysk4rdAQMzhqdey84se6FHjjXmGa4zfL",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Dcos6Vg6bXnZCURyiXoz7B2Q6zoUUacrwqwfgarMr9CE",
+        "block_height": 194938111,
+        "block_timestamp": 1776756851997782000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "EuUsvVfX2TCLP2RD5Z4inbYEFMcxvDYgCuVfxguLLrhQ",
+      "included_in_block_hash": "YvXHQ7PVvRaVpaDzWDKiHU1yTQZmMDqWauGT2BQFs7H",
+      "block_timestamp": "1776756849576991483",
+      "block": {
+        "block_height": 194938107
+      },
+      "receipt_conversion_tokens_burnt": "31248888525400000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.303946525847856E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8114733475307E+21"
+      }
+    },
+    {
+      "id": "24074543406",
+      "receipt_id": "6rNxqsjWRkd3RAtJdEpbsoY5cqkEURC9ZacvBJ3to1fN",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "DnDhPgbW7XTC9eB5JAvpmpZEcqvW5V3dVcT6bd36VGiH",
+        "block_height": 194934200,
+        "block_timestamp": 1776754478980377300
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "7a8WFans77fY9LQu3nnad9CPp6YJaxCr7bzWfhPzV8A8",
+      "included_in_block_hash": "6X82PfxrF5pZouGs1ujyww9gVYWRnDkfu1m6QgfWEnQK",
+      "block_timestamp": "1776754476729507567",
+      "block": {
+        "block_height": 194934196
+      },
+      "receipt_conversion_tokens_burnt": "31245981811200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "9.167476942952672E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9166560679623E+21"
+      }
+    },
+    {
+      "id": "24073814960",
+      "receipt_id": "6P32pUjWsU6zn9QMoHNhHnZSbsFRDkQMZyB26Cpx4fBT",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "7JgRLWuMyE8YABbaQMJyA4yG6B88Zt97LxTHptj77fAN",
+        "block_height": 194901844,
+        "block_timestamp": 1776735300429382400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "J8PiQodE3tad6rgTAHR7QB7h2CuRhxNfZ88RhuFb7FS5",
+      "included_in_block_hash": "8t8TgmLQEy4Zhzy5UnWauYDruyXTNfW8dWwGyR7pywEW",
+      "block_timestamp": "1776735298219772373",
+      "block": {
+        "block_height": 194901840
+      },
+      "receipt_conversion_tokens_burnt": "31380585038000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.827715829561794E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.1089276672989E+21"
+      }
+    },
+    {
+      "id": "24072811251",
+      "receipt_id": "BcporkzGe3TmME8FtwRQ4ktTommNdRYxMuHuUD5dNb7u",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "6h5VoKSa6ij5Asps39bdcd77k9hPNf4U7ABBzD67XJjV",
+        "block_height": 194861488,
+        "block_timestamp": 1776711412350932000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "EuNhyYEEeg4L5eAF47xp9cDRp9YBim6cxXg8FafeiR8k",
+      "included_in_block_hash": "CHXeBzfsiaerDbxSjmWBQF4KfAPLy8ETLS3dAnmxTQSy",
+      "block_timestamp": "1776711409831165874",
+      "block": {
+        "block_height": 194861484
+      },
+      "receipt_conversion_tokens_burnt": "31243969470600000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.497322799281074E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.91045742707E+21"
+      }
+    },
+    {
+      "id": "24072434118",
+      "receipt_id": "FRsmxc5xG89T9AAsBTVd9shQkbNzaPfVM7PSHGcWDMQC",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "8BSuJSANiSrF52RWRu3YhXwD7zpovPbRuuCmLQLQrfG",
+        "block_height": 194849263,
+        "block_timestamp": 1776704168558678000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "fuCwJ4tyDFHecUhRxnxX13cn1mEmYfYM4kXQ31Lch6e",
+      "included_in_block_hash": "GDepfA4vRc9Z5xeHKftxJnovRLDBsKfh1tnq1PsmPi2X",
+      "block_timestamp": "1776704166127492691",
+      "block": {
+        "block_height": 194849259
+      },
+      "receipt_conversion_tokens_burnt": "31518989352600000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.174236781524389E+27",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.2437336442742E+21"
+      }
+    },
+    {
+      "id": "24071855864",
+      "receipt_id": "HMNhWqHcN6dqYqAWUCPmFH9gsDBTkX3yyryV4s7QrKAb",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Ht7Qy5zbwsU22CAR5bSWGezy9ZWpHF27v35htzCNQK6A",
+        "block_height": 194829018,
+        "block_timestamp": 1776691838007371800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "FUaJHBxQFMoVFPmoXekocz43Piw5rPPMvAQEt4YUETbM",
+      "included_in_block_hash": "61SvkiSrXp6PgN9LHDrtFeXKm3nzF8cxKBfcHT4opvzd",
+      "block_timestamp": "1776691835409588179",
+      "block": {
+        "block_height": 194829014
+      },
+      "receipt_conversion_tokens_burnt": "31243745877200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.5765985832604793E+27",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9159318160235E+21"
+      }
+    },
+    {
+      "id": "24071848434",
+      "receipt_id": "8ZzQ9DsJCfnJr9AsGVaT1DejNQ6Aq7bPkmgfoBRm8nfq",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "DmP5y8DF2CHcZL42z5kcppVW2qYb8py4ycgWpKxKvBpY",
+        "block_height": 194828747,
+        "block_timestamp": 1776691670256088300
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "4d6wdEAvUcdCzDeWcePVv86cWmeZcr6edZ45mc7pYnJY",
+      "included_in_block_hash": "GNDWdjgu7xKyiHpg1V9JgAJjeSDz2kEDQ3wKV4tdBKsE",
+      "block_timestamp": "1776691667779818780",
+      "block": {
+        "block_height": 194828743
+      },
+      "receipt_conversion_tokens_burnt": "31363368346200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.051902994896848E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.0279678801467E+21"
+      }
+    },
+    {
+      "id": "24070595235",
+      "receipt_id": "3D1fZ8UoZLx7vG4wZJqQLSSkanZ58kAg3VnevgACYnNV",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "32SjD6WVDxJYZfd72fJ89r3cioYTKEvDBoPaF83xsp5c",
+        "block_height": 194775092,
+        "block_timestamp": 1776658722061106200
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "64HfrFQPtvVuu5Edfd588Df1ePXtBCHkQAXjW1F3aZBo",
+      "included_in_block_hash": "GpGzK88Cw9s3kukHAWS4BCgKRhUrHaRkm8tms4w4NJVg",
+      "block_timestamp": "1776658719756554176",
+      "block": {
+        "block_height": 194775088
+      },
+      "receipt_conversion_tokens_burnt": "31245311031000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.724004849049364E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8377308768425E+21"
+      }
+    },
+    {
+      "id": "24070006271",
+      "receipt_id": "CL14xEZrktfzaZYa3eYTGwMi2ecYtkyYVUdz4Joc3j6s",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "3R6cq7L8tXfF3BgZajRwXWDRE5emwvWZLGjERsdfPq7L",
+        "block_height": 194751192,
+        "block_timestamp": 1776644294260526600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "DpZKk9euMLXx2YTo31WmHVWP5BsNooUCiu3i18p1x7UT",
+      "included_in_block_hash": "GdBD52cXuJ2kbJg17pRbxavidcDkoQRic67eac6V1CsL",
+      "block_timestamp": "1776644291777973264",
+      "block": {
+        "block_height": 194751188
+      },
+      "receipt_conversion_tokens_burnt": "31248217745200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.367413179507182E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9110352554697E+21"
+      }
+    },
+    {
+      "id": "24069740545",
+      "receipt_id": "E5zuiYURfyTWcwoKT4grxJGpGTYYWSUNjN32B5XT5BW6",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "47jhHSsDMZAkXZ8WRAeMVDoM3UXGJksUw4A9zio1vHzu",
+        "block_height": 194739192,
+        "block_timestamp": 1776637228242861600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "XeQwS8PbP7ru3RucSsX3MpUjDFtgQfDUKnxhbayoo75",
+      "included_in_block_hash": "6wcqak8GS36Lks6CNdzjbTPA2xvh4mfhy6GgzD8RKPX",
+      "block_timestamp": "1776637225906772864",
+      "block": {
+        "block_height": 194739188
+      },
+      "receipt_conversion_tokens_burnt": "31226529185400000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.570774015380832E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8320790226245E+21"
+      }
+    },
+    {
+      "id": "24069203899",
+      "receipt_id": "EixvUNezDRFbZGMazRv2VCCTgP1o2BMABniEr1fNCcsD",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "7fPV3F9zEeKqpprX8Q3ZTwnwucp84DBAEkCezRABYMq7",
+        "block_height": 194719559,
+        "block_timestamp": 1776625219860268300
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "7U44RjacEL62pAfXHeJQgQk8ohqcQ6Wn73vtHbofgRwD",
+      "included_in_block_hash": "CL8yhQSkqGtV8KUodnhXJC5HZ4KapFEZHU1JVTQnJTyK",
+      "block_timestamp": "1776625217543709063",
+      "block": {
+        "block_height": 194719555
+      },
+      "receipt_conversion_tokens_burnt": "31367840214200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "9.070848003431956E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.035620957334E+21"
+      }
+    },
+    {
+      "id": "24068826708",
+      "receipt_id": "6QYxio3agJGCdKrqqUj16sxAGfmyBCiRQiWMMwjPAYha",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "2kjc7GAZFMCi1hHyzYCdXYpFv7eJdz52JmmksrD9q991",
+        "block_height": 194707459,
+        "block_timestamp": 1776618021403774500
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2wPDswE7LE6YA3ccCGGoZrhjGMiEGD3GtaX2JnaFrdXz",
+      "included_in_block_hash": "DGfePo8UGqS4X8s4bXLH4JZeAVPvK8qoVJ6sWazEApuq",
+      "block_timestamp": "1776618019005825570",
+      "block": {
+        "block_height": 194707455
+      },
+      "receipt_conversion_tokens_burnt": "31377901917200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.6865289491432385E+27",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.1137795622443E+21"
+      }
+    },
+    {
+      "id": "24068590467",
+      "receipt_id": "EDKT57yRuZNraCmFcJgtJMRwacbMqTjX7dko5RuWS6F9",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "CHhHf2BHLuyWKVWjJA19SQJarVGD58u57xP9tv4PWyzG",
+        "block_height": 194699374,
+        "block_timestamp": 1776613247108739800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "Ej2gcXfGdUmKQjUP8S5yGwmX8iw3TSNxEaPEtQmPmp4K",
+      "included_in_block_hash": "G6oLnhDSWsDdwPgKpqpWUDsyw18oe8rdD4qz7RLteSBi",
+      "block_timestamp": "1776613244774421054",
+      "block": {
+        "block_height": 194699370
+      },
+      "receipt_conversion_tokens_burnt": "31243745877200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.505962932828654E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8383172577906E+21"
+      }
+    },
+    {
+      "id": "24068222565",
+      "receipt_id": "9xHGw3sPpXbmaNoCa3TSNVJsxmeKQNcnk7zoHmNPXU7C",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "2engC744Ev9F8BkgApedSd4mk9E13imxLsLyKdzoCx5E",
+        "block_height": 194686547,
+        "block_timestamp": 1776605670020364800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "67ueW7wEXVAzBaw58uZQG5Q7UmUxDLpbdoretQfNnCro",
+      "included_in_block_hash": "CUpbEnf9EKM38t9pgE7CWy8d2knb5CucgKzgxvaPKCN6",
+      "block_timestamp": "1776605667594295786",
+      "block": {
+        "block_height": 194686543
+      },
+      "receipt_conversion_tokens_burnt": "31248441338600000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.805910098343258E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.7980079605688E+21"
+      }
+    },
+    {
+      "id": "24068105550",
+      "receipt_id": "9yBSVQUx6UXvUprLg2MKZBrGausbzSwGe8fA6zDDvDR9",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "J4A72XMP3GXarWrshz13DdQrjADucvWwjPdCQs9AHGhE",
+        "block_height": 194682498,
+        "block_timestamp": 1776603268711611400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "5tzmQPzBg7DnsAgtB62WYBfLs72zHnrEKWSCa5vybKLH",
+      "included_in_block_hash": "2e7z94ErqwCBNYePh1e3m5RnfxRV7CbLkbiZaeTDXNRX",
+      "block_timestamp": "1776603266301069857",
+      "block": {
+        "block_height": 194682494
+      },
+      "receipt_conversion_tokens_burnt": "31362026785800000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.873073193780104E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9598008770893E+21"
+      }
+    },
+    {
+      "id": "24067894120",
+      "receipt_id": "Hmp6dMksb9WvAbsPm9BTxA6BkQiWTVzkcHMFUh7Cya3L",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "Q2w6ZsXuwGHXwRqKdKXw1gL61XJMjG1AHZ8G7qL7Wpk",
+        "block_height": 194674342,
+        "block_timestamp": 1776598453468521200
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "3qFDRYyKc32ZqmyfVg5VNZruAE2HaSwG6W9EeH41EsWE",
+      "included_in_block_hash": "8iKzHhGrn1qdBZqsyhypWzvnMv6DxyR652iNVwCmPy6r",
+      "block_timestamp": "1776598451092905147",
+      "block": {
+        "block_height": 194674338
+      },
+      "receipt_conversion_tokens_burnt": "31244640250800000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "9.867223138324565E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9087695286119E+21"
+      }
+    },
+    {
+      "id": "24067724320",
+      "receipt_id": "7YXicgDsTsV6pJnSWZzwRJvUKdNXJHwwKzpheUfmsDEc",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "nNkDuz6sLVBEcH8MHEKiMfxJEkNVabtYfjEhXngpkrx",
+        "block_height": 194666456,
+        "block_timestamp": 1776593662493023500
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "8fVof1i57pNP7JnbMz33rH1xzM9YZzB7TdcrKDgAN5SW",
+      "included_in_block_hash": "BGTMrZqq4wrxe9FZHFMKhyoqS5bZVCxZzQA8hpD2eKMg",
+      "block_timestamp": "1776593660510778738",
+      "block": {
+        "block_height": 194666452
+      },
+      "receipt_conversion_tokens_burnt": "31225187625000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.082538537252041E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8311641497238E+21"
+      }
+    },
+    {
+      "id": "24067469878",
+      "receipt_id": "3QxCGwe559g7agWLxwJNQ2QNwThHbMvQtUJ412sDDe15",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "MotGzXytDHDro8SbsdgjbtdPDYEM8WA58DyAqLoZ5Pp",
+        "block_height": 194654757,
+        "block_timestamp": 1776586494726341600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "5qjHrShrVTfLXBrev8e6GG87CkQZSJiZAR2b92ttED1d",
+      "included_in_block_hash": "GtbZNWMDqSiCbQPFPnniyRaozdw8fGC33wAXZjZLKjyy",
+      "block_timestamp": "1776586492205989682",
+      "block": {
+        "block_height": 194654753
+      },
+      "receipt_conversion_tokens_burnt": "31227870745800000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.817116706854124E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8322173030447E+21"
+      }
+    },
+    {
+      "id": "24066234166",
+      "receipt_id": "3Rhi9hkRRKDa5tWFsvbvbaeqLkBEHt2dHH8KjLvJLcig",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "3zKCSc9Emx9VrFHjvut42jo6da9sgaA3TVZehk3HwqeG",
+        "block_height": 194599644,
+        "block_timestamp": 1776552918422243600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2V2rwMzsJ4yMVL3fSo42RAcGZSU3vtyHSauz5YTVD1rC",
+      "included_in_block_hash": "CbF9d7EN82nV6t318rjrTXbuDQbhJZ7cCNkQmVB4uYcT",
+      "block_timestamp": "1776552916257792003",
+      "block": {
+        "block_height": 194599640
+      },
+      "receipt_conversion_tokens_burnt": "31245311031000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.456631872014897E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.897469414588E+21"
+      }
+    },
+    {
+      "id": "24065359106",
+      "receipt_id": "DmZXahiHFzzGk4pFXrqKNMELQi4fvktmZqSviFUrTpV4",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "77cm6tPzhWnWPuSsysWCD1bHgdvfRKRtF7nwgqNSxcpL",
+        "block_height": 194567542,
+        "block_timestamp": 1776533702553247000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2qZRoBjtZseYCyXu1k1xUoMw2hETAY53KZ34HgtMFowN",
+      "included_in_block_hash": "BCivxD2VUHgAeEJ8ond2Zp9NXadZT6w8LEotcQ4rRatF",
+      "block_timestamp": "1776533700300955137",
+      "block": {
+        "block_height": 194567538
+      },
+      "receipt_conversion_tokens_burnt": "31247099778200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.1409547214623773E+27",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9169772044738E+21"
+      }
+    },
+    {
+      "id": "24064344342",
+      "receipt_id": "3tkjk7GdrAqyW3EopDyFM1eSBJcnkuDbgnM8n2Eh7zv6",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "81jXKk1iN6xy7LXWFEg9xTfb3CxV45DQKtVRFqkD7S7g",
+        "block_height": 194526977,
+        "block_timestamp": 1776509715497641200
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "9KV4qu5dszvS1BmR3Bjt7kRN8QN23mNbnJZB64mHhaMr",
+      "included_in_block_hash": "CLpZFthY2MZsHrnbtR8AaR1kQJKjPfro9BRBkg1aNL8K",
+      "block_timestamp": "1776509713023066027",
+      "block": {
+        "block_height": 194526973
+      },
+      "receipt_conversion_tokens_burnt": "31243522283800000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.587839428016569E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.7709116721917E+21"
+      }
+    },
+    {
+      "id": "24064036716",
+      "receipt_id": "6d2qHJbG7LEPWPfQHn8UQrTpkJf4jW6mK5Mj5cwbcbPZ",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "3See6tC1QyHM2AZXdtggcF4LPYggsjvh4ZbiYuxkTMKp",
+        "block_height": 194510774,
+        "block_timestamp": 1776500100080601600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "H1FdKJGC6hsLaZELioFGURJz8XMJyG34ZCVodt3XvYDZ",
+      "included_in_block_hash": "EtpWPdJSbT73UjBELZwLnWPx3MmREkoLBghgsF6c8Sq3",
+      "block_timestamp": "1776500097902075710",
+      "block": {
+        "block_height": 194510770
+      },
+      "receipt_conversion_tokens_burnt": "31379914257800000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.157928053003518E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.1106733784391E+21"
+      }
+    },
+    {
+      "id": "24062986645",
+      "receipt_id": "GDp88wUBBdBsRuXRNVDjz9dnPwuy16n3srbsWtG4E38Q",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "F1A1tyZHmbWbT4H58UFzRowGcy5fjKQs188ZDKgsCghS",
+        "block_height": 194459085,
+        "block_timestamp": 1776468818438666200
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "DXGi2a14FDnE94U6xiZPdRFp7WUdnr7TFCysobF4QU6W",
+      "included_in_block_hash": "9ecMMTP6kZ1e4xJKAFQENnLYXuMN3MMkvXosmZ2MTAZv",
+      "block_timestamp": "1776468816003643158",
+      "block": {
+        "block_height": 194459081
+      },
+      "receipt_conversion_tokens_burnt": "31382150191800000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.39434052623054E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.0186476923083E+21"
+      }
+    },
+    {
+      "id": "24062744938",
+      "receipt_id": "FarxAbaHgVa1ssVHMUhdFf6cSiTWaofEUWRsx37iawin",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "686iSReABhZMUEYCMiQ6aHJgCFLwYz9Bytp3Lmq7CjuL",
+        "block_height": 194447394,
+        "block_timestamp": 1776461716197874000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "Ds4SVFDeNUoZSMc8wjR2DjbaszyUn2PYgjtsRtnuqbW5",
+      "included_in_block_hash": "EEm3c1AbvhgXABB9ysPMTWzLaYkPm2A3k8BNDRux1FVm",
+      "block_timestamp": "1776461711934749250",
+      "block": {
+        "block_height": 194447389
+      },
+      "receipt_conversion_tokens_burnt": "31230777460000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.201133294016974E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.7615465504107E+21"
+      }
+    },
+    {
+      "id": "24062461942",
+      "receipt_id": "9uTbsxvcEyCh2vdyUTdZpjpFJ5gwrEpynStwma71aHw",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "CevhCtaUR2D9FbAHYQdzkUV9DdT9Mq2osfr4cPamQEQq",
+        "block_height": 194435562,
+        "block_timestamp": 1776454489612399000
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "J737rfSGak4mpmgc1QRUjtBcePk18sZdDPXTs2H2E3dN",
+      "included_in_block_hash": "ANLoSFTmdsxrfzErAjrrHCndCmMYYiTVksV3K5rX1nXM",
+      "block_timestamp": "1776454486837909525",
+      "block": {
+        "block_height": 194435558
+      },
+      "receipt_conversion_tokens_burnt": "31226529185400000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "9.180305627207376E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.7599422000794E+21"
+      }
+    },
+    {
+      "id": "24062257196",
+      "receipt_id": "HSqkryr91yxUAELLDKFetjrZk5C4MDUei1zxpRMoxphe",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "DMjrQkG6dUsN15Xdk1VAKuc67GueL1tdhbJdw6uyNjaT",
+        "block_height": 194427784,
+        "block_timestamp": 1776449701583804400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "6W657gZYP5jkDQVavPojJV8YM8hgBkYmofRFb5Ke8KdF",
+      "included_in_block_hash": "56k1Qax2ekhJBTWNAV4DuNPYtCkbhBKNEW7gK56YjWmb",
+      "block_timestamp": "1776449699168948248",
+      "block": {
+        "block_height": 194427780
+      },
+      "receipt_conversion_tokens_burnt": "31247323371600000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.615409430617965E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9116826052204E+21"
+      }
+    },
+    {
+      "id": "24061907398",
+      "receipt_id": "3meisV8h7y4Bb9cGDXZonryvRmtKE8AvxVf62E8xz8zi",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "6pLRiGzxrzBYArw6weCJYaHKTMXnkwSoyDS1UWjdgLMw",
+        "block_height": 194416218,
+        "block_timestamp": 1776442620710405600
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "2GEyK4oyudrmKnn2kagwDDSbwRHz7SzyQ98qw91qZory",
+      "included_in_block_hash": "qyXx8kLjfKmAr9TyafXTie9fjfVtEQPum8Pf8RCYtmG",
+      "block_timestamp": "1776442618429206196",
+      "block": {
+        "block_height": 194416214
+      },
+      "receipt_conversion_tokens_burnt": "31390423147600000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.452719417754454E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.0474024429212E+21"
+      }
+    },
+    {
+      "id": "24061903292",
+      "receipt_id": "CJ15zad4bGjiHmnaeLoH3Y5eqUhMCc8fQnhnHqUw9bG",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "GN4uHDniYvEZatnR8gofg3srPS95pxCbHddg9mPwCJwg",
+        "block_height": 194416074,
+        "block_timestamp": 1776442532915721700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "6TkGvKey34pC1ZGZmtNynNiN4YpLs68s4P9qZ61aYfR2",
+      "included_in_block_hash": "BB78NDAC9jWZWJ3gMoZMwQQMNqsQa2kskYy54hKVaEte",
+      "block_timestamp": "1776442530487933576",
+      "block": {
+        "block_height": 194416070
+      },
+      "receipt_conversion_tokens_burnt": "31228541526000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.505775519874302E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8283783032768E+21"
+      }
+    },
+    {
+      "id": "24061336493",
+      "receipt_id": "658a5F8hELyXBiSpd5GngVBg3Wt2rpcukwNf2CSPQF97",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "4ZksmyUZBrNdk5EZH92vYJ4E3rZBsSTZAH7rG5u1fGCe",
+        "block_height": 194394753,
+        "block_timestamp": 1776429862912825300
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "6ephkagFuEXgdSHwMcQQxBT5dhGiAuY1NP2SG4zTVHNZ",
+      "included_in_block_hash": "J3yLMz67TLqU4kGJyUPueQvbgkdBroQEkjsCfMKHKVR2",
+      "block_timestamp": "1776429860650976087",
+      "block": {
+        "block_height": 194394749
+      },
+      "receipt_conversion_tokens_burnt": "31224740438200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "9.949209023033654E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.8316050768254E+21"
+      }
+    },
+    {
+      "id": "24061334402",
+      "receipt_id": "BdQhxzNBKq1fAYEen3SHD2AssPWRdSjfZJxEZss6Wr9w",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "AKDYmNW2zYjrjaj8zobDh9Nr4mX6ZzXePFCPcZ3oW22P",
+        "block_height": 194394623,
+        "block_timestamp": 1776429784953368800
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "DkK5HcjhziTxrJonnTEsZMai5Zc8YXjmWTdSxHZ9kN88",
+      "included_in_block_hash": "4mzePQk785wWEs3FgB1dksdz1VSL8Q6Z9keKJXDXpFCi",
+      "block_timestamp": "1776429782421306586",
+      "block": {
+        "block_height": 194394619
+      },
+      "receipt_conversion_tokens_burnt": "30940106040000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.789946371615245E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.1052624853413E+21"
+      }
+    },
+    {
+      "id": "24056757052",
+      "receipt_id": "4rAj1B777yeftNiAWphujfm9B1zuyiWvxkhTKMyJe4HU",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "6423pEufyZmdSz2a3XmjuuRGRKSkDj3gNxEoB8iVQZpb",
+        "block_height": 194220091,
+        "block_timestamp": 1776323975853128700
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "GpMAj1gvau4JESo9nmwP7Ea7rkKrYTvo8fDHmXepBLce",
+      "included_in_block_hash": "8s9ztX8ZU85y23mQhhcnGutvrTsXbXctKR7cAEPf1xSZ",
+      "block_timestamp": "1776323973584372195",
+      "block": {
+        "block_height": 194220087
+      },
+      "receipt_conversion_tokens_burnt": "31247546965000000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "8.549622315823849E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.9167007970775E+21"
+      }
+    },
+    {
+      "id": "24056274427",
+      "receipt_id": "5sP5dZo7e2Kip9BX9aRjbJJ1mQKoCe6WXp2XFq3irZe8",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "4z8JB1MfssTfQEAoUPHBGX2AEfbbvoTSr8EVVK95dVS",
+        "block_height": 194195834,
+        "block_timestamp": 1776309529789925400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "5Tn12HF8nG3BiHAwfUU29igvkiVo7EwJJvo22SYbpX5H",
+      "included_in_block_hash": "6sW4qkkHqG9ZhSxUwr2TKMC7y57V6kn1CT6eHbwjUL56",
+      "block_timestamp": "1776309527462815479",
+      "block": {
+        "block_height": 194195830
+      },
+      "receipt_conversion_tokens_burnt": "31346598841200000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "7.190320799068852E+26",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "2.0482778373655E+21"
+      }
+    },
+    {
+      "id": "24056050404",
+      "receipt_id": "AgSUz7iBxTQQWkUCGA2RHtdL4VxCUwEqeJQa1yE7oFMz",
+      "predecessor_account_id": "intents.near",
+      "receiver_account_id": "1csfundsadmin.sputnik-dao.near",
+      "receipt_kind": "ACTION",
+      "receipt_block": {
+        "block_hash": "45w4H8pAVA1LfzWaDgLDMKWrp7x1s3PXRtQ8t31uaXch",
+        "block_height": 194183625,
+        "block_timestamp": 1776302289699556400
+      },
+      "receipt_outcome": {
+        "gas_burnt": 223182562500,
+        "tokens_burnt": 22318256250000000000,
+        "executor_account_id": "1csfundsadmin.sputnik-dao.near",
+        "status": true
+      },
+      "transaction_hash": "G3eg1faqFXGkEWuvuFNYAyHkm25jNiz6dt6U8vmiiJ8G",
+      "included_in_block_hash": "6C4Z896wjB5EjLHtkJ47N3mEmrfmWyewE1Kaw2HpzrKA",
+      "block_timestamp": "1776302287134628218",
+      "block": {
+        "block_height": 194183621
+      },
+      "receipt_conversion_tokens_burnt": "30940553226800000000",
+      "actions": [
+        {
+          "action": "TRANSFER",
+          "method": null,
+          "deposit": "1.2210108877909233E+27",
+          "fee": 22318256250000000000,
+          "args": null
+        }
+      ],
+      "actions_agg": {
+        "deposit": 0
+      },
+      "outcomes": {
+        "status": true
+      },
+      "outcomes_agg": {
+        "transaction_fee": "1.1504685168023E+21"
+      }
+    }
+  ]
+}

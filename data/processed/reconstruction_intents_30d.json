@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-11-10T15:54:06Z",
-  "method": "intents.near -> revenue-wallet TRANSFER receipts via NEARBlocks indexer API; USD at daily NEAR close",
+  "generated_at_utc": "2026-11-10T19:33:48Z",
+  "method": "intents.near -> revenue-wallet TRANSFER receipts via NEARBlocks indexer API; USD at daily NEAR close. ASSEMBLED from the fresh per-wallet checkpoints (data/raw/reconstruction_intents_receipts_<wallet>.json, generated 2026-11-10T19:25-19:27Z): the runner (src/reconstruct_intents.py --days 30) completed receipt enumeration for all three wallets but ended silently before writing output (no traceback; cause not determinable, possibly host memory pressure from a concurrent job). Assembly applies the script's identical filter + CoinGecko daily-close pricing to the checkpoint receipts; totals cross-checked against the runner's own per-wallet stdout lines. Supersedes the 2026-11-10T15:54:06Z run.",
   "window": {
     "start": "2026-10-12",
     "end": "2026-11-10",
@@ -16,34 +16,30 @@
     "fefundsadmin.sputnik-dao.near": {
       "receipts_scanned": 400,
       "pages": 4,
-      "oldest_receipt_date": "2026-10-08",
-      "sweeps_in_window": 334,
-      "sweeps_total_near": "118505.04144130597047",
-      "non_intents_receipts_in_window": 0
+      "sweeps_in_window": 337,
+      "sweeps_total_near": "119767.51947839790447"
     },
     "buybacks.multisignature.near": {
       "receipts_scanned": 800,
       "pages": 8,
-      "oldest_receipt_date": "2026-10-11",
-      "sweeps_in_window": 780,
-      "sweeps_total_near": "283017.88903185631787",
-      "non_intents_receipts_in_window": 1
+      "sweeps_in_window": 788,
+      "sweeps_total_near": "286720.84479588684184"
     },
     "1csfundsadmin.sputnik-dao.near": {
       "receipts_scanned": 100,
       "pages": 1,
-      "oldest_receipt_date": "2026-04-16",
       "sweeps_in_window": 0,
       "sweeps_total_near": "0",
-      "non_intents_receipts_in_window": 0
+      "note": "no activity since 2026-09-26; page 1 oldest receipt 2026-04-16"
     }
   },
   "duplicate_tx_hashes": 0,
+  "duplicate_receipts_removed": 0,
   "totals": {
-    "sweeps": 1114,
-    "near": "401522.93047316228834",
-    "usd": "1790278.580321465453480408321",
-    "usd_at_daily_mean_price": "1799321.707345444364907354921",
+    "sweeps": 1125,
+    "near": "406488.36427428474631",
+    "usd": "1807929.888712405785297322746",
+    "usd_at_daily_mean_price": "1817087.647420618419099834839",
     "price_source": "CoinGecko /coins/near/market_chart days=35 (daily close; mean shown as sensitivity)",
     "missing_price_days": []
   },
@@ -281,73 +277,53 @@
       "sweeps": 36
     },
     "2026-11-10": {
-      "near": "8759.62481064786829",
-      "usd": "31249.47637006110969399531814",
-      "usd_at_daily_mean_price": "31710.07258245070266484840716",
-      "price_close": 3.567444616129612,
-      "price_mean": 3.620026344496529,
-      "sweeps": 20
+      "near": "13725.05861177032626",
+      "usd": "48900.78476100144151090974351",
+      "usd_at_daily_mean_price": "49476.01265762475685732832511",
+      "price_close": 3.5628834924657546,
+      "price_mean": 3.6047942713479673,
+      "sweeps": 31
     }
   },
   "comparisons": {
     "defillama": {
       "fees_total30d_headline_usd": 5619218,
       "fees_total7d_headline_usd": 1342197,
-      "fees_total24h_headline_usd": 57866,
       "fees_series_sum_window_usd": 5456771.0,
       "revenue_total30d_headline_usd": 1838057,
       "revenue_total7d_headline_usd": 372840,
-      "revenue_total24h_headline_usd": 58357,
       "revenue_series_sum_window_usd": 1756771.0,
-      "note": "headline totals are DefiLlama trailing totals at fetch time; series sums cover exactly the reconstruction window dates"
+      "note": "fetched 2026-11-10 ~19:24 UTC; unchanged vs the 15:54 UTC run; headline totals are the Oct 11-Nov 9 sums (trailing 30d ending yesterday); series sums cover exactly Oct 12-Nov 10 (Nov 10 has no point yet)"
     },
     "revenue_near_org": {
       "extraction_method": "SSR HTML (RSC payload) parse, no browser",
-      "net_revenue_30d_usd": 1970000.0,
+      "fetched_at_utc": "2026-11-10T19:24:00Z",
+      "net_revenue_30d_usd": 2010000.0,
       "gross_fees_30d_usd_dashboard": 5460000.0,
+      "capture_rate_30d_from_cards": 0.3681,
       "capture_split_by_window": {
-        "all_time": {
-          "pp_fe": 0.11962031295832648,
-          "pp_b2b": 0.052603531453343406,
-          "pp_qi": 0.01907572410843653
-        },
-        "ytd": {
-          "pp_fe": 0.13307011723295267,
-          "pp_b2b": 0.07123537973656975,
-          "pp_qi": 0.025832228617954266
-        },
         "d30": {
-          "pp_fe": 0.2151111929937004,
-          "pp_b2b": 0.10957308305702225,
-          "pp_qi": 0.03668885003283669
+          "pp_fe": 0.2192521522659781,
+          "pp_b2b": 0.11034099785638063,
+          "pp_qi": 0.038296230684212
         },
         "d7": {
-          "pp_fe": 0.18844669721669832,
-          "pp_b2b": 0.1037191082933421,
-          "pp_qi": 0.04153338326235555
+          "pp_fe": 0.20761482843912457,
+          "pp_b2b": 0.10727371742468172,
+          "pp_qi": 0.048973804967591045
         }
       },
       "capture_rate_by_window": {
-        "all_time": 0.1913,
-        "ytd": 0.2301,
-        "d30": 0.3614,
-        "d7": 0.3337
+        "d30": 0.3679,
+        "d7": 0.3639
       },
       "revenue_wallets_all_time_near": {
-        "fefundsadmin.sputnik-dao.near": {
-          "near_all_time": 1994013.6240257893,
-          "share_pct": 46.6
-        },
-        "buybacks.multisignature.near": {
-          "near_all_time": 1730368.02308756,
-          "share_pct": 40.4
-        },
-        "1csfundsadmin.sputnik-dao.near": {
-          "near_all_time": 555348.272928576,
-          "share_pct": 13.0
-        }
+        "fefundsadmin.sputnik-dao.near": 1994013.6,
+        "buybacks.multisignature.near": 1730368.0,
+        "1csfundsadmin.sputnik-dao.near": 555348.3
       },
-      "revenue_wallets_total_near": 4279729.92
+      "revenue_wallets_total_near": 4279729.9,
+      "note": "30D net rose $1.97M -> $2.01M between the 15:54 and 19:24 UTC fetches while the wallet table did not move at all (see docs/RECONCILIATION.md \u00a78)"
     }
   },
   "archival_rpc_verification": [
@@ -400,7 +376,23 @@
       "nearblocks_deposit_yocto": "3.299824056443909E+26",
       "relative_difference": "4.267351960326967038067921572E-17",
       "verified": true
+    },
+    {
+      "tx_hash": "Fe2qF1Yc9CLWww2VBWhvErRiAaj2EUzMqSiaRQj7poCD",
+      "wallet": "fefundsadmin.sputnik-dao.near",
+      "date": "2026-11-10",
+      "verified": true,
+      "note": "new sweep after the 15:54 UTC run cutoff; verified 2026-11-10 ~19:35 UTC, FINAL, deposit match"
+    },
+    {
+      "tx_hash": "6mWrPmqp3JkSAzzb6F47yznMsNQ6u61dSvDuPYYUDX6c",
+      "wallet": "fefundsadmin.sputnik-dao.near",
+      "date": "2026-11-10",
+      "verified": true,
+      "note": "new sweep after the 15:54 UTC run cutoff; verified 2026-11-10 ~19:35 UTC, FINAL, deposit match"
     }
   ],
-  "errors": {}
+  "errors": {
+    "runner_note": "src/reconstruct_intents.py --days 30 (started 2026-11-10T19:24Z) enumerated all three wallets but ended silently after the 1cs checkpoint; this file was assembled from its checkpoints (see method). No comparison source failed."
+  }
 }

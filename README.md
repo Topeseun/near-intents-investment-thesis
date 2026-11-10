@@ -52,16 +52,16 @@ each day's NEAR close, with sampled sweeps re-verified against the public
 archival RPC. Full method, results and reconciliation:
 [`docs/RECONCILIATION.md`](docs/RECONCILIATION.md).
 
-Headline, 30d window 2026-10-12 → 2026-11-10 (run 2026-11-10T15:54Z):
-**1,114 sweeps, 401,523 NEAR, $1,790,279** — 97.4% of DefiLlama's 30d
-revenue ($1,838,057) and 101.9% of its daily-series sum over the same dates
-($1,756,771), but 90.9% of revenue.near.org's displayed 30D net revenue
-($1.97M). The implied capture rate is **~32–33%** (vs 35.97% from
-revenue.near.org alone); window shifts (±2 days) and price method (daily
-mean vs close, +0.53%) do not explain the gap. No thesis number has been
-changed on this evidence — see `docs/RECONCILIATION.md` §5 for the
-sensitivity (R0 ~$21.9M/yr and DCF ~$0.38/token at 32.8% capture, same
-conclusion). Reproduce:
+Headline, 30d window 2026-10-12 → 2026-11-10 (fresh run 2026-11-10 ~19:30 UTC):
+**1,125 sweeps, 406,488 NEAR, $1,807,930** — 98.4% of DefiLlama's 30d
+revenue ($1,838,057) and 102.9% of its daily-series sum over the same dates
+($1,756,771), but 90.0% of revenue.near.org's displayed 30D net revenue
+($2.01M). The gap is decomposed in `docs/RECONCILIATION.md` §8: it is the
+pp_qi (quote-improvement) leg, counted in the dashboard's net revenue but
+not received in the revenue wallets. The cash capture rate is **~32.8%**
+(vs 35.97% from revenue.near.org alone). No thesis number has been changed
+on this evidence — see `docs/RECONCILIATION.md` §8.6 for the sensitivity
+(R0 ~$21.9M/yr and DCF ~$0.38/token at 32.8% capture, same conclusion). Reproduce:
 
 ```bash
 python3 src/reconstruct_intents.py [--days 30] [--all-time]

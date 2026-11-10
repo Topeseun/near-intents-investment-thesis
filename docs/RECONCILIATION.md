@@ -2,7 +2,11 @@
 
 **Status: 30-day window RECONSTRUCTED and reconciled (2026-11-10); all-time
 census COMPLETE (§6) — 5,188 sweeps, 3,011,961.80 NEAR, reconciled to
-100.06% of revenue.near.org's wallet totals.**
+100.06% of revenue.near.org's wallet totals. GAP DECOMPOSED (§8, fresh
+run 2026-11-10 ~19:30 UTC): the ~9–11% gap vs revenue.near.org's 30D net
+is the pp_qi (quote-improvement) leg — counted in the dashboard's net
+revenue but not received in the revenue wallets. Cash capture is ~32.8%
+(30D) / ~31.5% (7D); thesis numbers unchanged, conclusion unchanged.**
 Reproduce: `python3 src/reconstruct_intents.py [--days 30] [--all-time]`
 Output: `data/processed/reconstruction_intents.json` (+ `--all-time` writes
 `data/processed/reconstruction_intents_alltime.json`); raw sweeps cached in
@@ -73,6 +77,19 @@ UTC are not in this run).
   price-independent fact.
 - **7-day check (Nov 4–10): $361,298** (97 sweeps, 97,577.3 NEAR).
 
+- **Fresh re-run (2026-11-10 ~19:30 UTC): 1,125 sweeps, 406,488.36 NEAR,
+  $1,807,930 at daily close** ($1,817,088 at daily mean). The runner
+  enumerated all three wallets but ended silently before writing output
+  (no traceback; cause not determinable); the totals were assembled from
+  its per-wallet checkpoints with the identical filter and pricing — see
+  the method note in `data/processed/reconstruction_intents_30d.json`.
+  The extra 11 sweeps / 4,965 NEAR / $17,651 vs the 15:54 UTC run are
+  late-Nov-10 sweeps (Nov 10 total now 31 sweeps, 13,725.06 NEAR); 2 of
+  them re-verified TRUE on archival RPC. Per wallet: fefundsadmin 337
+  sweeps / 119,767.52 NEAR; buybacks 788 / 286,720.84 NEAR; 1cs 0.
+  Nov 1–10: 303 sweeps, 129,158.14 NEAR, $484,301. Nov 4–10 (7d):
+  219 sweeps, 102,542.71 NEAR, $378,949.
+
 ## 4. Archival RPC verification (5 sampled sweeps)
 
 | Date | Wallet | Tx | Status | Rel. diff. vs NEARBlocks |
@@ -110,22 +127,22 @@ Oct 12 transactions. Do not assume it reaches back 30 days for every method.
 | revenue.near.org gross, displayed ($5,460,000) | 32.8% |
 
 **Reading.** The retained leg is confirmed by two independent routes that
-agree within ~2–3%: the on-chain wallet census ($1.79M) and DefiLlama's
-revenue series ($1.76M series sum / $1.84M headline). revenue.near.org's
-displayed 30D net revenue ($1.97M) sits ~7% above DefiLlama's revenue and
-~10% above the census. The gap is **not** explained by window alignment
-(tested: shifting the window ±2 days moves the census total by at most
-~$35k — Oct 9–11 sweeps total $154,972, and the alternative windows
-Oct 11–Nov 9 / Oct 10–Nov 8 / Oct 9–Nov 7 give $1.77–1.82M) nor by price
-method (daily mean vs close: +0.53%) nor by display rounding ($1.97M is
-3 significant figures, ±$5k). Remaining hypotheses, not distinguishable
-from outside: (a) revenue.near.org values revenue on an **accrual** basis
-(fees earned when swaps settle, before the sweep to the wallets) while
-this census is **cash** basis — with NEAR falling ~30% in-window, valuing
-at the earlier accrual price inflates the USD total; (b) their 30D window
-is defined on a different day boundary or refresh cadence; (c) part of
-the B2B / quote-improvement legs settles through a path other than these
-three wallets (their pp_b2b + pp_qi legs are ~14.6% of gross).
+agree within ~2–3%: the on-chain wallet census ($1.79M at 15:54 UTC,
+$1.81M fresh at ~19:30 UTC) and DefiLlama's revenue series ($1.76M
+series sum / $1.84M headline). revenue.near.org's displayed 30D net
+revenue ($1.97M at 15:54 UTC, $2.01M at 19:24 UTC) sits ~7% above
+DefiLlama's revenue and ~10–11% above the census. The gap is **not**
+explained by window alignment (tested: shifting the window ±2 days moves
+the census total by at most ~$35k — Oct 9–11 sweeps total $154,972, and
+the alternative windows Oct 11–Nov 9 / Oct 10–Nov 8 / Oct 9–Nov 7 give
+$1.77–1.82M) nor by price method (daily mean vs close: +0.53%) nor by
+display rounding ($1.97M is 3 significant figures, ±$5k). **The gap is
+now decomposed — see §8: it is the pp_qi (quote-improvement) leg, which
+the dashboard counts in net revenue but which does not land in the
+revenue wallets.** The earlier hypotheses are resolved there: accrual-vs-
+cash timing is not the driver (the Nov 1–10 same-window test still shows
+the gap), and the B2B leg *does* arrive in the wallets — only pp_qi does
+not.
 
 **What this means for the thesis.** The thesis's capture rate, 35.97%,
 comes from revenue.near.org alone (its 30D net/gross card pair on
@@ -216,19 +233,137 @@ complete. No fourth fee-collector wallet is hiding in the totals.**
   does not block the valuation; it blocks an independent check of the
   *gross* denominator and of the capture mechanisms' split (pp_fe /
   pp_b2b / pp_qi).
-- **Accrual-vs-cash timing.** Matching revenue.near.org's $1.97M exactly
-  needs their window definition and valuation basis, which are not public.
-  A follow-up run could value each sweep at the price at the *swap* time
-  (from the tx's block timestamp, hourly price) instead of the daily close
-  — expected to move the total by ~1%, not 9%.
+- **Accrual-vs-cash timing — RESOLVED, not the driver (§8).** The
+  follow-up gap chase (2026-11-10 ~19:30 UTC) decomposed the gap
+  exactly: it is the pp_qi leg, not timing. The Nov 1–10 same-window
+  test still shows the gap (+14.5% fresh), which a timing difference
+  cannot produce, and valuing sweeps at swap-time prices instead of the
+  daily close would move the total by ~1%, not 9–11%.
 - **Fee-collector census beyond the three wallets.** The census is exactly
   the three wallets revenue.near.org's own table names. A different
   collector wallet would be missed; the all-time cross-check in §6 is the
   test for that.
-- **A note on the existing fetch.** `src/fetch.py`'s wallet-table regex
-  misattributes values across rows: on 2026-11-10 it reported
-  buybacks = 555,348.3 NEAR — that is 1csfundsadmin's value; the true
-  buybacks all-time inflow is 1,730,368.0 NEAR. The reconstruction script
-  parses the unambiguous RSC `nearAmount` JSON objects instead. (The
-  misattributed figure is not used by the model — it only affects the
-  wallet cross-check note — but it should be fixed in `fetch.py`.)
+- **A note on the existing fetch — FIXED 2026-11-10 (commit 478b7ce7).**
+  `src/fetch.py`'s wallet-table regex used to misattribute values across
+  rows: it reported buybacks = 555,348.3 NEAR — that is 1csfundsadmin's
+  value; the true buybacks all-time inflow is 1,730,368.0 NEAR. It now
+  parses the unambiguous RSC `nearAmount` JSON objects instead (same
+  method as this reconstruction script), verified by manual refresh run
+  #2. The misattributed figure was never used by the model.
+
+## 8. Gap decomposition — RESOLVED 2026-11-10 ~19:30 UTC
+
+Fresh re-derivation of **both** sides, same evening: the dashboard
+re-fetched live at ~19:24 UTC, DefiLlama re-fetched live, and the census
+re-run for the same Oct 12–Nov 10 window (1,125 sweeps, 406,488.36 NEAR,
+$1,807,930 at daily close — §3). All figures below are from that fresh
+run unless labelled otherwise.
+
+### 8.1 The dashboard's net revenue is gross × pp-split, not a cash sum
+
+revenue.near.org's 30D net revenue is a **derived** figure: gross fees ×
+the capture-mechanism split (pp_fe + pp_b2b + pp_qi). Evidence:
+
+- The 30D card pair gives the same capture as the pp-split sum:
+  $2.01M / $5.46M = 36.81% vs pp-split d30 sum 36.79%
+  (pp_fe 0.21925 + pp_b2b 0.11034 + pp_qi 0.03830).
+- The 30D net moved **$1.97M → $2.01M (+$40k) between the 15:54 and
+  19:24 UTC fetches while the wallet table did not move at all**
+  (fefundsadmin 1,994,013.6 / buybacks 1,730,368.0 / 1cs 555,348.3 NEAR,
+  identical to 0.1 NEAR). A cash sum of wallet sweeps cannot move while
+  the wallets stand still; a modelled figure can.
+- The dashboard's own daily fees series (`totalFeesSeries`, in the same
+  RSC payload) had only $1,611 of gross fees for Nov 10 at 19:24 UTC —
+  the day is ~99% missing there — yet the 30D net card kept moving. The
+  dashboard's figures lag the chain by hours and are computed on
+  different refresh cadences per component; they are not a real-time
+  cash sum.
+
+### 8.2 The cash census equals pp_fe + pp_b2b — two window-matched tests
+
+The split is published per window, so it can be tested exactly on the
+windows it is defined for, using the gross-fees NEAR totals from the
+dashboard's own daily series (which agrees with DefiLlama's daily fees
+to 0.03% over Oct 12–Nov 9 — the gross denominator is not in dispute).
+
+| Window | Gross (NEAR) | Census (NEAR) | pp_fe+pp_b2b implied | Census vs fe+b2b | Full split implied |
+|---|---|---|---|---|---|
+| 30D, Oct 12–Nov 10 (orig run, like-for-like timing) | 1,222,601 | 401,523 | 402,957 | **−0.36%** | 449,783 |
+| 7D, Nov 4–10 (orig run, like-for-like timing) | 311,153 | 97,577 | 97,976 | **−0.41%** | 113,213 |
+
+Two independent windows, both matching to **under 0.5%**: the wallets
+receive pp_fe + pp_b2b, and essentially nothing else. The full split
+(pp_fe + pp_b2b + pp_qi) overstates the cash by 48,260 NEAR (30D) and
+15,636 NEAR (7D). The residuals (−0.36%, −0.41%; census a touch below
+fe+b2b) are a few hours of unswept accrual plus price/window noise —
+the sign flips between runs (fresh census: +0.87% on 30D), which is
+exactly what timing noise looks like.
+
+### 8.3 Component decomposition of the 30D gap (fresh numbers)
+
+| Component | $ | Share of gap | Verdict |
+|---|---|---|---|
+| Dashboard 30D net revenue (19:24 UTC) | $2,010,000 | — | Modelled: gross × 36.79% split |
+| Cash census, 1,125 sweeps (19:30 UTC) | $1,807,930 | — | On-chain receipts, 7/7 archival-verified |
+| **Gap** | **$202,070** | 100% | Census = 90.0% of dashboard |
+| of which: pp_qi leg (0.03830 × $5.46M gross) | ~$209,000 | ~103% | Counted by dashboard, **not in wallets** |
+| of which: residual (timing / price / window noise) | ~−$7,000 | ~−3% | Census slightly above fe+b2b on the fresh run |
+| Price method (daily close vs daily mean) | +$9,158 (+0.51%) | — | Moves census up; not a driver |
+| Window alignment (±2-day shifts) | ≤ $35,000 | — | Tested in §5; not a driver |
+| Missing sweeps | $0 | — | Proven complete (§8.4) |
+| Gross-fee denominator | $0 | — | Dashboard vs DefiLlama agree to 0.03% |
+
+The Nov 1–10 same-window test confirms it is not a window artefact:
+their November revenue is 147,932 NEAR / $564,132 vs the fresh census
+129,158 NEAR / $484,301 — a +14.5% gap in the same ten days
+(+19.1% on the 15:54 UTC census, before the late-Nov-10 sweeps landed).
+The gap is **growing** because pp_qi's share is rising (d30 3.83% →
+d7 4.90%; November's implied pp_qi share is ~4.4%).
+
+### 8.4 The census is complete — no missing sweeps
+
+The fresh per-wallet checkpoints contain **every** receipt to the three
+wallets in the window, tabulated by (predecessor, first action):
+
+| Wallet | Predecessor | Action | Receipts | NEAR |
+|---|---|---|---|---|
+| buybacks | intents.near | TRANSFER | 788 | 286,720.84 |
+| fefundsadmin | intents.near | TRANSFER | 337 | 119,767.52 |
+| buybacks | `52435fe9…` (implicit account) | TRANSFER | 1 | 531.04 |
+
+There is exactly **one** non-`intents.near` receipt in the window: a
+single 531.04 NEAR transfer from an implicit account to buybacks
+(≈$1,900, 0.13% of the census) — correctly excluded by the sweep
+filter; it is not a fee sweep and is immaterial to the gap. No
+fourth fee-collector route, no non-TRANSFER sweep action, no missed
+leg. The all-time cross-check (§6) independently confirms completeness:
+their cumulative accrued revenue is 5,027,785 NEAR vs 4,279,730 NEAR
+ever received by the wallets — a 748,055 NEAR (14.9%) difference on
+their own figures, i.e. the dashboard's accrued revenue has always
+exceeded wallet inflows, by a similar share.
+
+### 8.5 What pp_qi is — and what we cannot determine from outside
+
+pp_qi is the dashboard's quote-improvement mechanism share: the value
+attributed to fills executed at a better price than quoted. The
+dashboard counts it as retained revenue (3.83% of gross in 30D,
+4.90% in 7D). The cash evidence says it does not land in the three
+revenue wallets. From public data alone we **cannot** determine whether
+it settles elsewhere (e.g. to solvers), settles with a long lag, or is
+a paper accrual with no cash counterpart — that needs the Intents
+contracts or the revenue.near.org team. What is determined is the cash
+fact: over two window-matched tests the wallets receive pp_fe + pp_b2b
+to within 0.5%, and pp_qi accounts for the whole ~$202k gap.
+
+### 8.6 What this means for the thesis — numbers unchanged
+
+The thesis keeps its sourced capture rate (35.97%, from
+revenue.near.org's card pair) and its headline numbers (R0 $24.08M/yr,
+base DCF $0.42/token). The cash-verified capture is **~32.8% (30D) /
+~31.5% (7D)**; on a cash basis R0 would be ~$21.9M/yr and the base DCF
+~$0.38/token — the same conclusion (retained revenue supports ~11% of
+the $3.60 price), slightly weaker, and already inside the dashboard's
+sensitivity grid. The 32–36% range is the honest statement of the
+capture rate; the predictions (P1/P2) are defined against
+revenue.near.org's own figures and stand as written. No model input
+was changed on this evidence because the conclusion does not move.
