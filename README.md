@@ -27,6 +27,20 @@ NEAR's base layer barely earns anything — its Intents layer already grossed $5
 
 **The honest framing:** retained revenue alone supports ~12% of the price. No cell in the 27-cell sensitivity grid (capture ≤35% × growth ≤20% at r=12%) reaches $3.60 — the best valid cell is $1.03. The case for NEAR is the *option value* on fee growth (g) and capture (c) rising, which the sensitivity grid makes explicit. This repo does not hide that; the dashboard leads with it. The new daily-activity series adds the bear leg the thesis was missing: base-layer usage has collapsed more than 90% from its peaks even while Intents fees grew — the moat, if there is one, is the Intents product, not base-layer activity.
 
+## Dated predictions
+
+Seven falsifiable predictions, committed 2026-11-10 — see [PREDICTIONS.md](PREDICTIONS.md).
+Each names a numeric threshold, a resolution date (31 Dec 2026 – 28 Feb 2027) and
+the exact public source that decides it (DefiLlama, revenue.near.org, NEARBlocks,
+CoinGecko). They cover the thesis's load-bearing claims: Intents 30d fees
+(≥ $5,578,208 by 31 Dec 2026) and capture rate (≥ 35.97% by 31 Jan 2027), the DCF
+conclusion (value/token still < 25% of price on 28 Feb 2027), Intents volume
+(≥ $3B by 31 Dec 2026), the lead over Chainflip (≥ 1.5× by 31 Jan 2027), base-layer
+usage staying collapsed (< 100,000 active accounts/day, 30d avg, by 28 Feb 2027),
+and price still not tracking fees (|weekly r| < 0.30). **A missed prediction
+counts against this thesis.** The dashboard renders them from
+`data/predictions.json`.
+
 ## What this repo contains
 
 ```
