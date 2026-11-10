@@ -1,0 +1,17 @@
+{
+  "title": "Market-cap / annualised fees (x)",
+  "labels": [
+    "NEAR Intents\ngross",
+    "NEAR Intents\nretained (base)",
+    "Solana",
+    "Avalanche",
+    "Ethereum"
+  ],
+  "values": [
+    70.58030437631028,
+    196.21991764334246,
+    242.03831884711536,
+    963.357302246706,
+    1076.3876310282076
+  ]
+}
