@@ -238,27 +238,6 @@ the best valid cell (35% capture, 10% growth, r=12%) is
 $1.03 — well under the $3.60 price.
 Full 27-cell grid (r = 10/12/15%): <code>data/processed/sensitivity.json</code>.</p>
 
-
-<h2>Dated predictions — score this thesis against reality</h2>
-<p>Seven falsifiable predictions, committed 2026-11-10 (see
-<code>PREDICTIONS.md</code> in the repo root; the commit timestamp is the
-commitment timestamp). Each names its threshold, its resolution date and the
-exact public source that decides it. <strong>A missed prediction counts
-against this thesis</strong> — that is the point: a thesis that cannot be
-wrong is not evidence.</p>
-<div class="tbl-wrap"><table>
-<tr><th>Prediction</th><th>Threshold</th><th>Resolves</th><th>Decided by</th></tr>
-<tr><th scope='row'>P1 · Intents fees recover to their November level</th><td>Trailing-30d gross fees ≥ $5,578,208</td><td>2026-12-31</td><td>DefiLlama summary/fees/near-intents total30d</td></tr><tr><th scope='row'>P2 · The capture rate holds its level</th><td>30d capture rate ≥ 35.97%</td><td>2027-01-31</td><td>revenue.near.org, 30d window</td></tr><tr><th scope='row'>P3 · The DCF gap persists</th><td>DCF value/token < 25% of NEAR price</td><td>2027-02-28</td><td>Re-run src/model.py; CoinGecko price</td></tr><tr><th scope='row'>P4 · Intents volume holds above $3B</th><td>Trailing-30d volume ≥ $3,000,000,000</td><td>2026-12-31</td><td>DefiLlama summary/dexs/near-intents</td></tr><tr><th scope='row'>P5 · NEAR keeps its lead over Chainflip</th><td>NEAR 30d fees ≥ 1.5× Chainflip 30d fees</td><td>2027-01-31</td><td>DefiLlama summary/fees/{near-intents,chainflip}</td></tr><tr><th scope='row'>P6 · Base-layer usage stays collapsed</th><td>30d avg daily active accounts < 100,000/day</td><td>2027-02-28</td><td>NEARBlocks /v1/charts</td></tr><tr><th scope='row'>P7 · The price still does not track Intents fees</th><td>Weekly Pearson |r| < 0.30 (52w, M16 method)</td><td>2026-12-31</td><td>CoinGecko price + DefiLlama fees</td></tr>
-</table></div>
-<p class="note">Baselines (2026-11-10): Intents 30d fees $5,578,208 ·
-capture 36.0% · DCF $0.42 vs $3.60 price · Intents 30d
-volume $3.71B · NEAR/Chainflip 30d
-fees 2.0× · active accounts 30d avg 58,223/day ·
-price-vs-fees weekly r = 0.06.
-Resolve by re-running <code>python3 src/fetch.py &amp;&amp; python3 src/build.py</code>
-on the resolution date and comparing against the thresholds in
-<code>PREDICTIONS.md</code>.</p>
-
 <h2>Capture is rising — the one trend that matters</h2>
 <p>Retained ÷ gross fees by window (revenue.near.org, measured from its
 server-rendered payload, cross-checked against the per-mechanism split):
@@ -319,6 +298,16 @@ last point ($171.06M) vs its /chains headline
 <li><strong>Peer fees undercount.</strong> DefiLlama chain-fee totals can miss
 revenue other methodologies include (notably Solana). Benchmarks rank within
 this dataset only.</li>
+<li><strong>Intents flow is concentrated in one routing provider.</strong>
+<a href="https://github.com/Dare0x/Faultline">Faultline</a> (a fellow
+Investment Thesis entry) measured from NearStats routing data, 30 days to
+8 Nov 2026, that a single provider, SwapKit, carried $260.99M of $765.65M
+observed 1Click volume (34.1%, across 48 apps). An outage or pause at that
+provider is a concentration risk to the Intents flow &mdash; and therefore to
+the fee capture this thesis values: its simulation displaces 10.2% of total
+observed volume even if 70% of SwapKit&rsquo;s flow reroutes. The Oct 1
+service pause is the live precedent: Oct 1&ndash;4 volume ran 31.6% below
+the prior matching week.</li>
 </ul>
 
 <h2>Sources</h2>

@@ -27,49 +27,6 @@ NEAR's base layer barely earns anything — its Intents layer already grossed $5
 
 **The honest framing:** retained revenue alone supports ~12% of the price. No cell in the 27-cell sensitivity grid (capture ≤35% × growth ≤20% at r=12%) reaches $3.60 — the best valid cell is $1.03. The case for NEAR is the *option value* on fee growth (g) and capture (c) rising, which the sensitivity grid makes explicit. This repo does not hide that; the dashboard leads with it. The new daily-activity series adds the bear leg the thesis was missing: base-layer usage has collapsed more than 90% from its peaks even while Intents fees grew — the moat, if there is one, is the Intents product, not base-layer activity.
 
-## Dated predictions
-
-Seven falsifiable predictions, committed 2026-11-10 — see [PREDICTIONS.md](PREDICTIONS.md).
-Each names a numeric threshold, a resolution date (31 Dec 2026 – 28 Feb 2027) and
-the exact public source that decides it (DefiLlama, revenue.near.org, NEARBlocks,
-CoinGecko). They cover the thesis's load-bearing claims: Intents 30d fees
-(≥ $5,578,208 by 31 Dec 2026) and capture rate (≥ 35.97% by 31 Jan 2027), the DCF
-conclusion (value/token still < 25% of price on 28 Feb 2027), Intents volume
-(≥ $3B by 31 Dec 2026), the lead over Chainflip (≥ 1.5× by 31 Jan 2027), base-layer
-usage staying collapsed (< 100,000 active accounts/day, 30d avg, by 28 Feb 2027),
-and price still not tracking fees (|weekly r| < 0.30). **A missed prediction
-counts against this thesis.** The dashboard renders them from
-`data/predictions.json`.
-
-## Independent on-chain revenue check
-
-The capture rate above (35.97%) comes from revenue.near.org, a third-party
-aggregator. `src/reconstruct_intents.py` rebuilds the **retained leg**
-independently from on-chain receipts: every `intents.near` → revenue-wallet
-`TRANSFER` receipt (wallets `fefundsadmin.sputnik-dao.near`,
-`buybacks.multisignature.near`, `1csfundsadmin.sputnik-dao.near`), valued at
-each day's NEAR close, with sampled sweeps re-verified against the public
-archival RPC. Full method, results and reconciliation:
-[`docs/RECONCILIATION.md`](docs/RECONCILIATION.md).
-
-Headline, 30d window 2026-10-12 → 2026-11-10 (fresh run 2026-11-10 ~19:30 UTC):
-**1,125 sweeps, 406,488 NEAR, $1,807,930** — 98.4% of DefiLlama's 30d
-revenue ($1,838,057) and 102.9% of its daily-series sum over the same dates
-($1,756,771), but 90.0% of revenue.near.org's displayed 30D net revenue
-($2.01M). The gap is decomposed in `docs/RECONCILIATION.md` §8: it is the
-pp_qi (quote-improvement) leg, counted in the dashboard's net revenue but
-not received in the revenue wallets. The cash capture rate is **~32.8%**
-(vs 35.97% from revenue.near.org alone). No thesis number has been changed
-on this evidence — see `docs/RECONCILIATION.md` §8.6 for the sensitivity
-(R0 ~$21.9M/yr and DCF ~$0.38/token at 32.8% capture, same conclusion). Reproduce:
-
-```bash
-python3 src/reconstruct_intents.py [--days 30] [--all-time]
-```
-
-Output: `data/processed/reconstruction_intents.json` (raw sweeps cached in
-`data/raw/reconstruction_intents_receipts.json`).
-
 ## What this repo contains
 
 ```
@@ -80,7 +37,6 @@ Output: `data/processed/reconstruction_intents.json` (raw sweeps cached in
 │   ├── charts.py                 # 9 charts → dashboard/assets/*.png (+ .svg twins)
 │   ├── build.py                  # Runs model.py then charts.py (no network)
 │   ├── build_dashboard.py        # Renders dashboard/index.html from data/processed/*.json (no network)
-│   ├── reconstruct_intents.py    # Independent on-chain rebuild of retained Intents revenue (see docs/RECONCILIATION.md)
 │   └── assumptions.yaml          # THE one assumptions file (DCF knobs + scenario grid)
 ├── tests/
 │   └── test_outputs.py           # stdlib-unittest checks (see "Tests" below)
@@ -95,7 +51,6 @@ Output: `data/processed/reconstruction_intents.json` (raw sweeps cached in
 │       ├── chart_01_data.json … chart_09_data.json   # Per-chart numbers
 │       └── BUILD_NOTES.md        # Pipeline/model build notes, gaps, corrections, reproducibility
 ├── docs/                         # GitHub Pages copy of dashboard/index.html + dashboard/assets/*.svg (same content)
-│   └── RECONCILIATION.md         # On-chain revenue reconstruction: method, results, reconciliation
 └── dashboard/
     ├── index.html                # Static dashboard (single page, no server, no external JS/CSS)
     ├── BUILD_NOTES.md            # Dashboard build notes (what was built, how to regenerate, verification)
@@ -173,6 +128,7 @@ All model assumptions live in one file: [`src/assumptions.yaml`](src/assumptions
 - **TVL endpoints disagree.** DefiLlama's NEAR historical-series last point ($171.1M) vs its /chains headline ($365.5M). The auditable series value is used.
 - **Peer fees undercount.** DefiLlama chain-fee totals can miss revenue other methodologies include (notably Solana). Benchmarks rank within this dataset only.
 - **LI.FI dropped from the benchmark.** DefiLlama returns 404 ("Fees for lifi not found").
+- **Intents flow is concentrated in one routing provider.** [Faultline](https://github.com/Dare0x/Faultline) (a fellow Investment Thesis entry) measured from NearStats routing data, 30 days to 8 Nov 2026, that a single provider, SwapKit, carried $260.99M of $765.65M observed 1Click volume (34.1%, across 48 apps). An outage or pause at that provider is a concentration risk to the Intents flow — and therefore to the fee capture this thesis values: its simulation displaces 10.2% of total observed volume even if 70% of SwapKit's flow reroutes. The Oct 1 service pause is the live precedent: Oct 1–4 volume ran 31.6% below the prior matching week.
 
 Full detail: `data/processed/BUILD_NOTES.md`.
 
