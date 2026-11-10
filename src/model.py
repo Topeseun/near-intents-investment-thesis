@@ -734,6 +734,17 @@ def main() -> int:
         amt = acct.get("amount")
         if amt is not None:
             bb_bal = float(amt) / YOCTO
+    # Traced all-time inflow to the buybacks wallet, from the (now correctly
+    # parsed) revenue.near.org wallet table — replaces a hardcoded snapshot
+    # (1,719,605.8 NEAR) that went stale. The comparison is computed live so
+    # the note stays true as both figures move.
+    bb_traced = (revenue.get("revenue_wallets_all_time_near") or {}).get(
+        "buybacks.multisignature.near")
+    bb_traced_str = f"{bb_traced:,.1f} NEAR" if bb_traced is not None else "unavailable"
+    if bb_bal is not None and bb_traced is not None:
+        bb_cmp = "HIGHER than" if bb_bal > bb_traced else "LOWER than"
+    else:
+        bb_cmp = "compared with"
     intents_bal = None
     if intents_acct:
         acct = intents_acct.get("account", {})
@@ -765,8 +776,8 @@ def main() -> int:
         "buyback_wallet_balance_live_near": bb_bal,
         "buyback_wallet_balance_vs_dashboard_note": (
             "Live NEARBlocks balance vs the dashboard's all-time traced inflow "
-            "to buybacks.multisignature.near (1,719,605.8 NEAR). The live balance "
-            "is HIGHER than the traced inflow, so the dashboard wallet table is "
+            f"to buybacks.multisignature.near ({bb_traced_str}). The live balance "
+            f"is {bb_cmp} the traced inflow, so the dashboard wallet table is "
             "partial (or stale) and must not be read as the full buyback total — "
             "the wallet also receives other inflows and spends on buybacks."),
         "intents_account_balance_near": intents_bal,

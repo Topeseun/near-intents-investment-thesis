@@ -215,12 +215,18 @@ def parse_revenue_dashboard(html: str) -> dict:
     out["capture_rate_by_window"] = {
         win: round(sum(v.values()), 4) for win, v in split.items() if len(v) == 3}
     # Wallet breakdown (all-time, static table)
+    # NOTE (2026-11-10): parse the RSC `nearAmount` JSON objects, keyed by
+    # wallet name. The visible-table regex misattributed values across rows:
+    # it reported buybacks = 555,348.3 NEAR, which is 1csfundsadmin's value
+    # (the buybacks row's amount has no decimal, so `([0-9,]+\.[0-9]+)`
+    # skipped it and the non-greedy `.*?` ran into the next row). The
+    # nearAmount objects are unambiguous: "name":"<wallet>","nearAmount":<n>.
     wallets = {}
     for m in re.finditer(
-            r'>(fefundsadmin\.sputnik-dao\.near|buybacks\.multisignature\.near'
-            r'|1csfundsadmin\.sputnik-dao\.near)<.*?([0-9,]+\.[0-9]+)<!-- --> NEAR',
-            u, re.S):
-        wallets[m.group(1)] = float(m.group(2).replace(",", ""))
+            r'"name":"(fefundsadmin\.sputnik-dao\.near|buybacks\.multisignature\.near'
+            r'|1csfundsadmin\.sputnik-dao\.near)","nearAmount":([0-9.]+),"share":([0-9.]+)',
+            u):
+        wallets[m.group(1)] = round(float(m.group(2)), 1)
     out["revenue_wallets_all_time_near"] = wallets
     out["revenue_wallets_total_near"] = round(sum(wallets.values()), 1)
     return out
