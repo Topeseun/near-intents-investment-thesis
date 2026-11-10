@@ -1,0 +1,104 @@
+# Daily auto-refresh for the NEAR Investment Thesis dashboard.
+#
+# What it does (once a day, 06:00 UTC, plus manual runs via workflow_dispatch):
+#   1. Runs the exact reproduce command from the README (all sources are free
+#      and keyless — NEARBlocks, DefiLlama, CoinGecko free tier, NEAR RPC,
+#      revenue.near.org SSR parse; see src/fetch.py):
+#        python3 src/fetch.py && python3 src/build.py && python3 src/build_dashboard.py
+#   2. Syncs the GitHub Pages copy: build_dashboard.py writes
+#      dashboard/index.html only, while Pages serves docs/ — so copy
+#      dashboard/index.html -> docs/index.html and
+#      dashboard/assets/*.svg -> docs/assets/ (tests/test_outputs.py
+#      requires the docs/ mirror to be byte-for-byte).
+#   3. Runs the data-integrity tests as a BLOCKING gate. If the refreshed
+#      data is broken or degraded (a source 429/500, a missing series, bad
+#      arithmetic), the run fails here and nothing is committed — the live
+#      site keeps yesterday's correct data instead of today's broken data.
+#   4. Runs the FULL test suite as information only (continue-on-error).
+#      Two tests are EXPECTED to fail after any refresh:
+#      test_readme_contains_headline_numbers and test_no_hardcoded_dcf_drift
+#      compare data/processed/*.json against README.md, which is a static
+#      snapshot (figures as fetched 2026-11-10). This workflow never edits
+#      README.md, so those two failures do not block the commit of fresh data.
+#   5. Commits any changes under docs/ and data/ (data/raw/ is git-ignored,
+#      so only data/manifest.json + data/processed/*.json are staged) and
+#      pushes to main. No commit when nothing changed.
+#
+# Notes:
+#   - No requirements.txt exists in the repo and no dependency version is
+#     pinned anywhere (README lists requests, pandas, matplotlib, PyYAML,
+#     numpy unpinned), so this workflow installs the same five packages
+#     unpinned. Do not add pins here without also adding them to the repo.
+#   - dashboard/index.html and dashboard/assets/*.svg are regenerated every
+#     run but are NOT committed by this workflow (scope: docs/ + data/ only),
+#     so dashboard/ in the repo lags docs/ by design — docs/ is what Pages
+#     serves. If that drift becomes a problem, widen the `git add` scope.
+#   - The pipeline needs no secrets: every source is public and keyless.
+
+name: Daily refresh
+
+on:
+  schedule:
+    # 06:00 UTC daily — after midnight UTC so the previous day's daily
+    # series are complete, and early enough to leave the day for a manual
+    # re-run if this run fails.
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas matplotlib pyyaml numpy
+
+      - name: Fetch + rebuild model, charts, dashboard
+        run: python3 src/fetch.py && python3 src/build.py && python3 src/build_dashboard.py
+
+      - name: Sync GitHub Pages copy (docs/)
+        run: |
+          mkdir -p docs/assets
+          cp dashboard/index.html docs/index.html
+          cp dashboard/assets/*.svg docs/assets/
+
+      - name: Show fetch summary
+        run: |
+          python3 -c "import json; m = json.load(open('data/manifest.json')); print('fetch completed:', m.get('_fetch_completed_utc')); print('failures:', m.get('_failures'))"
+
+      - name: Test data integrity (blocking gate)
+        run: |
+          python3 -m unittest tests.test_outputs.TestProcessedOutputs tests.test_outputs.TestDashboardAndReadme.test_docs_mirror_dashboard tests.test_outputs.TestDashboardAndReadme.test_all_chart_files_exist tests.test_outputs.TestDashboardAndReadme.test_dashboard_references_all_charts -v
+
+      - name: Run full test suite (informational only)
+        continue-on-error: true
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Commit and push refreshed data + Pages copy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs data
+          if git diff --cached --quiet; then
+            echo "No changes — dashboard already up to date."
+          else
+            git commit -m "chore: daily data refresh ($(date -u +%Y-%m-%d))" -m "Auto-refresh: re-fetched all Tier-1 sources, rebuilt model/charts/dashboard, synced docs/ (GitHub Pages). Data-integrity tests passed; full-suite run is informational (README-number tests are expected to fail until README.md is regenerated)."
+            git push
+          fi
