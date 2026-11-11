@@ -24,6 +24,7 @@ What it checks (no network, no new dependencies):
 
 Nothing here re-fetches: it reads the committed/built outputs only.
 """
+import html
 import json
 import math
 import re
@@ -361,20 +362,27 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertIn("Intents volume", html)
 
     def test_dashboard_renders_predictions(self):
-        html = (REPO / "dashboard" / "index.html").read_text()
-        self.assertIn("Dated predictions", html)
+        html_text = (REPO / "dashboard" / "index.html").read_text()
+        self.assertIn("Dated predictions", html_text)
         committed = json.loads((REPO / "data" / "predictions.json").read_text())
         for p in committed["predictions"]:
-            self.assertIn(p["id"], html, f"{p['id']} missing from dashboard")
-            self.assertIn(p["threshold"], html, f"{p['id']} threshold missing")
-            self.assertIn(p["resolves"], html, f"{p['id']} resolves date missing")
-            self.assertIn(p["title"], html, f"{p['id']} title missing")
+            self.assertIn(p["id"], html_text, f"{p['id']} missing from dashboard")
+            # Thresholds/titles are HTML-escaped when rendered ("<" -> "&lt;").
+            self.assertIn(html.escape(p["threshold"]), html_text,
+                          f"{p['id']} threshold missing")
+            self.assertIn(p["resolves"], html_text, f"{p['id']} resolves date missing")
+            self.assertIn(html.escape(p["title"]), html_text,
+                          f"{p['id']} title missing")
         processed = load_processed("predictions.json")
         for row in processed["predictions"]:
             if row["live_value_display"]:
-                self.assertIn(row["live_value_display"], html,
+                self.assertIn(html.escape(row["live_value_display"]), html_text,
                               f"{row['id']} live value missing")
-            self.assertIn(row["status"], html, f"{row['id']} status missing")
+            self.assertIn(row["status"], html_text, f"{row['id']} status missing")
+        # No raw "<" from a threshold may survive into the rendered HTML.
+        self.assertNotIn("value/token < 25%", html_text)
+        self.assertNotIn("accounts < 100,000", html_text)
+        self.assertNotIn("Pearson |r| < 0.30", html_text)
 
     def test_docs_mirror_dashboard(self):
         docs = REPO / "docs"

@@ -9,6 +9,7 @@ dashboard/index.html. Every number on the page is formatted from those JSONs
 script regenerates a dashboard that always matches the model outputs. Charts
 are the SVGs in dashboard/assets/ (PNG twins are also generated for local viewing).
 """
+from html import escape
 import json
 from pathlib import Path
 
@@ -422,14 +423,17 @@ restore the series.</p>
         for _pr in pred["predictions"]:
             _lv = _pr["live_value_display"] or "—"
             _cls = _ST_CLS.get(_pr["status"], "st-na")
-            _note = (f"<br><span class=\"note\">{_pr['status_reason']}</span>"
+            # Thresholds contain "<" (P3/P6/P7) — escape so the text renders
+            # literally instead of being parsed as a tag open.
+            _note = (f"<br><span class=\"note\">"
+                     f"{escape(_pr['status_reason'])}</span>"
                      if _pr.get("status_reason") else "")
             _rows += (
-                f"<tr><th scope='row'>{_pr['id']}</th>"
-                f"<td>{_pr['title']}</td>"
-                f"<td>{_pr['threshold']}</td>"
-                f"<td>{_pr['resolves']}</td>"
-                f"<td>{_lv}</td>"
+                f"<tr><th scope='row'>{escape(_pr['id'])}</th>"
+                f"<td>{escape(_pr['title'])}</td>"
+                f"<td>{escape(_pr['threshold'])}</td>"
+                f"<td>{escape(_pr['resolves'])}</td>"
+                f"<td>{escape(_lv)}</td>"
                 f"<td class=\"{_cls}\">{_pr['status']}{_note}</td></tr>")
         _c = pred["counts"]
         predictions_section = f"""
