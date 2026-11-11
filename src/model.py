@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Fee-capture DCF + 17 metrics for the NEAR Investment Thesis.
+"""Fee-capture DCF + 18 metrics for the NEAR Investment Thesis.
 
 Reads ONLY:
   - data/raw/* (cached API responses) + data/manifest.json (source + fetched_at)
   - src/assumptions.yaml (labelled assumptions — see that file)
+  - data/predictions.json (the 7 committed predictions, M18)
 
 Implements research-notes §8 exactly:
   R0 = F30 * 12 * c            (annualised retained revenue, USD/yr)
@@ -16,10 +17,11 @@ Growth g must be < discount r; grid cells with g >= r are recorded as
 null with reason "invalid: g >= r" — never silently computed.
 
 Outputs (data/processed/):
-  metrics.json       M1-M17 + live snapshot, each with source + fetched_at
+  metrics.json       M1-M18 + live snapshot, each with source + fetched_at
   dcf.json           base-case DCF with every input traced to its source
   sensitivity.json   full capture x growth x discount grid (27 cells)
   benchmarks.json    peer + Intents-competitor multiples
+  predictions.json   M18 dated predictions: committed thresholds + live values
   chart_01..10_*.json  underlying numbers for each chart (dashboard reuse)
 
 Usage: python3 src/model.py
@@ -447,9 +449,11 @@ def main() -> int:
                       "direct fees pp_fe + B2B pp_b2b + quote improvement pp_qi)",
         "capture_rate_by_window": cap_windows,
         "mechanism_split_by_window": revenue.get("capture_split_by_window"),
-        "trend_reading": ("Capture is rising: all-time ~19% -> YTD ~23% -> "
-                          "30D ~36%. The 30D rate, not the lifetime rate, is "
-                          "the base case."),
+        "trend_reading": (f"Capture is rising: all-time "
+                          f"~{cap_windows['all_time'] * 100:.0f}% -> YTD "
+                          f"~{cap_windows['ytd'] * 100:.0f}% -> 30D "
+                          f"~{cap_windows['d30'] * 100:.0f}%. The 30D rate, "
+                          "not the lifetime rate, is the base case."),
         **src_of("revenue_near_org_parsed.json"),
     }
 
@@ -973,7 +977,8 @@ def main() -> int:
             "value_per_token_vs_price_pct": (
                 round(100 * (val_base / supply_circ) / price, 1)
                 if val_base else None),
-            "reading": ("At today's fees and the measured ~36% capture, retained "
+            "reading": (f"At today's fees and the measured "
+                        f"~{capture_measured * 100:.0f}% capture, retained "
                         "revenue alone supports only a fraction of the $4.7B market "
                         "cap. The thesis case is the option value: the multiple is "
                         "a bet on fee growth (g) and capture (c) rising — see the "
@@ -1109,6 +1114,131 @@ def main() -> int:
             k: v["fees_30d_usd"] for k, v in bench["intents_competitors"].items()},
         "dropped_benchmarks": bench["dropped"],
         **src_of("defillama_overview_fees.json"),
+    }
+
+    # ---------------- M18: dated predictions — live values vs thresholds ----
+    # The 7 committed predictions (PREDICTIONS.md, committed 2026-11-10;
+    # machine-readable mirror data/predictions.json) scored against the
+    # CURRENT model outputs. Status is a point-in-time read: "on track" if
+    # the live value satisfies the threshold today, "off track" if it does
+    # not, "not yet measurable" if the underlying metric is unavailable.
+    # No prediction has resolved yet (earliest resolution date 2026-12-31);
+    # status is NOT the final outcome. Thresholds below are the numeric form
+    # of the committed thresholds in data/predictions.json — if a threshold
+    # changes there, change these to match (enforced by
+    # tests/test_outputs.py::test_predictions_match_committed).
+    PREDICTION_THRESHOLDS = {
+        "P1": {"value": 5578208.0, "op": ">=", "unit": "usd"},
+        "P2": {"value": 0.3597, "op": ">=", "unit": "fraction"},
+        "P3": {"value": 0.25, "op": "<", "unit": "fraction_of_price"},
+        "P4": {"value": 3_000_000_000.0, "op": ">=", "unit": "usd"},
+        "P5": {"value": 1.5, "op": ">=", "unit": "ratio"},
+        "P6": {"value": 100000.0, "op": "<", "unit": "accounts_per_day"},
+        "P7": {"value": 0.30, "op": "<", "unit": "abs_pearson_r"},
+    }
+    committed = None
+    try:
+        committed = json.loads((REPO / "data" / "predictions.json").read_text())
+    except Exception:
+        committed = None
+    pred_rows = []
+    if committed:
+        _m13 = metrics.get("M13_daily_active_accounts") or {}
+        _m15 = metrics.get("M15_intents_daily_volume") or {}
+        _m16 = metrics.get("M16_price_vs_fees_correlation") or {}
+        _cf = (bench.get("intents_competitors") or {}).get("chainflip") or {}
+        _vpt = (val_base / supply_circ) if val_base else None
+        _live = {
+            "P1": f30 if f30 else None,
+            "P2": capture_measured,
+            "P3": ((_vpt / price) if (_vpt is not None and price) else None),
+            "P4": _m15.get("total_30d_usd_from_daily_series")
+                  if _m15.get("available") else None,
+            "P5": ((f30 / _cf["fees_30d_usd"])
+                   if (f30 and _cf.get("fees_30d_usd")) else None),
+            "P6": _m13.get("daily_avg_last_30d")
+                  if _m13.get("available") else None,
+            "P7": (abs(_m16["pearson_price_vs_intents_fees_weekly_log_changes"])
+                   if _m16.get("pearson_price_vs_intents_fees_weekly_log_changes") is not None
+                   else None),
+        }
+        _missing_reason = {
+            "P1": "DefiLlama Intents fee series unavailable",
+            "P2": "revenue.near.org capture rate unavailable",
+            "P3": "DCF base case or live price unavailable",
+            "P4": "DefiLlama Intents volume series unavailable",
+            "P5": "Chainflip fee totals unavailable",
+            "P6": "NEARBlocks daily active-accounts series unavailable",
+            "P7": "M16 weekly price-vs-fees correlation unavailable",
+        }
+        _fmt = {
+            "P1": lambda v: f"${v:,.0f}",
+            "P2": lambda v: f"{v * 100:.2f}%",
+            "P3": lambda v: f"{v * 100:.1f}% of price",
+            "P4": lambda v: f"${v:,.0f}",
+            "P5": lambda v: f"{v:.2f}×",
+            "P6": lambda v: f"{v:,.0f}/day",
+            "P7": lambda v: f"|r| = {v:.3f}",
+        }
+        for _p in committed.get("predictions", []):
+            _pid = _p["id"]
+            _th = PREDICTION_THRESHOLDS.get(_pid)
+            _lv = _live.get(_pid)
+            if _th is None:
+                _status, _reason = "not yet measurable", (
+                    f"No numeric threshold recorded for {_pid} — check "
+                    "PREDICTION_THRESHOLDS in src/model.py.")
+            elif _lv is None:
+                _status, _reason = "not yet measurable", _missing_reason[_pid]
+            else:
+                _ok = (_lv >= _th["value"] if _th["op"] == ">="
+                       else _lv < _th["value"])
+                _status = "on track" if _ok else "off track"
+                _reason = None
+            pred_rows.append({
+                "id": _pid, "title": _p.get("title"),
+                "threshold": _p.get("threshold"),
+                "threshold_value": _th["value"] if _th else None,
+                "threshold_op": _th["op"] if _th else None,
+                "resolves": _p.get("resolves"),
+                "source_short": _p.get("source_short"),
+                "live_value": _lv,
+                "live_value_display": _fmt[_pid](_lv) if _lv is not None else None,
+                "status": _status,
+                "status_reason": _reason,
+            })
+    _counts = {"on track": 0, "off track": 0, "not yet measurable": 0}
+    for _r in pred_rows:
+        _counts[_r["status"]] = _counts.get(_r["status"], 0) + 1
+    metrics["M18_dated_predictions"] = {
+        "definition": "The 7 committed predictions (PREDICTIONS.md, committed "
+                      "2026-11-10) scored against current model outputs. Status "
+                      "is a point-in-time read, not the final outcome: no "
+                      "prediction has resolved yet (earliest resolution date "
+                      "2026-12-31).",
+        "method": "Live values are the same figures the model already "
+                  "computes (M1 F30, M3 capture, base-case DCF ÷ live price, "
+                  "M15 volume, F30 ÷ Chainflip 30d fees, M13 30d-mean active "
+                  "accounts, |M16 weekly log-change Pearson|). Thresholds are "
+                  "the numeric form of data/predictions.json — see "
+                  "PREDICTION_THRESHOLDS in src/model.py.",
+        "committed": (committed or {}).get("committed"),
+        "as_of_utc": metrics["generated_at_utc"],
+        "available": bool(pred_rows),
+        "reason": (None if pred_rows else
+                   "data/predictions.json missing or unreadable — no committed "
+                   "predictions to score."),
+        "counts": _counts,
+        "predictions": pred_rows,
+    }
+    predictions_out = {
+        "generated_at_utc": metrics["generated_at_utc"],
+        "committed": (committed or {}).get("committed"),
+        "note": ("Live values are point-in-time reads against the committed "
+                 "thresholds, not final outcomes. Earliest resolution date "
+                 "2026-12-31."),
+        "counts": _counts,
+        "predictions": pred_rows,
     }
 
     # ---------------- chart data ----------------
@@ -1334,6 +1464,7 @@ def main() -> int:
     (PROC / "dcf.json").write_text(json.dumps(dcf, indent=2))
     (PROC / "sensitivity.json").write_text(json.dumps(sens, indent=2))
     (PROC / "benchmarks.json").write_text(json.dumps(bench, indent=2))
+    (PROC / "predictions.json").write_text(json.dumps(predictions_out, indent=2))
     for k, v in chart_data.items():
         (PROC / f"{k}_data.json").write_text(json.dumps(v, indent=2))
 
@@ -1381,6 +1512,16 @@ def main() -> int:
               f"R² {m17p['price_vs_active_accounts_daily']['r_squared']}")
     else:
         print(f"M17 Metcalfe UNAVAILABLE: {m17p.get('reason')}")
+    m18p = metrics["M18_dated_predictions"]
+    if m18p.get("available"):
+        print(f"M18 dated predictions: {m18p['counts']} "
+              f"(as of {m18p['as_of_utc']})")
+        for _pr in m18p["predictions"]:
+            print(f"  {_pr['id']}: {_pr['status']} — "
+                  f"live {_pr['live_value_display']} vs "
+                  f"threshold {_pr['threshold']} (resolves {_pr['resolves']})")
+    else:
+        print(f"M18 dated predictions UNAVAILABLE: {m18p.get('reason')}")
     return 0
 
 

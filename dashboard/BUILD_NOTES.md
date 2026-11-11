@@ -97,3 +97,19 @@ are git-ignored (`dashboard/assets/*.png`).
   `data/processed/BUILD_NOTES.md` for the full M17 notes and the data-vintage
   note (this push reverts the 17:02 UTC auto-refresh values to the 03:05 UTC
   README vintage; the next daily refresh re-applies freshness).
+
+## 2026-11-11 ~10:35 WAT — Dated predictions section (M18) + fresh data
+- Dashboard gains a "Dated predictions" section after the Metcalfe section:
+  all 7 predictions with exact threshold, resolution date, live value, and
+  status (on track green / off track red / not yet measurable grey),
+  rendered from data/processed/predictions.json by src/build_dashboard.py —
+  nothing hardcoded. Fallback paragraph if predictions.json is missing.
+  Live values as of the latest fetch: P1 off track ($5,458,382 vs
+  $5,578,208), P2 off track (33.92% vs 35.97%), P3–P7 on track. This closes
+  the gap flagged in the Metcalfe notes (predictions existed on the repo but
+  rendered nowhere).
+- Fresh data 2026-11-11 ~09:25 UTC: F30 $5,458,382, capture 33.92%,
+  R0 $22.22M/yr, DCF $0.39 vs $3.58. All 10 charts regenerated from the
+  fresh cache; Metcalfe chart #10 intact (monthly slope 0.02, R² 0.005).
+- Tests: 18/18 OK (new test_dashboard_renders_predictions + two M18
+  metric tests). See data/processed/BUILD_NOTES.md for the full notes.

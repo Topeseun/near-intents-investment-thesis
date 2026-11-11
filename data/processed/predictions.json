@@ -1,0 +1,103 @@
+{
+  "generated_at_utc": "2026-11-11T09:31:19Z",
+  "committed": "2026-11-10",
+  "note": "Live values are point-in-time reads against the committed thresholds, not final outcomes. Earliest resolution date 2026-12-31.",
+  "counts": {
+    "on track": 5,
+    "off track": 2,
+    "not yet measurable": 0
+  },
+  "predictions": [
+    {
+      "id": "P1",
+      "title": "Intents fees recover to their November level",
+      "threshold": "Trailing-30d gross fees \u2265 $5,578,208",
+      "threshold_value": 5578208.0,
+      "threshold_op": ">=",
+      "resolves": "2026-12-31",
+      "source_short": "DefiLlama summary/fees/near-intents total30d",
+      "live_value": 5458382.0,
+      "live_value_display": "$5,458,382",
+      "status": "off track",
+      "status_reason": null
+    },
+    {
+      "id": "P2",
+      "title": "The capture rate holds its level",
+      "threshold": "30d capture rate \u2265 35.97%",
+      "threshold_value": 0.3597,
+      "threshold_op": ">=",
+      "resolves": "2027-01-31",
+      "source_short": "revenue.near.org, 30d window",
+      "live_value": 0.3392,
+      "live_value_display": "33.92%",
+      "status": "off track",
+      "status_reason": null
+    },
+    {
+      "id": "P3",
+      "title": "The DCF gap persists",
+      "threshold": "DCF value/token < 25% of NEAR price",
+      "threshold_value": 0.25,
+      "threshold_op": "<",
+      "resolves": "2027-02-28",
+      "source_short": "Re-run src/model.py; CoinGecko price",
+      "live_value": 0.10924140957320974,
+      "live_value_display": "10.9% of price",
+      "status": "on track",
+      "status_reason": null
+    },
+    {
+      "id": "P4",
+      "title": "Intents volume holds above $3B",
+      "threshold": "Trailing-30d volume \u2265 $3,000,000,000",
+      "threshold_value": 3000000000.0,
+      "threshold_op": ">=",
+      "resolves": "2026-12-31",
+      "source_short": "DefiLlama summary/dexs/near-intents",
+      "live_value": 3757732084.0,
+      "live_value_display": "$3,757,732,084",
+      "status": "on track",
+      "status_reason": null
+    },
+    {
+      "id": "P5",
+      "title": "NEAR keeps its lead over Chainflip",
+      "threshold": "NEAR 30d fees \u2265 1.5\u00d7 Chainflip 30d fees",
+      "threshold_value": 1.5,
+      "threshold_op": ">=",
+      "resolves": "2027-01-31",
+      "source_short": "DefiLlama summary/fees/{near-intents,chainflip}",
+      "live_value": 1.9243811333593048,
+      "live_value_display": "1.92\u00d7",
+      "status": "on track",
+      "status_reason": null
+    },
+    {
+      "id": "P6",
+      "title": "Base-layer usage stays collapsed",
+      "threshold": "30d avg daily active accounts < 100,000/day",
+      "threshold_value": 100000.0,
+      "threshold_op": "<",
+      "resolves": "2027-02-28",
+      "source_short": "NEARBlocks /v1/charts",
+      "live_value": 62310.9,
+      "live_value_display": "62,311/day",
+      "status": "on track",
+      "status_reason": null
+    },
+    {
+      "id": "P7",
+      "title": "The price still does not track Intents fees",
+      "threshold": "Weekly Pearson |r| < 0.30 (52w, M16 method)",
+      "threshold_value": 0.3,
+      "threshold_op": "<",
+      "resolves": "2026-12-31",
+      "source_short": "CoinGecko price + DefiLlama fees",
+      "live_value": 0.051,
+      "live_value_display": "|r| = 0.051",
+      "status": "on track",
+      "status_reason": null
+    }
+  ]
+}

@@ -176,3 +176,43 @@ python3 -m unittest discover -s tests -v`):
   predictions rendering, so the auto-refresh wiped the WS2 dashboard changes.
   `PREDICTIONS.md` + `data/predictions.json` exist on the repo but render
   nowhere. Flagged for a separate fix.
+
+## 2026-11-11 ~10:35 WAT — Dated predictions render on the dashboard (M18) + fresh fetch
+- CLOSED the pre-existing gap flagged in both BUILD_NOTES files: the 7 dated
+  predictions (PREDICTIONS.md + data/predictions.json, committed 2026-11-10)
+  rendered nowhere. `src/model.py` now computes M18 (live value per prediction
+  from the same figures the model already computes; thresholds are the numeric
+  form of data/predictions.json, enforced by tests), writes
+  `data/processed/predictions.json`, and `src/build_dashboard.py` renders a
+  "Dated predictions" section (ID, title, threshold, resolves date, live
+  value, status) after the Metcalfe section. Status is a point-in-time read:
+  on track / off track / not yet measurable; no prediction has resolved yet
+  (earliest 2026-12-31). The daily auto-refresh keeps the section current
+  (it re-runs fetch + build + build_dashboard and commits data/ + docs/).
+- PREDICTIONS.md + data/predictions.json were missing from the local working
+  tree (only on the remote); copied from the remote verbatim (byte-identical
+  after a trailing-newline normalisation) so the local tree matches.
+- Fresh fetch 2026-11-11 ~09:25 UTC (all sources 200 except the known LI.FI
+  400; CoinGecko ETH market-chart 429 recovered on the 60 s retry):
+  F30 $5,458,382 (was $5,578,208), capture 33.92% (was 35.97%),
+  R0 $22,217,798/yr, DCF $0.3911/token vs $3.58 (10.9% of price),
+  break-even $117.37M/yr (5.28x R0). M18 tally: 5 on track, 2 off track —
+  P1 ($5,458,382 vs $5,578,208) and P2 (33.92% vs 35.97%) are OFF TRACK:
+  fees and capture both moved against the thesis in one day. Reported
+  honestly on the dashboard and in README; thresholds unchanged (committed).
+- Two hardcoded "~36%" capture strings in model.py (M4 trend_reading, DCF
+  reading) are now computed from the live capture rate (~34% today) so they
+  cannot go stale again.
+- README fully re-synced to the fresh fetch (headline table, honest framing
+  ~11%, best valid grid cell $1.01, dated-predictions section, assumptions
+  -31.6% / -0.4% / 33.92%, limitations: 24h fee $1,611 vs $168,409 7d avg,
+  -33.7% below peak, volume $3.76B / 14.53 bps, revenue headline $11.64M,
+  buybacks balance 2,245,764 NEAR vs traced 1,742,346.3 NEAR, TVL $168.9M
+  vs $363.0M).
+- Tests: 18 (new test_predictions_match_committed,
+  test_predictions_live_values_sane, test_dashboard_renders_predictions).
+  The workflow blocking gate now also runs
+  test_dashboard_renders_predictions (the two M18 metric tests were already
+  covered — the gate runs the whole TestProcessedOutputs class).
+- Verification: full pipeline re-run + `python3 -m unittest discover -s
+  tests` — 18/18 OK.

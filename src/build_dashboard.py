@@ -2,11 +2,12 @@
 """Render dashboard/index.html from data/processed/*.json (no network).
 
 Usage:  python3 src/build_dashboard.py
-Reads metrics.json, dcf.json, sensitivity.json, benchmarks.json and the
-chart_0*_data.json files, and writes dashboard/index.html. Every number on
-the page is formatted from those JSONs — nothing is hardcoded — so re-running
-fetch.py + build.py and then this script regenerates a dashboard that always
-matches the model outputs. Charts are the SVGs in dashboard/assets/ (PNG twins are also generated for local viewing).
+Reads metrics.json, dcf.json, sensitivity.json, benchmarks.json,
+predictions.json and the chart_0*_data.json files, and writes
+dashboard/index.html. Every number on the page is formatted from those JSONs
+— nothing is hardcoded — so re-running fetch.py + build.py and then this
+script regenerates a dashboard that always matches the model outputs. Charts
+are the SVGs in dashboard/assets/ (PNG twins are also generated for local viewing).
 """
 import json
 from pathlib import Path
@@ -58,6 +59,10 @@ def main():
     c8 = load("chart_08_data.json")
     c9 = load("chart_09_data.json")
     c10 = load("chart_10_data.json")
+    try:
+        pred = load("predictions.json")
+    except Exception:
+        pred = None
 
     M1 = m["M1_intents_gross_fees"]
     M2 = m["M2_intents_fee_growth"]
@@ -409,6 +414,56 @@ numbers are shown rather than fabricated; re-run <code>src/fetch.py</code> to
 restore the series.</p>
 """
 
+    # Dated predictions (M18): committed 2026-11-10, scored live.
+    _ST_CLS = {"on track": "st-on", "off track": "st-off",
+               "not yet measurable": "st-na"}
+    if pred and pred.get("predictions"):
+        _rows = ""
+        for _pr in pred["predictions"]:
+            _lv = _pr["live_value_display"] or "—"
+            _cls = _ST_CLS.get(_pr["status"], "st-na")
+            _note = (f"<br><span class=\"note\">{_pr['status_reason']}</span>"
+                     if _pr.get("status_reason") else "")
+            _rows += (
+                f"<tr><th scope='row'>{_pr['id']}</th>"
+                f"<td>{_pr['title']}</td>"
+                f"<td>{_pr['threshold']}</td>"
+                f"<td>{_pr['resolves']}</td>"
+                f"<td>{_lv}</td>"
+                f"<td class=\"{_cls}\">{_pr['status']}{_note}</td></tr>")
+        _c = pred["counts"]
+        predictions_section = f"""
+<h2>Dated predictions — score this thesis against reality</h2>
+<p>Committed {pred.get('committed')}: these predictions are timestamped by
+the git history of <a href="https://github.com/Topeseun/near-intents-investment-thesis/blob/main/PREDICTIONS.md">PREDICTIONS.md</a>
+and derived from the thesis&rsquo;s own numbers — no threshold here is
+invented. <strong>A missed prediction counts against the thesis.</strong>
+That is the point: a thesis that cannot be wrong is not evidence. Live
+values below are as of {pred.get('generated_at_utc')} — a point-in-time read
+against the threshold, <em>not</em> the final outcome: no prediction has
+resolved yet (earliest resolution date 2026-12-31). Current tally:
+{_c.get('on track', 0)} on track, {_c.get('off track', 0)} off track,
+{_c.get('not yet measurable', 0)} not yet measurable.</p>
+<div class="tbl-wrap"><table>
+<tr><th>ID</th><th>Prediction</th><th>Threshold</th><th>Resolves</th><th>Live value</th><th>Status</th></tr>
+{_rows}
+</table></div>
+<p class="note">Live values are the same figures the model already computes
+(M1 F30, M3 capture, base-case DCF ÷ live price, M15 volume, F30 ÷ Chainflip
+30d fees, M13 30d-mean active accounts, |M16 weekly log-change Pearson|).
+When a resolution date arrives, re-run the pipeline and record the outcome
+in PREDICTIONS.md.</p>
+"""
+    else:
+        predictions_section = """
+<h2>Dated predictions — score this thesis against reality</h2>
+<p>The committed predictions (<code>PREDICTIONS.md</code>, 7 dated
+predictions) could not be scored on the latest run — see
+<code>data/processed/predictions.json</code> for the reason. No prediction
+status is shown rather than fabricated; re-run <code>src/build.py</code> to
+restore it.</p>
+"""
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -452,6 +507,9 @@ th,td{{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);whit
 th{{color:var(--mut);font-weight:600}}
 td.invalid{{background:#3a2326;color:var(--bad);text-align:center}}
 td.invalid span{{font-size:11px}}
+.st-on{{color:var(--acc);font-weight:700}}
+.st-off{{color:var(--bad);font-weight:700}}
+.st-na{{color:var(--mut)}}
 .tbl-wrap{{overflow-x:auto}}
 .note{{font-size:13px;color:var(--mut)}}
 ul{{padding-left:20px}}
@@ -516,6 +574,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
 {chart_html}
 {network_section}
 {metcalfe_section}
+{predictions_section}
 
 <h2>Benchmarks — NEAR vs SOL / AVAX / ETH</h2>
 <div class="tbl-wrap"><table>

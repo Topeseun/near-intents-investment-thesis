@@ -2304,7 +2304,8 @@
     "2026-11-06",
     "2026-11-07",
     "2026-11-08",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-10"
   ],
   "daily_txns": [
     13.0,
@@ -4609,7 +4610,8 @@
     717484.0,
     682432.0,
     609504.0,
-    895302.0
+    895302.0,
+    970505.0
   ],
   "active_dates": [
     "2020-07-21",
@@ -6914,7 +6916,8 @@
     "2026-11-06",
     "2026-11-07",
     "2026-11-08",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-10"
   ],
   "daily_active_accounts": [
     3.0,
@@ -9219,24 +9222,25 @@
     78574.0,
     77076.0,
     79184.0,
-    77752.0
+    77752.0,
+    177510.0
   ],
   "txns_peak": {
     "date": "2023-12-01",
     "value": 13935402.0
   },
-  "txns_current": 895302.0,
-  "txns_pct_below_peak": 93.6,
-  "txns_30d_avg": 662519.6,
+  "txns_current": 970505.0,
+  "txns_pct_below_peak": 93.0,
+  "txns_30d_avg": 657883.6,
   "accounts_peak": {
     "date": "2024-04-22",
     "value": 2256512.0
   },
-  "accounts_current": 77752.0,
-  "accounts_pct_below_peak": 96.6,
-  "accounts_30d_avg": 58222.7,
+  "accounts_current": 177510.0,
+  "accounts_pct_below_peak": 92.1,
+  "accounts_30d_avg": 62310.9,
   "source": {
     "source": "https://api.nearblocks.io/v1/charts",
-    "fetched_at_utc": "2026-11-10T03:05:12Z"
+    "fetched_at_utc": "2026-11-11T09:22:34Z"
   }
 }

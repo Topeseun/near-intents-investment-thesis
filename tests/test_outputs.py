@@ -15,6 +15,10 @@ What it checks (no network, no new dependencies):
     reproduce exactly across re-runs, plus the all-time activity peaks)
   * the new M12-M17 metrics are sane (peaks above current, percentages in
     range, volume positive, correlation in [-1, 1], Metcalfe slope/R² in range)
+  * the 7 dated predictions (M18) match the committed PREDICTIONS.md /
+    data/predictions.json thresholds and dates, their live values are sane
+    and agree with the metrics they come from, and the dashboard renders
+    all 7 with live values and statuses
   * the two new raw responses are in the manifest with status 200
   * docs/ (GitHub Pages) mirrors dashboard/index.html + the SVGs
 
@@ -22,6 +26,7 @@ Nothing here re-fetches: it reads the committed/built outputs only.
 """
 import json
 import math
+import re
 import unittest
 from pathlib import Path
 
@@ -32,6 +37,7 @@ ASSETS = REPO / "dashboard" / "assets"
 
 PROCESSED_JSONS = [
     "metrics.json", "dcf.json", "sensitivity.json", "benchmarks.json",
+    "predictions.json",
     "chart_01_data.json", "chart_02_data.json", "chart_03_data.json",
     "chart_04_data.json", "chart_05_data.json", "chart_06_data.json",
     "chart_07_data.json", "chart_08_data.json", "chart_09_data.json",
@@ -220,6 +226,95 @@ class TestProcessedOutputs(unittest.TestCase):
         self.assertIn("2.0", m17["reading"])
         self.assertIn("not a stable law", m17["reading"])
 
+    def test_predictions_match_committed(self):
+        """M18 thresholds/dates must be the committed PREDICTIONS.md text."""
+        committed = json.loads((REPO / "data" / "predictions.json").read_text())
+        processed = load_processed("predictions.json")
+        self.assertEqual(committed["committed"], "2026-11-10")
+        self.assertEqual([p["id"] for p in committed["predictions"]],
+                         ["P1", "P2", "P3", "P4", "P5", "P6", "P7"])
+        rows = {p["id"]: p for p in processed["predictions"]}
+        self.assertEqual(sorted(rows), ["P1", "P2", "P3", "P4", "P5", "P6", "P7"])
+        for p in committed["predictions"]:
+            row = rows[p["id"]]
+            self.assertEqual(row["threshold"], p["threshold"])
+            self.assertEqual(row["resolves"], p["resolves"])
+            self.assertEqual(row["title"], p["title"])
+            # The numeric threshold must be a number that appears in the
+            # committed threshold text (P2/P3 are percentages -> /100).
+            nums = [float(x.replace(",", ""))
+                    for x in re.findall(r"\d[\d,]*\.?\d*", p["threshold"])]
+            expected = row["threshold_value"]
+            if p["id"] in ("P2", "P3"):
+                self.assertIn(expected * 100, nums, p["id"])
+            else:
+                self.assertIn(expected, nums, p["id"])
+            self.assertEqual(row["threshold_op"],
+                             ">=" if "≥" in p["threshold"] else "<")
+
+    def test_predictions_live_values_sane(self):
+        """M18 live values sane, status consistent, and traced to metrics."""
+        m = load_processed("metrics.json")
+        processed = load_processed("predictions.json")
+        m18 = m["M18_dated_predictions"]
+        self.assertTrue(m18.get("available"), m18.get("reason"))
+        self.assertEqual(m18["committed"], "2026-11-10")
+        self.assertEqual(len(m18["predictions"]), 7)
+        self.assertEqual(processed["predictions"], m18["predictions"])
+        self.assertEqual(processed["counts"], m18["counts"])
+        self.assertEqual(sum(m18["counts"].values()), 7)
+        ranges = {
+            "P1": (1, 1e9), "P2": (0, 1), "P3": (0, 1), "P4": (1, 1e12),
+            "P5": (0, 100), "P6": (0, 1e7), "P7": (0, 1),
+        }
+        for row in m18["predictions"]:
+            self.assertIn(row["status"],
+                          ("on track", "off track", "not yet measurable"))
+            lv = row["live_value"]
+            if lv is None:
+                self.assertEqual(row["status"], "not yet measurable")
+                self.assertIsNotNone(row["status_reason"])
+                continue
+            lo, hi = ranges[row["id"]]
+            self.assertGreater(lv, lo, row["id"])
+            self.assertLess(lv, hi, row["id"])
+            if row["threshold_op"] == ">=":
+                expect = "on track" if lv >= row["threshold_value"] else "off track"
+            else:
+                expect = "on track" if lv < row["threshold_value"] else "off track"
+            self.assertEqual(row["status"], expect, row["id"])
+            self.assertIsNotNone(row["live_value_display"])
+        # Live values must agree with the metrics they come from.
+        self.assertAlmostEqual(
+            m18["predictions"][0]["live_value"],
+            m["M1_intents_gross_fees"]["total_30d_usd_F30"], delta=0.01)
+        self.assertAlmostEqual(
+            m18["predictions"][1]["live_value"],
+            m["M3_retained_revenue"]["capture_rate_30d_measured"], delta=1e-9)
+        dcf = load_processed("dcf.json")
+        self.assertAlmostEqual(
+            m18["predictions"][2]["live_value"],
+            dcf["base_case"]["value_per_token_usd"] / m["snapshot"]["near_price_usd"],
+            delta=1e-6)
+        self.assertAlmostEqual(
+            m18["predictions"][3]["live_value"],
+            m["M15_intents_daily_volume"]["total_30d_usd_from_daily_series"],
+            delta=1.0)
+        bench = load_processed("benchmarks.json")
+        self.assertAlmostEqual(
+            m18["predictions"][4]["live_value"],
+            m["M1_intents_gross_fees"]["total_30d_usd_F30"]
+            / bench["intents_competitors"]["chainflip"]["fees_30d_usd"],
+            delta=1e-6)
+        self.assertAlmostEqual(
+            m18["predictions"][5]["live_value"],
+            m["M13_daily_active_accounts"]["daily_avg_last_30d"], delta=0.01)
+        self.assertAlmostEqual(
+            m18["predictions"][6]["live_value"],
+            abs(m["M16_price_vs_fees_correlation"]
+                ["pearson_price_vs_intents_fees_weekly_log_changes"]),
+            delta=1e-9)
+
     def test_chart_data_matches_metrics(self):
         m = load_processed("metrics.json")
         c8 = load_processed("chart_08_data.json")
@@ -264,6 +359,22 @@ class TestDashboardAndReadme(unittest.TestCase):
             self.assertIn(f"assets/{name}.svg", html, f"{name}.svg not in dashboard")
         self.assertIn("Network activity", html)
         self.assertIn("Intents volume", html)
+
+    def test_dashboard_renders_predictions(self):
+        html = (REPO / "dashboard" / "index.html").read_text()
+        self.assertIn("Dated predictions", html)
+        committed = json.loads((REPO / "data" / "predictions.json").read_text())
+        for p in committed["predictions"]:
+            self.assertIn(p["id"], html, f"{p['id']} missing from dashboard")
+            self.assertIn(p["threshold"], html, f"{p['id']} threshold missing")
+            self.assertIn(p["resolves"], html, f"{p['id']} resolves date missing")
+            self.assertIn(p["title"], html, f"{p['id']} title missing")
+        processed = load_processed("predictions.json")
+        for row in processed["predictions"]:
+            if row["live_value_display"]:
+                self.assertIn(row["live_value_display"], html,
+                              f"{row['id']} live value missing")
+            self.assertIn(row["status"], html, f"{row['id']} status missing")
 
     def test_docs_mirror_dashboard(self):
         docs = REPO / "docs"

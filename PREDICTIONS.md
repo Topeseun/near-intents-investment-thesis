@@ -130,3 +130,4 @@ outputs against the thresholds below; record the outcome in this file.
 
 *Not investment advice. Baselines are as fetched on 2026-11-10 ~03:05 UTC;
 re-run the pipeline for current data.*
+
