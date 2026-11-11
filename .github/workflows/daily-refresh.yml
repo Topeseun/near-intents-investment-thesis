@@ -85,7 +85,7 @@ jobs:
 
       - name: Test data integrity (blocking gate)
         run: |
-          python3 -m unittest tests.test_outputs.TestProcessedOutputs tests.test_outputs.TestDashboardAndReadme.test_docs_mirror_dashboard tests.test_outputs.TestDashboardAndReadme.test_all_chart_files_exist tests.test_outputs.TestDashboardAndReadme.test_dashboard_references_all_charts tests.test_outputs.TestDashboardAndReadme.test_dashboard_renders_predictions -v
+          python3 -m unittest tests.test_outputs.TestProcessedOutputs tests.test_outputs.TestDashboardAndReadme.test_docs_mirror_dashboard tests.test_outputs.TestDashboardAndReadme.test_all_chart_files_exist tests.test_outputs.TestDashboardAndReadme.test_dashboard_references_all_charts tests.test_outputs.TestDashboardAndReadme.test_dashboard_renders_predictions tests.test_outputs.TestDashboardAndReadme.test_dashboard_renders_falsification -v
 
       - name: Run full test suite (informational only)
         continue-on-error: true
