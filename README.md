@@ -2,6 +2,8 @@
 
 **NEAR Hackathon 2026 · Investment Thesis track** · Development ends **Fri 14 Nov 2026, 23:59 UTC** · Solo builder, free resources only, no paid APIs.
 
+**Live dashboard: https://topeseun.github.io/near-intents-investment-thesis/**
+
 ## Thesis
 
 NEAR's base layer barely earns anything — its Intents layer already grossed $5,458,382 of fees in 30 days, keeps about a third of it (measured 30-day capture rate 33.92%) for NEAR buybacks, and is the only part of NEAR with a compounding, measurable revenue curve. The long-term investment case is not "cheap fast L1" but "toll road on cross-chain volume": this repo values NEAR on retained Intents revenue (fee-capture DCF), with base-layer usage and staking economics as the supporting chapters that test whether the toll road has a moat.
@@ -119,7 +121,9 @@ Stdlib `unittest` only — no new dependencies. 22 tests: every `data/processed/
 
 ## GitHub Pages
 
-The dashboard is published from `docs/`: copy `dashboard/index.html` + `dashboard/assets/*.svg` into `docs/` (same content — the SVGs are text, so they push through text-only tooling; PNGs stay local). Enable it in the repo: **Settings → Pages → Build and deployment → Deploy from a branch → branch `main`, folder `/docs`** → Save. The site then serves at `https://<user>.github.io/<repo>/`. Re-copy `docs/` after any dashboard rebuild so Pages stays in sync with `dashboard/`.
+**Live dashboard: https://topeseun.github.io/near-intents-investment-thesis/**
+
+The dashboard is published from `docs/`: copy `dashboard/index.html` + `dashboard/assets/*.svg` into `docs/` (same content — the SVGs are text, so they push through text-only tooling; PNGs stay local). It is enabled in the repo at **Settings → Pages → Build and deployment → Deploy from a branch → branch `main`, folder `/docs`**. Re-copy `docs/` after any dashboard rebuild so Pages stays in sync with `dashboard/`.
 
 ## The 10 charts
 
@@ -139,8 +143,8 @@ The dashboard is published from `docs/`: copy `dashboard/index.html` + `dashboar
 | Source | What it gives | URL |
 |---|---|---|
 | DefiLlama API | NEAR Intents daily fees + aggregates; base-chain fees; peer/competitor fees; NEAR TVL | https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees |
-| DefiLlama API | NEAR Intents daily volume (699 pts, 2024-12-10 → today) | https://api.llama.fi/summary/dexs/near-intents |
-| NEARBlocks API | Daily activity series — txns, active/new accounts, gas fees, price (2,303 pts, 2020-07-21 → today) | https://api.nearblocks.io/v1/charts |
+| DefiLlama API | NEAR Intents daily volume (701 pts, 2024-12-10 → today) | https://api.llama.fi/summary/dexs/near-intents |
+| NEARBlocks API | Daily activity series — txns, active/new accounts, gas fees, price (2,304 pts, 2020-07-21 → today) | https://api.nearblocks.io/v1/charts |
 | revenue.near.org | Measured capture rate (30d net revenue ÷ gross fees, cross-checked vs per-mechanism split) | https://revenue.near.org/ |
 | CoinGecko free API | Prices/market caps (NEAR, SOL, AVAX, ETH); 365d price/mcap history | https://api.coingecko.com/api/v3/simple/price |
 | NEARBlocks API | Chain stats, validators (APY, stake, concentration) | https://api.nearblocks.io/v1/stats |
@@ -150,7 +154,7 @@ Every cached response is listed with its source URL and fetch timestamp in `data
 
 ## Assumptions
 
-All model assumptions live in one file: [`src/assumptions.yaml`](src/assumptions.yaml). The DCF base case is r=15% (discount rate, WACC proxy), g=10% (perpetual growth of retained revenue — a forward assumption, *not* a trend extrapolation: trailing-30d fees are −31.6% vs the prior 30 days and the 365-day log-regression growth is ≈ −0.4%), capture scenarios 15/25/35% (the measured 30d rate, 33.92%, is the base case). Gordon growth requires g < r; cells with g ≥ r are null and shown as invalid.
+All model assumptions live in one file: [`src/assumptions.yaml`](src/assumptions.yaml). The DCF base case is r=15% (discount rate, WACC proxy), g=10% (perpetual growth of retained revenue — a forward assumption, *not* a trend extrapolation: trailing-30d fees are −31.6% vs the prior 30 days (a different baseline from the −33.7% vs the 14 Oct peak in Limitations — both figures are correct, they measure different things) and the 365-day log-regression growth is ≈ −0.4%), capture scenarios 15/25/35% (the measured 30d rate, 33.92%, is the base case). Gordon growth requires g < r; cells with g ≥ r are null and shown as invalid.
 
 ## Limitations
 
