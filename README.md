@@ -155,4 +155,8 @@ Full detail: `data/processed/BUILD_NOTES.md`.
 
 Built for the NEAR Hackathon 2026 Investment Thesis track — "build a long-term investment thesis for NEAR and back it with data: onchain analytics, live dashboards and models anyone can re-run. Judged on the evidence, not the conviction." $250K prize pool paid in NEAR; per-track 1st $10K, 2nd $3K, 3rd $2K. Payout account (if awarded): `topeseun20.near`.
 
+## AI assistance (Q-005 disclosure)
+
+Built with AI assistance, as the hackathon rules allow (HACKATHON.md Q-005): the code, analysis and dashboard were produced by an AI coding agent (Muse Spark, working as "Rio") under the author's direction. All data is fetched live from the cited public sources, and every figure is reproducible with the one-command pipeline above; the thesis, conclusions and dated predictions are the author's.
+
 *Not investment advice. All figures are as fetched on 2026-11-11 ~09:25 UTC; re-run the pipeline for current data.*
