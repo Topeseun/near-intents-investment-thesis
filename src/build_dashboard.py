@@ -552,19 +552,19 @@ code{{font-size:.92em}}
 <div class="metrics">
   <div class="metric"><div class="v">{money_exact(F30)}</div><div class="k">Intents gross fees, trailing 30d</div><div class="n">DefiLlama · {M1['fetched_at_utc']}</div></div>
   <div class="metric"><div class="v">{pct(capture)}</div><div class="k">Measured 30d capture rate</div><div class="n">revenue.near.org SSR · rising: 19.1% all-time → 23.0% YTD → 36.0% 30d</div></div>
-  <div class="metric"><div class="v">{money(R0)}<small>/yr</small></div><div class="k">Annualised retained revenue (R0)</div><div class="n">F30 × 12 × capture</div></div>
+  <div class="metric"><div class="v">{money(R0)}<small>/yr</small></div><div class="k">Annualised retained revenue (R₀)</div><div class="n">F30 × 12 × capture</div></div>
   <div class="metric"><div class="v">${vpt:.2f} <small>vs ${price:,.2f}</small></div><div class="k">DCF value / token vs price</div><div class="n">r=15%, g=10%, c={pct(capture)} · {vpt_pct:.1f}% of price</div></div>
-  <div class="metric"><div class="v">{money(be)}<small>/yr</small></div><div class="k">Break-even retained revenue</div><div class="n">{be_mult:.1f}× current R0 — the deflation line</div></div>
+  <div class="metric"><div class="v">{money(be)}<small>/yr</small></div><div class="k">Break-even retained revenue</div><div class="n">{be_mult:.1f}× current R₀ — the deflation line</div></div>
   <div class="metric"><div class="v">{mcap_r0:.1f}×</div><div class="k">Market cap / retained revenue</div><div class="n">Mcap {money(mcap)} · gross-fee basis {M8['near_mcap_div_gross_intents_fees']:.1f}×</div></div>
   <div class="metric"><div class="v">{num(bought)}</div><div class="k">NEAR bought / yr (base)</div><div class="n">vs {num(issued)} issued/yr — net +{num(net)} NEAR/yr, still inflationary</div></div>
   <div class="metric"><div class="v">{pct_pts(M9['last_epoch_apy'] * 100)} <small>APY</small></div><div class="k">Staking APY · real yield {M9['real_yield_pp']:.2f}pp</div><div class="n">Max inflation {pct_pts(M9['max_inflation_rate'] * 100)} · {M10['current_validators']} validators</div></div>
 {extra_cards}</div>
 
 <h2>The model in one paragraph</h2>
-<p>Value = R1 ÷ (r − g), where R0 = trailing-30d Intents gross fees × 12 ×
-capture rate, R1 = R0 × (1 + g), and value per token = Value ÷ circulating
+<p>Value = R₁ ÷ (r − g), where R₀ = trailing-30d Intents gross fees × 12 ×
+capture rate, R₁ = R₀ × (1 + g), and value per token = Value ÷ circulating
 supply ({num(snap['circulating_supply_near'])} NEAR). Base case:
-R0 = {money_exact(R0)}/yr, R1 = {money_exact(dcf['base_case']['R1_next_year_retained_revenue_usd'])},
+R₀ = {money_exact(R0)}/yr, R₁ = {money_exact(dcf['base_case']['R1_next_year_retained_revenue_usd'])},
 equity value {money(dcf['base_case']['equity_value_usd'])} →
 ${vpt:.4f}/token at r=15%, g=10%, measured capture {pct(capture)}.
 The 10% growth rate is a forward <em>assumption</em> (see
@@ -726,8 +726,8 @@ prizes (if awarded): <code>topeseun20.near</code>.</p>
     out.write_text(html)
     print(f"wrote {out} ({len(html)} bytes)")
     print(f"headline: F30={money_exact(F30)} capture={pct(capture)} "
-          f"R0={money(R0)}/yr DCF=${vpt:.2f} vs ${price:.2f} "
-          f"break-even={money(be)}/yr mcap/R0={mcap_r0:.1f}x")
+          f"R₀={money(R0)}/yr DCF=${vpt:.2f} vs ${price:.2f} "
+          f"break-even={money(be)}/yr mcap/R₀={mcap_r0:.1f}x")
 
 
 if __name__ == "__main__":

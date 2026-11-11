@@ -72,7 +72,7 @@ code{font-size:.92em}
   owning NEAR is the <em>option</em> on fee growth and rising capture, not
   today&rsquo;s cash flow. Everything below is built to test that option, not to
   sell it.</div>
-  <p class="note">Data fetched 2026-11-11T09:31:19Z (see per-chart source lines).
+  <p class="note">Data fetched 2026-11-11T09:43:56Z (see per-chart source lines).
   Reproduce it: <code>python3 src/fetch.py &amp;&amp; python3 src/build.py &amp;&amp; python3 src/build_dashboard.py</code>.
   All figures trace to cached API responses in <code>data/raw/</code> or to labelled
   assumptions in <code>src/assumptions.yaml</code>. Nothing here is investment advice.</p>
@@ -82,9 +82,9 @@ code{font-size:.92em}
 <div class="metrics">
   <div class="metric"><div class="v">$5,458,382</div><div class="k">Intents gross fees, trailing 30d</div><div class="n">DefiLlama · 2026-11-11T09:23:53Z</div></div>
   <div class="metric"><div class="v">33.9%</div><div class="k">Measured 30d capture rate</div><div class="n">revenue.near.org SSR · rising: 19.1% all-time → 23.0% YTD → 36.0% 30d</div></div>
-  <div class="metric"><div class="v">$22.22M<small>/yr</small></div><div class="k">Annualised retained revenue (R0)</div><div class="n">F30 × 12 × capture</div></div>
+  <div class="metric"><div class="v">$22.22M<small>/yr</small></div><div class="k">Annualised retained revenue (R₀)</div><div class="n">F30 × 12 × capture</div></div>
   <div class="metric"><div class="v">$0.39 <small>vs $3.58</small></div><div class="k">DCF value / token vs price</div><div class="n">r=15%, g=10%, c=33.9% · 10.9% of price</div></div>
-  <div class="metric"><div class="v">$117.37M<small>/yr</small></div><div class="k">Break-even retained revenue</div><div class="n">5.3× current R0 — the deflation line</div></div>
+  <div class="metric"><div class="v">$117.37M<small>/yr</small></div><div class="k">Break-even retained revenue</div><div class="n">5.3× current R₀ — the deflation line</div></div>
   <div class="metric"><div class="v">211.1×</div><div class="k">Market cap / retained revenue</div><div class="n">Mcap $4.69B · gross-fee basis 71.6×</div></div>
   <div class="metric"><div class="v">6,206,089</div><div class="k">NEAR bought / yr (base)</div><div class="n">vs 32,784,875 issued/yr — net +26,578,786 NEAR/yr, still inflationary</div></div>
   <div class="metric"><div class="v">4.91% <small>APY</small></div><div class="k">Staking APY · real yield 2.41pp</div><div class="n">Max inflation 2.50% · 371 validators</div></div>
@@ -93,10 +93,10 @@ code{font-size:.92em}
 </div>
 
 <h2>The model in one paragraph</h2>
-<p>Value = R1 ÷ (r − g), where R0 = trailing-30d Intents gross fees × 12 ×
-capture rate, R1 = R0 × (1 + g), and value per token = Value ÷ circulating
+<p>Value = R₁ ÷ (r − g), where R₀ = trailing-30d Intents gross fees × 12 ×
+capture rate, R₁ = R₀ × (1 + g), and value per token = Value ÷ circulating
 supply (1,249,836,992 NEAR). Base case:
-R0 = $22,217,798/yr, R1 = $24,439,578,
+R₀ = $22,217,798/yr, R₁ = $24,439,578,
 equity value $488.79M →
 $0.3911/token at r=15%, g=10%, measured capture 33.9%.
 The 10% growth rate is a forward <em>assumption</em> (see
@@ -161,7 +161,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
         <p class="desc">Implied NEAR value per token across capture rate (15/25/35%) × perpetual fee growth (0/10/20%) at a 12% discount rate.</p>
         <img src="assets/chart07_sensitivity_heatmap.svg" alt="7 · Sensitivity — what has to be true for $3.60?" loading="lazy">
         <p class="takeaway"><strong>Takeaway:</strong> No cell in the grid reaches the current $3.58 price — the best valid cell (35% capture, 10% growth, r=12%) is $1.01. The market is paying for fee growth and/or capture beyond this grid. Cells where growth meets or exceeds the discount rate are invalid in a Gordon model and shown as n/a.</p>
-        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-11T09:31:19Z</p>
+        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-11T09:43:56Z</p>
       </section>
 
       <section class="chart">
@@ -236,7 +236,7 @@ the git history of <a href="https://github.com/Topeseun/near-intents-investment-
 and derived from the thesis&rsquo;s own numbers — no threshold here is
 invented. <strong>A missed prediction counts against the thesis.</strong>
 That is the point: a thesis that cannot be wrong is not evidence. Live
-values below are as of 2026-11-11T09:31:19Z — a point-in-time read
+values below are as of 2026-11-11T09:43:56Z — a point-in-time read
 against the threshold, <em>not</em> the final outcome: no prediction has
 resolved yet (earliest resolution date 2026-12-31). Current tally:
 5 on track, 2 off track,
@@ -385,7 +385,7 @@ the prior matching week.</li>
 
 <footer>
 <p>NEAR Hackathon 2026 — Investment Thesis track. Built with free, keyless data
-only. Generated 2026-11-11T09:31:19Z from <code>data/processed/*.json</code> by
+only. Generated 2026-11-11T09:43:56Z from <code>data/processed/*.json</code> by
 <code>src/build_dashboard.py</code>. Not investment advice. NEAR payout account for
 prizes (if awarded): <code>topeseun20.near</code>.</p>
 </footer>

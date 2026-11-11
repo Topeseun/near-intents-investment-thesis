@@ -7,10 +7,10 @@ Reads ONLY:
   - data/predictions.json (the 7 committed predictions, M18)
 
 Implements research-notes §8 exactly:
-  R0 = F30 * 12 * c            (annualised retained revenue, USD/yr)
-  Value_equity = R1 / (r - g), R1 = R0 * (1 + g)     (Gordon growth)
+  R₀ = F30 * 12 * c            (annualised retained revenue, USD/yr)
+  Value_equity = R₁ / (r - g), R₁ = R₀ * (1 + g)     (Gordon growth)
   Value_per_token = Value_equity / circulating_supply
-  NEAR bought/yr = R0 / price ; NEAR issued/yr = max_inflation * total_supply
+  NEAR bought/yr = R₀ / price ; NEAR issued/yr = max_inflation * total_supply
   Break-even retained revenue = issued/yr * price
 
 Growth g must be < discount r; grid cells with g >= r are recorded as
@@ -957,7 +957,7 @@ def main() -> int:
     r_base, g_base = dcf_a["base_discount_rate"], dcf_a["base_growth_rate"]
     val_base = dcf_value(r0_base, g_base, r_base)
     dcf = {
-        "formula": "R0 = F30 * 12 * capture; R1 = R0 * (1+g); Value = R1/(r-g); "
+        "formula": "R₀ = F30 * 12 * capture; R₁ = R₀ * (1+g); Value = R₁/(r-g); "
                    "Value/token = Value / circulating_supply",
         "inputs": {
             "F30_trailing_30d_gross_fees_usd": f30,
@@ -1472,12 +1472,12 @@ def main() -> int:
     print(f"F30 (30d Intents gross fees): ${f30:,.0f}")
     print(f"Measured 30D capture: {capture_measured} "
           f"(cards cross-check: {capture_cards})")
-    print(f"R0 base (annualised retained): ${r0_base:,.0f}")
+    print(f"R₀ base (annualised retained): ${r0_base:,.0f}")
     print(f"DCF base value/token (r={r_base}, g={g_base}): "
           f"${val_base / supply_circ:.4f} vs price ${price:.2f}")
     print(f"Break-even retained revenue: ${breakeven_r:,.0f}/yr "
-          f"({breakeven_r / r0_base:.1f}x current R0)")
-    print(f"Mcap / R0 base: {mcap / r0_base:.1f}x")
+          f"({breakeven_r / r0_base:.1f}x current R₀)")
+    print(f"Mcap / R₀ base: {mcap / r0_base:.1f}x")
     print(f"Issued/yr: {issued_per_yr:,.0f} NEAR; bought/yr base: {bought_base:,.0f}")
     print(f"Dropped benchmarks: {bench['dropped']}")
     m12p, m13p = metrics["M12_daily_txns"], metrics["M13_daily_active_accounts"]

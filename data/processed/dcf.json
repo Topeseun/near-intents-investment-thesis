@@ -1,5 +1,5 @@
 {
-  "formula": "R0 = F30 * 12 * capture; R1 = R0 * (1+g); Value = R1/(r-g); Value/token = Value / circulating_supply",
+  "formula": "R\u2080 = F30 * 12 * capture; R\u2081 = R\u2080 * (1+g); Value = R\u2081/(r-g); Value/token = Value / circulating_supply",
   "inputs": {
     "F30_trailing_30d_gross_fees_usd": 5458382.0,
     "capture_base_measured_30d": 0.3392,
