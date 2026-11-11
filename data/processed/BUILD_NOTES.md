@@ -211,8 +211,11 @@ python3 -m unittest discover -s tests -v`):
   vs $363.0M).
 - Tests: 18 (new test_predictions_match_committed,
   test_predictions_live_values_sane, test_dashboard_renders_predictions).
-  The workflow blocking gate now also runs
-  test_dashboard_renders_predictions (the two M18 metric tests were already
-  covered — the gate runs the whole TestProcessedOutputs class).
+  The two M18 metric tests are already covered by the workflow blocking
+  gate (it runs the whole TestProcessedOutputs class). Adding
+  test_dashboard_renders_predictions to the gate is still PENDING — the
+  GitHub App cannot edit .github/workflows/ via the API (403 on tree
+  creation), so that one-line change must be made in the web UI; the local
+  copy of the workflow file was reverted to match the remote until then.
 - Verification: full pipeline re-run + `python3 -m unittest discover -s
   tests` — 18/18 OK.
