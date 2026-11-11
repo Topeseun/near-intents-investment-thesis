@@ -262,10 +262,10 @@
     ]
   },
   "base_case": {
-    "capture": 0.3392,
+    "capture": 0.3403,
     "growth": 0.1,
     "discount": 0.15,
-    "value_per_token_usd": 0.3910842462720909
+    "value_per_token_usd": 0.3923525029669591
   },
   "note": "Cells with growth >= discount are null (Gordon growth requires g < r); the invalid zone is shown explicitly."
 }
