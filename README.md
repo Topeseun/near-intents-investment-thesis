@@ -11,18 +11,18 @@ NEAR's base layer barely earns anything — its Intents layer already grossed $5
 | Figure | Value |
 |---|---|
 | NEAR price / market cap | $3.58 / ~$4.69B |
-| F30 — trailing-30d Intents gross fees | **$5,458,382** (DefiLlama) |
-| Intents 30d volume (new, M15) | **$3,757,732,084** (DefiLlama dexs daily series; endpoint total agrees exactly) — −20.7% vs prior 30d; implied gross fee rate **14.53 bps** |
+| F₃₀ — trailing-30d Intents gross fees | **$5,458,382** (DefiLlama) |
+| Intents 30d volume (new, M₁₅) | **$3,757,732,084** (DefiLlama dexs daily series; endpoint total agrees exactly) — −20.7% vs prior 30d; implied gross fee rate **14.53 bps** |
 | Measured 30d capture rate (retained ÷ gross) | **33.92%** (revenue.near.org; rising: 19.1% all-time → 22.9% YTD → 33.9% 30d) |
 | R₀ — annualised retained revenue | **$22,217,798/yr** |
 | DCF base value/token (r=15%, g=10%, c=33.92%) | **$0.39 vs $3.58 price — 10.9% of the price** |
 | Market cap / retained revenue | **211.1×** (gross-fee basis: 71.6×) |
 | NEAR issued/yr vs bought/yr | 32,784,875 vs 6,206,089 — net **+26,578,786 NEAR/yr, still inflationary** |
 | Break-even retained revenue | **$117.4M/yr, ~5.3× current R₀** |
-| Daily txns / active accounts (new, M12–M13) | 970,505 txns/day (**93.0% below** the 13,935,402 peak of 2023-12-01) · 177,510 active accounts/day (**92.1% below** the 2,256,512 peak of 2024-04-22) |
-| New accounts, 30d (new, M14) | 287,902 (−17.6% vs prior 30d); net +265,953 after deletions |
-| Price vs Intents fees, weekly (new, M16) | Pearson r = **0.05** (n=366 weeks) — essentially no weekly co-movement; price vs base gas fees r = 0.56. Correlation only, no lead-lag claim. |
-| Metcalfe check, log(price) on log(users) (new, M17) | Monthly slope **0.02** (R² 0.005, r 0.07, n=74 months, Oct 2020 – Nov 2026) vs strict-Metcalfe 2.0; daily slope 0.01 (R² 0.001); market-cap slope 0.19 (R² 0.27) — price does not follow users. A fellow entry (NEAR Demand Ledger) reports 0.21 / 0.28 on 73 months — same disconnect, weaker on this series. Caveat: from Jan 2024 the slope is 0.33 (r 0.64), the joint fall from the Apr 2024 peak, not a stable law. |
+| Daily txns / active accounts (new, M₁₂–M₁₃) | 970,505 txns/day (**93.0% below** the 13,935,402 peak of 2023-12-01) · 177,510 active accounts/day (**92.1% below** the 2,256,512 peak of 2024-04-22) |
+| New accounts, 30d (new, M₁₄) | 287,902 (−17.6% vs prior 30d); net +265,953 after deletions |
+| Price vs Intents fees, weekly (new, M₁₆) | Pearson r = **0.05** (n=366 weeks) — essentially no weekly co-movement; price vs base gas fees r = 0.56. Correlation only, no lead-lag claim. |
+| Metcalfe check, log(price) on log(users) (new, M₁₇) | Monthly slope **0.02** (R² 0.005, r 0.07, n=74 months, Oct 2020 – Nov 2026) vs strict-Metcalfe 2.0; daily slope 0.01 (R² 0.001); market-cap slope 0.19 (R² 0.27) — price does not follow users. A fellow entry (NEAR Demand Ledger) reports 0.21 / 0.28 on 73 months — same disconnect, weaker on this series. Caveat: from Jan 2024 the slope is 0.33 (r 0.64), the joint fall from the Apr 2024 peak, not a stable law. |
 | Staking APY / max inflation / real yield | 4.91% / 2.5% / 2.41pp |
 | NEAR Intents 30d fees vs competitors | NEAR $5.46M > Chainflip $2.84M > deBridge $0.46M > THORChain $0.019M |
 
@@ -34,15 +34,15 @@ Committed 2026-11-10 ([PREDICTIONS.md](PREDICTIONS.md) — timestamped by git hi
 
 | ID | Prediction | Threshold | Resolves | Live value | Status |
 |---|---|---|---|---|---|
-| P1 | Intents fees recover to their November level | Trailing-30d gross fees ≥ $5,578,208 | 2026-12-31 | $5,458,382 | **off track** |
-| P2 | The capture rate holds its level | 30d capture rate ≥ 35.97% | 2027-01-31 | 33.92% | **off track** |
-| P3 | The DCF gap persists | DCF value/token < 25% of NEAR price | 2027-02-28 | 10.9% of price | on track |
-| P4 | Intents volume holds above $3B | Trailing-30d volume ≥ $3,000,000,000 | 2026-12-31 | $3,757,732,084 | on track |
-| P5 | NEAR keeps its lead over Chainflip | NEAR 30d fees ≥ 1.5× Chainflip 30d fees | 2027-01-31 | 1.92× | on track |
-| P6 | Base-layer usage stays collapsed | 30d avg daily active accounts < 100,000/day | 2027-02-28 | 62,311/day | on track |
-| P7 | The price still does not track Intents fees | Weekly Pearson \|r\| < 0.30 (52w, M16 method) | 2026-12-31 | \|r\| = 0.051 | on track |
+| P₁ | Intents fees recover to their November level | Trailing-30d gross fees ≥ $5,578,208 | 2026-12-31 | $5,458,382 | **off track** |
+| P₂ | The capture rate holds its level | 30d capture rate ≥ 35.97% | 2027-01-31 | 33.92% | **off track** |
+| P₃ | The DCF gap persists | DCF value/token < 25% of NEAR price | 2027-02-28 | 10.9% of price | on track |
+| P₄ | Intents volume holds above $3B | Trailing-30d volume ≥ $3,000,000,000 | 2026-12-31 | $3,757,732,084 | on track |
+| P₅ | NEAR keeps its lead over Chainflip | NEAR 30d fees ≥ 1.5× Chainflip 30d fees | 2027-01-31 | 1.92× | on track |
+| P₆ | Base-layer usage stays collapsed | 30d avg daily active accounts < 100,000/day | 2027-02-28 | 62,311/day | on track |
+| P₇ | The price still does not track Intents fees | Weekly Pearson \|r\| < 0.30 (52w, M₁₆ method) | 2026-12-31 | \|r\| = 0.051 | on track |
 
-The two misses are honest news, not a rounding error: trailing-30d fees fell 2.2% below the November level ($5,458,382 vs $5,578,208) and the capture rate fell 2.05pp (33.92% vs 35.97%) on the same fetch — fees and capture both moved against the thesis in one day. When a resolution date arrives, re-run the pipeline and record the outcome in PREDICTIONS.md. The live dashboard renders this table from `data/processed/predictions.json` (M18) on every refresh.
+The two misses are honest news, not a rounding error: trailing-30d fees fell 2.2% below the November level ($5,458,382 vs $5,578,208) and the capture rate fell 2.05pp (33.92% vs 35.97%) on the same fetch — fees and capture both moved against the thesis in one day. When a resolution date arrives, re-run the pipeline and record the outcome in PREDICTIONS.md. The live dashboard renders this table from `data/processed/predictions.json` (M₁₈) on every refresh.
 
 ## What this repo contains
 
@@ -50,7 +50,7 @@ The two misses are honest news, not a rounding error: trailing-30d fees fell 2.2
 ├── README.md                     # this file
 ├── src/
 │   ├── fetch.py                  # Tier-1 API fetches only (no keys); caches to data/raw/ + data/manifest.json
-│   ├── model.py                  # Fee-capture DCF, metrics M1–M18, benchmarks → data/processed/*.json
+│   ├── model.py                  # Fee-capture DCF, metrics M₁–M₁₈, benchmarks → data/processed/*.json
 │   ├── charts.py                 # 10 charts → dashboard/assets/*.png (+ .svg twins)
 │   ├── build.py                  # Runs model.py then charts.py (no network)
 │   ├── build_dashboard.py        # Renders dashboard/index.html from data/processed/*.json (no network)
@@ -61,11 +61,11 @@ The two misses are honest news, not a rounding error: trailing-30d fees fell 2.2
 │   ├── raw/                      # 29 cached API responses (with data/manifest.json: source URL, fetched_at UTC, bytes)
 │   ├── manifest.json             # Source URL + fetch timestamp for every cached response
 │   └── processed/
-│       ├── metrics.json          # M1–M18, each with source + fetched_at
+│       ├── metrics.json          # M₁–M₁₈, each with source + fetched_at
 │       ├── dcf.json              # Base-case DCF inputs + outputs
 │       ├── sensitivity.json      # 27-cell grid (capture × growth × discount)
 │       ├── benchmarks.json       # NEAR vs SOL/AVAX/ETH + Intents competitors
-│       ├── predictions.json      # M18 dated predictions: committed thresholds + live values + statuses
+│       ├── predictions.json      # M₁₈ dated predictions: committed thresholds + live values + statuses
 │       ├── chart_01_data.json … chart_10_data.json   # Per-chart numbers
 │       └── BUILD_NOTES.md        # Pipeline/model build notes, gaps, corrections, reproducibility
 ├── docs/                         # GitHub Pages copy of dashboard/index.html + dashboard/assets/*.svg (same content)
@@ -79,7 +79,7 @@ The two misses are honest news, not a rounding error: trailing-30d fees fell 2.2
 What the code does, exactly:
 
 - `src/fetch.py` fetches NEARBlocks stats/validators/blocks/accounts **and the full daily `/v1/charts` series (2,304 points, 2020-07-21 → today)**, NEAR RPC status/gas price/protocol config, CoinGecko prices + 365d market charts (4 coins), DefiLlama Intents/chain/competitor fees + TVL **and the Intents daily volume series (`summary/dexs/near-intents`, 701 points from 2024-12-10)**, and parses the revenue.near.org server-rendered payload for the measured capture rate. Every response is cached to `data/raw/` with a timestamped manifest. No API keys. CoinGecko: 5 calls, 2.5 s sleep between them (30/min limit); a 429 gets one retry after a 60 s backoff.
-- `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R₁/(r−g), R₀ = F30 × 12 × capture), the 18 metrics M1–M18, the 27-cell sensitivity grid, and the peer/competitor benchmarks — all from the cache, no network.
+- `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R₁/(r−g), R₀ = F₃₀ × 12 × capture), the 18 metrics M₁–M₁₈, the 27-cell sensitivity grid, and the peer/competitor benchmarks — all from the cache, no network.
 - `src/charts.py` renders the 10 charts as PNGs (+ SVG twins) from the model outputs.
 - `src/build_dashboard.py` renders `dashboard/index.html` from `data/processed/*.json`. Every number on the page is formatted from those JSONs — nothing is hardcoded — so re-running the pipeline and this script regenerates a dashboard that always matches the model.
 
@@ -91,7 +91,7 @@ python3 src/fetch.py && python3 src/build.py && python3 src/build_dashboard.py
 
 Requirements: Python 3.12, `requests`, `pandas`, `matplotlib`, `PyYAML`, `numpy`. No API keys, no paid services, no server. Then open `dashboard/index.html` in any browser (or `python3 -m http.server` from `dashboard/`).
 
-Verified: a clean re-run (`rm -rf data && python3 src/fetch.py && python3 src/build.py`) reproduces the fee-derived numbers exactly (F30 $5,458,382, capture 33.92%, R₀ $22,217,798, DCF $0.3911/token); price-dependent numbers move only with the live price tick. See `data/processed/BUILD_NOTES.md` and `dashboard/BUILD_NOTES.md`.
+Verified: a clean re-run (`rm -rf data && python3 src/fetch.py && python3 src/build.py`) reproduces the fee-derived numbers exactly (F₃₀ $5,458,382, capture 33.92%, R₀ $22,217,798, DCF $0.3911/token); price-dependent numbers move only with the live price tick. See `data/processed/BUILD_NOTES.md` and `dashboard/BUILD_NOTES.md`.
 
 ## Tests
 
@@ -99,7 +99,7 @@ Verified: a clean re-run (`rm -rf data && python3 src/fetch.py && python3 src/bu
 python3 -m unittest discover -s tests -v
 ```
 
-Stdlib `unittest` only — no new dependencies. 18 tests: every `data/processed/*.json` exists and parses; F30/capture/R₀/DCF arithmetic is internally consistent (R₀ = F30 × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M12–M17 sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); M18 dated predictions (thresholds and dates match the committed `data/predictions.json`, live values sane and traced to the metrics they come from, statuses consistent with the thresholds); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs and renders all 7 predictions with live values and statuses; `docs/` mirrors `dashboard/index.html` byte-for-byte; the README contains the headline numbers (fee-stable figures + the all-time activity peaks).
+Stdlib `unittest` only — no new dependencies. 18 tests: every `data/processed/*.json` exists and parses; F₃₀/capture/R₀/DCF arithmetic is internally consistent (R₀ = F₃₀ × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M₁₂–M₁₇ sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); M₁₈ dated predictions (thresholds and dates match the committed `data/predictions.json`, live values sane and traced to the metrics they come from, statuses consistent with the thresholds); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs and renders all 7 predictions with live values and statuses; `docs/` mirrors `dashboard/index.html` byte-for-byte; the README contains the headline numbers (fee-stable figures + the all-time activity peaks).
 
 ## GitHub Pages
 

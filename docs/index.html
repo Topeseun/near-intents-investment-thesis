@@ -72,7 +72,7 @@ code{font-size:.92em}
   owning NEAR is the <em>option</em> on fee growth and rising capture, not
   today&rsquo;s cash flow. Everything below is built to test that option, not to
   sell it.</div>
-  <p class="note">Data fetched 2026-11-11T09:43:56Z (see per-chart source lines).
+  <p class="note">Data fetched 2026-11-11T09:54:25Z (see per-chart source lines).
   Reproduce it: <code>python3 src/fetch.py &amp;&amp; python3 src/build.py &amp;&amp; python3 src/build_dashboard.py</code>.
   All figures trace to cached API responses in <code>data/raw/</code> or to labelled
   assumptions in <code>src/assumptions.yaml</code>. Nothing here is investment advice.</p>
@@ -82,7 +82,7 @@ code{font-size:.92em}
 <div class="metrics">
   <div class="metric"><div class="v">$5,458,382</div><div class="k">Intents gross fees, trailing 30d</div><div class="n">DefiLlama · 2026-11-11T09:23:53Z</div></div>
   <div class="metric"><div class="v">33.9%</div><div class="k">Measured 30d capture rate</div><div class="n">revenue.near.org SSR · rising: 19.1% all-time → 23.0% YTD → 36.0% 30d</div></div>
-  <div class="metric"><div class="v">$22.22M<small>/yr</small></div><div class="k">Annualised retained revenue (R₀)</div><div class="n">F30 × 12 × capture</div></div>
+  <div class="metric"><div class="v">$22.22M<small>/yr</small></div><div class="k">Annualised retained revenue (R₀)</div><div class="n">F₃₀ × 12 × capture</div></div>
   <div class="metric"><div class="v">$0.39 <small>vs $3.58</small></div><div class="k">DCF value / token vs price</div><div class="n">r=15%, g=10%, c=33.9% · 10.9% of price</div></div>
   <div class="metric"><div class="v">$117.37M<small>/yr</small></div><div class="k">Break-even retained revenue</div><div class="n">5.3× current R₀ — the deflation line</div></div>
   <div class="metric"><div class="v">211.1×</div><div class="k">Market cap / retained revenue</div><div class="n">Mcap $4.69B · gross-fee basis 71.6×</div></div>
@@ -161,7 +161,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
         <p class="desc">Implied NEAR value per token across capture rate (15/25/35%) × perpetual fee growth (0/10/20%) at a 12% discount rate.</p>
         <img src="assets/chart07_sensitivity_heatmap.svg" alt="7 · Sensitivity — what has to be true for $3.60?" loading="lazy">
         <p class="takeaway"><strong>Takeaway:</strong> No cell in the grid reaches the current $3.58 price — the best valid cell (35% capture, 10% growth, r=12%) is $1.01. The market is paying for fee growth and/or capture beyond this grid. Cells where growth meets or exceeds the discount rate are invalid in a Gordon model and shown as n/a.</p>
-        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-11T09:43:56Z</p>
+        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-11T09:54:25Z</p>
       </section>
 
       <section class="chart">
@@ -236,18 +236,18 @@ the git history of <a href="https://github.com/Topeseun/near-intents-investment-
 and derived from the thesis&rsquo;s own numbers — no threshold here is
 invented. <strong>A missed prediction counts against the thesis.</strong>
 That is the point: a thesis that cannot be wrong is not evidence. Live
-values below are as of 2026-11-11T09:43:56Z — a point-in-time read
+values below are as of 2026-11-11T09:54:25Z — a point-in-time read
 against the threshold, <em>not</em> the final outcome: no prediction has
 resolved yet (earliest resolution date 2026-12-31). Current tally:
 5 on track, 2 off track,
 0 not yet measurable.</p>
 <div class="tbl-wrap"><table>
 <tr><th>ID</th><th>Prediction</th><th>Threshold</th><th>Resolves</th><th>Live value</th><th>Status</th></tr>
-<tr><th scope='row'>P1</th><td>Intents fees recover to their November level</td><td>Trailing-30d gross fees ≥ $5,578,208</td><td>2026-12-31</td><td>$5,458,382</td><td class="st-off">off track</td></tr><tr><th scope='row'>P2</th><td>The capture rate holds its level</td><td>30d capture rate ≥ 35.97%</td><td>2027-01-31</td><td>33.92%</td><td class="st-off">off track</td></tr><tr><th scope='row'>P3</th><td>The DCF gap persists</td><td>DCF value/token &lt; 25% of NEAR price</td><td>2027-02-28</td><td>10.9% of price</td><td class="st-on">on track</td></tr><tr><th scope='row'>P4</th><td>Intents volume holds above $3B</td><td>Trailing-30d volume ≥ $3,000,000,000</td><td>2026-12-31</td><td>$3,757,732,084</td><td class="st-on">on track</td></tr><tr><th scope='row'>P5</th><td>NEAR keeps its lead over Chainflip</td><td>NEAR 30d fees ≥ 1.5× Chainflip 30d fees</td><td>2027-01-31</td><td>1.92×</td><td class="st-on">on track</td></tr><tr><th scope='row'>P6</th><td>Base-layer usage stays collapsed</td><td>30d avg daily active accounts &lt; 100,000/day</td><td>2027-02-28</td><td>62,311/day</td><td class="st-on">on track</td></tr><tr><th scope='row'>P7</th><td>The price still does not track Intents fees</td><td>Weekly Pearson |r| &lt; 0.30 (52w, M16 method)</td><td>2026-12-31</td><td>|r| = 0.051</td><td class="st-on">on track</td></tr>
+<tr><th scope='row'>P₁</th><td>Intents fees recover to their November level</td><td>Trailing-30d gross fees ≥ $5,578,208</td><td>2026-12-31</td><td>$5,458,382</td><td class="st-off">off track</td></tr><tr><th scope='row'>P₂</th><td>The capture rate holds its level</td><td>30d capture rate ≥ 35.97%</td><td>2027-01-31</td><td>33.92%</td><td class="st-off">off track</td></tr><tr><th scope='row'>P₃</th><td>The DCF gap persists</td><td>DCF value/token &lt; 25% of NEAR price</td><td>2027-02-28</td><td>10.9% of price</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₄</th><td>Intents volume holds above $3B</td><td>Trailing-30d volume ≥ $3,000,000,000</td><td>2026-12-31</td><td>$3,757,732,084</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₅</th><td>NEAR keeps its lead over Chainflip</td><td>NEAR 30d fees ≥ 1.5× Chainflip 30d fees</td><td>2027-01-31</td><td>1.92×</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₆</th><td>Base-layer usage stays collapsed</td><td>30d avg daily active accounts &lt; 100,000/day</td><td>2027-02-28</td><td>62,311/day</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₇</th><td>The price still does not track Intents fees</td><td>Weekly Pearson |r| &lt; 0.30 (52w, M₁₆ method)</td><td>2026-12-31</td><td>|r| = 0.051</td><td class="st-on">on track</td></tr>
 </table></div>
 <p class="note">Live values are the same figures the model already computes
-(M1 F30, M3 capture, base-case DCF ÷ live price, M15 volume, F30 ÷ Chainflip
-30d fees, M13 30d-mean active accounts, |M16 weekly log-change Pearson|).
+(M₁ F₃₀, M₃ capture, base-case DCF ÷ live price, M₁₅ volume, F₃₀ ÷ Chainflip
+30d fees, M₁₃ 30d-mean active accounts, |M₁₆ weekly log-change Pearson|).
 When a resolution date arrives, re-run the pipeline and record the outcome
 in PREDICTIONS.md.</p>
 
@@ -385,7 +385,7 @@ the prior matching week.</li>
 
 <footer>
 <p>NEAR Hackathon 2026 — Investment Thesis track. Built with free, keyless data
-only. Generated 2026-11-11T09:43:56Z from <code>data/processed/*.json</code> by
+only. Generated 2026-11-11T09:54:25Z from <code>data/processed/*.json</code> by
 <code>src/build_dashboard.py</code>. Not investment advice. NEAR payout account for
 prizes (if awarded): <code>topeseun20.near</code>.</p>
 </footer>

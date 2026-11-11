@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-11T09:31:19Z",
+  "generated_at_utc": "2026-11-11T09:54:25Z",
   "committed": "2026-11-10",
   "note": "Live values are point-in-time reads against the committed thresholds, not final outcomes. Earliest resolution date 2026-12-31.",
   "counts": {
@@ -89,7 +89,7 @@
     {
       "id": "P7",
       "title": "The price still does not track Intents fees",
-      "threshold": "Weekly Pearson |r| < 0.30 (52w, M16 method)",
+      "threshold": "Weekly Pearson |r| < 0.30 (52w, M\u2081\u2086 method)",
       "threshold_value": 0.3,
       "threshold_op": "<",
       "resolves": "2026-12-31",

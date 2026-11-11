@@ -7,7 +7,7 @@ Reads ONLY:
   - data/predictions.json (the 7 committed predictions, M18)
 
 Implements research-notes §8 exactly:
-  R₀ = F30 * 12 * c            (annualised retained revenue, USD/yr)
+  R₀ = F₃₀ * 12 * c            (annualised retained revenue, USD/yr)
   Value_equity = R₁ / (r - g), R₁ = R₀ * (1 + g)     (Gordon growth)
   Value_per_token = Value_equity / circulating_supply
   NEAR bought/yr = R₀ / price ; NEAR issued/yr = max_inflation * total_supply
@@ -331,7 +331,7 @@ def main() -> int:
         except (TypeError, ValueError):
             pass
 
-    # F30: DefiLlama total30d (primary) cross-checked vs sum of last 30 daily pts
+    # F₃₀: DefiLlama total30d (primary) cross-checked vs sum of last 30 daily pts
     f30 = float(intents_tot.get("total30d") or 0)
     f30_from_series = sum(v for _, v in intents[-30:]) if len(intents) >= 30 else None
     f7 = float(intents_tot.get("total7d") or 0)
@@ -432,7 +432,7 @@ def main() -> int:
     # M3/M4 — retained revenue + capture trend (measured, not assumed)
     r0_base = f30 * 12 * capture_measured if capture_measured else None
     metrics["M3_retained_revenue"] = {
-        "definition": "Annualised retained revenue = F30 * 12 * capture_rate",
+        "definition": "Annualised retained revenue = F₃₀ * 12 * capture_rate",
         "capture_rate_30d_measured": capture_measured,
         "capture_rate_30d_from_displayed_cards": capture_cards,
         "capture_source": "revenue.near.org SSR payload (net revenue $ / gross fees $,"
@@ -957,7 +957,7 @@ def main() -> int:
     r_base, g_base = dcf_a["base_discount_rate"], dcf_a["base_growth_rate"]
     val_base = dcf_value(r0_base, g_base, r_base)
     dcf = {
-        "formula": "R₀ = F30 * 12 * capture; R₁ = R₀ * (1+g); Value = R₁/(r-g); "
+        "formula": "R₀ = F₃₀ * 12 * capture; R₁ = R₀ * (1+g); Value = R₁/(r-g); "
                    "Value/token = Value / circulating_supply",
         "inputs": {
             "F30_trailing_30d_gross_fees_usd": f30,
@@ -1217,9 +1217,9 @@ def main() -> int:
                       "prediction has resolved yet (earliest resolution date "
                       "2026-12-31).",
         "method": "Live values are the same figures the model already "
-                  "computes (M1 F30, M3 capture, base-case DCF ÷ live price, "
-                  "M15 volume, F30 ÷ Chainflip 30d fees, M13 30d-mean active "
-                  "accounts, |M16 weekly log-change Pearson|). Thresholds are "
+                  "computes (M₁ F₃₀, M₃ capture, base-case DCF ÷ live price, "
+                  "M₁₅ volume, F₃₀ ÷ Chainflip 30d fees, M₁₃ 30d-mean active "
+                  "accounts, |M₁₆ weekly log-change Pearson|). Thresholds are "
                   "the numeric form of data/predictions.json — see "
                   "PREDICTION_THRESHOLDS in src/model.py.",
         "committed": (committed or {}).get("committed"),

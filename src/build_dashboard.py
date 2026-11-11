@@ -51,6 +51,14 @@ def pct_pts(x, dec=2):
     return f"{x:.{dec}f}%" if x is not None else "—"
 
 
+_SUB_DIGITS = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
+
+
+def sub_digits(s):
+    """Render an index like P1 / M15 with Unicode subscript digits (P₁ / M₁₅)."""
+    return str(s).translate(_SUB_DIGITS)
+
+
 def main():
     m = load("metrics.json")
     dcf = load("dcf.json")
@@ -273,7 +281,7 @@ def main():
             f"compounding at roughly this fee rate.",
             M15["source"], M15["fetched_at_utc"]))
 
-    # Chart 10 — Metcalfe check (M17): price vs users, log-log.
+    # Chart 10 — Metcalfe check (M₁₇): price vs users, log-log.
     if c10.get("available"):
         _rm = M17["price_vs_active_accounts_monthly"]
         _rd = M17["price_vs_active_accounts_daily"]
@@ -314,7 +322,7 @@ def main():
       </section>
 """
 
-    # Extra headline cards: Intents volume (M15) + daily active accounts (M13).
+    # Extra headline cards: Intents volume (M₁₅) + daily active accounts (M₁₃).
     extra_cards = ""
     if M15.get("available"):
         extra_cards += (
@@ -410,12 +418,12 @@ rows (all Jul–Oct 2020) dropped before taking logs.</p>
         metcalfe_section = """
 <h2>Metcalfe check — does price follow users?</h2>
 <p>The Metcalfe regression could not run on the latest fetch (see
-<code>data/processed/metrics.json</code> M17 for the reason). No Metcalfe
+<code>data/processed/metrics.json</code> M₁₇ for the reason). No Metcalfe
 numbers are shown rather than fabricated; re-run <code>src/fetch.py</code> to
 restore the series.</p>
 """
 
-    # Dated predictions (M18): committed 2026-11-10, scored live.
+    # Dated predictions (M₁₈): committed 2026-11-10, scored live.
     _ST_CLS = {"on track": "st-on", "off track": "st-off",
                "not yet measurable": "st-na"}
     if pred and pred.get("predictions"):
@@ -429,7 +437,7 @@ restore the series.</p>
                      f"{escape(_pr['status_reason'])}</span>"
                      if _pr.get("status_reason") else "")
             _rows += (
-                f"<tr><th scope='row'>{escape(_pr['id'])}</th>"
+                f"<tr><th scope='row'>{escape(sub_digits(_pr['id']))}</th>"
                 f"<td>{escape(_pr['title'])}</td>"
                 f"<td>{escape(_pr['threshold'])}</td>"
                 f"<td>{escape(_pr['resolves'])}</td>"
@@ -453,8 +461,8 @@ resolved yet (earliest resolution date 2026-12-31). Current tally:
 {_rows}
 </table></div>
 <p class="note">Live values are the same figures the model already computes
-(M1 F30, M3 capture, base-case DCF ÷ live price, M15 volume, F30 ÷ Chainflip
-30d fees, M13 30d-mean active accounts, |M16 weekly log-change Pearson|).
+(M₁ F₃₀, M₃ capture, base-case DCF ÷ live price, M₁₅ volume, F₃₀ ÷ Chainflip
+30d fees, M₁₃ 30d-mean active accounts, |M₁₆ weekly log-change Pearson|).
 When a resolution date arrives, re-run the pipeline and record the outcome
 in PREDICTIONS.md.</p>
 """
@@ -552,7 +560,7 @@ code{{font-size:.92em}}
 <div class="metrics">
   <div class="metric"><div class="v">{money_exact(F30)}</div><div class="k">Intents gross fees, trailing 30d</div><div class="n">DefiLlama · {M1['fetched_at_utc']}</div></div>
   <div class="metric"><div class="v">{pct(capture)}</div><div class="k">Measured 30d capture rate</div><div class="n">revenue.near.org SSR · rising: 19.1% all-time → 23.0% YTD → 36.0% 30d</div></div>
-  <div class="metric"><div class="v">{money(R0)}<small>/yr</small></div><div class="k">Annualised retained revenue (R₀)</div><div class="n">F30 × 12 × capture</div></div>
+  <div class="metric"><div class="v">{money(R0)}<small>/yr</small></div><div class="k">Annualised retained revenue (R₀)</div><div class="n">F₃₀ × 12 × capture</div></div>
   <div class="metric"><div class="v">${vpt:.2f} <small>vs ${price:,.2f}</small></div><div class="k">DCF value / token vs price</div><div class="n">r=15%, g=10%, c={pct(capture)} · {vpt_pct:.1f}% of price</div></div>
   <div class="metric"><div class="v">{money(be)}<small>/yr</small></div><div class="k">Break-even retained revenue</div><div class="n">{be_mult:.1f}× current R₀ — the deflation line</div></div>
   <div class="metric"><div class="v">{mcap_r0:.1f}×</div><div class="k">Market cap / retained revenue</div><div class="n">Mcap {money(mcap)} · gross-fee basis {M8['near_mcap_div_gross_intents_fees']:.1f}×</div></div>
@@ -725,7 +733,7 @@ prizes (if awarded): <code>topeseun20.near</code>.</p>
     out = ROOT / "dashboard" / "index.html"
     out.write_text(html)
     print(f"wrote {out} ({len(html)} bytes)")
-    print(f"headline: F30={money_exact(F30)} capture={pct(capture)} "
+    print(f"headline: F₃₀={money_exact(F30)} capture={pct(capture)} "
           f"R₀={money(R0)}/yr DCF=${vpt:.2f} vs ${price:.2f} "
           f"break-even={money(be)}/yr mcap/R₀={mcap_r0:.1f}x")
 

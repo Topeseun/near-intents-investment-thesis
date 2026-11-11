@@ -6,8 +6,8 @@ Run from the repo root:
 
 What it checks (no network, no new dependencies):
   * every data/processed/*.json exists and parses
-  * F30 / capture / R0 / DCF arithmetic is internally consistent
-    (R0 = F30 * 12 * capture; Gordon growth; value/token = Value / supply)
+  * F₃₀ / capture / R₀ / DCF arithmetic is internally consistent
+    (R₀ = F₃₀ * 12 * capture; Gordon growth; value/token = Value / supply)
   * the sensitivity grid is 3 x 3 x 3 = 27 cells and invalid (g >= r) cells
     are null, valid cells match the Gordon formula
   * all 10 dashboard charts exist as PNG + SVG twins
@@ -366,7 +366,7 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertIn("Dated predictions", html_text)
         committed = json.loads((REPO / "data" / "predictions.json").read_text())
         for p in committed["predictions"]:
-            self.assertIn(p["id"], html_text, f"{p['id']} missing from dashboard")
+            self.assertIn(p["id"].translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")), html_text, f"{p['id']} missing from dashboard")
             # Thresholds/titles are HTML-escaped when rendered ("<" -> "&lt;").
             self.assertIn(html.escape(p["threshold"]), html_text,
                           f"{p['id']} threshold missing")
