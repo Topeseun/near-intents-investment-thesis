@@ -1658,6 +1658,6 @@
   ],
   "source": {
     "source": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-11T09:23:53Z"
+    "fetched_at_utc": "2026-11-11T10:44:51Z"
   }
 }
