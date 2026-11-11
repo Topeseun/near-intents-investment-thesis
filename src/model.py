@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Fee-capture DCF + 18 metrics for the NEAR Investment Thesis.
+"""Fee-capture DCF + 19 metrics for the NEAR Investment Thesis.
 
 Reads ONLY:
   - data/raw/* (cached API responses) + data/manifest.json (source + fetched_at)
   - src/assumptions.yaml (labelled assumptions — see that file)
   - data/predictions.json (the 7 committed predictions, M18)
+  - data/falsification.json (the 6 committed falsification conditions, M19)
 
 Implements research-notes §8 exactly:
   R₀ = F₃₀ * 12 * c            (annualised retained revenue, USD/yr)
@@ -17,11 +18,12 @@ Growth g must be < discount r; grid cells with g >= r are recorded as
 null with reason "invalid: g >= r" — never silently computed.
 
 Outputs (data/processed/):
-  metrics.json       M1-M18 + live snapshot, each with source + fetched_at
+  metrics.json       M1-M19 + live snapshot, each with source + fetched_at
   dcf.json           base-case DCF with every input traced to its source
   sensitivity.json   full capture x growth x discount grid (27 cells)
   benchmarks.json    peer + Intents-competitor multiples
   predictions.json   M18 dated predictions: committed thresholds + live values
+  falsification.json M19 falsification conditions: committed thresholds + live values
   chart_01..10_*.json  underlying numbers for each chart (dashboard reuse)
 
 Usage: python3 src/model.py
@@ -1241,6 +1243,302 @@ def main() -> int:
         "predictions": pred_rows,
     }
 
+    # ---------------- M19: falsification — what would prove the thesis wrong
+    # The 6 committed kill conditions (README.md Falsification section,
+    # committed 2026-11-11; machine-readable mirror data/falsification.json)
+    # scored against the CURRENT model outputs. Status is "triggered" only
+    # when the live value breaches the threshold AND the persistence window
+    # has been met; otherwise "not triggered". "not yet measurable" is used
+    # only when the underlying metric is unavailable. Persistence is counted
+    # from the commitment date forward — the method per condition, and what
+    # the stored data does and does not support, is documented in
+    # data/processed/BUILD_NOTES.md (M19). F3 is event-based (its live value
+    # is the largest single-provider outage drop on record, the Oct 1-4 2026
+    # pause precedent cited in README Limitations — not a live series value)
+    # and F5 has no persistence window by design.
+    FALSIFICATION_COMMIT = "2026-11-11"
+    _commit_date = datetime.strptime(FALSIFICATION_COMMIT, "%Y-%m-%d").date()
+    _today = datetime.now(timezone.utc).date()
+    FALSIFICATION_THRESHOLDS = {
+        "F1": {"value": 2_000_000.0, "op": "<", "unit": "usd"},
+        "F2": {"value": 0.15, "op": "<", "unit": "fraction"},
+        "F3": {"value": 0.50, "op": ">", "unit": "fractional_volume_drop"},
+        "F4": {"value": 1.0, "op": "<", "unit": "ratio"},
+        "F5": {"value": 1.0, "op": ">=", "unit": "fraction_of_price"},
+        "F6": {"value": 0.5, "op": "<", "unit": "fraction_below_peak_and_prior_30d"},
+    }
+    fals_committed = None
+    try:
+        fals_committed = json.loads((REPO / "data" / "falsification.json").read_text())
+    except Exception:
+        fals_committed = None
+    # Previous processed run, for F2 persistence carry-forward: the capture
+    # rate is a point-in-time fetch with no stored daily history, so a
+    # breach's start date is carried forward through this file across runs.
+    _prev_fals = None
+    try:
+        _prev_fals = json.loads((PROC / "falsification.json").read_text())
+    except Exception:
+        _prev_fals = None
+    _prev_breach_since = {}
+    if _prev_fals:
+        for _r in _prev_fals.get("conditions", []):
+            if _r.get("breach_since"):
+                _prev_breach_since[_r["id"]] = _r["breach_since"]
+
+    def _full_months(start, end):
+        """Whole calendar months elapsed from `start` to `end`."""
+        months = (end.year - start.year) * 12 + (end.month - start.month)
+        if end.day < start.day:
+            months -= 1
+        return max(0, months)
+
+    def _consec_run(daily, commit):
+        """Consecutive True days ending at the last date, counting only
+        dates >= `commit`. `daily`: sorted [(date, bool)]. Returns
+        (run_length, run_start_date_or_None)."""
+        run, run_start = 0, None
+        for d, ok in daily:
+            if d < commit:
+                continue
+            if ok:
+                if run == 0:
+                    run_start = d
+                run += 1
+            else:
+                run, run_start = 0, None
+        return run, run_start
+
+    def _date_of(ts_ms):
+        return datetime.fromtimestamp(ts_ms / 1000, tz=timezone.utc).date()
+
+    # --- series-backed persistence (F1, F4, F6): counted from the stored
+    # daily series, post-commitment dates only.
+    _f1_daily = [(_date_of(ts), v < 2_000_000.0) for ts, v in tr30_full]
+    _f1_run, _f1_run_start = _consec_run(_f1_daily, _commit_date)
+    # F4: aligned daily trailing-30d series, NEAR vs Chainflip.
+    _cf_pts, _ = fee_series(load_json("defillama_fees_chainflip.json"))
+    _cf_tr = { _date_of(ts): v for ts, v in trailing_sums(_cf_pts)}
+    _near_tr = {_date_of(ts): v for ts, v in tr30_full}
+    _f4_daily = sorted(
+        (d, _near_tr[d] < _cf_tr[d])
+        for d in set(_near_tr) & set(_cf_tr))
+    _f4_run, _f4_run_start = _consec_run(_f4_daily, _commit_date)
+    _f4_months = (_full_months(_f4_run_start, _f4_daily[-1][0])
+                  if _f4_run_start else 0)
+    # F6: both legs from the stored daily series — fees vs the fixed
+    # 2026-10-14 peak, volume vs its own prior 30d.
+    _peak_fixed = (metrics["M2_intents_fee_growth"]["trailing_30d_peak"] or {}
+                   ).get("trailing_30d_usd")
+    _vol_tr = trailing_sums(volume_pts) if volume_pts else []
+    _vol_by_date, _vol_prior_by_date = {}, {}
+    for _i, (ts, v) in enumerate(_vol_tr):
+        _d = _date_of(ts)
+        _vol_by_date[_d] = v
+        if _i >= 30:
+            _vol_prior_by_date[_d] = _vol_tr[_i - 30][1]
+    _f6_daily = sorted(
+        (d, _near_tr[d] < 0.5 * _peak_fixed
+         and d in _vol_by_date and d in _vol_prior_by_date
+         and _vol_by_date[d] < 0.5 * _vol_prior_by_date[d])
+        for d in set(_near_tr) & set(_vol_by_date))
+    _f6_run, _f6_run_start = _consec_run(_f6_daily, _commit_date)
+
+    _vpt = (val_base / supply_circ) if val_base else None
+    _cf = (bench.get("intents_competitors") or {}).get("chainflip") or {}
+    _m15 = metrics.get("M15_intents_daily_volume") or {}
+    _vol30 = _m15.get("total_30d_usd_from_daily_series") \
+        if _m15.get("available") else None
+    _vol30_prior = (_vol_tr[-31][1] if len(_vol_tr) >= 31 else None)
+    _live_f = {
+        "F1": f30 if f30 else None,
+        "F2": capture_measured,
+        # Precedent, not a live series value: the Oct 1-4 2026 service pause
+        # ran 31.6% below the prior matching week (Faultline, cited in README
+        # Limitations). It is the largest single-provider outage drop on
+        # record; the condition is re-evaluated when a new outage is reported.
+        "F3": 0.316,
+        "F4": ((f30 / _cf["fees_30d_usd"])
+               if (f30 and _cf.get("fees_30d_usd")) else None),
+        "F5": ((_vpt / price) if (_vpt is not None and price) else None),
+        "F6": ((f30 / _peak_fixed) if (f30 and _peak_fixed) else None),
+    }
+    _live_f2 = {
+        "F6": ((_vol30 / _vol30_prior)
+               if (_vol30 and _vol30_prior) else None),
+    }
+    _missing_reason_f = {
+        "F1": "DefiLlama Intents fee series unavailable",
+        "F2": "revenue.near.org capture rate unavailable",
+        "F3": None,  # precedent is always available (cited in README)
+        "F4": "Chainflip fee totals unavailable",
+        "F5": "DCF base case or live price unavailable",
+        "F6": "DefiLlama Intents fee or volume series unavailable",
+    }
+    _fmt_f = {
+        "F1": lambda v: f"${v:,.0f}",
+        "F2": lambda v: f"{v * 100:.2f}%",
+        "F3": lambda v: f"{v * 100:.1f}% drop — Oct 1–4 2026 pause precedent",
+        "F4": lambda v: f"{v:.2f}×",
+        "F5": lambda v: f"{v * 100:.1f}% of price",
+        "F6": lambda v: f"{v * 100:.1f}% of peak",
+    }
+    _fmt_f2 = {
+        "F6": lambda v: f"{v * 100:.1f}% of prior 30d",
+    }
+    fals_rows = []
+    if fals_committed:
+        for _c in fals_committed.get("conditions", []):
+            _fid = _c["id"]
+            _th = FALSIFICATION_THRESHOLDS.get(_fid)
+            _lv = _live_f.get(_fid)
+            _lv2 = _live_f2.get(_fid)
+            if _th is None:
+                _status, _reason = "not yet measurable", (
+                    f"No numeric threshold recorded for {_fid} — check "
+                    "FALSIFICATION_THRESHOLDS in src/model.py.")
+                _bs, _days, _months = None, 0, None
+            elif _lv is None:
+                _status, _reason = "not yet measurable", _missing_reason_f[_fid]
+                _bs, _days, _months = None, 0, None
+            else:
+                _breach = (_lv >= _th["value"] if _th["op"] == ">="
+                           else _lv > _th["value"] if _th["op"] == ">"
+                           else _lv < _th["value"])
+                if _fid == "F6":
+                    # Both legs must breach.
+                    _breach = _breach and (_lv2 is not None
+                                           and _lv2 < 0.5)
+                if not _breach:
+                    _status = "not triggered"
+                    _bs, _days, _months = None, 0, None
+                    # Built with if/elif (not a dict literal): each reason
+                    # formats only its own condition's live value.
+                    if _fid == "F1":
+                        _reason = (f"No breach: F30 {_fmt_f['F1'](_lv)} is "
+                                   f"above the $2,000,000 bar; 0 of 90 "
+                                   f"persistence days.")
+                    elif _fid == "F2":
+                        _reason = (f"No breach: capture {_fmt_f['F2'](_lv)} "
+                                   f"is above the 15% floor; 0 of 90 "
+                                   f"persistence days.")
+                    elif _fid == "F3":
+                        _reason = (f"Precedent only: the Oct 1–4 2026 pause "
+                                   f"ran 31.6% below the prior matching week "
+                                   f"— under the 50% bar. Event-based; "
+                                   f"re-evaluated when a new outage is "
+                                   f"reported.")
+                    elif _fid == "F4":
+                        _reason = (f"No breach: NEAR leads Chainflip "
+                                   f"{_fmt_f['F4'](_lv)}; 0 of 3 persistence "
+                                   f"months.")
+                    elif _fid == "F5":
+                        _reason = (f"No breach: DCF value/token is "
+                                   f"{_fmt_f['F5'](_lv)} — far below the "
+                                   f"100% bar.")
+                    else:  # F6
+                        _reason = (f"No breach: fees are {_fmt_f['F6'](_lv)} "
+                                   f"and volume {_fmt_f2['F6'](_lv2)} — "
+                                   f"neither leg is below its 50% bar; 0 of "
+                                   f"90 persistence days.")
+                else:
+                    # Breach in progress — persistence decides the status.
+                    if _fid == "F1":
+                        _days, _months = _f1_run, None
+                        _bs = _f1_run_start
+                        _met = _days >= 90
+                    elif _fid == "F2":
+                        _prev_bs = _prev_breach_since.get("F2")
+                        _bs = (datetime.strptime(_prev_bs, "%Y-%m-%d").date()
+                               if _prev_bs else _today)
+                        _days = (_today - _bs).days + 1
+                        _months = None
+                        _met = _days >= 90
+                    elif _fid == "F3":
+                        _days, _months = 0, None
+                        _bs = None
+                        _met = False  # event-based: persistence judged on report
+                    elif _fid == "F4":
+                        _days, _months = _f4_run, _f4_months
+                        _bs = _f4_run_start
+                        _met = _months >= 3
+                    elif _fid == "F5":
+                        _days, _months = 0, None
+                        _bs = _today
+                        _met = True  # no persistence window by design
+                    else:  # F6
+                        _days, _months = _f6_run, None
+                        _bs = _f6_run_start
+                        _met = _days >= 90
+                    _status = "triggered" if _met else "not triggered"
+                    _reason = (f"BREACH in progress since {_bs}: "
+                               f"{'persistence met — condition triggered' if _met else 'persistence window not yet met — watch'} "
+                               f"({_days} days observed"
+                               + (f", {_months} months" if _months is not None else "")
+                               + ").")
+            fals_rows.append({
+                "id": _fid, "title": _c.get("title"),
+                "claim": _c.get("claim"),
+                "threshold": _c.get("threshold"),
+                "threshold_value": _th["value"] if _th else None,
+                "threshold_op": _th["op"] if _th else None,
+                "threshold_value_secondary": _c.get("threshold_value_secondary"),
+                "peak_usd": _c.get("peak_usd"),
+                "persistence": _c.get("persistence"),
+                "live_value": _lv,
+                "live_value_display": _fmt_f[_fid](_lv) if _lv is not None else None,
+                "live_value_secondary": _lv2,
+                "live_value_secondary_display": (
+                    _fmt_f2[_fid](_lv2)
+                    if (_fid in _fmt_f2 and _lv2 is not None) else None),
+                "status": _status,
+                "status_reason": _reason,
+                "breach_since": _bs.isoformat() if _bs else None,
+                "persistence_days_observed": _days,
+                "persistence_months_observed": _months,
+                "source_short": _c.get("source_short"),
+                "what_triggering_means": _c.get("what_triggering_means"),
+            })
+    _fcounts = {"triggered": 0, "not triggered": 0, "not yet measurable": 0}
+    for _r in fals_rows:
+        _fcounts[_r["status"]] = _fcounts.get(_r["status"], 0) + 1
+    metrics["M19_falsification"] = {
+        "definition": "The 6 committed falsification conditions (README.md "
+                      "Falsification section, committed 2026-11-11) scored "
+                      "against current model outputs. Status is 'triggered' "
+                      "only when the live value breaches the threshold AND "
+                      "the persistence window has been met; otherwise 'not "
+                      "triggered'. Persistence is counted from the commitment "
+                      "date: F1/F4/F6 from the stored daily series, F2 by "
+                      "carrying breach_since forward through this file, F3 "
+                      "event-based, F5 immediate by design.",
+        "method": "Live values are the same figures the model already "
+                  "computes (M1 F30, M3 capture, F30 / Chainflip 30d fees, "
+                  "base-case DCF / live price, F30 / M2 peak, M15 volume / "
+                  "prior-30d volume), except F3, whose live value is the "
+                  "Oct 1-4 2026 outage precedent (31.6%) cited in README "
+                  "Limitations. Thresholds are the numeric form of "
+                  "data/falsification.json — see FALSIFICATION_THRESHOLDS in "
+                  "src/model.py.",
+        "committed": (fals_committed or {}).get("committed"),
+        "as_of_utc": metrics["generated_at_utc"],
+        "available": bool(fals_rows),
+        "reason": (None if fals_rows else
+                   "data/falsification.json missing or unreadable — no "
+                   "committed conditions to score."),
+        "counts": _fcounts,
+        "conditions": fals_rows,
+    }
+    falsification_out = {
+        "generated_at_utc": metrics["generated_at_utc"],
+        "committed": (fals_committed or {}).get("committed"),
+        "note": ("Live values are point-in-time reads against the committed "
+                 "thresholds, not final outcomes. A condition is 'triggered' "
+                 "only when the breach has persisted for its full window."),
+        "counts": _fcounts,
+        "conditions": fals_rows,
+    }
+
     # ---------------- chart data ----------------
     chart_data = {}
 
@@ -1465,6 +1763,7 @@ def main() -> int:
     (PROC / "sensitivity.json").write_text(json.dumps(sens, indent=2))
     (PROC / "benchmarks.json").write_text(json.dumps(bench, indent=2))
     (PROC / "predictions.json").write_text(json.dumps(predictions_out, indent=2))
+    (PROC / "falsification.json").write_text(json.dumps(falsification_out, indent=2))
     for k, v in chart_data.items():
         (PROC / f"{k}_data.json").write_text(json.dumps(v, indent=2))
 
@@ -1522,6 +1821,16 @@ def main() -> int:
                   f"threshold {_pr['threshold']} (resolves {_pr['resolves']})")
     else:
         print(f"M18 dated predictions UNAVAILABLE: {m18p.get('reason')}")
+    m19p = metrics["M19_falsification"]
+    if m19p.get("available"):
+        print(f"M19 falsification: {m19p['counts']} "
+              f"(as of {m19p['as_of_utc']})")
+        for _fr in m19p["conditions"]:
+            print(f"  {_fr['id']}: {_fr['status']} — "
+                  f"live {_fr['live_value_display']} vs "
+                  f"threshold {_fr['threshold']}")
+    else:
+        print(f"M19 falsification UNAVAILABLE: {m19p.get('reason')}")
     return 0
 
 

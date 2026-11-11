@@ -72,7 +72,7 @@ code{font-size:.92em}
   owning NEAR is the <em>option</em> on fee growth and rising capture, not
   today&rsquo;s cash flow. Everything below is built to test that option, not to
   sell it.</div>
-  <p class="note">Data fetched 2026-11-11T09:54:25Z (see per-chart source lines).
+  <p class="note">Data fetched 2026-11-11T10:13:06Z (see per-chart source lines).
   Reproduce it: <code>python3 src/fetch.py &amp;&amp; python3 src/build.py &amp;&amp; python3 src/build_dashboard.py</code>.
   All figures trace to cached API responses in <code>data/raw/</code> or to labelled
   assumptions in <code>src/assumptions.yaml</code>. Nothing here is investment advice.</p>
@@ -161,7 +161,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
         <p class="desc">Implied NEAR value per token across capture rate (15/25/35%) × perpetual fee growth (0/10/20%) at a 12% discount rate.</p>
         <img src="assets/chart07_sensitivity_heatmap.svg" alt="7 · Sensitivity — what has to be true for $3.60?" loading="lazy">
         <p class="takeaway"><strong>Takeaway:</strong> No cell in the grid reaches the current $3.58 price — the best valid cell (35% capture, 10% growth, r=12%) is $1.01. The market is paying for fee growth and/or capture beyond this grid. Cells where growth meets or exceeds the discount rate are invalid in a Gordon model and shown as n/a.</p>
-        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-11T09:54:25Z</p>
+        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-11T10:13:06Z</p>
       </section>
 
       <section class="chart">
@@ -236,7 +236,7 @@ the git history of <a href="https://github.com/Topeseun/near-intents-investment-
 and derived from the thesis&rsquo;s own numbers — no threshold here is
 invented. <strong>A missed prediction counts against the thesis.</strong>
 That is the point: a thesis that cannot be wrong is not evidence. Live
-values below are as of 2026-11-11T09:54:25Z — a point-in-time read
+values below are as of 2026-11-11T10:13:06Z — a point-in-time read
 against the threshold, <em>not</em> the final outcome: no prediction has
 resolved yet (earliest resolution date 2026-12-31). Current tally:
 5 on track, 2 off track,
@@ -250,6 +250,40 @@ resolved yet (earliest resolution date 2026-12-31). Current tally:
 30d fees, M₁₃ 30d-mean active accounts, |M₁₆ weekly log-change Pearson|).
 When a resolution date arrives, re-run the pipeline and record the outcome
 in PREDICTIONS.md.</p>
+
+
+<h2>Falsification — what would prove this thesis wrong</h2>
+<p>Committed 2026-11-11: a thesis that cannot be wrong is not
+evidence, so here are the six kill conditions. If one triggers, the thesis
+(or the part of it the condition tests) is wrong and must be revised, not
+defended. Live values below are as of 2026-11-11T10:13:06Z.
+Current tally: 0 triggered,
+6 not triggered,
+0 not yet measurable. Three conditions
+overlap the dated predictions on purpose: F₁ tests the same revenue base as
+P₁ (at the kill level, $2M, not the November level), F₂ the same capture
+rate as P₂ (at the 15% floor, not the 35.97% level), and F₄ the same
+competitive lead as P₅ (at parity, not 1.5×). A prediction going off track
+is a warning; a falsification condition triggering is the thesis failing.
+Persistence is counted from the commitment date and re-evaluated on every
+daily refresh: F₁, F₄ and F₆ are scored against the stored daily series, so
+their persistence is measured, not asserted; F₂&rsquo;s capture rate is a
+point-in-time fetch with no stored history, so its 90-day clock is carried
+forward through <code>data/processed/falsification.json</code> across runs;
+F₃ is event-based — its live value is the Oct 1–4 2026 pause precedent, the
+largest single-provider outage drop on record, re-checked when a new outage
+is reported. F₅ has no persistence window by design: a single recomputation
+at or above 100% is enough.</p>
+<div class="tbl-wrap"><table>
+<tr><th>ID</th><th>Condition</th><th>Threshold</th><th>Live value</th><th>Status</th></tr>
+<tr><th scope='row'>F₁</th><td>Revenue base too small</td><td>Trailing-30d Intents gross fees (F30) below $2,000,000 sustained for 90 consecutive days</td><td>$5,458,382</td><td class="st-on">not triggered<br><span class="note">No breach: F30 $5,458,382 is above the $2,000,000 bar; 0 of 90 persistence days.</span></td></tr><tr><th scope='row'>F₂</th><td>Retention fails</td><td>30d capture rate (retained ÷ gross) below 15% sustained for 90 consecutive days</td><td>33.92%</td><td class="st-on">not triggered<br><span class="note">No breach: capture 33.92% is above the 15% floor; 0 of 90 persistence days.</span></td></tr><tr><th scope='row'>F₃</th><td>Concentration kills the moat</td><td>A single routing-provider outage cuts observed 1Click volume by more than 50% for 7+ days</td><td>31.6% drop — Oct 1–4 2026 pause precedent</td><td class="st-on">not triggered<br><span class="note">Precedent only: the Oct 1–4 2026 pause ran 31.6% below the prior matching week — under the 50% bar. Event-based; re-evaluated when a new outage is reported.</span></td></tr><tr><th scope='row'>F₄</th><td>Competitive lead lost</td><td>A competitor&#x27;s trailing-30d Intents fees exceed NEAR&#x27;s (ratio &lt; 1.0) for 3 consecutive months</td><td>1.92×</td><td class="st-on">not triggered<br><span class="note">No breach: NEAR leads Chainflip 1.92×; 0 of 3 persistence months.</span></td></tr><tr><th scope='row'>F₅</th><td>Thesis too bearish (reverse falsification)</td><td>DCF value/token at or above 100% of NEAR price</td><td>10.9% of price</td><td class="st-on">not triggered<br><span class="note">No breach: DCF value/token is 10.9% of price — far below the 100% bar.</span></td></tr><tr><th scope='row'>F₆</th><td>Growth story dies</td><td>Trailing-30d fees fall more than 50% from the $8,236,902 peak of 14 Oct 2026 AND 30d volume falls more than 50% vs its prior 30d, both sustained for 90 consecutive days</td><td>66.3% of peak<br><span class="note">79.3% of prior 30d</span></td><td class="st-on">not triggered<br><span class="note">No breach: fees are 66.3% of peak and volume 79.3% of prior 30d — neither leg is below its 50% bar; 0 of 90 persistence days.</span></td></tr>
+</table></div>
+<p class="note">Committed thresholds live in
+<code>data/falsification.json</code>; live values are the same figures the
+model already computes (M₁ F₃₀, M₃ capture, F₃₀ ÷ Chainflip 30d fees,
+base-case DCF ÷ live price, F₃₀ ÷ the M₂ peak, M₁₅ volume ÷ prior-30d
+volume) — except F₃, whose live value is the cited outage precedent.
+Method and honesty notes: <code>data/processed/BUILD_NOTES.md</code> (M₁₉).</p>
 
 
 <h2>Benchmarks — NEAR vs SOL / AVAX / ETH</h2>
@@ -385,7 +419,7 @@ the prior matching week.</li>
 
 <footer>
 <p>NEAR Hackathon 2026 — Investment Thesis track. Built with free, keyless data
-only. Generated 2026-11-11T09:54:25Z from <code>data/processed/*.json</code> by
+only. Generated 2026-11-11T10:13:06Z from <code>data/processed/*.json</code> by
 <code>src/build_dashboard.py</code>. Not investment advice. NEAR payout account for
 prizes (if awarded): <code>topeseun20.near</code>.</p>
 </footer>

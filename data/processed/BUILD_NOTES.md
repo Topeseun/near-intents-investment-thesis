@@ -219,3 +219,74 @@ python3 -m unittest discover -s tests -v`):
   copy of the workflow file was reverted to match the remote until then.
 - Verification: full pipeline re-run + `python3 -m unittest discover -s
   tests` — 18/18 OK.
+
+## 2026-11-11 ~11:15 WAT — Falsification section (M19, F1–F6)
+
+### What changed and why
+The thesis now states what would prove it wrong: six kill conditions
+(F1–F6), committed 2026-11-11 in `data/falsification.json` and rendered in
+README + dashboard (M19). Three overlap the dated predictions on purpose —
+F1 tests the same revenue base as P1 (at the kill level, $2M, not the
+November level), F2 the same capture rate as P2 (at the 15% floor, not
+35.97%), F4 the same competitive lead as P5 (at parity, not 1.5×). A
+prediction going off track is a warning; a falsification condition
+triggering is the thesis failing. Status is "triggered" only when the live
+value breaches the threshold AND the persistence window has been met.
+Live values today (fetch 2026-11-11 ~09:25 UTC): F1 $5,458,382 vs $2M bar;
+F2 33.92% vs 15% floor; F3 31.6% precedent vs 50% bar; F4 1.92× vs 1.0;
+F5 10.9% of price vs 100% bar; F6 fees 66.3% of the $8,236,902 peak and
+volume 79.3% of prior 30d vs the 50% bars. Tally: 0 triggered, 6 not
+triggered. No thesis number, prediction threshold or existing metric changed.
+
+### Persistence — what the data supports, honestly
+Persistence is counted from the commitment date (2026-11-11) forward, and
+each condition uses only the history its data actually carries:
+- **F1 (90 days): measured from the stored daily fee series.** The model
+  counts consecutive post-commitment days where the trailing-30d sum is
+  below $2M, straight from the DefiLlama daily series (550 points). The
+  series ends 2026-11-10, one day before the commitment date, so the count
+  is 0 today and becomes real as the daily refresh extends the series. The
+  May–Aug 2025 launch ramp (trailing-30d below $2M for months) does NOT
+  count: it predates the commitment.
+- **F2 (90 days): carried forward through the state file.** The capture
+  rate is a point-in-time fetch — revenue.near.org returns windows
+  (all-time/YTD/7d/30d), not a daily history — so no stored series can
+  measure a 90-day run. Instead `src/model.py` reads the previous run's
+  `data/processed/falsification.json` and carries `breach_since` forward
+  across daily refreshes. Limitation, stated plainly: if that file is ever
+  deleted, the 90-day clock restarts from the next breach. No breach today,
+  so the clock is at 0 either way.
+- **F3 (7+ days): event-based, not measurable from any stored series.**
+  The live value is the Oct 1–4 2026 pause precedent (31.6% below the prior
+  matching week, Faultline via NearStats routing data, cited in README
+  Limitations) — the largest single-provider outage drop on record. The
+  daily fee/volume series cannot detect routing-provider outages, so the
+  condition is re-evaluated when a new outage is reported, not by the
+  refresh. Its status_reason says so on the dashboard.
+- **F4 (3 calendar months): measured from aligned daily trailing series.**
+  NEAR vs Chainflip trailing-30d fees, computed day by day from both
+  DefiLlama daily series (1,043 Chainflip points) and counted
+  post-commitment; months are whole calendar months elapsed since the run
+  started. Count is 0 today (series ends before the commitment date).
+- **F5: no persistence window by design.** A single recomputation at or
+  above 100% of price triggers; the claim is about the current level, not a
+  trend.
+- **F6 (90 days, both legs): measured from the stored daily series.**
+  Fees leg: trailing-30d vs the fixed $8,236,902 peak of 14 Oct 2026.
+  Volume leg: trailing-30d volume vs its own prior 30d, from the DefiLlama
+  dexs daily series (701 points). Both legs must breach on the same day for
+  the day to count. Count is 0 today.
+
+### Verification
+- Full pipeline re-run (`python3 src/build.py` regenerates metrics,
+  predictions + falsification from the same cached fetch) +
+  `python3 -m unittest discover -s tests` — 22/22 OK (4 new M19 tests:
+  test_falsification_match_committed, test_falsification_live_values_sane,
+  test_dashboard_renders_falsification,
+  test_readme_contains_falsification_section).
+- The two M19 metric tests are in TestProcessedOutputs, so they are already
+  covered by the workflow blocking gate (it runs the whole class).
+  test_dashboard_renders_falsification is NOT yet in the gate — the gate
+  names test_dashboard_renders_predictions explicitly, so adding the new
+  test needs the same web-UI edit as commit 99fa40d (API returns 403 on
+  workflow files).

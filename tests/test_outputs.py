@@ -19,6 +19,11 @@ What it checks (no network, no new dependencies):
     data/predictions.json thresholds and dates, their live values are sane
     and agree with the metrics they come from, and the dashboard renders
     all 7 with live values and statuses
+  * the 6 falsification conditions (M19) match the committed
+    data/falsification.json thresholds, their live values are sane and agree
+    with the metrics they come from, their statuses are consistent with the
+    thresholds and persistence windows, and the dashboard renders all 6
+    with live values and statuses (plus the README section)
   * the two new raw responses are in the manifest with status 200
   * docs/ (GitHub Pages) mirrors dashboard/index.html + the SVGs
 
@@ -38,7 +43,7 @@ ASSETS = REPO / "dashboard" / "assets"
 
 PROCESSED_JSONS = [
     "metrics.json", "dcf.json", "sensitivity.json", "benchmarks.json",
-    "predictions.json",
+    "predictions.json", "falsification.json",
     "chart_01_data.json", "chart_02_data.json", "chart_03_data.json",
     "chart_04_data.json", "chart_05_data.json", "chart_06_data.json",
     "chart_07_data.json", "chart_08_data.json", "chart_09_data.json",
@@ -316,6 +321,144 @@ class TestProcessedOutputs(unittest.TestCase):
                 ["pearson_price_vs_intents_fees_weekly_log_changes"]),
             delta=1e-9)
 
+    def test_falsification_match_committed(self):
+        """M19 thresholds must be the committed data/falsification.json text."""
+        committed = json.loads((REPO / "data" / "falsification.json").read_text())
+        processed = load_processed("falsification.json")
+        self.assertEqual(committed["committed"], "2026-11-11")
+        self.assertEqual([c["id"] for c in committed["conditions"]],
+                         ["F1", "F2", "F3", "F4", "F5", "F6"])
+        rows = {c["id"]: c for c in processed["conditions"]}
+        self.assertEqual(sorted(rows), ["F1", "F2", "F3", "F4", "F5", "F6"])
+        expected_ops = {"F1": "<", "F2": "<", "F3": ">", "F4": "<",
+                        "F5": ">=", "F6": "<"}
+        for c in committed["conditions"]:
+            row = rows[c["id"]]
+            self.assertEqual(row["threshold"], c["threshold"])
+            self.assertEqual(row["title"], c["title"])
+            self.assertEqual(row["persistence"], c["persistence"])
+            self.assertEqual(row["threshold_op"], expected_ops[c["id"]])
+            # The numeric threshold must be a number that appears in the
+            # committed threshold text (F2/F3/F5/F6 are percentages -> /100).
+            nums = [float(x.replace(",", ""))
+                    for x in re.findall(r"\d[\d,]*\.?\d*", c["threshold"])]
+            expected = row["threshold_value"]
+            if c["id"] in ("F2", "F3", "F5", "F6"):
+                self.assertIn(expected * 100, nums, c["id"])
+            else:
+                self.assertIn(expected, nums, c["id"])
+        # F6 is a two-leg condition: both legs and the fixed peak are stored.
+        self.assertEqual(rows["F6"]["threshold_value_secondary"], 0.5)
+        self.assertEqual(rows["F6"]["peak_usd"], 8236902.0)
+        self.assertIn(8236902.0,
+                      [float(x.replace(",", ""))
+                       for x in re.findall(r"\d[\d,]*\.?\d*",
+                                           committed["conditions"][5]["threshold"])])
+
+    def test_falsification_live_values_sane(self):
+        """M19 live values sane, status consistent, and traced to metrics."""
+        m = load_processed("metrics.json")
+        processed = load_processed("falsification.json")
+        m19 = m["M19_falsification"]
+        self.assertTrue(m19.get("available"), m19.get("reason"))
+        self.assertEqual(m19["committed"], "2026-11-11")
+        self.assertEqual(len(m19["conditions"]), 6)
+        self.assertEqual(processed["conditions"], m19["conditions"])
+        self.assertEqual(processed["counts"], m19["counts"])
+        self.assertEqual(sum(m19["counts"].values()), 6)
+        ranges = {
+            "F1": (1, 1e9), "F2": (0, 1), "F3": (0, 1), "F4": (0, 100),
+            "F5": (0, 1), "F6": (0, 1),
+        }
+        persistence_windows = {"F1": 90, "F2": 90, "F6": 90}
+        for row in m19["conditions"]:
+            self.assertIn(row["status"],
+                          ("triggered", "not triggered", "not yet measurable"))
+            # M19 always writes an explanatory reason.
+            self.assertIsNotNone(row["status_reason"], row["id"])
+            lv = row["live_value"]
+            if lv is None:
+                self.assertEqual(row["status"], "not yet measurable")
+                continue
+            lo, hi = ranges[row["id"]]
+            self.assertGreater(lv, lo, row["id"])
+            self.assertLess(lv, hi, row["id"])
+            self.assertIsNotNone(row["live_value_display"])
+            op = row["threshold_op"]
+            if op == ">=":
+                breach = lv >= row["threshold_value"]
+            elif op == ">":
+                breach = lv > row["threshold_value"]
+            else:
+                breach = lv < row["threshold_value"]
+            if row["id"] == "F6":
+                lv2 = row["live_value_secondary"]
+                self.assertIsNotNone(lv2, "F6 second leg")
+                self.assertGreater(lv2, 0)
+                self.assertLess(lv2, 1)
+                breach = breach and lv2 < row["threshold_value_secondary"]
+            if not breach:
+                self.assertEqual(row["status"], "not triggered", row["id"])
+                self.assertIsNone(row["breach_since"], row["id"])
+                self.assertEqual(row["persistence_days_observed"], 0, row["id"])
+            else:
+                # A breach only becomes "triggered" once its persistence
+                # window is met (F5 has no window; F3 is event-based and
+                # cannot trigger from stored data alone).
+                if row["id"] == "F5":
+                    self.assertEqual(row["status"], "triggered", row["id"])
+                elif row["id"] == "F3":
+                    self.assertIn(row["status"],
+                                  ("triggered", "not triggered"), row["id"])
+                elif row["id"] == "F4":
+                    expect = ("triggered"
+                              if row["persistence_months_observed"] >= 3
+                              else "not triggered")
+                    self.assertEqual(row["status"], expect, row["id"])
+                else:
+                    expect = ("triggered"
+                              if row["persistence_days_observed"]
+                              >= persistence_windows[row["id"]]
+                              else "not triggered")
+                    self.assertEqual(row["status"], expect, row["id"])
+        # Live values must agree with the metrics they come from.
+        self.assertAlmostEqual(
+            m19["conditions"][0]["live_value"],
+            m["M1_intents_gross_fees"]["total_30d_usd_F30"], delta=0.01)
+        self.assertAlmostEqual(
+            m19["conditions"][1]["live_value"],
+            m["M3_retained_revenue"]["capture_rate_30d_measured"], delta=1e-9)
+        # F3 is the cited outage precedent, not a live series value.
+        self.assertAlmostEqual(m19["conditions"][2]["live_value"], 0.316,
+                               delta=1e-9)
+        self.assertIn("Faultline",
+                      [c["source_short"] for c in
+                       json.loads((REPO / "data" / "falsification.json")
+                                  .read_text())["conditions"]][2])
+        bench = load_processed("benchmarks.json")
+        self.assertAlmostEqual(
+            m19["conditions"][3]["live_value"],
+            m["M1_intents_gross_fees"]["total_30d_usd_F30"]
+            / bench["intents_competitors"]["chainflip"]["fees_30d_usd"],
+            delta=1e-6)
+        dcf = load_processed("dcf.json")
+        self.assertAlmostEqual(
+            m19["conditions"][4]["live_value"],
+            dcf["base_case"]["value_per_token_usd"] / m["snapshot"]["near_price_usd"],
+            delta=1e-6)
+        self.assertAlmostEqual(
+            m19["conditions"][5]["live_value"],
+            m["M1_intents_gross_fees"]["total_30d_usd_F30"]
+            / m["M2_intents_fee_growth"]["trailing_30d_peak"]["trailing_30d_usd"],
+            delta=1e-9)
+        # F6 second leg: 30d volume / prior 30d volume, recomputed from the
+        # raw DefiLlama dexs daily series (independent of the model).
+        dexs = json.loads((RAW / "defillama_dexs_near-intents.json").read_text())
+        pts = [float(v) for _, v in dexs["totalDataChart"]]
+        self.assertAlmostEqual(
+            m19["conditions"][5]["live_value_secondary"],
+            sum(pts[-30:]) / sum(pts[-60:-30]), delta=1e-9)
+
     def test_chart_data_matches_metrics(self):
         m = load_processed("metrics.json")
         c8 = load_processed("chart_08_data.json")
@@ -384,6 +527,31 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertNotIn("accounts < 100,000", html_text)
         self.assertNotIn("Pearson |r| < 0.30", html_text)
 
+    def test_dashboard_renders_falsification(self):
+        html_text = (REPO / "dashboard" / "index.html").read_text()
+        self.assertIn("Falsification", html_text)
+        committed = json.loads((REPO / "data" / "falsification.json").read_text())
+        for c in committed["conditions"]:
+            self.assertIn(c["id"].translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")), html_text, f"{c['id']} missing from dashboard")
+            # Thresholds/titles are HTML-escaped when rendered ("<" -> "&lt;").
+            self.assertIn(html.escape(c["threshold"]), html_text,
+                          f"{c['id']} threshold missing")
+            self.assertIn(html.escape(c["title"]), html_text,
+                          f"{c['id']} title missing")
+        processed = load_processed("falsification.json")
+        for row in processed["conditions"]:
+            if row["live_value_display"]:
+                self.assertIn(html.escape(row["live_value_display"]), html_text,
+                              f"{row['id']} live value missing")
+            if row["live_value_secondary_display"]:
+                self.assertIn(html.escape(row["live_value_secondary_display"]),
+                              html_text, f"{row['id']} second leg missing")
+            self.assertIn(row["status"], html_text, f"{row['id']} status missing")
+            self.assertIn(html.escape(row["status_reason"]), html_text,
+                          f"{row['id']} status reason missing")
+        # No raw "<" from a threshold may survive into the rendered HTML.
+        self.assertNotIn("ratio < 1.0", html_text)
+
     def test_docs_mirror_dashboard(self):
         docs = REPO / "docs"
         self.assertTrue((docs / "index.html").exists(), "docs/index.html missing")
@@ -417,6 +585,20 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertIn("python3 -m unittest discover -s tests -v", readme)
         self.assertIn("/v1/charts", readme)
         self.assertIn("GitHub Pages", readme)
+
+    def test_readme_contains_falsification_section(self):
+        readme = (REPO / "README.md").read_text()
+        self.assertIn("Falsification", readme)
+        for fid in ("F1", "F2", "F3", "F4", "F5", "F6"):
+            self.assertIn(fid.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")),
+                          readme, f"{fid} subscript missing from README")
+        self.assertIn("$2,000,000", readme)
+        self.assertIn("8,236,902", readme)
+        self.assertIn("0 triggered, 6 not triggered", readme)
+        # The overlap with the dated predictions is stated, not hidden.
+        self.assertIn("P₁", readme)
+        self.assertIn("P₂", readme)
+        self.assertIn("P₅", readme)
 
     def test_no_hardcoded_dcf_drift(self):
         """README headline DCF value must match dcf.json to 2dp."""

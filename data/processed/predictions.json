@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-11T09:54:25Z",
+  "generated_at_utc": "2026-11-11T10:13:06Z",
   "committed": "2026-11-10",
   "note": "Live values are point-in-time reads against the committed thresholds, not final outcomes. Earliest resolution date 2026-12-31.",
   "counts": {

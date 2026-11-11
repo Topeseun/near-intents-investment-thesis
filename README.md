@@ -44,6 +44,21 @@ Committed 2026-11-10 ([PREDICTIONS.md](PREDICTIONS.md) — timestamped by git hi
 
 The two misses are honest news, not a rounding error: trailing-30d fees fell 2.2% below the November level ($5,458,382 vs $5,578,208) and the capture rate fell 2.05pp (33.92% vs 35.97%) on the same fetch — fees and capture both moved against the thesis in one day. When a resolution date arrives, re-run the pipeline and record the outcome in PREDICTIONS.md. The live dashboard renders this table from `data/processed/predictions.json` (M₁₈) on every refresh.
 
+## Falsification — what would prove this thesis wrong
+
+A thesis that cannot be wrong is not evidence — so here are the six kill conditions, committed 2026-11-11. If one triggers, the thesis (or the part of it the condition tests) is wrong and must be revised, not defended. Live values below are as of the latest fetch (2026-11-11 ~09:25 UTC). Current tally: **0 triggered, 6 not triggered**.
+
+| ID | Condition | Threshold | Live value | Status |
+|---|---|---|---|---|
+| F₁ | Revenue base too small | Trailing-30d Intents gross fees (F₃₀) below $2,000,000 sustained for 90 consecutive days | $5,458,382 | **not triggered** |
+| F₂ | Retention fails | 30d capture rate below 15% sustained for 90 consecutive days | 33.92% | **not triggered** |
+| F₃ | Concentration kills the moat | A single routing-provider outage cuts observed 1Click volume by more than 50% for 7+ days | 31.6% drop — Oct 1–4 2026 pause precedent | **not triggered** |
+| F₄ | Competitive lead lost | A competitor's trailing-30d Intents fees exceed NEAR's (ratio < 1.0) for 3 consecutive months | 1.92× vs Chainflip | **not triggered** |
+| F₅ | Thesis too bearish (reverse falsification) | DCF value/token at or above 100% of NEAR price | 10.9% of price | **not triggered** |
+| F₆ | Growth story dies | Trailing-30d fees fall more than 50% from the $8,236,902 peak of 14 Oct 2026 AND 30d volume falls more than 50% vs its prior 30d, both sustained for 90 consecutive days | Fees 66.3% of peak; volume 79.3% of prior 30d | **not triggered** |
+
+Three conditions overlap the dated predictions — deliberately, not by accident: F₁ tests the same revenue base as P₁ (but at the kill level, $2M, not the November level), F₂ the same capture rate as P₂ (at the 15% floor, not the 35.97% level), and F₄ the same competitive lead as P₅ (at parity, not 1.5×). A prediction going off track is a warning; a falsification condition triggering is the thesis failing. Persistence is counted from the commitment date (2026-11-11) and re-evaluated on every daily refresh: F₁, F₄ and F₆ are scored against the stored daily series, so their persistence is measured, not asserted; F₂'s capture rate is a point-in-time fetch with no stored history, so its 90-day clock is carried forward through `data/processed/falsification.json` across runs; F₃ is event-based — the 31.6% figure is the Oct 1–4 2026 pause precedent, the largest single-provider outage drop on record, and the condition is re-checked when a new outage is reported. F₅ has no persistence window by design: a single recomputation at or above 100% is enough. Committed thresholds: `data/falsification.json`. Method and honesty notes: `data/processed/BUILD_NOTES.md` (M₁₉). The live dashboard renders this table from `data/processed/falsification.json` (M₁₉) on every refresh.
+
 ## What this repo contains
 
 ```
@@ -66,6 +81,7 @@ The two misses are honest news, not a rounding error: trailing-30d fees fell 2.2
 │       ├── sensitivity.json      # 27-cell grid (capture × growth × discount)
 │       ├── benchmarks.json       # NEAR vs SOL/AVAX/ETH + Intents competitors
 │       ├── predictions.json      # M₁₈ dated predictions: committed thresholds + live values + statuses
+│       ├── falsification.json    # M₁₉ falsification conditions: committed thresholds + live values + statuses
 │       ├── chart_01_data.json … chart_10_data.json   # Per-chart numbers
 │       └── BUILD_NOTES.md        # Pipeline/model build notes, gaps, corrections, reproducibility
 ├── docs/                         # GitHub Pages copy of dashboard/index.html + dashboard/assets/*.svg (same content)
@@ -79,7 +95,7 @@ The two misses are honest news, not a rounding error: trailing-30d fees fell 2.2
 What the code does, exactly:
 
 - `src/fetch.py` fetches NEARBlocks stats/validators/blocks/accounts **and the full daily `/v1/charts` series (2,304 points, 2020-07-21 → today)**, NEAR RPC status/gas price/protocol config, CoinGecko prices + 365d market charts (4 coins), DefiLlama Intents/chain/competitor fees + TVL **and the Intents daily volume series (`summary/dexs/near-intents`, 701 points from 2024-12-10)**, and parses the revenue.near.org server-rendered payload for the measured capture rate. Every response is cached to `data/raw/` with a timestamped manifest. No API keys. CoinGecko: 5 calls, 2.5 s sleep between them (30/min limit); a 429 gets one retry after a 60 s backoff.
-- `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R₁/(r−g), R₀ = F₃₀ × 12 × capture), the 18 metrics M₁–M₁₈, the 27-cell sensitivity grid, and the peer/competitor benchmarks — all from the cache, no network.
+- `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R₁/(r−g), R₀ = F₃₀ × 12 × capture), the 19 metrics M₁–M₁₉, the 27-cell sensitivity grid, and the peer/competitor benchmarks — all from the cache, no network.
 - `src/charts.py` renders the 10 charts as PNGs (+ SVG twins) from the model outputs.
 - `src/build_dashboard.py` renders `dashboard/index.html` from `data/processed/*.json`. Every number on the page is formatted from those JSONs — nothing is hardcoded — so re-running the pipeline and this script regenerates a dashboard that always matches the model.
 
@@ -99,7 +115,7 @@ Verified: a clean re-run (`rm -rf data && python3 src/fetch.py && python3 src/bu
 python3 -m unittest discover -s tests -v
 ```
 
-Stdlib `unittest` only — no new dependencies. 18 tests: every `data/processed/*.json` exists and parses; F₃₀/capture/R₀/DCF arithmetic is internally consistent (R₀ = F₃₀ × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M₁₂–M₁₇ sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); M₁₈ dated predictions (thresholds and dates match the committed `data/predictions.json`, live values sane and traced to the metrics they come from, statuses consistent with the thresholds); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs and renders all 7 predictions with live values and statuses; `docs/` mirrors `dashboard/index.html` byte-for-byte; the README contains the headline numbers (fee-stable figures + the all-time activity peaks).
+Stdlib `unittest` only — no new dependencies. 22 tests: every `data/processed/*.json` exists and parses; F₃₀/capture/R₀/DCF arithmetic is internally consistent (R₀ = F₃₀ × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M₁₂–M₁₇ sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); M₁₈ dated predictions (thresholds and dates match the committed `data/predictions.json`, live values sane and traced to the metrics they come from, statuses consistent with the thresholds); M₁₉ falsification (thresholds match the committed `data/falsification.json`, live values sane and traced to the metrics they come from, statuses consistent with thresholds and persistence windows, dashboard renders all 6 conditions with live values and statuses); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs and renders all 7 predictions with live values and statuses; `docs/` mirrors `dashboard/index.html` byte-for-byte; the README contains the headline numbers (fee-stable figures + the all-time activity peaks) and the falsification section.
 
 ## GitHub Pages
 

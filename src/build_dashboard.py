@@ -3,7 +3,7 @@
 
 Usage:  python3 src/build_dashboard.py
 Reads metrics.json, dcf.json, sensitivity.json, benchmarks.json,
-predictions.json and the chart_0*_data.json files, and writes
+predictions.json, falsification.json and the chart_0*_data.json files, and writes
 dashboard/index.html. Every number on the page is formatted from those JSONs
 — nothing is hardcoded — so re-running fetch.py + build.py and then this
 script regenerates a dashboard that always matches the model outputs. Charts
@@ -72,6 +72,10 @@ def main():
         pred = load("predictions.json")
     except Exception:
         pred = None
+    try:
+        fals = load("falsification.json")
+    except Exception:
+        fals = None
 
     M1 = m["M1_intents_gross_fees"]
     M2 = m["M2_intents_fee_growth"]
@@ -425,7 +429,8 @@ restore the series.</p>
 
     # Dated predictions (M₁₈): committed 2026-11-10, scored live.
     _ST_CLS = {"on track": "st-on", "off track": "st-off",
-               "not yet measurable": "st-na"}
+               "not yet measurable": "st-na",
+               "triggered": "st-off", "not triggered": "st-on"}
     if pred and pred.get("predictions"):
         _rows = ""
         for _pr in pred["predictions"]:
@@ -474,6 +479,69 @@ predictions) could not be scored on the latest run — see
 <code>data/processed/predictions.json</code> for the reason. No prediction
 status is shown rather than fabricated; re-run <code>src/build.py</code> to
 restore it.</p>
+"""
+
+    # Falsification (M₁₉): the six kill conditions, committed 2026-11-11.
+    if fals and fals.get("conditions"):
+        _rows = ""
+        for _fr in fals["conditions"]:
+            _lv = escape(_fr["live_value_display"]) if _fr["live_value_display"] else "—"
+            if _fr.get("live_value_secondary_display"):
+                _lv += (f"<br><span class=\"note\">"
+                        f"{escape(_fr['live_value_secondary_display'])}</span>")
+            _cls = _ST_CLS.get(_fr["status"], "st-na")
+            _note = (f"<br><span class=\"note\">"
+                     f"{escape(_fr['status_reason'])}</span>"
+                     if _fr.get("status_reason") else "")
+            _rows += (
+                f"<tr><th scope='row'>{escape(sub_digits(_fr['id']))}</th>"
+                f"<td>{escape(_fr['title'])}</td>"
+                f"<td>{escape(_fr['threshold'])}</td>"
+                f"<td>{_lv}</td>"
+                f"<td class=\"{_cls}\">{_fr['status']}{_note}</td></tr>")
+        _c = fals["counts"]
+        falsification_section = f"""
+<h2>Falsification — what would prove this thesis wrong</h2>
+<p>Committed {fals.get('committed')}: a thesis that cannot be wrong is not
+evidence, so here are the six kill conditions. If one triggers, the thesis
+(or the part of it the condition tests) is wrong and must be revised, not
+defended. Live values below are as of {fals.get('generated_at_utc')}.
+Current tally: {_c.get('triggered', 0)} triggered,
+{_c.get('not triggered', 0)} not triggered,
+{_c.get('not yet measurable', 0)} not yet measurable. Three conditions
+overlap the dated predictions on purpose: F₁ tests the same revenue base as
+P₁ (at the kill level, $2M, not the November level), F₂ the same capture
+rate as P₂ (at the 15% floor, not the 35.97% level), and F₄ the same
+competitive lead as P₅ (at parity, not 1.5×). A prediction going off track
+is a warning; a falsification condition triggering is the thesis failing.
+Persistence is counted from the commitment date and re-evaluated on every
+daily refresh: F₁, F₄ and F₆ are scored against the stored daily series, so
+their persistence is measured, not asserted; F₂&rsquo;s capture rate is a
+point-in-time fetch with no stored history, so its 90-day clock is carried
+forward through <code>data/processed/falsification.json</code> across runs;
+F₃ is event-based — its live value is the Oct 1–4 2026 pause precedent, the
+largest single-provider outage drop on record, re-checked when a new outage
+is reported. F₅ has no persistence window by design: a single recomputation
+at or above 100% is enough.</p>
+<div class="tbl-wrap"><table>
+<tr><th>ID</th><th>Condition</th><th>Threshold</th><th>Live value</th><th>Status</th></tr>
+{_rows}
+</table></div>
+<p class="note">Committed thresholds live in
+<code>data/falsification.json</code>; live values are the same figures the
+model already computes (M₁ F₃₀, M₃ capture, F₃₀ ÷ Chainflip 30d fees,
+base-case DCF ÷ live price, F₃₀ ÷ the M₂ peak, M₁₅ volume ÷ prior-30d
+volume) — except F₃, whose live value is the cited outage precedent.
+Method and honesty notes: <code>data/processed/BUILD_NOTES.md</code> (M₁₉).</p>
+"""
+    else:
+        falsification_section = """
+<h2>Falsification — what would prove this thesis wrong</h2>
+<p>The six committed falsification conditions
+(<code>data/falsification.json</code>) could not be scored on the latest
+run — see <code>data/processed/falsification.json</code> for the reason. No
+condition status is shown rather than fabricated; re-run
+<code>src/build.py</code> to restore it.</p>
 """
 
     html = f"""<!DOCTYPE html>
@@ -587,6 +655,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
 {network_section}
 {metcalfe_section}
 {predictions_section}
+{falsification_section}
 
 <h2>Benchmarks — NEAR vs SOL / AVAX / ETH</h2>
 <div class="tbl-wrap"><table>
