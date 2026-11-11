@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the 9 thesis charts as matplotlib PNGs into dashboard/assets/.
+"""Generate the 10 thesis charts as matplotlib PNGs into dashboard/assets/.
 
 Reads ONLY data/processed/chart_0*_data.json (+ metrics.json / dcf.json for
 annotations). No network, no re-fetching — the dashboard agent can reuse the
@@ -301,6 +301,70 @@ def chart09():
     save(fig, "chart09_intents_volume_and_fees.png")
 
 
+def chart10():
+    d = load("chart_10_data.json")
+    if not d.get("available"):
+        print(f"chart10 SKIPPED: {d.get('reason')}")
+        return
+    import numpy as _np
+    users = _np.array(d["monthly_users_mean"], dtype=float)
+    price = _np.array(d["monthly_price_month_end"], dtype=float)
+    cum = _np.array(d["monthly_cum_txns_month_end"], dtype=float)
+    f1 = d["fit_price_vs_users"]
+    f2 = d["fit_price_vs_cum_txns"]
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 5))
+    # Panel 1: price vs users, log-log, with the OLS fit. Strict Metcalfe
+    # (value ∝ users²) would be a slope-2 line; the fitted slope is ~0.02.
+    ax1.scatter(users, price, color=BLUE, s=28, alpha=0.75, zorder=3,
+                label="Monthly: mean users vs month-end price")
+    xs = _np.linspace(users.min(), users.max(), 50)
+    ax1.plot(xs, _np.exp(f1["intercept"] + f1["slope"] * _np.log(xs)),
+             color="#C0392B", lw=2,
+             label=f"OLS fit: slope {d['slope_monthly']:.2f}, "
+                   f"R² {d['r_squared_monthly']:.3f}")
+    ax1.set_xscale("log")
+    ax1.set_yscale("log")
+    style_ax(ax1, "Price vs users — no Metcalfe law",
+             xlabel="Monthly mean active accounts / day (log scale)",
+             ylabel="NEAR price, month-end USD (log scale)")
+    ax1.legend(frameon=False, loc="upper left", fontsize=9)
+    ax1.text(0.02, 0.02,
+             f"n={d['n_months']} months, {d['window']}. Pearson r "
+             f"{d['pearson_r_monthly']:.2f}. Strict Metcalfe needs slope ≈ 2.0.",
+             transform=ax1.transAxes, fontsize=8, color=GREY)
+    # Panel 2: price vs cumulative txns (PARTIAL — trend-dominated stock).
+    ax2.scatter(cum, price, color=NEAR_GREEN, s=28, alpha=0.75, zorder=3,
+                label="Monthly: cumulative txns vs month-end price")
+    xs2 = _np.linspace(cum.min(), cum.max(), 50)
+    ax2.plot(xs2, _np.exp(f2["intercept"] + f2["slope"] * _np.log(xs2)),
+             color="#C0392B", lw=2,
+             label=f"OLS fit: slope {d['slope_cum_txns']:.2f}, "
+                   f"R² {d['r_squared_cum_txns']:.3f}")
+    ax2.set_xscale("log")
+    ax2.set_yscale("log")
+    style_ax(ax2, "Price vs cumulative txns — partial check",
+             xlabel="Cumulative transactions to date (log scale)",
+             ylabel="NEAR price, month-end USD (log scale)")
+    ax2.legend(frameon=False, loc="upper left", fontsize=9)
+    ax2.text(0.02, 0.02,
+             "PARTIAL: cumulative txns only rises, so this test is "
+             "trend-dominated by construction.",
+             transform=ax2.transAxes, fontsize=8, color=GREY)
+    fig.text(0.01, -0.01,
+             f"Daily regression agrees (slope {d['slope_daily']:.2f}, "
+             f"R² {d['r_squared_daily']:.3f}, n=2,218 days). Market-cap version: "
+             f"slope {d['slope_mcap_monthly']:.2f}, R² "
+             f"{d['r_squared_mcap_monthly']:.3f}. A fellow entry (NEAR Demand "
+             f"Ledger) reports slope {d['rival_slope']:.2f}, R² "
+             f"{d['rival_r_squared']:.2f} on 73 months — same direction "
+             f"(disconnect), weaker on this series. Caveat: from Jan 2024 the "
+             f"monthly slope is {d['slope_subwindow_2024']:.2f} (r "
+             f"{d['r_subwindow_2024']:.2f}) — the joint fall from the Apr 2024 "
+             f"peak, not a stable law. Source: NEARBlocks /v1/charts.",
+             fontsize=8, color=GREY)
+    save(fig, "chart10_metcalfe_price_vs_users.png")
+
+
 def main():
     chart01()
     chart02()
@@ -311,7 +375,8 @@ def main():
     chart07()
     chart08()
     chart09()
-    print(f"9 charts -> {OUT}")
+    chart10()
+    print(f"10 charts -> {OUT}")
 
 
 if __name__ == "__main__":

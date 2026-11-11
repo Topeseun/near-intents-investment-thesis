@@ -22,6 +22,7 @@ NEAR's base layer barely earns anything — its Intents layer already grossed $5
 | Daily txns / active accounts (new, M12–M13) | 895,302 txns/day (**93.6% below** the 13,935,402 peak of 2023-12-01) · 77,752 active accounts/day (**96.6% below** the 2,256,512 peak of 2024-04-22) |
 | New accounts, 30d (new, M14) | 287,194 (−18.9% vs prior 30d); net +265,067 after deletions |
 | Price vs Intents fees, weekly (new, M16) | Pearson r = **0.06** (n=366 weeks) — essentially no weekly co-movement; price vs base gas fees r = 0.57. Correlation only, no lead-lag claim. |
+| Metcalfe check, log(price) on log(users) (new, M17) | Monthly slope **0.02** (R² 0.005, r 0.07, n=74 months, Oct 2020 – Nov 2026) vs strict-Metcalfe 2.0; daily slope 0.01 (R² 0.001); market-cap slope 0.19 (R² 0.27) — price does not follow users. A fellow entry (NEAR Demand Ledger) reports 0.21 / 0.28 on 73 months — same disconnect, weaker on this series. Caveat: from Jan 2024 the slope is 0.32 (r 0.63), the joint fall from the Apr 2024 peak, not a stable law. |
 | Staking APY / max inflation / real yield | 4.91% / 2.5% / 2.41pp |
 | NEAR Intents 30d fees vs competitors | NEAR $5.58M > Chainflip $2.79M > deBridge $0.44M > THORChain $0.019M |
 
@@ -34,7 +35,7 @@ NEAR's base layer barely earns anything — its Intents layer already grossed $5
 ├── src/
 │   ├── fetch.py                  # Tier-1 API fetches only (no keys); caches to data/raw/ + data/manifest.json
 │   ├── model.py                  # Fee-capture DCF, metrics M1–M16, benchmarks → data/processed/*.json
-│   ├── charts.py                 # 9 charts → dashboard/assets/*.png (+ .svg twins)
+│   ├── charts.py                 # 10 charts → dashboard/assets/*.png (+ .svg twins)
 │   ├── build.py                  # Runs model.py then charts.py (no network)
 │   ├── build_dashboard.py        # Renders dashboard/index.html from data/processed/*.json (no network)
 │   └── assumptions.yaml          # THE one assumptions file (DCF knobs + scenario grid)
@@ -48,21 +49,21 @@ NEAR's base layer barely earns anything — its Intents layer already grossed $5
 │       ├── dcf.json              # Base-case DCF inputs + outputs
 │       ├── sensitivity.json      # 27-cell grid (capture × growth × discount)
 │       ├── benchmarks.json       # NEAR vs SOL/AVAX/ETH + Intents competitors
-│       ├── chart_01_data.json … chart_09_data.json   # Per-chart numbers
+│       ├── chart_01_data.json … chart_10_data.json   # Per-chart numbers
 │       └── BUILD_NOTES.md        # Pipeline/model build notes, gaps, corrections, reproducibility
 ├── docs/                         # GitHub Pages copy of dashboard/index.html + dashboard/assets/*.svg (same content)
 └── dashboard/
     ├── index.html                # Static dashboard (single page, no server, no external JS/CSS)
     ├── BUILD_NOTES.md            # Dashboard build notes (what was built, how to regenerate, verification)
     └── assets/
-        └── chart01_*.png … chart09_*.png   # The 9 charts (PNG + SVG twins; PNGs are git-ignored)
+        └── chart01_*.png … chart10_*.png   # The 10 charts (PNG + SVG twins; PNGs are git-ignored)
 ```
 
 What the code does, exactly:
 
 - `src/fetch.py` fetches NEARBlocks stats/validators/blocks/accounts **and the full daily `/v1/charts` series (2,303 points, 2020-07-21 → today)**, NEAR RPC status/gas price/protocol config, CoinGecko prices + 365d market charts (4 coins), DefiLlama Intents/chain/competitor fees + TVL **and the Intents daily volume series (`summary/dexs/near-intents`, 699 points from 2024-12-10)**, and parses the revenue.near.org server-rendered payload for the measured capture rate. Every response is cached to `data/raw/` with a timestamped manifest. No API keys. CoinGecko: 5 calls, 2.5 s sleep between them (30/min limit); a 429 gets one retry after a 60 s backoff.
-- `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R1/(r−g), R0 = F30 × 12 × capture), the 16 metrics M1–M16, the 27-cell sensitivity grid, and the peer/competitor benchmarks — all from the cache, no network.
-- `src/charts.py` renders the 9 charts as PNGs (+ SVG twins) from the model outputs.
+- `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R1/(r−g), R0 = F30 × 12 × capture), the 17 metrics M1–M17, the 27-cell sensitivity grid, and the peer/competitor benchmarks — all from the cache, no network.
+- `src/charts.py` renders the 10 charts as PNGs (+ SVG twins) from the model outputs.
 - `src/build_dashboard.py` renders `dashboard/index.html` from `data/processed/*.json`. Every number on the page is formatted from those JSONs — nothing is hardcoded — so re-running the pipeline and this script regenerates a dashboard that always matches the model.
 
 ## Reproduce in one command
@@ -81,13 +82,13 @@ Verified: a clean re-run (`rm -rf data && python3 src/fetch.py && python3 src/bu
 python3 -m unittest discover -s tests -v
 ```
 
-Stdlib `unittest` only — no new dependencies. 14 tests: every `data/processed/*.json` exists and parses; F30/capture/R0/DCF arithmetic is internally consistent (R0 = F30 × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M12–M16 sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1]); all 9 charts exist as PNG + SVG; the dashboard references all 9 SVGs; `docs/` mirrors `dashboard/index.html` byte-for-byte; the README contains the headline numbers (fee-stable figures + the all-time activity peaks).
+Stdlib `unittest` only — no new dependencies. 15 tests: every `data/processed/*.json` exists and parses; F30/capture/R0/DCF arithmetic is internally consistent (R0 = F30 × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M12–M17 sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs; `docs/` mirrors `dashboard/index.html` byte-for-byte; the README contains the headline numbers (fee-stable figures + the all-time activity peaks).
 
 ## GitHub Pages
 
 The dashboard is published from `docs/`: copy `dashboard/index.html` + `dashboard/assets/*.svg` into `docs/` (same content — the SVGs are text, so they push through text-only tooling; PNGs stay local). Enable it in the repo: **Settings → Pages → Build and deployment → Deploy from a branch → branch `main`, folder `/docs`** → Save. The site then serves at `https://<user>.github.io/<repo>/`. Re-copy `docs/` after any dashboard rebuild so Pages stays in sync with `dashboard/`.
 
-## The 9 charts
+## The 10 charts
 
 1. Intents daily fees, May 2025 → Nov 2026 (549 pts, log scale + 30d moving average)
 2. Intents fees vs base-chain gas fees (same log axis)
@@ -98,6 +99,7 @@ The dashboard is published from `docs/`: copy `dashboard/index.html` + `dashboar
 7. Sensitivity heatmap — implied value/token across capture (15/25/35%) × growth (0/10/20%) at r=12%, invalid g≥r zone marked
 8. Daily transactions & daily active accounts, 2020 → today (log scale, all-time peaks marked) — the usage collapse: txns 93.6% and active accounts 96.6% below peak
 9. Intents daily volume & daily fees (log scale, two panels) — volume 30d $3.71B, implied gross fee rate 15.02 bps
+10. Metcalfe check — log-log price vs daily active accounts, monthly (74 months, Oct 2020 – Nov 2026) + cumulative-txns partial check: slope 0.02, R² 0.005 — no Metcalfe law (strict Metcalfe needs slope ≈ 2.0); a fellow entry (NEAR Demand Ledger) reports 0.21 / 0.28 on 73 months, same disconnect
 
 ## Data sources
 

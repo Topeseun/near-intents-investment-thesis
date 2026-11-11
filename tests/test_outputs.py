@@ -10,11 +10,11 @@ What it checks (no network, no new dependencies):
     (R0 = F30 * 12 * capture; Gordon growth; value/token = Value / supply)
   * the sensitivity grid is 3 x 3 x 3 = 27 cells and invalid (g >= r) cells
     are null, valid cells match the Gordon formula
-  * all 9 dashboard charts exist as PNG + SVG twins
+  * all 10 dashboard charts exist as PNG + SVG twins
   * the README contains the headline numbers (fee-stable figures that
     reproduce exactly across re-runs, plus the all-time activity peaks)
-  * the new M12-M16 metrics are sane (peaks above current, percentages in
-    range, volume positive, correlation in [-1, 1])
+  * the new M12-M17 metrics are sane (peaks above current, percentages in
+    range, volume positive, correlation in [-1, 1], Metcalfe slope/R² in range)
   * the two new raw responses are in the manifest with status 200
   * docs/ (GitHub Pages) mirrors dashboard/index.html + the SVGs
 
@@ -35,6 +35,7 @@ PROCESSED_JSONS = [
     "chart_01_data.json", "chart_02_data.json", "chart_03_data.json",
     "chart_04_data.json", "chart_05_data.json", "chart_06_data.json",
     "chart_07_data.json", "chart_08_data.json", "chart_09_data.json",
+    "chart_10_data.json",
 ]
 
 CHARTS = [
@@ -47,6 +48,7 @@ CHARTS = [
     "chart07_sensitivity_heatmap",
     "chart08_daily_activity",
     "chart09_intents_volume_and_fees",
+    "chart10_metcalfe_price_vs_users",
 ]
 
 
@@ -185,10 +187,44 @@ class TestProcessedOutputs(unittest.TestCase):
         # Correlation only: the metric must not claim a lead-lag result.
         self.assertIn("no lead-lag", m16["definition"].lower())
 
+    def test_metcalfe_sane(self):
+        m = load_processed("metrics.json")
+        m17 = m["M17_metcalfe_check"]
+        self.assertTrue(m17.get("available"), m17.get("reason"))
+        # Full window: Oct 2020 (first positive price) to the last series day.
+        self.assertEqual(m17["window"].split(" to ")[0], "2020-10-14")
+        self.assertGreaterEqual(m17["usable_daily_points"], 2000)
+        self.assertGreaterEqual(m17["n_months"], 60)
+        for key in ("price_vs_active_accounts_monthly",
+                    "price_vs_active_accounts_daily",
+                    "market_cap_vs_active_accounts_monthly",
+                    "price_vs_cumulative_txns_monthly",
+                    "subwindow_2024_onwards_monthly"):
+            reg = m17[key]
+            self.assertIsNotNone(reg, key)
+            self.assertGreaterEqual(reg["slope"], -1)
+            self.assertLessEqual(reg["slope"], 3)
+            self.assertGreaterEqual(reg["r_squared"], 0)
+            self.assertLessEqual(reg["r_squared"], 1)
+            self.assertGreaterEqual(reg["pearson_r"], -1)
+            self.assertLessEqual(reg["pearson_r"], 1)
+            self.assertGreaterEqual(reg["n"], 10)
+        # The cumulative-txns leg must stay labelled partial.
+        self.assertTrue(m17["price_vs_cumulative_txns_monthly"]["partial"])
+        # Dropped rows are only the pre-launch zero-price / zero-user rows.
+        self.assertGreater(m17["dropped_rows"]["zero_price_rows"], 0)
+        # The rival's reported numbers are recorded as reported, not verified.
+        self.assertEqual(m17["rival_reported"]["slope"], 0.21)
+        self.assertEqual(m17["rival_reported"]["r_squared"], 0.28)
+        # Reading must state the Metcalfe benchmark and the verdict.
+        self.assertIn("2.0", m17["reading"])
+        self.assertIn("not a stable law", m17["reading"])
+
     def test_chart_data_matches_metrics(self):
         m = load_processed("metrics.json")
         c8 = load_processed("chart_08_data.json")
         c9 = load_processed("chart_09_data.json")
+        c10 = load_processed("chart_10_data.json")
         self.assertTrue(c8.get("available"))
         self.assertEqual(c8["txns_peak"]["value"],
                          m["M12_daily_txns"]["all_time_peak"]["value"])
@@ -201,6 +237,17 @@ class TestProcessedOutputs(unittest.TestCase):
         self.assertAlmostEqual(c9["volume_30d_usd"],
                                m["M15_intents_daily_volume"]["total_30d_usd_from_daily_series"],
                                delta=1.0)
+        self.assertTrue(c10.get("available"))
+        m17 = m["M17_metcalfe_check"]
+        self.assertEqual(len(c10["monthly_users_mean"]), m17["n_months"])
+        self.assertEqual(len(c10["monthly_price_month_end"]), m17["n_months"])
+        self.assertEqual(len(c10["monthly_cum_txns_month_end"]), m17["n_months"])
+        self.assertAlmostEqual(c10["slope_monthly"],
+                               m17["price_vs_active_accounts_monthly"]["slope"],
+                               delta=1e-9)
+        self.assertAlmostEqual(c10["r_squared_monthly"],
+                               m17["price_vs_active_accounts_monthly"]["r_squared"],
+                               delta=1e-9)
 
 
 class TestDashboardAndReadme(unittest.TestCase):

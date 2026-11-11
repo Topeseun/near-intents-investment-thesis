@@ -57,6 +57,7 @@ def main():
     c7 = load("chart_07_data.json")
     c8 = load("chart_08_data.json")
     c9 = load("chart_09_data.json")
+    c10 = load("chart_10_data.json")
 
     M1 = m["M1_intents_gross_fees"]
     M2 = m["M2_intents_fee_growth"]
@@ -74,6 +75,7 @@ def main():
     M14 = m["M14_new_accounts_trend"]
     M15 = m["M15_intents_daily_volume"]
     M16 = m["M16_price_vs_fees_correlation"]
+    M17 = m["M17_metcalfe_check"]
     snap = m["snapshot"]
     peers = bench["peers"]
     comp = bench["intents_competitors"]
@@ -265,6 +267,35 @@ def main():
             f"compounding at roughly this fee rate.",
             M15["source"], M15["fetched_at_utc"]))
 
+    # Chart 10 — Metcalfe check (M17): price vs users, log-log.
+    if c10.get("available"):
+        _rm = M17["price_vs_active_accounts_monthly"]
+        _rd = M17["price_vs_active_accounts_daily"]
+        _rmc = M17["market_cap_vs_active_accounts_monthly"]
+        _rc = M17["price_vs_cumulative_txns_monthly"]
+        _rs = M17["subwindow_2024_onwards_monthly"]
+        charts.append((
+            "chart10_metcalfe_price_vs_users.svg",
+            "10 · Metcalfe check — price does not follow users",
+            "NEAR price vs daily active accounts, monthly log-log "
+            f"({M17['n_months']} months, {M17['window']}), plus the "
+            "cumulative-transactions partial check.",
+            f"On the full window the log-log slope is {_rm['slope']:.2f} "
+            f"(SE {_rm['slope_se']:.2f}) with R² {_rm['r_squared']:.3f} — "
+            f"statistically zero, against the strict-Metcalfe slope of 2.0. "
+            f"The daily regression agrees (slope {_rd['slope']:.2f}, R² "
+            f"{_rd['r_squared']:.3f}, n={_rd['n']:,} days). Even market cap on "
+            f"users gives only slope {_rmc['slope']:.2f}, R² "
+            f"{_rmc['r_squared']:.3f}. A fellow entry (NEAR Demand Ledger) "
+            f"reports slope {M17['rival_reported']['slope']:.2f}, R² "
+            f"{M17['rival_reported']['r_squared']:.2f} on 73 months — the same "
+            f"disconnect, weaker on this series. Caveat, not buried: from Jan "
+            f"2024 the monthly slope is {_rs['slope']:.2f} (r "
+            f"{_rs['pearson_r']:.2f}), the joint fall from the Apr 2024 "
+            f"activity peak — the relation flips sign across sub-periods, so "
+            f"it is not a stable law. Net: value NEAR on fees, not users.",
+            M17["source"], M17["fetched_at_utc"]))
+
     chart_html = ""
     for img, title, desc, takeaway, src, ts in charts:
         chart_html += f"""
@@ -332,6 +363,50 @@ prior 30).{corr_sentence}{vol_sentence}</p>
 <p>The NEARBlocks daily-activity series (<code>/v1/charts</code>) did not return
 on the latest fetch, so no daily-transaction or active-account figures are shown.
 No activity series is fabricated; re-run <code>src/fetch.py</code> to restore it.</p>
+"""
+
+    # Metcalfe section: the test a fellow entry ran, run properly on our series.
+    if M17.get("available"):
+        _rm = M17["price_vs_active_accounts_monthly"]
+        _rd = M17["price_vs_active_accounts_daily"]
+        _rmc = M17["market_cap_vs_active_accounts_monthly"]
+        _rc = M17["price_vs_cumulative_txns_monthly"]
+        _rs = M17["subwindow_2024_onwards_monthly"]
+        metcalfe_section = f"""
+<h2>Metcalfe check — does price follow users?</h2>
+<p>Metcalfe&rsquo;s law says a network&rsquo;s value grows with the square of its
+users, so log(price) on log(users) should have a slope near 2.0. On the
+NEARBlocks daily series ({M17['window']}, {M17['usable_daily_points']:,} days,
+{M17['n_months']} months) it does not: the monthly slope is {_rm['slope']:.2f}
+(SE {_rm['slope_se']:.2f}) with R² {_rm['r_squared']:.3f} and Pearson r
+{_rm['pearson_r']:.2f} — statistically indistinguishable from zero. The daily
+regression agrees (slope {_rd['slope']:.2f}, R² {_rd['r_squared']:.3f}).
+Even market cap on users gives only slope {_rmc['slope']:.2f}, R²
+{_rmc['r_squared']:.3f}. Price does not track cumulative usage either
+(slope {_rc['slope']:.2f}, R² {_rc['r_squared']:.3f} — a partial check, since
+cumulative transactions only ever rise). A fellow Investment Thesis entry,
+NEAR Demand Ledger, reports slope {M17['rival_reported']['slope']:.2f} and R²
+{M17['rival_reported']['r_squared']:.2f} on 73 months with the same
+&ldquo;hypothesis is unproven&rdquo; verdict — the same disconnect, weaker on
+this series (activity definitions move the numbers; the shared conclusion is
+what matters). The honest caveat: from Jan 2024 the monthly slope is
+{_rs['slope']:.2f} (r {_rs['pearson_r']:.2f}) — price and users have moved
+together more in the recent window, driven by the joint fall from the Apr 2024
+activity peak. The relation flips sign across sub-periods, so it is not a
+stable law. The takeaway for the thesis: value NEAR on fees, not on users —
+the fee thesis stands on its own numbers, and no user-count story rescues the
+${price:,.2f} price. Method: log(price) = a + b·log(users), month-end price vs
+monthly mean active accounts; {M17['dropped_rows']['zero_price_rows']} pre-launch
+zero-price rows and {M17['dropped_rows']['zero_active_account_rows']} zero-user
+rows (all Jul–Oct 2020) dropped before taking logs.</p>
+"""
+    else:
+        metcalfe_section = """
+<h2>Metcalfe check — does price follow users?</h2>
+<p>The Metcalfe regression could not run on the latest fetch (see
+<code>data/processed/metrics.json</code> M17 for the reason). No Metcalfe
+numbers are shown rather than fabricated; re-run <code>src/fetch.py</code> to
+restore the series.</p>
 """
 
     html = f"""<!DOCTYPE html>
@@ -440,6 +515,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
 <h2>The {len(charts)} charts</h2>
 {chart_html}
 {network_section}
+{metcalfe_section}
 
 <h2>Benchmarks — NEAR vs SOL / AVAX / ETH</h2>
 <div class="tbl-wrap"><table>

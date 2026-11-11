@@ -1098,9 +1098,9 @@
     255718.0,
     228625.0,
     252865.0,
-    187467.0,
-    194710.0,
-    57866.0
+    187456.0,
+    194787.0,
+    16790.0
   ],
   "base_dates": [
     "2020-10-14",
@@ -5542,10 +5542,10 @@
     2472.0,
     3341.0
   ],
-  "intents_30d_usd": 5619218.0,
+  "intents_30d_usd": 5578208.0,
   "base_24h_usd": 3341.0,
   "source": {
     "source": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-10T17:01:54Z"
+    "fetched_at_utc": "2026-11-10T03:05:30Z"
   }
 }

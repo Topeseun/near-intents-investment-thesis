@@ -92,7 +92,7 @@ unchanged (dropped benchmark, as before).
 ### Reproducibility
 `rm -rf data && python3 src/fetch.py && python3 src/build.py &&
 python3 src/build_dashboard.py && python3 -m unittest discover -s tests -v`
-— 14 tests, stdlib unittest only. Full clean re-run in a /tmp copy: see
+— 15 tests, stdlib unittest only. Full clean re-run in a /tmp copy: see
 "Verification" below (filled in at commit time).
 
 ## Verification (clean re-run, /tmp copy)
@@ -120,3 +120,59 @@ python3 -m unittest discover -s tests -v`):
   workflow is "rebuild, then re-copy docs".)
 - **Charts:** chart08/chart09 PNGs valid, 1500×1050, 181 KB / 196 KB;
   SVG twins present. Dashboard HTML 24,149 bytes in both runs.
+
+## 2026-11-11 ~10:13 WAT — Metcalfe check (M17, chart 10)
+
+- Prompt: a fellow Investment Thesis entry, NEAR Demand Ledger (gallery #42,
+  @0xhannnx), reports a Metcalfe disconnect — log(price) on log(users) slope
+  0.21, R² 0.28 over 73 months, verdict "hypothesis is unproven". This slice
+  runs the SAME test on our series over the FULL window and reports the real
+  numbers, whatever they show.
+- `src/model.py` adds M17 (log-log OLS, NEARBlocks `/v1/charts` daily series,
+  price and users on the same daily grid — no source mixing, no CoinGecko
+  365-day cap involved) and `chart_10_data.json`. Primary: MONTHLY (month-end
+  price vs monthly mean active accounts, 74 months, Oct 2020 – Nov 2026);
+  daily log-log is the robustness line; market-cap version and the
+  cumulative-txns leg (labelled PARTIAL — a monotonically increasing stock is
+  trend-dominated by construction) complete the set. A 2024-onwards
+  sub-window is reported as an honest caveat. Rows with price <= 0 (85) or
+  users <= 0 (11) are dropped before taking logs — all pre-launch Jul–Oct
+  2020; no in-window day is dropped. Strict Metcalfe predicts slope ≈ 2.0.
+- Results (data vintage 2026-11-10 03:05 UTC, the README headline vintage):
+  monthly slope 0.0215 (SE 0.0376), R² 0.0045, r 0.067 — statistically zero.
+  Daily slope 0.0112, R² 0.0012, n=2,218 days. Market cap on users: slope
+  0.1856, R² 0.2696, n=73. Cumulative txns: slope −0.0122, R² 0.0021
+  (total 5.479B txns). Sub-window 2024–2026: slope 0.323, r 0.634, n=35 —
+  co-movement in the recent window, driven by the joint fall from the Apr
+  2024 activity peak; the relation flips sign across sub-periods, so it is
+  not a stable law. Net: value NEAR on fees, not users. The rival's slope
+  (0.21) is stronger than ours (0.02) — the gap is itself a finding about
+  sensitivity to the activity definition; the shared conclusion (disconnect)
+  is what matters. Nov 2026 is a partial month (data to 9 Nov).
+- `src/charts.py` adds chart 10 (two-panel log-log: price vs users, price vs
+  cumulative txns, OLS fits drawn). Dashboard gains chart 10 + a "Metcalfe
+  check" section stating the numbers, the rival comparison, and the
+  2024-onwards caveat. README gains a headline-table row + chart-10 entry.
+  Tests: 15 (new `test_metcalfe_sane` + chart-10 checks in
+  `test_chart_data_matches_metrics`).
+- No other figure, chart, or prediction changed. M1–M16, F30 $5,578,208,
+  capture 35.97%, R0 $24,077,777, DCF $0.4238/token reproduce exactly.
+- Data-vintage note: this build ran on the local 03:05 UTC cache (no re-fetch),
+  so the pushed processed files carry 03:05 values, reverting the 17:02 UTC
+  auto-refresh values (F30 $5,619,218 → $5,578,208, DCF $0.4332 → $0.4238)
+  — a 14-hour rollback to the figures the README states. The next daily
+  auto-refresh (06:00 UTC) re-applies freshness; the full processed set stays
+  mutually consistent in the meantime.
+- Verification: clean-copy re-run in `/tmp/near-thesis-clean-metcalfe`
+  (repo copied without `.git`/`docs`, cache `data/` included, NO re-fetch):
+  `python3 src/build.py && python3 src/build_dashboard.py && python3 -m
+  unittest discover -s tests` — 15/15 OK. M17 identical to the repo run
+  (slope 0.0215, R² 0.0045, r 0.0671); full `metrics.json` identical except
+  the `generated_at_utc` build timestamp; dashboard HTML identical except
+  its generated-time lines; chart-10 SVG 144,117 bytes in both runs (SVGs
+  differ only in matplotlib's creation-date metadata and random clip IDs).
+- KNOWN GAP (pre-existing, NOT fixed here): the WS2 dated-predictions section
+  renders nowhere on the live dashboard — `build_dashboard.py` has no
+  predictions rendering, so the auto-refresh wiped the WS2 dashboard changes.
+  `PREDICTIONS.md` + `data/predictions.json` exist on the repo but render
+  nowhere. Flagged for a separate fix.

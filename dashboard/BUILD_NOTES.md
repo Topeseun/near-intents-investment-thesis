@@ -84,3 +84,16 @@ numbers). `src/build_dashboard.py` references the SVGs: SVG is UTF-8 text, so
 the charts can be published through text-only push tooling (GitHub push_files
 rejects binary PNGs). PNGs stay in the local tree for demo screenshots and
 are git-ignored (`dashboard/assets/*.png`).
+
+## 2026-11-11 ~10:13 WAT — Metcalfe check (chart 10, M17)
+- Dashboard gains chart 10 (`chart10_metcalfe_price_vs_users.svg`, two-panel
+  log-log: price vs users + price vs cumulative txns) and a "Metcalfe check"
+  section: monthly slope 0.02, R² 0.005, n=74 months (Oct 2020 – Nov 2026)
+  vs strict-Metcalfe 2.0; daily agrees (0.01 / 0.001); market-cap version
+  0.19 / 0.27; rival NEAR Demand Ledger's 0.21 / 0.28 on 73 months noted with
+  the same "disconnect" conclusion; the Jan-2024-onwards slope (0.32, r 0.63)
+  stated as a caveat, not buried. Net reading: value NEAR on fees, not users.
+  No other section, figure, or prediction changed. See
+  `data/processed/BUILD_NOTES.md` for the full M17 notes and the data-vintage
+  note (this push reverts the 17:02 UTC auto-refresh values to the 03:05 UTC
+  README vintage; the next daily refresh re-applies freshness).

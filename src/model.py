@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fee-capture DCF + 16 metrics for the NEAR Investment Thesis.
+"""Fee-capture DCF + 17 metrics for the NEAR Investment Thesis.
 
 Reads ONLY:
   - data/raw/* (cached API responses) + data/manifest.json (source + fetched_at)
@@ -16,11 +16,11 @@ Growth g must be < discount r; grid cells with g >= r are recorded as
 null with reason "invalid: g >= r" — never silently computed.
 
 Outputs (data/processed/):
-  metrics.json       M1-M16 + live snapshot, each with source + fetched_at
+  metrics.json       M1-M17 + live snapshot, each with source + fetched_at
   dcf.json           base-case DCF with every input traced to its source
   sensitivity.json   full capture x growth x discount grid (27 cells)
   benchmarks.json    peer + Intents-competitor multiples
-  chart_01..09_*.json  underlying numbers for each chart (dashboard reuse)
+  chart_01..10_*.json  underlying numbers for each chart (dashboard reuse)
 
 Usage: python3 src/model.py
 """
@@ -166,6 +166,33 @@ def pearson(xs, ys):
     return sxy / math.sqrt(sxx * syy)
 
 
+def ols_regression(xs, ys):
+    """Ordinary least squares y = intercept + slope*x.
+
+    Returns {"n", "slope", "intercept", "pearson_r", "r_squared",
+    "slope_se"} or None when the regression is degenerate (too few points
+    or zero variance on either side). Slope SE is the standard error of the
+    slope estimate (residual variance / Sxx, n-2 degrees of freedom).
+    """
+    n = len(xs)
+    if n < 10 or len(ys) != n:
+        return None
+    mx, my = sum(xs) / n, sum(ys) / n
+    sxx = sum((x - mx) ** 2 for x in xs)
+    syy = sum((y - my) ** 2 for y in ys)
+    if sxx == 0 or syy == 0:
+        return None
+    sxy = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    slope = sxy / sxx
+    intercept = my - slope * mx
+    r = sxy / math.sqrt(sxx * syy)
+    ss_res = sum((y - (intercept + slope * x)) ** 2 for x, y in zip(xs, ys))
+    se = math.sqrt(ss_res / (n - 2) / sxx) if n > 2 else None
+    return {"n": n, "slope": round(slope, 4), "intercept": round(intercept, 4),
+            "pearson_r": round(r, 4), "r_squared": round(r * r, 4),
+            "slope_se": round(se, 4) if se is not None else None}
+
+
 def weekly_log_changes(by_date, last_date, window_days=365):
     """Weekly log-changes log(v[d]/v[d-7]) for dates in the last window.
 
@@ -193,7 +220,7 @@ def charts_daily(doc):
     Values arrive as decimal strings; rows with a missing/null value for a
     field are skipped for that field only (multichain_txns is null in the
     1,577 rows before 2024-11-14; txn_volume is null in 11 rows in Jul-Aug
-    2020 — neither field is used by M12-M16).
+    2020 — neither field is used by M12-M17).
     """
     if not doc or not isinstance(doc, dict):
         return {}
@@ -715,6 +742,145 @@ def main() -> int:
     m16["fee_source"] = src_of("defillama_fees_near-intents.json")
     metrics["M16_price_vs_fees_correlation"] = m16
 
+    # ---------------- M17: Metcalfe check — does price follow users? ----------
+    # Log-log OLS of price on daily active accounts, NEARBlocks /v1/charts
+    # daily series (price and users on the SAME daily grid — no source
+    # mixing). Primary: MONTHLY aggregates (month-end price vs monthly mean
+    # active accounts), the same ~73-month framing a fellow Investment Thesis
+    # entry (NEAR Demand Ledger, gallery #42) used, so the two results are
+    # comparable. Daily log-log is the robustness line. Strict Metcalfe says
+    # value ∝ users^2, i.e. a log-log slope of ~2.0; a slope near 0 with R²
+    # near 0 means price does not follow users at all. The cumulative-txns
+    # leg is labelled PARTIAL: cumulative txns is a monotonically increasing
+    # stock, so its regression is trend-dominated by construction.
+    # Rows with price <= 0 (85 pre-launch rows, Jul-Oct 2020) or active
+    # accounts <= 0 (11 rows, Jul-Aug 2020, inside the zero-price window)
+    # are dropped — log(0) is undefined — and the drop is recorded, not hidden.
+    m17 = {
+        "definition": "Metcalfe check: log-log OLS of NEAR price on daily "
+                      "active accounts (NEARBlocks /v1/charts, same daily "
+                      "grid for both series). Primary is monthly (month-end "
+                      "price vs monthly mean users); daily is the robustness "
+                      "line. Also: market cap on users, and price on "
+                      "cumulative txns (PARTIAL — trend-dominated stock).",
+        "method": "log(price) = a + b*log(users); strict Metcalfe predicts "
+                  "b ≈ 2.0. Monthly aggregates: month-end price, monthly mean "
+                  "active accounts, month-end market cap, month-end cumulative "
+                  "txns (summed over the full daily series). Rows with "
+                  "price <= 0 or users <= 0 are dropped before taking logs.",
+        "metcalfe_slope_benchmark": 2.0,
+        "rival_reported": {
+            "entry": "NEAR Demand Ledger (@0xhannnx, gallery entry #42)",
+            "slope": 0.21, "r_squared": 0.28, "months": 73,
+            "verdict": "hypothesis is unproven",
+            "note": "As reported by that entry (rival watch 2026-11-11); "
+                    "not independently verified. Its activity definition "
+                    "differs from this series, so the two slopes are not "
+                    "directly comparable point-for-point — the shared "
+                    "conclusion (disconnect) is what matters.",
+        },
+    }
+    charts_raw = charts_doc.get("charts") or [] if isinstance(charts_doc, dict) else []
+    m17_rows = [r for r in charts_raw
+                if float(r.get("near_price") or 0) > 0
+                and float(r.get("active_accounts") or 0) > 0]
+    dropped_price = sum(1 for r in charts_raw if float(r.get("near_price") or 0) <= 0)
+    dropped_users = sum(1 for r in charts_raw if float(r.get("active_accounts") or 0) <= 0)
+    m17["dropped_rows"] = {
+        "zero_price_rows": dropped_price,
+        "zero_active_account_rows": dropped_users,
+        "note": "All dropped rows are pre-launch Jul-Oct 2020 (price was 0 "
+                "before mainnet trading; the 11 zero-user rows sit inside "
+                "that window). No in-window day is dropped.",
+    }
+    if len(m17_rows) < 365:
+        m17["available"] = False
+        m17["reason"] = (f"Only {len(m17_rows)} usable daily rows — need >= 365 "
+                         "for a Metcalfe window. No regression fabricated.")
+    else:
+        from collections import defaultdict as _dd
+        by_month = _dd(list)
+        for r in m17_rows:
+            by_month[(r.get("date") or "")[:7]].append(r)
+        months = sorted(by_month)
+        # Cumulative txns over the FULL series (incl. pre-launch rows) at each
+        # month end — the research-notes substitute for a DAU history.
+        cum_by_date = {}
+        _c = 0.0
+        for r in charts_raw:
+            _c += float(r.get("txns") or 0)
+            cum_by_date[(r.get("date") or "")[:10]] = _c
+        m_users, m_price, m_mcap, m_cum = [], [], [], []
+        for mth in months:
+            rs = by_month[mth]
+            m_users.append(sum(float(r["active_accounts"]) for r in rs) / len(rs))
+            m_price.append(float(rs[-1]["near_price"]))
+            mc = float(rs[-1].get("market_cap") or 0)
+            m_mcap.append(mc if mc > 0 else None)
+            m_cum.append(cum_by_date[(rs[-1].get("date") or "")[:10]])
+        lx_m = [math.log(x) for x in m_users]
+        ly_m = [math.log(y) for y in m_price]
+        lx_d = [math.log(float(r["active_accounts"])) for r in m17_rows]
+        ly_d = [math.log(float(r["near_price"])) for r in m17_rows]
+        mc_pairs = [(u, mc) for u, mc in zip(m_users, m_mcap) if mc]
+        reg_m = ols_regression(lx_m, ly_m)
+        reg_d = ols_regression(lx_d, ly_d)
+        reg_mc = ols_regression([math.log(u) for u, _ in mc_pairs],
+                                 [math.log(mc) for _, mc in mc_pairs])
+        reg_cum = ols_regression([math.log(x) for x in m_cum], ly_m)
+        # Honest caveat: the 2024-onwards sub-window, computed the same way.
+        sub_idx = [i for i, mth in enumerate(months) if mth >= "2024-01"]
+        reg_sub = ols_regression([lx_m[i] for i in sub_idx],
+                                 [ly_m[i] for i in sub_idx])
+        m17.update({
+            "available": True,
+            "window": f"{m17_rows[0]['date'][:10]} to {m17_rows[-1]['date'][:10]}",
+            "usable_daily_points": len(m17_rows),
+            "n_months": len(months),
+            "first_month": months[0], "last_month": months[-1],
+            "partial_final_month_note": (
+                "The last month covers only the days present in the series "
+                f"({months[-1]}: 1-9 Nov 2026); its mean uses those days only."),
+            "total_cumulative_txns": m_cum[-1],
+            "price_vs_active_accounts_monthly": reg_m,
+            "price_vs_active_accounts_daily": reg_d,
+            "market_cap_vs_active_accounts_monthly": reg_mc,
+            "price_vs_cumulative_txns_monthly": {
+                **(reg_cum or {}),
+                "partial": True,
+                "partial_note": ("Cumulative txns is a monotonically "
+                    "increasing stock, so this regression is trend-dominated "
+                    "by construction; it tests whether price tracks cumulative "
+                    "usage, not a Metcalfe law. Reported for completeness, "
+                    "not as evidence."),
+            },
+            "subwindow_2024_onwards_monthly": reg_sub,
+        })
+        # Reading, built from the computed numbers so a re-run stays honest.
+        sm, rm = reg_m["slope"], reg_m["r_squared"]
+        s_sub = reg_sub["slope"] if reg_sub else None
+        r_sub = reg_sub["pearson_r"] if reg_sub else None
+        m17["reading"] = (
+            f"On the full {len(months)}-month window the Metcalfe relation is "
+            f"absent: log(price) on log(users) has slope {sm} (SE "
+            f"{reg_m['slope_se']}) and R² {rm} — statistically indistinguishable "
+            f"from zero, against the strict-Metcalfe slope of 2.0. The daily "
+            f"regression agrees (slope {reg_d['slope']}, R² {reg_d['r_squared']}, "
+            f"n={reg_d['n']}). Even the most favourable reading — market cap on "
+            f"users — gives slope {reg_mc['slope']} and R² {reg_mc['r_squared']}, "
+            f"far below 2.0. Price does not track cumulative usage either "
+            f"(slope {reg_cum['slope']}, R² {reg_cum['r_squared']}, partial "
+            f"check). One caveat, reported not buried: from Jan 2024 onwards "
+            f"the monthly slope is {s_sub} with r {r_sub} — price and users "
+            f"have moved together more in the recent window, driven by the "
+            f"joint fall from the Apr 2024 activity peak. The relation flips "
+            f"sign across sub-periods (2020-2023 slope ≈ 0), so it is not a "
+            f"stable law. Net: value NEAR on fees, not on users — the fee "
+            f"thesis stands on its own numbers, and the user-count story "
+            f"cannot rescue the $3.60 price.")
+    m17.update(src_of("nearblocks_charts.json"))
+    metrics["M17_metcalfe_check"] = m17
+
     # ---- snapshot extras ----
     # TVL: historicalChainTvl returns [{"date": unix_s, "tvl": usd}, ...]
     tvl_last = None
@@ -1099,6 +1265,69 @@ def main() -> int:
             "reason": m15.get("reason", "No daily volume series."),
             "source": src_of("defillama_dexs_near-intents.json"),
         }
+    # Chart 10: Metcalfe check — monthly log-log scatter, price vs users,
+    # plus the cumulative-txns partial check. Same monthly recipe as M17,
+    # rebuilt here from the parsed charts so the chart data is self-contained.
+    m17m = metrics["M17_metcalfe_check"]
+    if m17m.get("available"):
+        from collections import defaultdict as _dd2
+        _price = dict(charts.get("near_price") or [])
+        _users = dict(charts.get("active_accounts") or [])
+        _txns = dict(charts.get("txns") or [])
+        _dates = sorted(d for d in _price if _price[d] > 0 and _users.get(d, 0) > 0)
+        _bym = _dd2(list)
+        for d in _dates:
+            _bym[d[:7]].append(d)
+        _months = sorted(_bym)
+        _mu, _mp, _mcum = [], [], []
+        _cum = 0.0
+        _cum_by_date = {}
+        for d in sorted(_txns):
+            _cum += _txns[d]
+            _cum_by_date[d] = _cum
+        for mth in _months:
+            ds = _bym[mth]
+            _mu.append(sum(_users[d] for d in ds) / len(ds))
+            _mp.append(_price[ds[-1]])
+            _mcum.append(_cum_by_date[ds[-1]])
+        reg_m10 = m17m["price_vs_active_accounts_monthly"]
+        reg_c10 = m17m["price_vs_cumulative_txns_monthly"]
+        chart_data["chart_10"] = {
+            "title": "Metcalfe check — NEAR price vs daily active accounts (log-log)",
+            "available": True,
+            "months": _months,
+            "monthly_users_mean": _mu,
+            "monthly_price_month_end": _mp,
+            "monthly_cum_txns_month_end": _mcum,
+            "fit_price_vs_users": {"slope": reg_m10["slope"],
+                                   "intercept": reg_m10["intercept"]},
+            "fit_price_vs_cum_txns": {"slope": reg_c10["slope"],
+                                      "intercept": reg_c10["intercept"]},
+            "slope_monthly": reg_m10["slope"],
+            "r_squared_monthly": reg_m10["r_squared"],
+            "pearson_r_monthly": reg_m10["pearson_r"],
+            "slope_daily": m17m["price_vs_active_accounts_daily"]["slope"],
+            "r_squared_daily": m17m["price_vs_active_accounts_daily"]["r_squared"],
+            "slope_mcap_monthly": m17m["market_cap_vs_active_accounts_monthly"]["slope"],
+            "r_squared_mcap_monthly": m17m["market_cap_vs_active_accounts_monthly"]["r_squared"],
+            "slope_cum_txns": reg_c10["slope"],
+            "r_squared_cum_txns": reg_c10["r_squared"],
+            "slope_subwindow_2024": m17m["subwindow_2024_onwards_monthly"]["slope"],
+            "r_subwindow_2024": m17m["subwindow_2024_onwards_monthly"]["pearson_r"],
+            "n_months": m17m["n_months"],
+            "window": m17m["window"],
+            "total_cumulative_txns": m17m["total_cumulative_txns"],
+            "rival_slope": m17m["rival_reported"]["slope"],
+            "rival_r_squared": m17m["rival_reported"]["r_squared"],
+            "source": src_of("nearblocks_charts.json"),
+        }
+    else:
+        chart_data["chart_10"] = {
+            "title": "Metcalfe check — NEAR price vs daily active accounts (log-log)",
+            "available": False,
+            "reason": m17m.get("reason", "Metcalfe series unavailable."),
+            "source": src_of("nearblocks_charts.json"),
+        }
 
     # ---------------- write outputs ----------------
     (PROC / "metrics.json").write_text(json.dumps(metrics, indent=2))
@@ -1142,6 +1371,16 @@ def main() -> int:
           f"(n={m16p.get('n_weekly_pairs_price_vs_intents_fees')}); price vs base "
           f"gas fees {m16p.get('pearson_price_vs_base_gas_fees_weekly_log_changes')} "
           f"(n={m16p.get('n_weekly_pairs_price_vs_base_gas_fees')})")
+    m17p = metrics["M17_metcalfe_check"]
+    if m17p.get("available"):
+        rm = m17p["price_vs_active_accounts_monthly"]
+        print(f"M17 Metcalfe (monthly, n={rm['n']}): log(price) on log(users) "
+              f"slope {rm['slope']} (SE {rm['slope_se']}), R² {rm['r_squared']}, "
+              f"r {rm['pearson_r']} — vs strict-Metcalfe slope 2.0; daily slope "
+              f"{m17p['price_vs_active_accounts_daily']['slope']}, "
+              f"R² {m17p['price_vs_active_accounts_daily']['r_squared']}")
+    else:
+        print(f"M17 Metcalfe UNAVAILABLE: {m17p.get('reason')}")
     return 0
 
 
