@@ -1,121 +1,121 @@
 {
-  "generated_at_utc": "2026-11-11T13:47:58Z",
+  "generated_at_utc": "2026-11-12T07:23:55Z",
   "notes": "Every value traces to a cached API response (source + fetched_at per metric) or a labelled assumption in src/assumptions.yaml.",
   "M1_intents_gross_fees": {
     "definition": "USD fees/day from DefiLlama totalDataChart; 30d trailing sum",
-    "total_24h_usd": 1611.0,
-    "total_7d_usd": 1178862.0,
-    "total_30d_usd_F30": 5458382.0,
-    "total_30d_from_daily_series_usd": 5458382.0,
+    "total_24h_usd": 23742.0,
+    "total_7d_usd": 1449290.0,
+    "total_30d_usd_F30": 5781901.0,
+    "total_30d_from_daily_series_usd": 5781901.0,
     "f30_cross_check_diff_pct": 0.0,
-    "total_all_time_usd": 59752139.980000004,
-    "daily_points": 550,
+    "total_all_time_usd": 60278285.980000004,
+    "daily_points": 551,
     "first_daily_date": "2025-05-10",
-    "last_daily_date": "2026-11-10",
-    "anomaly_flag": "24h fee is far below the 7d daily average ($1,611 vs $168,409/day). The last daily point in the series is the same low figure, so this is a full-day value, not a partial day \u2014 either a real one-day drop or a DefiLlama reporting lag. Never annualise a single day; 7d/30d trailing figures used throughout.",
+    "last_daily_date": "2026-11-11",
+    "anomaly_flag": "24h fee is far below the 7d daily average ($23,742 vs $207,041/day). The last daily point in the series is the same low figure, so this is a full-day value, not a partial day \u2014 either a real one-day drop or a DefiLlama reporting lag. Never annualise a single day; 7d/30d trailing figures used throughout.",
     "source": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-11T13:47:44Z"
+    "fetched_at_utc": "2026-11-12T07:23:26Z"
   },
   "M2_intents_fee_growth": {
     "definition": "30d trailing vs prior 30d; log-regression CAGR on trailing-30d sums",
-    "trailing_30d_usd": 5458382.0,
-    "prior_30d_usd": 7985015.0,
-    "trailing_30d_vs_prior_30d_pct": -31.6,
+    "trailing_30d_usd": 5781901.0,
+    "prior_30d_usd": 8073385.0,
+    "trailing_30d_vs_prior_30d_pct": -28.4,
     "trailing_30d_yoy": {
-      "date": "2025-11-10",
-      "trailing_30d_usd": 3947593.0,
-      "change_pct": 38.3
+      "date": "2025-11-11",
+      "trailing_30d_usd": 4049010.0,
+      "change_pct": 42.8
     },
     "trailing_30d_peak": {
       "date": "2026-10-14",
       "trailing_30d_usd": 8236902.0
     },
-    "trailing_30d_vs_prior_30d_reading": "Fees are volatile, not a smooth ramp: trailing-30d peaked at $8,236,902 and is now -33.7% below that peak, but still above a year ago. The DCF base growth assumption (10%) is a forward assumption, NOT a trend extrapolation.",
+    "trailing_30d_vs_prior_30d_reading": "Fees are volatile, not a smooth ramp: trailing-30d peaked at $8,236,902 and is now -29.8% below that peak, but still above a year ago. The DCF base growth assumption (10%) is a forward assumption, NOT a trend extrapolation.",
     "log_regression_cagr_full_series": {
-      "cagr": 88.17304152280121,
-      "slope_per_day": 0.012302955531030292,
-      "n_points": 550,
+      "cagr": 87.1791750284655,
+      "slope_per_day": 0.012272248833824197,
+      "n_points": 551,
       "first_date": "2025-05-10",
-      "last_date": "2026-11-10"
+      "last_date": "2026-11-11"
     },
     "log_regression_cagr_full_series_warning": "Dominated by the May-Aug 2025 launch ramp from $1/day; do NOT quote as a steady-state growth rate.",
     "log_regression_cagr_last_180d": {
-      "cagr": 7.964061515743623,
-      "slope_per_day": 0.006008831283418875,
+      "cagr": 8.067050900808571,
+      "slope_per_day": 0.00604012893836038,
       "n_points": 181,
-      "first_date": "2026-05-14",
-      "last_date": "2026-11-10"
+      "first_date": "2026-05-15",
+      "last_date": "2026-11-11"
     },
     "log_regression_cagr_last_365d": {
-      "cagr": -0.003908137761872377,
-      "slope_per_day": -1.0728204076143204e-05,
+      "cagr": 0.002697910953228355,
+      "slope_per_day": 7.381583901475842e-06,
       "n_points": 366,
-      "first_date": "2025-11-10",
-      "last_date": "2026-11-10"
+      "first_date": "2025-11-11",
+      "last_date": "2026-11-11"
     },
     "source": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-11T13:47:44Z"
+    "fetched_at_utc": "2026-11-12T07:23:26Z"
   },
   "M3_retained_revenue": {
     "definition": "Annualised retained revenue = F\u2083\u2080 * 12 * capture_rate",
-    "capture_rate_30d_measured": 0.3403,
-    "capture_rate_30d_from_displayed_cards": 0.3408304498269896,
+    "capture_rate_30d_measured": 0.3351,
+    "capture_rate_30d_from_displayed_cards": 0.33562822719449226,
     "capture_source": "revenue.near.org SSR payload (net revenue $ / gross fees $, cross-checked vs per-mechanism split) \u2014 MEASURED, not assumed",
-    "retained_revenue_annualised_base_usd_R0": 22289848.7352,
-    "retained_revenue_30d_usd": 1857487.3946,
+    "retained_revenue_annualised_base_usd_R0": 23250180.301200002,
+    "retained_revenue_30d_usd": 1937515.0251,
     "scenario_R0_usd": {
-      "15%": 9825087.6,
-      "25%": 16375146.0,
-      "35%": 22925204.4
+      "15%": 10407421.799999999,
+      "25%": 17345703.0,
+      "35%": 24283984.2
     },
     "source": "https://revenue.near.org/ (parsed SSR payload)",
-    "fetched_at_utc": "2026-11-11T13:47:58Z",
+    "fetched_at_utc": "2026-11-12T07:23:55Z",
     "fee_source": {
       "source": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:44Z"
+      "fetched_at_utc": "2026-11-12T07:23:26Z"
     }
   },
   "M4_capture_rate_trend": {
     "definition": "Retained / gross by window (sum of three mechanisms: direct fees pp_fe + B2B pp_b2b + quote improvement pp_qi)",
     "capture_rate_by_window": {
-      "all_time": 0.191,
+      "all_time": 0.1911,
       "ytd": 0.2292,
-      "d30": 0.3403,
-      "d7": 0.2841
+      "d30": 0.3351,
+      "d7": 0.266
     },
     "mechanism_split_by_window": {
       "all_time": {
-        "pp_fe": 0.11941940079993321,
-        "pp_b2b": 0.052416291796674626,
-        "pp_qi": 0.019125348804223494
+        "pp_fe": 0.11943825635266754,
+        "pp_b2b": 0.05250893596872277,
+        "pp_qi": 0.019124650326039442
       },
       "ytd": {
-        "pp_fe": 0.13264217616849153,
-        "pp_b2b": 0.07076552438500062,
-        "pp_qi": 0.025820509059032354
+        "pp_fe": 0.13260170114093897,
+        "pp_b2b": 0.070798991484447,
+        "pp_qi": 0.025786200588463915
       },
       "d30": {
-        "pp_fe": 0.20134938597585367,
-        "pp_b2b": 0.10310487720909249,
-        "pp_qi": 0.03587275595358112
+        "pp_fe": 0.1963026569119709,
+        "pp_b2b": 0.1030972638135626,
+        "pp_qi": 0.03572646696680058
       },
       "d7": {
-        "pp_fe": 0.16950273911570163,
-        "pp_b2b": 0.08248260248812488,
-        "pp_qi": 0.032065968756488476
+        "pp_fe": 0.16133679412058782,
+        "pp_b2b": 0.07774317180580137,
+        "pp_qi": 0.026897316045783867
       }
     },
     "trend_reading": "Capture is rising: all-time ~19% -> YTD ~23% -> 30D ~34%. The 30D rate, not the lifetime rate, is the base case.",
     "source": "https://revenue.near.org/ (parsed SSR payload)",
-    "fetched_at_utc": "2026-11-11T13:47:58Z"
+    "fetched_at_utc": "2026-11-12T07:23:55Z"
   },
   "M5_base_chain_fees": {
     "definition": "NEAR L1 gas fees/day (DefiLlama NEAR)",
-    "total_24h_usd": 3652.0,
-    "total_all_time_usd": 18389632.97,
-    "intents_30d_vs_base_daily_ratio": 49.8,
+    "total_24h_usd": 3365.0,
+    "total_all_time_usd": 18392997.97,
+    "intents_30d_vs_base_daily_ratio": 57.3,
     "source": "https://api.llama.fi/summary/fees/NEAR?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-11T13:47:44Z"
+    "fetched_at_utc": "2026-11-12T07:23:31Z"
   },
   "M6_buyback_vs_issuance": {
     "definition": "Annualised retained revenue / price = NEAR bought/yr; vs issuance = max_inflation * total_supply",
@@ -124,41 +124,41 @@
       1,
       40
     ],
-    "total_supply_near": 1311421198.1210244,
-    "issued_per_year_near": 32785529.95302561,
-    "near_price_usd": 3.74,
-    "bought_per_year_base_near": 5959852.6029946515,
+    "total_supply_near": 1311498660.150108,
+    "issued_per_year_near": 32787466.503752705,
+    "near_price_usd": 3.52,
+    "bought_per_year_base_near": 6605164.858295456,
     "bought_per_year_by_capture_scenario_near": {
-      "15%": 2627028.7700534756,
-      "25%": 4378381.28342246,
-      "35%": 6129733.796791443
+      "15%": 2956653.920454545,
+      "25%": 4927756.534090909,
+      "35%": 6898859.1477272725
     },
-    "net_supply_change_base_near_per_year": 26825677.35003096,
-    "break_even_retained_revenue_usd_per_year": 122617882.02431579,
-    "break_even_multiple_of_current_R0": 5.50106389150494,
+    "net_supply_change_base_near_per_year": 26182301.64545725,
+    "break_even_retained_revenue_usd_per_year": 115411882.09320952,
+    "break_even_multiple_of_current_R0": 4.963913423383336,
     "break_even_note": "NEAR turns net-deflationary when retained Intents revenue reaches this level at the current price.",
     "source": "https://rpc.mainnet.near.org#EXPERIMENTAL_protocol_config",
-    "fetched_at_utc": "2026-11-11T13:47:56Z",
+    "fetched_at_utc": "2026-11-12T07:23:54Z",
     "supply_source": {
       "source": "https://api.nearblocks.io/v1/stats",
-      "fetched_at_utc": "2026-11-11T13:47:29Z"
+      "fetched_at_utc": "2026-11-12T07:23:10Z"
     },
     "price_source": {
       "source": "https://api.coingecko.com/api/v3/simple/price?ids=near,solana,avalanche-2,ethereum&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true",
-      "fetched_at_utc": "2026-11-11T13:47:33Z"
+      "fetched_at_utc": "2026-11-12T07:23:15Z"
     }
   },
   "M7_mcap_retained_multiple": {
     "definition": "Market cap / annualised retained revenue",
-    "market_cap_usd": 4905712007.771776,
-    "mcap_div_R0_base": 220.0872722848363,
+    "market_cap_usd": 4617792306.8206215,
+    "mcap_div_R0_base": 198.61318265055712,
     "mcap_div_R0_by_capture_scenario": {
-      "15%": 499.3046583901986,
-      "25%": 299.58279503411916,
-      "35%": 213.98771073865655
+      "15%": 443.7018500413447,
+      "25%": 266.2211100248068,
+      "35%": 190.15793573200486
     },
     "source": "https://api.coingecko.com/api/v3/simple/price?ids=near,solana,avalanche-2,ethereum&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true",
-    "fetched_at_utc": "2026-11-11T13:47:33Z"
+    "fetched_at_utc": "2026-11-12T07:23:15Z"
   },
   "M9_staking_real_yield": {
     "definition": "Last-epoch APY minus max inflation (real yield to stakers)",
@@ -167,7 +167,7 @@
     "real_yield_pp": 2.41,
     "dilution_to_non_stakers_pct_per_year": 2.5,
     "source": "https://api.nearblocks.io/v1/validators",
-    "fetched_at_utc": "2026-11-11T13:47:30Z"
+    "fetched_at_utc": "2026-11-12T07:23:11Z"
   },
   "M10_validator_health": {
     "definition": "Validator set size, total stake, top-10 concentration",
@@ -179,136 +179,136 @@
     "top_10_note": "Top-10 stakes from validatorFullData (top 25 returned by the API); denominator is the API totalStake (full set).",
     "epoch_progress_pct": 89.8425925925926,
     "source": "https://api.nearblocks.io/v1/validators",
-    "fetched_at_utc": "2026-11-11T13:47:30Z"
+    "fetched_at_utc": "2026-11-12T07:23:11Z"
   },
   "M11_price_vs_fundamentals": {
     "definition": "NEAR price (CoinGecko 365d) indexed vs trailing-30d Intents fees indexed \u2014 do fees compound while price falls?",
-    "window": "2025-11-12 to 2026-11-11",
-    "price_change_pct": 46.7,
+    "window": "2025-11-13 to 2026-11-12",
+    "price_change_pct": 39.1,
     "trailing_30d_fees_indexed_start": 100.0,
-    "trailing_30d_fees_change_pct": 30.0,
-    "price_30d_change_pct": -26.5,
-    "trailing_30d_fees_30d_change_pct": -31.6,
+    "trailing_30d_fees_change_pct": 31.5,
+    "price_30d_change_pct": -30.1,
+    "trailing_30d_fees_30d_change_pct": -28.4,
     "source": "https://api.coingecko.com/api/v3/coins/near/market_chart?vs_currency=usd&days=365",
-    "fetched_at_utc": "2026-11-11T13:47:36Z",
+    "fetched_at_utc": "2026-11-12T07:23:17Z",
     "fee_source": {
       "source": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:44Z"
+      "fetched_at_utc": "2026-11-12T07:23:26Z"
     }
   },
   "M12_daily_txns": {
     "definition": "Daily transactions on NEAR (NEARBlocks /v1/charts daily series)",
     "available": true,
     "unit": "txns/day",
-    "daily_points": 2304,
+    "daily_points": 2305,
     "first_date": "2020-07-21",
-    "last_date": "2026-11-10",
-    "current_last_day": 970505.0,
-    "daily_avg_last_30d": 657883.6,
-    "daily_avg_prior_30d": 865015.3,
-    "avg_30d_vs_prior_30d_pct": -23.9,
-    "sum_last_30d": 19736508.0,
-    "sum_prior_30d": 25950460.0,
+    "last_date": "2026-11-11",
+    "current_last_day": 891297.0,
+    "daily_avg_last_30d": 663839.5,
+    "daily_avg_prior_30d": 867037.0,
+    "avg_30d_vs_prior_30d_pct": -23.4,
+    "sum_last_30d": 19915184.0,
+    "sum_prior_30d": 26011111.0,
     "all_time_peak": {
       "date": "2023-12-01",
       "value": 13935402.0
     },
-    "current_pct_below_peak": 93.0,
-    "avg_30d_pct_below_peak": 95.3,
+    "current_pct_below_peak": 93.6,
+    "avg_30d_pct_below_peak": 95.2,
     "source": "https://api.nearblocks.io/v1/charts",
-    "fetched_at_utc": "2026-11-11T13:47:31Z"
+    "fetched_at_utc": "2026-11-12T07:23:12Z"
   },
   "M13_daily_active_accounts": {
     "definition": "Daily active accounts on NEAR (NEARBlocks /v1/charts daily series)",
     "available": true,
     "unit": "accounts/day",
-    "daily_points": 2304,
+    "daily_points": 2305,
     "first_date": "2020-07-21",
-    "last_date": "2026-11-10",
-    "current_last_day": 177510.0,
-    "daily_avg_last_30d": 62310.9,
-    "daily_avg_prior_30d": 74984.6,
-    "avg_30d_vs_prior_30d_pct": -16.9,
-    "sum_last_30d": 1869327.0,
-    "sum_prior_30d": 2249537.0,
+    "last_date": "2026-11-11",
+    "current_last_day": 77831.0,
+    "daily_avg_last_30d": 62933.1,
+    "daily_avg_prior_30d": 74717.7,
+    "avg_30d_vs_prior_30d_pct": -15.8,
+    "sum_last_30d": 1887994.0,
+    "sum_prior_30d": 2241531.0,
     "all_time_peak": {
       "date": "2024-04-22",
       "value": 2256512.0
     },
-    "current_pct_below_peak": 92.1,
+    "current_pct_below_peak": 96.6,
     "avg_30d_pct_below_peak": 97.2,
     "source": "https://api.nearblocks.io/v1/charts",
-    "fetched_at_utc": "2026-11-11T13:47:31Z"
+    "fetched_at_utc": "2026-11-12T07:23:12Z"
   },
   "M14_new_accounts_trend": {
     "definition": "New accounts per day on NEAR (NEARBlocks /v1/charts daily series)",
     "available": true,
     "unit": "accounts/day",
-    "daily_points": 2304,
+    "daily_points": 2305,
     "first_date": "2020-07-21",
-    "last_date": "2026-11-10",
-    "current_last_day": 8343.0,
-    "daily_avg_last_30d": 9596.7,
-    "daily_avg_prior_30d": 11640.1,
-    "avg_30d_vs_prior_30d_pct": -17.6,
-    "sum_last_30d": 287902.0,
-    "sum_prior_30d": 349203.0,
+    "last_date": "2026-11-11",
+    "current_last_day": 7087.0,
+    "daily_avg_last_30d": 9498.3,
+    "daily_avg_prior_30d": 11601.3,
+    "avg_30d_vs_prior_30d_pct": -18.1,
+    "sum_last_30d": 284950.0,
+    "sum_prior_30d": 348039.0,
     "all_time_peak": {
       "date": "2023-12-21",
       "value": 1310916.0
     },
-    "current_pct_below_peak": 99.4,
+    "current_pct_below_peak": 99.5,
     "avg_30d_pct_below_peak": 99.3,
     "source": "https://api.nearblocks.io/v1/charts",
-    "fetched_at_utc": "2026-11-11T13:47:31Z",
-    "deleted_accounts_sum_last_30d": 21949.0,
-    "deleted_accounts_sum_prior_30d": 564570.0,
-    "net_new_accounts_last_30d": 265953.0
+    "fetched_at_utc": "2026-11-12T07:23:12Z",
+    "deleted_accounts_sum_last_30d": 19832.0,
+    "deleted_accounts_sum_prior_30d": 566717.0,
+    "net_new_accounts_last_30d": 265118.0
   },
   "M15_intents_daily_volume": {
     "definition": "NEAR Intents daily swap VOLUME (USD) \u2014 DefiLlama summary/dexs/near-intents totalDataChart (the dexs dimension, not fees). Fees (M1) are the revenue; volume is the growth x-axis.",
     "available": true,
-    "daily_points": 701,
+    "daily_points": 702,
     "first_daily_date": "2024-12-10",
-    "last_daily_date": "2026-11-10",
-    "total_24h_usd_endpoint": 152754904,
-    "total_7d_usd_endpoint": 937972093,
-    "total_30d_usd_endpoint": 3757732084.0,
-    "total_1y_usd_endpoint": 32910846701,
-    "total_all_time_usd_endpoint": 37324522122,
-    "total_30d_usd_from_daily_series": 3757732084.0,
-    "total_7d_usd_from_daily_series": 937972093.0,
+    "last_daily_date": "2026-11-11",
+    "total_24h_usd_endpoint": 113124728,
+    "total_7d_usd_endpoint": 907115417,
+    "total_30d_usd_endpoint": 3731354987.0,
+    "total_1y_usd_endpoint": 32917718103,
+    "total_all_time_usd_endpoint": 37437646850,
+    "total_30d_usd_from_daily_series": 3731354987.0,
+    "total_7d_usd_from_daily_series": 907115417.0,
     "total_30d_series_vs_endpoint_diff_pct": 0.0,
-    "total_30d_vs_prior_30d_pct": -20.7,
+    "total_30d_vs_prior_30d_pct": -21.7,
     "peak_daily_volume": {
       "date": "2026-09-17",
       "volume_usd": 303419794.0
     },
-    "total_all_time_usd_from_daily_series": 37324522122.0,
-    "implied_gross_fee_rate_30d_bps": 14.53,
+    "total_all_time_usd_from_daily_series": 37437646850.0,
+    "implied_gross_fee_rate_30d_bps": 15.5,
     "implied_gross_fee_rate_note": "30d Intents gross fees (M1) divided by 30d volume from the daily series \u2014 the fee rate the market actually paid. Cross-check: secondary sources quoted a ~15 bps gross fee rate; if this lands near 15 bps the two independent series agree. It is a derived ratio, not a DefiLlama field.",
     "source": "https://api.llama.fi/summary/dexs/near-intents",
-    "fetched_at_utc": "2026-11-11T13:47:46Z",
+    "fetched_at_utc": "2026-11-12T07:23:43Z",
     "fee_source": {
       "source": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:44Z"
+      "fetched_at_utc": "2026-11-12T07:23:26Z"
     }
   },
   "M16_price_vs_fees_correlation": {
     "definition": "Pearson correlation of weekly log-changes (log v[d]/v[d-7]) over the last 365 days \u2014 contemporaneous co-movement only, no lead-lag, no causation",
     "method": "Weekly log-changes, aligned by calendar date; pairs with a missing or non-positive value on either side are dropped.",
     "window_days": 365,
-    "window": "2025-11-10 to 2026-11-10",
+    "window": "2025-11-11 to 2026-11-11",
     "n_weekly_pairs_price_vs_intents_fees": 366,
-    "pearson_price_vs_intents_fees_weekly_log_changes": 0.051,
+    "pearson_price_vs_intents_fees_weekly_log_changes": 0.039,
     "reading": "Positive r means NEAR's price and Intents fees tended to move in the same direction week to week; negative would mean they diverged. Either way this is co-movement, not evidence that fees move price or vice versa.",
     "n_weekly_pairs_price_vs_base_gas_fees": 366,
-    "pearson_price_vs_base_gas_fees_weekly_log_changes": 0.563,
+    "pearson_price_vs_base_gas_fees_weekly_log_changes": 0.561,
     "source": "https://api.nearblocks.io/v1/charts",
-    "fetched_at_utc": "2026-11-11T13:47:31Z",
+    "fetched_at_utc": "2026-11-12T07:23:12Z",
     "fee_source": {
       "source": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:44Z"
+      "fetched_at_utc": "2026-11-12T07:23:26Z"
     }
   },
   "M17_metcalfe_check": {
@@ -329,25 +329,25 @@
       "note": "All dropped rows are pre-launch Jul-Oct 2020 (price was 0 before mainnet trading; the 11 zero-user rows sit inside that window). No in-window day is dropped."
     },
     "available": true,
-    "window": "2020-10-14 to 2026-11-10",
-    "usable_daily_points": 2219,
+    "window": "2020-10-14 to 2026-11-11",
+    "usable_daily_points": 2220,
     "n_months": 74,
     "first_month": "2020-10",
     "last_month": "2026-11",
     "partial_final_month_note": "The last month covers only the days present in the series (2026-11: 1-9 Nov 2026); its mean uses those days only.",
-    "total_cumulative_txns": 5479593857.0,
+    "total_cumulative_txns": 5480485154.0,
     "price_vs_active_accounts_monthly": {
       "n": 74,
       "slope": 0.0216,
-      "intercept": 0.8688,
+      "intercept": 0.8686,
       "pearson_r": 0.0673,
       "r_squared": 0.0045,
       "slope_se": 0.0376
     },
     "price_vs_active_accounts_daily": {
-      "n": 2219,
+      "n": 2220,
       "slope": 0.0112,
-      "intercept": 1.0032,
+      "intercept": 1.0033,
       "pearson_r": 0.0349,
       "r_squared": 0.0012,
       "slope_se": 0.0068
@@ -355,16 +355,16 @@
     "market_cap_vs_active_accounts_monthly": {
       "n": 73,
       "slope": 0.1859,
-      "intercept": 19.5797,
-      "pearson_r": 0.5199,
-      "r_squared": 0.2703,
-      "slope_se": 0.0363
+      "intercept": 19.5796,
+      "pearson_r": 0.52,
+      "r_squared": 0.2704,
+      "slope_se": 0.0362
     },
     "price_vs_cumulative_txns_monthly": {
       "n": 74,
       "slope": -0.0122,
-      "intercept": 1.3534,
-      "pearson_r": -0.0453,
+      "intercept": 1.3544,
+      "pearson_r": -0.0455,
       "r_squared": 0.0021,
       "slope_se": 0.0316,
       "partial": true,
@@ -372,95 +372,95 @@
     },
     "subwindow_2024_onwards_monthly": {
       "n": 35,
-      "slope": 0.3271,
-      "intercept": -3.1214,
-      "pearson_r": 0.6383,
-      "r_squared": 0.4075,
-      "slope_se": 0.0687
+      "slope": 0.3274,
+      "intercept": -3.1259,
+      "pearson_r": 0.6392,
+      "r_squared": 0.4086,
+      "slope_se": 0.0686
     },
-    "reading": "On the full 74-month window the Metcalfe relation is absent: log(price) on log(users) has slope 0.0216 (SE 0.0376) and R\u00b2 0.0045 \u2014 statistically indistinguishable from zero, against the strict-Metcalfe slope of 2.0. The daily regression agrees (slope 0.0112, R\u00b2 0.0012, n=2219). Even the most favourable reading \u2014 market cap on users \u2014 gives slope 0.1859 and R\u00b2 0.2703, far below 2.0. Price does not track cumulative usage either (slope -0.0122, R\u00b2 0.0021, partial check). One caveat, reported not buried: from Jan 2024 onwards the monthly slope is 0.3271 with r 0.6383 \u2014 price and users have moved together more in the recent window, driven by the joint fall from the Apr 2024 activity peak. The relation flips sign across sub-periods (2020-2023 slope \u2248 0), so it is not a stable law. Net: value NEAR on fees, not on users \u2014 the fee thesis stands on its own numbers, and the user-count story cannot rescue the $3.60 price.",
+    "reading": "On the full 74-month window the Metcalfe relation is absent: log(price) on log(users) has slope 0.0216 (SE 0.0376) and R\u00b2 0.0045 \u2014 statistically indistinguishable from zero, against the strict-Metcalfe slope of 2.0. The daily regression agrees (slope 0.0112, R\u00b2 0.0012, n=2220). Even the most favourable reading \u2014 market cap on users \u2014 gives slope 0.1859 and R\u00b2 0.2704, far below 2.0. Price does not track cumulative usage either (slope -0.0122, R\u00b2 0.0021, partial check). One caveat, reported not buried: from Jan 2024 onwards the monthly slope is 0.3274 with r 0.6392 \u2014 price and users have moved together more in the recent window, driven by the joint fall from the Apr 2024 activity peak. The relation flips sign across sub-periods (2020-2023 slope \u2248 0), so it is not a stable law. Net: value NEAR on fees, not on users \u2014 the fee thesis stands on its own numbers, and the user-count story cannot rescue the $3.60 price.",
     "source": "https://api.nearblocks.io/v1/charts",
-    "fetched_at_utc": "2026-11-11T13:47:31Z"
+    "fetched_at_utc": "2026-11-12T07:23:12Z"
   },
   "snapshot": {
-    "near_price_usd": 3.74,
-    "market_cap_usd": 4905712007.771776,
-    "volume_24h_usd_coingecko": 689333489.6466786,
-    "total_supply_near": 1311421198.1210244,
+    "near_price_usd": 3.52,
+    "market_cap_usd": 4617792306.8206215,
+    "volume_24h_usd_coingecko": 491688295.0925278,
+    "total_supply_near": 1311498660.150108,
     "circulating_supply_near": 1249836992.159308,
-    "total_txns_all_time": "5480016303",
-    "tps_live": 4,
+    "total_txns_all_time": "5480627198",
+    "tps_live": 12,
     "avg_block_time_s": "0.57140000",
-    "chain_height": 224073678,
+    "chain_height": 224182549,
     "protocol_version": 88,
     "node_version": "2.14.0",
     "near_tvl_last_point": {
-      "date": "2026-11-11",
-      "tvl_usd": 174853115
+      "date": "2026-11-12",
+      "tvl_usd": 165533429
     },
     "revenue_dashboard_all_time": {
-      "gross_fees_usd": 60970000.0,
-      "intent_volume_usd": 38260000000.0,
-      "confidential_tvl_usd": 142620000.0,
-      "unique_users_30d": 659400.0,
-      "headline_revenue_usd": 11640000.0,
+      "gross_fees_usd": 61200000.0,
+      "intent_volume_usd": 38380000000.0,
+      "confidential_tvl_usd": 140790000.0,
+      "unique_users_30d": 662600.0,
+      "headline_revenue_usd": 11690000.0,
       "headline_revenue_window": "UNLABELLED in page payload (consistent with all-time net revenue)",
       "revenue_wallets_all_time_near": {
-        "fefundsadmin.sputnik-dao.near": 1999998.4,
-        "buybacks.multisignature.near": 1742346.3,
+        "fefundsadmin.sputnik-dao.near": 2003855.9,
+        "buybacks.multisignature.near": 1751826.1,
         "1csfundsadmin.sputnik-dao.near": 555348.3
       },
-      "revenue_wallets_total_near": 4297693.0
+      "revenue_wallets_total_near": 4311030.3
     },
-    "buyback_wallet_balance_live_near": 2246352.724349238,
-    "buyback_wallet_balance_vs_dashboard_note": "Live NEARBlocks balance vs the dashboard's all-time traced inflow to buybacks.multisignature.near (1,742,346.3 NEAR). The live balance is HIGHER than the traced inflow, so the dashboard wallet table is partial (or stale) and must not be read as the full buyback total \u2014 the wallet also receives other inflows and spends on buybacks.",
-    "intents_account_balance_near": 136511.3407477577
+    "buyback_wallet_balance_live_near": 2252008.7923867763,
+    "buyback_wallet_balance_vs_dashboard_note": "Live NEARBlocks balance vs the dashboard's all-time traced inflow to buybacks.multisignature.near (1,751,826.1 NEAR). The live balance is HIGHER than the traced inflow, so the dashboard wallet table is partial (or stale) and must not be read as the full buyback total \u2014 the wallet also receives other inflows and spends on buybacks.",
+    "intents_account_balance_near": 136744.2257123403
   },
   "M8_valuation_multiples": {
     "definition": "Market-cap / annualised-fees for NEAR (gross + retained) vs SOL/AVAX/ETH chain fees; NEAR TVL from DefiLlama series",
-    "near_mcap_div_gross_intents_fees": 74.89569875852979,
-    "near_mcap_div_retained_fees_base": 220.0872722848363,
+    "near_mcap_div_gross_intents_fees": 66.5552775062017,
+    "near_mcap_div_retained_fees_base": 198.61318265055712,
     "peer_mcap_div_fees": {
-      "solana": 241.03923475455287,
-      "avalanche-2": 945.0320467093189,
-      "ethereum": 1069.2610304924779
+      "solana": 241.62246607745513,
+      "avalanche-2": 947.7672986581897,
+      "ethereum": 1042.9290542971064
     },
-    "near_tvl_usd_last_point": 174853115,
-    "near_tvl_date": "2026-11-11",
-    "near_mcap_div_tvl": 28.05618880608319,
+    "near_tvl_usd_last_point": 165533429,
+    "near_tvl_date": "2026-11-12",
+    "near_mcap_div_tvl": 27.896433576692363,
     "peer_mcap_div_tvl": {
-      "solana": 4.272048596949952,
-      "avalanche-2": 3.0174713426092272,
-      "ethereum": 2.8053981197283497,
-      "near": 28.05618880608319
+      "solana": 4.2385347288485296,
+      "avalanche-2": 3.0782233401028214,
+      "ethereum": 2.7158515854656207,
+      "near": 27.896433576692363
     },
     "peer_fee_methodology_note": "Peer chain fees are DefiLlama summary/fees 30d totals, annualised \u2014 the same methodology for all four chains, but DefiLlama chain-fee totals can undercount vs other methodologies (e.g. Solana's total here is far below figures that include all validator/Jito revenue). Use for relative ranking within this dataset, not as absolute revenue.",
     "intents_competitors_30d_fees_usd": {
-      "thorchain": 18564.0,
-      "chainflip": 2836435.0,
-      "debridge": 455688.0
+      "thorchain": 18029.0,
+      "chainflip": 2918190.0,
+      "debridge": 453958.0
     },
     "dropped_benchmarks": [
       {
         "competitor": "lifi",
         "reason": "DefiLlama slug returned no fee totals (404 / not found)",
         "source": "https://api.llama.fi/summary/fees/lifi?dataType=dailyFees",
-        "fetched_at_utc": "2026-11-11T13:47:46Z"
+        "fetched_at_utc": "2026-11-12T07:23:42Z"
       }
     ],
     "source": "https://api.llama.fi/overview/fees",
-    "fetched_at_utc": "2026-11-11T13:47:47Z"
+    "fetched_at_utc": "2026-11-12T07:23:45Z"
   },
   "M18_dated_predictions": {
     "definition": "The 7 committed predictions (PREDICTIONS.md, committed 2026-11-10) scored against current model outputs. Status is a point-in-time read, not the final outcome: no prediction has resolved yet (earliest resolution date 2026-12-31).",
     "method": "Live values are the same figures the model already computes (M\u2081 F\u2083\u2080, M\u2083 capture, base-case DCF \u00f7 live price, M\u2081\u2085 volume, F\u2083\u2080 \u00f7 Chainflip 30d fees, M\u2081\u2083 30d-mean active accounts, |M\u2081\u2086 weekly log-change Pearson|). Thresholds are the numeric form of data/predictions.json \u2014 see PREDICTION_THRESHOLDS in src/model.py.",
     "committed": "2026-11-10",
-    "as_of_utc": "2026-11-11T13:47:58Z",
+    "as_of_utc": "2026-11-12T07:23:55Z",
     "available": true,
     "reason": null,
     "counts": {
-      "on track": 5,
-      "off track": 2,
+      "on track": 6,
+      "off track": 1,
       "not yet measurable": 0
     },
     "predictions": [
@@ -472,9 +472,9 @@
         "threshold_op": ">=",
         "resolves": "2026-12-31",
         "source_short": "DefiLlama summary/fees/near-intents total30d",
-        "live_value": 5458382.0,
-        "live_value_display": "$5,458,382",
-        "status": "off track",
+        "live_value": 5781901.0,
+        "live_value_display": "$5,781,901",
+        "status": "on track",
         "status_reason": null
       },
       {
@@ -485,8 +485,8 @@
         "threshold_op": ">=",
         "resolves": "2027-01-31",
         "source_short": "revenue.near.org, 30d window",
-        "live_value": 0.3403,
-        "live_value_display": "34.03%",
+        "live_value": 0.3351,
+        "live_value_display": "33.51%",
         "status": "off track",
         "status_reason": null
       },
@@ -498,8 +498,8 @@
         "threshold_op": "<",
         "resolves": "2027-02-28",
         "source_short": "Re-run src/model.py; CoinGecko price",
-        "live_value": 0.10490708635480189,
-        "live_value_display": "10.5% of price",
+        "live_value": 0.1162660633299434,
+        "live_value_display": "11.6% of price",
         "status": "on track",
         "status_reason": null
       },
@@ -511,8 +511,8 @@
         "threshold_op": ">=",
         "resolves": "2026-12-31",
         "source_short": "DefiLlama summary/dexs/near-intents",
-        "live_value": 3757732084.0,
-        "live_value_display": "$3,757,732,084",
+        "live_value": 3731354987.0,
+        "live_value_display": "$3,731,354,987",
         "status": "on track",
         "status_reason": null
       },
@@ -524,8 +524,8 @@
         "threshold_op": ">=",
         "resolves": "2027-01-31",
         "source_short": "DefiLlama summary/fees/{near-intents,chainflip}",
-        "live_value": 1.9243811333593048,
-        "live_value_display": "1.92\u00d7",
+        "live_value": 1.9813312361429516,
+        "live_value_display": "1.98\u00d7",
         "status": "on track",
         "status_reason": null
       },
@@ -537,8 +537,8 @@
         "threshold_op": "<",
         "resolves": "2027-02-28",
         "source_short": "NEARBlocks /v1/charts",
-        "live_value": 62310.9,
-        "live_value_display": "62,311/day",
+        "live_value": 62933.1,
+        "live_value_display": "62,933/day",
         "status": "on track",
         "status_reason": null
       },
@@ -550,8 +550,8 @@
         "threshold_op": "<",
         "resolves": "2026-12-31",
         "source_short": "CoinGecko price + DefiLlama fees",
-        "live_value": 0.051,
-        "live_value_display": "|r| = 0.051",
+        "live_value": 0.039,
+        "live_value_display": "|r| = 0.039",
         "status": "on track",
         "status_reason": null
       }
@@ -561,7 +561,7 @@
     "definition": "The 6 committed falsification conditions (README.md Falsification section, committed 2026-11-11) scored against current model outputs. Status is 'triggered' only when the live value breaches the threshold AND the persistence window has been met; otherwise 'not triggered'. Persistence is counted from the commitment date: F1/F4/F6 from the stored daily series, F2 by carrying breach_since forward through this file, F3 event-based, F5 immediate by design.",
     "method": "Live values are the same figures the model already computes (M1 F30, M3 capture, F30 / Chainflip 30d fees, base-case DCF / live price, F30 / M2 peak, M15 volume / prior-30d volume), except F3, whose live value is the Oct 1-4 2026 outage precedent (31.6%) cited in README Limitations. Thresholds are the numeric form of data/falsification.json \u2014 see FALSIFICATION_THRESHOLDS in src/model.py.",
     "committed": "2026-11-11",
-    "as_of_utc": "2026-11-11T13:47:58Z",
+    "as_of_utc": "2026-11-12T07:23:55Z",
     "available": true,
     "reason": null,
     "counts": {
@@ -580,12 +580,12 @@
         "threshold_value_secondary": null,
         "peak_usd": null,
         "persistence": "90 consecutive days below threshold, counted from the commitment date (2026-11-11)",
-        "live_value": 5458382.0,
-        "live_value_display": "$5,458,382",
+        "live_value": 5781901.0,
+        "live_value_display": "$5,781,901",
         "live_value_secondary": null,
         "live_value_secondary_display": null,
         "status": "not triggered",
-        "status_reason": "No breach: F30 $5,458,382 is above the $2,000,000 bar; 0 of 90 persistence days.",
+        "status_reason": "No breach: F30 $5,781,901 is above the $2,000,000 bar; 0 of 90 persistence days.",
         "breach_since": null,
         "persistence_days_observed": 0,
         "persistence_months_observed": null,
@@ -602,12 +602,12 @@
         "threshold_value_secondary": null,
         "peak_usd": null,
         "persistence": "90 consecutive days below threshold, counted from the commitment date (2026-11-11)",
-        "live_value": 0.3403,
-        "live_value_display": "34.03%",
+        "live_value": 0.3351,
+        "live_value_display": "33.51%",
         "live_value_secondary": null,
         "live_value_secondary_display": null,
         "status": "not triggered",
-        "status_reason": "No breach: capture 34.03% is above the 15% floor; 0 of 90 persistence days.",
+        "status_reason": "No breach: capture 33.51% is above the 15% floor; 0 of 90 persistence days.",
         "breach_since": null,
         "persistence_days_observed": 0,
         "persistence_months_observed": null,
@@ -646,12 +646,12 @@
         "threshold_value_secondary": null,
         "peak_usd": null,
         "persistence": "3 consecutive calendar months with NEAR 30d fees below the competitor's, counted from the commitment date (2026-11-11)",
-        "live_value": 1.9243811333593048,
-        "live_value_display": "1.92\u00d7",
+        "live_value": 1.9813312361429516,
+        "live_value_display": "1.98\u00d7",
         "live_value_secondary": null,
         "live_value_secondary_display": null,
         "status": "not triggered",
-        "status_reason": "No breach: NEAR leads Chainflip 1.92\u00d7; 0 of 3 persistence months.",
+        "status_reason": "No breach: NEAR leads Chainflip 1.98\u00d7; 0 of 3 persistence months.",
         "breach_since": null,
         "persistence_days_observed": 0,
         "persistence_months_observed": null,
@@ -668,12 +668,12 @@
         "threshold_value_secondary": null,
         "peak_usd": null,
         "persistence": "None \u2014 a single recomputation at or above 100% triggers; the claim is about the current level, not a trend",
-        "live_value": 0.10490708635480189,
-        "live_value_display": "10.5% of price",
+        "live_value": 0.1162660633299434,
+        "live_value_display": "11.6% of price",
         "live_value_secondary": null,
         "live_value_secondary_display": null,
         "status": "not triggered",
-        "status_reason": "No breach: DCF value/token is 10.5% of price \u2014 far below the 100% bar.",
+        "status_reason": "No breach: DCF value/token is 11.6% of price \u2014 far below the 100% bar.",
         "breach_since": null,
         "persistence_days_observed": 0,
         "persistence_months_observed": null,
@@ -690,12 +690,12 @@
         "threshold_value_secondary": 0.5,
         "peak_usd": 8236902.0,
         "persistence": "90 consecutive days with BOTH legs below their bars, counted from the commitment date (2026-11-11)",
-        "live_value": 0.6626741461777741,
-        "live_value_display": "66.3% of peak",
-        "live_value_secondary": 0.7931820194945535,
-        "live_value_secondary_display": "79.3% of prior 30d",
+        "live_value": 0.7019509276667368,
+        "live_value_display": "70.2% of peak",
+        "live_value_secondary": 0.7830156288170348,
+        "live_value_secondary_display": "78.3% of prior 30d",
         "status": "not triggered",
-        "status_reason": "No breach: fees are 66.3% of peak and volume 79.3% of prior 30d \u2014 neither leg is below its 50% bar; 0 of 90 persistence days.",
+        "status_reason": "No breach: fees are 70.2% of peak and volume 78.3% of prior 30d \u2014 neither leg is below its 50% bar; 0 of 90 persistence days.",
         "breach_since": null,
         "persistence_days_observed": 0,
         "persistence_months_observed": null,

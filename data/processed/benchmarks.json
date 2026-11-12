@@ -1,78 +1,78 @@
 {
   "peers": {
     "solana": {
-      "price_usd": 84.24,
-      "market_cap_usd": 49816313334.310974,
-      "fees_30d_usd": 17222754.0,
-      "fees_annualised_usd": 206673048.0,
-      "mcap_div_annualised_fees": 241.03923475455287,
+      "price_usd": 82.82,
+      "market_cap_usd": 48981896721.724976,
+      "fees_30d_usd": 16893399.0,
+      "fees_annualised_usd": 202720788.0,
+      "mcap_div_annualised_fees": 241.62246607745513,
       "source": "https://api.llama.fi/summary/fees/solana?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:46Z",
-      "tvl_usd": 11660989383.378632,
-      "mcap_div_tvl": 4.272048596949952
+      "fetched_at_utc": "2026-11-12T07:23:42Z",
+      "tvl_usd": 11556327800.818031,
+      "mcap_div_tvl": 4.2385347288485296
     },
     "avalanche-2": {
-      "price_usd": 8.55,
-      "market_cap_usd": 3810709423.868789,
-      "fees_30d_usd": 336030.0,
-      "fees_annualised_usd": 4032360.0,
-      "mcap_div_annualised_fees": 945.0320467093189,
+      "price_usd": 8.64,
+      "market_cap_usd": 3850592772.0576878,
+      "fees_30d_usd": 338567.0,
+      "fees_annualised_usd": 4062804.0,
+      "mcap_div_annualised_fees": 947.7672986581897,
       "source": "https://api.llama.fi/summary/fees/avalanche?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:46Z",
-      "tvl_usd": 1262881728.1736448,
-      "mcap_div_tvl": 3.0174713426092272
+      "fetched_at_utc": "2026-11-12T07:23:42Z",
+      "tvl_usd": 1250914032.7449622,
+      "mcap_div_tvl": 3.0782233401028214
     },
     "ethereum": {
-      "price_usd": 2050.22,
-      "market_cap_usd": 258159085601.08582,
-      "fees_30d_usd": 20119743.0,
-      "fees_annualised_usd": 241436916.0,
-      "mcap_div_annualised_fees": 1069.2610304924779,
+      "price_usd": 2046.61,
+      "market_cap_usd": 250164242608.50293,
+      "fees_30d_usd": 19988915.0,
+      "fees_annualised_usd": 239866980.0,
+      "mcap_div_annualised_fees": 1042.9290542971064,
       "source": "https://api.llama.fi/summary/fees/ethereum?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:46Z",
-      "tvl_usd": 92022263715.66959,
-      "mcap_div_tvl": 2.8053981197283497
+      "fetched_at_utc": "2026-11-12T07:23:42Z",
+      "tvl_usd": 92112633822.59285,
+      "mcap_div_tvl": 2.7158515854656207
     },
     "near": {
-      "price_usd": 3.74,
-      "market_cap_usd": 4905712007.771776,
-      "fees_30d_usd_gross_intents": 5458382.0,
-      "fees_annualised_usd_gross_intents": 65500584.0,
-      "mcap_div_annualised_gross_intents_fees": 74.89569875852979,
-      "fees_annualised_usd_retained_base": 22289848.7352,
-      "mcap_div_annualised_retained_fees_base": 220.0872722848363,
-      "base_chain_fees_24h_usd": 3652.0,
-      "tvl_usd": 174853115,
-      "mcap_div_tvl": 28.05618880608319,
-      "tvl_usd_chains_endpoint": 376281854.80348635,
-      "tvl_date": "2026-11-11",
+      "price_usd": 3.52,
+      "market_cap_usd": 4617792306.8206215,
+      "fees_30d_usd_gross_intents": 5781901.0,
+      "fees_annualised_usd_gross_intents": 69382812.0,
+      "mcap_div_annualised_gross_intents_fees": 66.5552775062017,
+      "fees_annualised_usd_retained_base": 23250180.301200002,
+      "mcap_div_annualised_retained_fees_base": 198.61318265055712,
+      "base_chain_fees_24h_usd": 3365.0,
+      "tvl_usd": 165533429,
+      "mcap_div_tvl": 27.896433576692363,
+      "tvl_usd_chains_endpoint": 354655331.2096903,
+      "tvl_date": "2026-11-12",
       "tvl_note": "Series last point used; /chains headline differs \u2014 see value in tvl_usd_chains_endpoint."
     }
   },
   "intents_competitors": {
     "thorchain": {
-      "fees_30d_usd": 18564.0,
-      "fees_7d_usd": 8488.0,
-      "fees_24h_usd": 1633.0,
-      "fees_all_time_usd": 3609522.4400000004,
+      "fees_30d_usd": 18029.0,
+      "fees_7d_usd": 8523.0,
+      "fees_24h_usd": 1610.0,
+      "fees_all_time_usd": 3611132.4400000004,
       "source": "https://api.llama.fi/summary/fees/thorchain?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:45Z"
+      "fetched_at_utc": "2026-11-12T07:23:32Z"
     },
     "chainflip": {
-      "fees_30d_usd": 2836435.0,
-      "fees_7d_usd": 654591.0,
-      "fees_24h_usd": 77851.0,
-      "fees_all_time_usd": 27062230.0,
+      "fees_30d_usd": 2918190.0,
+      "fees_7d_usd": 577986.0,
+      "fees_24h_usd": 115401.0,
+      "fees_all_time_usd": 27177631.0,
       "source": "https://api.llama.fi/summary/fees/chainflip?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:45Z"
+      "fetched_at_utc": "2026-11-12T07:23:33Z"
     },
     "debridge": {
-      "fees_30d_usd": 455688.0,
-      "fees_7d_usd": 162777.0,
-      "fees_24h_usd": 27870.0,
-      "fees_all_time_usd": 30121307.0,
+      "fees_30d_usd": 453958.0,
+      "fees_7d_usd": 146530.0,
+      "fees_24h_usd": 9721.0,
+      "fees_all_time_usd": 30131028.0,
       "source": "https://api.llama.fi/summary/fees/debridge?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:45Z"
+      "fetched_at_utc": "2026-11-12T07:23:34Z"
     }
   },
   "dropped": [
@@ -80,7 +80,7 @@
       "competitor": "lifi",
       "reason": "DefiLlama slug returned no fee totals (404 / not found)",
       "source": "https://api.llama.fi/summary/fees/lifi?dataType=dailyFees",
-      "fetched_at_utc": "2026-11-11T13:47:46Z"
+      "fetched_at_utc": "2026-11-12T07:23:42Z"
     }
   ]
 }

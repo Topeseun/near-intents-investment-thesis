@@ -1,21 +1,21 @@
 {
   "formula": "R\u2080 = F\u2083\u2080 * 12 * capture; R\u2081 = R\u2080 * (1+g); Value = R\u2081/(r-g); Value/token = Value / circulating_supply",
   "inputs": {
-    "F30_trailing_30d_gross_fees_usd": 5458382.0,
-    "capture_base_measured_30d": 0.3403,
+    "F30_trailing_30d_gross_fees_usd": 5781901.0,
+    "capture_base_measured_30d": 0.3351,
     "capture_base_source": "revenue.near.org (measured) \u2014 see M4",
     "discount_rate_r_base": 0.15,
     "growth_rate_g_base": 0.1,
     "circulating_supply_near": 1249836992.159308,
-    "near_price_usd": 3.74,
-    "market_cap_usd": 4905712007.771776
+    "near_price_usd": 3.52,
+    "market_cap_usd": 4617792306.8206215
   },
   "base_case": {
-    "R0_annualised_retained_revenue_usd": 22289848.7352,
-    "R1_next_year_retained_revenue_usd": 24518833.60872,
-    "equity_value_usd": 490376672.17440015,
-    "value_per_token_usd": 0.3923525029669591,
-    "value_per_token_vs_price_pct": 10.5,
+    "R0_annualised_retained_revenue_usd": 23250180.301200002,
+    "R1_next_year_retained_revenue_usd": 25575198.331320006,
+    "equity_value_usd": 511503966.62640023,
+    "value_per_token_usd": 0.40925654292140073,
+    "value_per_token_vs_price_pct": 11.6,
     "reading": "At today's fees and the measured ~34% capture, retained revenue alone supports only a fraction of the $4.7B market cap. The thesis case is the option value: the multiple is a bet on fee growth (g) and capture (c) rising \u2014 see the sensitivity grid."
   },
   "assumptions_file": "src/assumptions.yaml"
