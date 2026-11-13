@@ -43,6 +43,7 @@ ASSETS = REPO / "dashboard" / "assets"
 
 PROCESSED_JSONS = [
     "metrics.json", "dcf.json", "sensitivity.json", "bridge.json",
+    "reverse_dcf.json",
     "benchmarks.json",
     "predictions.json", "falsification.json",
     "chart_01_data.json", "chart_02_data.json", "chart_03_data.json",
@@ -460,6 +461,51 @@ class TestProcessedOutputs(unittest.TestCase):
             m19["conditions"][5]["live_value_secondary"],
             sum(pts[-30:]) / sum(pts[-60:-30]), delta=1e-9)
 
+    def test_reverse_dcf_arithmetic(self):
+        """Reverse DCF recomputes from its own inputs; capture-alone is
+        impossible (>100%) and the 100%-capture ceiling is below price."""
+        rev = load_processed("reverse_dcf.json")
+        m = load_processed("metrics.json")
+        dcf = load_processed("dcf.json")
+        inp = rev["inputs"]
+        price = m["snapshot"]["near_price_usd"]
+        self.assertAlmostEqual(inp["price_usd"], price, delta=1e-9)
+        self.assertAlmostEqual(
+            inp["capture_rate_30d"],
+            m["M3_retained_revenue"]["capture_rate_30d_measured"], delta=1e-9)
+        self.assertAlmostEqual(
+            inp["f30_trailing_30d_gross_fees_usd"],
+            m["M1_intents_gross_fees"]["total_30d_usd_F30"], delta=1.0)
+        self.assertAlmostEqual(
+            inp["dcf_value_per_token_usd"],
+            dcf["base_case"]["value_per_token_usd"], delta=1e-9)
+        r, g = inp["discount_rate_r"], inp["growth_rate_g"]
+        req_r0 = (price * inp["supply_near"] * (r - g) / (1 + g))
+        self.assertAlmostEqual(
+            rev["required_r0_annualised_retained_revenue_usd"], req_r0,
+            delta=1.0)
+        fee_rate = inp["fee_rate_30d_bps"] / 10000.0
+        req_vol = req_r0 / inp["capture_rate_30d"] / fee_rate
+        self.assertAlmostEqual(
+            rev["a_required_annual_gross_volume_usd"], req_vol, delta=1.0)
+        req_f30 = req_r0 / 12.0 / inp["capture_rate_30d"]
+        self.assertAlmostEqual(
+            rev["b_required_30d_gross_fees_usd"], req_f30, delta=1.0)
+        req_cap = req_r0 / (inp["f30_trailing_30d_gross_fees_usd"] * 12.0)
+        self.assertAlmostEqual(
+            rev["c_required_capture_rate_if_volume_flat"], req_cap, delta=1e-9)
+        # Both volume and fee multiples are the same number (req R0 / R0).
+        self.assertAlmostEqual(
+            rev["a_required_multiple_of_current_volume"],
+            rev["b_required_multiple_of_current_f30"], delta=0.01)
+        self.assertGreater(
+            rev["c_required_capture_rate_if_volume_flat"], 1.0,
+            "capture alone must be impossible, else the thesis is wrong")
+        self.assertFalse(rev["c_feasible"])
+        ceil = rev["ceiling_at_100pct_capture_flat_volume"]
+        self.assertLess(ceil["value_per_token_usd"], price)
+        self.assertLess(ceil["value_per_token_vs_price_pct"], 100.0)
+
     def test_chart_data_matches_metrics(self):
         m = load_processed("metrics.json")
         c8 = load_processed("chart_08_data.json")
@@ -662,6 +708,51 @@ class TestDashboardAndReadme(unittest.TestCase):
         dcf = load_processed("dcf.json")
         vpt = dcf["base_case"]["value_per_token_usd"]
         self.assertIn(f"${vpt:.2f}", readme)
+
+    def test_readme_descriptive_figures_match_metrics(self):
+        """README descriptive figures (charts #1/#8/#9, Assumptions) must
+        match metrics.json — the drift that bit #8/#9 on 2026-11-13."""
+        readme = (REPO / "README.md").read_text().replace("−", "-")
+        m = load_processed("metrics.json")
+        c1 = load_processed("chart_01_data.json")
+        m2 = m["M2_intents_fee_growth"]
+        m12, m13 = m["M12_daily_txns"], m["M13_daily_active_accounts"]
+        m15 = m["M15_intents_daily_volume"]
+        # Chart #1 point count.
+        self.assertIn(f"({len(c1['dates'])} pts", readme)
+        # Chart #8 usage-collapse percentages.
+        self.assertIn(f"{m12['current_pct_below_peak']:.1f}%", readme)
+        self.assertIn(f"{m13['current_pct_below_peak']:.1f}%", readme)
+        # Chart #9 volume + fee rate.
+        self.assertIn(
+            f"${m15['total_30d_usd_from_daily_series']:,.0f}", readme)
+        self.assertIn(
+            f"{m15['implied_gross_fee_rate_30d_bps']:.2f} bps", readme)
+        # Assumptions: fees vs prior 30d (not volume) + headline volume row.
+        self.assertIn(
+            f"{m2['trailing_30d_vs_prior_30d_pct']:.1f}%", readme)
+        self.assertIn(
+            f"{m15['total_30d_vs_prior_30d_pct']:.1f}%", readme)
+
+    def test_dashboard_no_bare_f30(self):
+        """Dashboard + docs mirror must use subscripted F₃₀ everywhere —
+        no bare 'F30' token in rendered display text."""
+        for name in ("dashboard/index.html", "docs/index.html"):
+            html = (REPO / name).read_text()
+            self.assertNotIn("F30", html, f"bare F30 in {name}")
+            self.assertIn("F₃₀", html, f"F₃₀ missing from {name}")
+
+    def test_dashboard_capture_card_matches_metrics(self):
+        """Headline capture card must render the M4 windows, not a stale
+        hardcoded string (it said 36.0% 30d on 2026-11-13; live is 33.4%)."""
+        html = (REPO / "dashboard/index.html").read_text()
+        m = load_processed("metrics.json")
+        w = m["M4_capture_rate_trend"]["capture_rate_by_window"]
+        expected = (f"{w['all_time'] * 100:.1f}% all-time → "
+                    f"{w['ytd'] * 100:.1f}% YTD → "
+                    f"{w['d30'] * 100:.1f}% 30d")
+        self.assertIn(expected, html)
+        self.assertNotIn("36.0% 30d", html)
 
 
 if __name__ == "__main__":

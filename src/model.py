@@ -1097,6 +1097,75 @@ def main() -> int:
             "conservative floor (retained revenue only)."),
     }
 
+    # ---------------- reverse DCF: what the market price implies -------
+    # Invert the base-case DCF at the same r and g: what operational
+    # milestones make the fee-capture DCF equal today's live price?
+    # Value* = price * supply; R1* = Value* * (r - g); R0* = R1* / (1 + g).
+    # (a) required annual gross volume at current capture + fee rate.
+    # (b) required 30d gross fees at current capture.
+    # (c) required capture if volume stays flat — >100% means impossible.
+    _m15 = metrics["M15_intents_daily_volume"]
+    _fee_rate = _m15["implied_gross_fee_rate_30d_bps"] / 10000.0
+    _vol_30d = _m15["total_30d_usd_from_daily_series"]
+    _target_equity = price * supply_circ
+    _req_r1 = _target_equity * (r_base - g_base)
+    _req_r0 = _req_r1 / (1 + g_base)
+    _req_gross_fees_annual = _req_r0 / capture_measured
+    _req_volume_annual = _req_gross_fees_annual / _fee_rate
+    _req_fees_30d = _req_r0 / 12.0 / capture_measured
+    _gross_fees_annual_now = f30 * 12.0
+    _req_capture_flat = _req_r0 / _gross_fees_annual_now
+    # Corollary: even at 100% capture with volume flat, the ceiling is
+    # R0 = gross fees annualised, R1 = R0 * (1 + g), equity = R1 / (r - g).
+    _ceil_equity = _gross_fees_annual_now * (1 + g_base) / (r_base - g_base)
+    _ceil_vpt = _ceil_equity / supply_circ
+    reverse_dcf = {
+        "title": "Path to $3.51 — what the market price implies (reverse DCF)",
+        "inputs": {
+            "price_usd": price,
+            "supply_near": supply_circ,
+            "discount_rate_r": r_base,
+            "growth_rate_g": g_base,
+            "capture_rate_30d": capture_measured,
+            "fee_rate_30d_bps": _m15["implied_gross_fee_rate_30d_bps"],
+            "f30_trailing_30d_gross_fees_usd": f30,
+            "volume_30d_usd": _vol_30d,
+            "r0_annualised_retained_revenue_usd": r0_base,
+            "dcf_value_per_token_usd": val_base / supply_circ,
+        },
+        "required_equity_value_usd": _target_equity,
+        "required_r0_annualised_retained_revenue_usd": _req_r0,
+        "required_r1_next_year_retained_revenue_usd": _req_r1,
+        "required_multiple_of_current_r0": _req_r0 / r0_base,
+        "a_required_annual_gross_volume_usd": _req_volume_annual,
+        "a_current_annualised_volume_usd": _vol_30d * 12.0,
+        "a_required_multiple_of_current_volume": (
+            _req_volume_annual / (_vol_30d * 12.0)),
+        "b_required_30d_gross_fees_usd": _req_fees_30d,
+        "b_required_multiple_of_current_f30": _req_fees_30d / f30,
+        "c_required_capture_rate_if_volume_flat": _req_capture_flat,
+        "c_feasible": _req_capture_flat <= 1.0,
+        "ceiling_at_100pct_capture_flat_volume": {
+            "r0_annualised_retained_revenue_usd": _gross_fees_annual_now,
+            "equity_value_usd": _ceil_equity,
+            "value_per_token_usd": _ceil_vpt,
+            "value_per_token_vs_price_pct": 100 * _ceil_vpt / price,
+        },
+        "reading": (
+            f"At r={r_base:.0%}, g={g_base:.0%}, the ${price:.2f} price needs "
+            f"retained revenue of ${_req_r0:,.0f}/yr — {_req_r0 / r0_base:.1f}x "
+            f"today's R₀. At the current {capture_measured:.2%} capture and "
+            f"{_m15['implied_gross_fee_rate_30d_bps']:.2f} bps fee rate that "
+            f"means ${_req_volume_annual / 1e9:.1f}B of annual Intents volume "
+            f"({_req_volume_annual / (_vol_30d * 12.0):.1f}x today's "
+            f"annualised volume), or ${_req_fees_30d:,.0f} of gross fees every "
+            "30 days. Capture alone cannot get there: with volume flat, the "
+            f"price needs a {_req_capture_flat:.0%} capture rate — impossible. "
+            f"Even at 100% capture with volume flat, the DCF ceiling is "
+            f"${_ceil_vpt:.2f} ({100 * _ceil_vpt / price:.0f}% of the price). "
+            "The price is a bet on volume growth, not on retention."),
+    }
+
     # ---------------- benchmarks ----------------
     bench = {"peers": {}, "intents_competitors": {}, "dropped": []}
     peer_defs = {"solana": ("solana", "defillama_fees_solana.json"),
@@ -1498,7 +1567,7 @@ def main() -> int:
                     # Built with if/elif (not a dict literal): each reason
                     # formats only its own condition's live value.
                     if _fid == "F1":
-                        _reason = (f"No breach: F30 {_fmt_f['F1'](_lv)} is "
+                        _reason = (f"No breach: F₃₀ {_fmt_f['F1'](_lv)} is "
                                    f"above the $2,000,000 bar; 0 of 90 "
                                    f"persistence days.")
                     elif _fid == "F2":
@@ -1845,6 +1914,7 @@ def main() -> int:
     (PROC / "dcf.json").write_text(json.dumps(dcf, indent=2))
     (PROC / "sensitivity.json").write_text(json.dumps(sens, indent=2))
     (PROC / "bridge.json").write_text(json.dumps(bridge, indent=2))
+    (PROC / "reverse_dcf.json").write_text(json.dumps(reverse_dcf, indent=2))
     (PROC / "benchmarks.json").write_text(json.dumps(bench, indent=2))
     (PROC / "predictions.json").write_text(json.dumps(predictions_out, indent=2))
     (PROC / "falsification.json").write_text(json.dumps(falsification_out, indent=2))
