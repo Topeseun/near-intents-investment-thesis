@@ -4,14 +4,14 @@
   "as_published": "2026-11-13",
   "corroboration": {
     "rival_capture_30d": 0.359,
-    "our_capture_30d": 0.3392,
+    "our_capture_30d": 0.3337,
     "rival_captured_revenue_annualised_usd": 22300000,
-    "our_r0_usd": 22217798.0928
+    "our_r0_usd": 23255120.5248
   },
   "our_dcf": {
-    "equity_value_usd": 488791558.0416001,
-    "value_per_token_usd": 0.3910842462720909,
-    "value_per_token_on_rival_supply_basis_usd": 0.37312332674931303,
+    "equity_value_usd": 511612651.5456001,
+    "value_per_token_usd": 0.4093435021967956,
+    "value_per_token_on_rival_supply_basis_usd": 0.3905440088134352,
     "supply_basis_near": 1249836992.159308
   },
   "rival_base_case": {
@@ -26,21 +26,21 @@
     "total_equity_value_usd": 3812100000.0
   },
   "bridge_to_rival_base_usd": {
-    "retained_revenue_dcf": 488791558.0416001,
+    "retained_revenue_dcf": 511612651.5456001,
     "plus_chain_value": 1660000000,
-    "plus_exit_value_and_horizon_difference": 536708441.9583998,
+    "plus_exit_value_and_horizon_difference": 513887348.45440006,
     "equals_rival_base_total": 2685500000.0,
-    "gap_usd": 2196708441.9584
+    "gap_usd": 2173887348.4544
   },
   "bridge_per_token_on_rival_supply_basis_usd": {
-    "retained_revenue_dcf": 0.37312332674931303,
+    "retained_revenue_dcf": 0.3905440088134352,
     "plus_chain_value": 1.2671755725190839,
-    "plus_exit_value_and_horizon_difference": 0.4097011007316029,
+    "plus_exit_value_and_horizon_difference": 0.392280418667481,
     "equals_rival_base": 2.05
   },
-  "sensitivity_grid_max_valid_value_per_token_usd": 1.0088,
+  "sensitivity_grid_max_valid_value_per_token_usd": 1.0733,
   "market_price_implied_under_rival_model": {
-    "price_usd": 3.58,
+    "price_usd": 3.51,
     "volume_growth_per_year_5y": 0.63,
     "volume_growth_multiple_5y": 12,
     "exit_multiple": 40,
@@ -48,5 +48,5 @@
     "chain_value_usd": 3900000000,
     "chain_value_growth": 3
   },
-  "reading": "No parameter tweak closes the gap: the best valid sensitivity cell is $1.01, still half the rival's base case, so the difference is structural \u2014 what is included (chain value + exit value), not the parameters. The rival's base case is 62% chain value, an assumption they state themselves; our DCF is the conservative floor (retained revenue only)."
+  "reading": "No parameter tweak closes the gap: the best valid sensitivity cell is $1.07, still half the rival's base case, so the difference is structural \u2014 what is included (chain value + exit value), not the parameters. The rival's base case is 62% chain value, an assumption they state themselves; our DCF is the conservative floor (retained revenue only)."
 }
