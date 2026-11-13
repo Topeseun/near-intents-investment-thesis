@@ -15,11 +15,15 @@
 #      arithmetic), the run fails here and nothing is committed — the live
 #      site keeps yesterday's correct data instead of today's broken data.
 #   4. Runs the FULL test suite as information only (continue-on-error).
-#      Two tests are EXPECTED to fail after any refresh:
-#      test_readme_contains_headline_numbers and test_no_hardcoded_dcf_drift
-#      compare data/processed/*.json against README.md, which is a static
-#      snapshot (figures as fetched 2026-11-10). This workflow never edits
-#      README.md, so those two failures do not block the commit of fresh data.
+#      Three tests are EXPECTED to fail after any refresh:
+#      test_readme_contains_headline_numbers, test_no_hardcoded_dcf_drift
+#      and test_readme_descriptive_figures_match_metrics compare
+#      data/processed/*.json against README.md, which is a static snapshot
+#      (figures as fetched 2026-11-13). This workflow never edits
+#      README.md, so those three failures do not block the commit of fresh
+#      data. The blocking gate above DOES include the new non-README tests
+#      (dashboard subscripts, capture card, reverse-DCF arithmetic) — those
+#      must pass on fresh data or nothing is committed.
 #   5. Commits any changes under docs/ and data/ (data/raw/ is git-ignored,
 #      so only data/manifest.json + data/processed/*.json are staged) and
 #      pushes to main. No commit when nothing changed.
@@ -85,7 +89,7 @@ jobs:
 
       - name: Test data integrity (blocking gate)
         run: |
-          python3 -m unittest tests.test_outputs.TestProcessedOutputs tests.test_outputs.TestDashboardAndReadme.test_docs_mirror_dashboard tests.test_outputs.TestDashboardAndReadme.test_all_chart_files_exist tests.test_outputs.TestDashboardAndReadme.test_dashboard_references_all_charts tests.test_outputs.TestDashboardAndReadme.test_dashboard_renders_predictions tests.test_outputs.TestDashboardAndReadme.test_dashboard_renders_falsification -v
+          python3 -m unittest tests.test_outputs.TestProcessedOutputs tests.test_outputs.TestDashboardAndReadme.test_docs_mirror_dashboard tests.test_outputs.TestDashboardAndReadme.test_all_chart_files_exist tests.test_outputs.TestDashboardAndReadme.test_dashboard_references_all_charts tests.test_outputs.TestDashboardAndReadme.test_dashboard_renders_predictions tests.test_outputs.TestDashboardAndReadme.test_dashboard_renders_falsification tests.test_outputs.TestDashboardAndReadme.test_dashboard_no_bare_f30 tests.test_outputs.TestDashboardAndReadme.test_dashboard_capture_card_matches_metrics -v
 
       - name: Run full test suite (informational only)
         continue-on-error: true
