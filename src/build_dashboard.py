@@ -11,6 +11,7 @@ are the SVGs in dashboard/assets/ (PNG twins are also generated for local viewin
 """
 from html import escape
 import json
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -19,6 +20,11 @@ PROC = ROOT / "data" / "processed"
 
 def load(name):
     return json.loads((PROC / name).read_text())
+
+
+def fmt_date(iso):
+    """'2025-05-10' -> '10 May 2025' (chart date ranges)."""
+    return datetime.strptime(iso, "%Y-%m-%d").strftime("%d %b %Y")
 
 
 def money(x):
@@ -64,6 +70,7 @@ def main():
     dcf = load("dcf.json")
     sens = load("sensitivity.json")
     bench = load("benchmarks.json")
+    c1 = load("chart_01_data.json")
     c7 = load("chart_07_data.json")
     c8 = load("chart_08_data.json")
     c9 = load("chart_09_data.json")
@@ -171,7 +178,8 @@ def main():
     charts = [
         ("chart01_intents_daily_fees.svg",
          "1 · Intents daily fees — the revenue curve",
-         "NEAR Intents daily fees, 10 May 2025 – 9 Nov 2026 (549 days, log scale) "
+         f"NEAR Intents daily fees, {fmt_date(c1['dates'][0])} – "
+         f"{fmt_date(c1['dates'][-1])} ({len(c1['dates'])} days, log scale) "
          "with a 30-day moving average.",
          f"Fees grew from $1/day at launch to a 7-day average of about "
          f"${M1['total_7d_usd'] / 7:,.0f}/day — but they are volatile, not a smooth "
@@ -238,7 +246,7 @@ def main():
          f"{M10['top_10_stake_share_pct']:.1f}% of stake.",
          M9["source"], M9["fetched_at_utc"]),
         ("chart07_sensitivity_heatmap.svg",
-         "7 · Sensitivity — what has to be true for $3.60?",
+         f"7 · Sensitivity — what has to be true for ${price:,.2f}?",
          "Implied NEAR value per token across capture rate (15/25/35%) × "
          "perpetual fee growth (0/10/20%) at a 12% discount rate.",
          f"No cell in the grid reaches the current ${price:,.2f} price — the "
@@ -256,7 +264,7 @@ def main():
             "chart08_daily_activity.svg",
             "8 · Daily transactions & active accounts — the usage collapse",
             "Daily transactions and daily active accounts on NEAR, Jul 2020 – "
-            "today (2,303 daily points, log scale), with all-time peaks marked.",
+            f"today ({num(M12['daily_points'])} daily points, log scale), with all-time peaks marked.",
             f"Both series are far below their peaks: {num(M12['current_last_day'])} "
             f"txns on {M12['last_date']} vs a peak of "
             f"{num(M12['all_time_peak']['value'])} on {M12['all_time_peak']['date']} "
@@ -867,7 +875,7 @@ case uses the 30d rate, not the lifetime rate.</p>
 <h2>Limitations — what this thesis cannot show</h2>
 <ul>
 <li><strong>Daily activity is now measured — and it is weak.</strong> The
-NEARBlocks <code>/v1/charts</code> endpoint (2,303 daily points from 21 Jul 2020)
+NEARBlocks <code>/v1/charts</code> endpoint ({num(M12['daily_points'])} daily points from 21 Jul 2020)
 gives daily transactions, active accounts and new accounts; the research-phase
 claim that &ldquo;no daily endpoint exists&rdquo; was wrong — the bare
 <code>/v1/charts</code> path was never tested, only suffixed paths (all 404).

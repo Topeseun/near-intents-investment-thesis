@@ -754,6 +754,24 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertIn(expected, html)
         self.assertNotIn("36.0% 30d", html)
 
+    def test_dashboard_no_stale_hardcoded_figures(self):
+        """Chart titles/descriptions must render live data, not stale
+        hardcoded strings (Chart 7 said $3.60 while the price was $3.50;
+        Charts 1/8 said 549 days / 2,303 points — both out of date)."""
+        for name in ("dashboard/index.html", "docs/index.html"):
+            html = (REPO / name).read_text()
+            self.assertNotIn("$3.60", html, f"stale price in {name}")
+            self.assertNotIn("2,303", html, f"stale point count in {name}")
+            self.assertNotIn("549 days", html, f"stale day count in {name}")
+        html = (REPO / "dashboard/index.html").read_text()
+        m = load_processed("metrics.json")
+        price = m["snapshot"]["near_price_usd"]
+        self.assertIn(f"what has to be true for ${price:,.2f}?", html)
+        c1 = load_processed("chart_01_data.json")
+        self.assertIn(f"({len(c1['dates'])} days, log scale)", html)
+        m12 = m["M12_daily_txns"]
+        self.assertIn(f"{m12['daily_points']:,} daily points", html)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -153,7 +153,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
 
       <section class="chart">
         <h3>1 · Intents daily fees — the revenue curve</h3>
-        <p class="desc">NEAR Intents daily fees, 10 May 2025 – 9 Nov 2026 (549 days, log scale) with a 30-day moving average.</p>
+        <p class="desc">NEAR Intents daily fees, 10 May 2025 – 12 Nov 2026 (552 days, log scale) with a 30-day moving average.</p>
         <img src="assets/chart01_intents_daily_fees.svg" alt="1 · Intents daily fees — the revenue curve" loading="lazy">
         <p class="takeaway"><strong>Takeaway:</strong> Fees grew from $1/day at launch to a 7-day average of about $206,697/day — but they are volatile, not a smooth ramp. Trailing-30d fees are $5,807,392, -29.1% vs the prior 30 days, 38.3% vs a year ago, and -29.5% below the $8,236,902 peak of 2026-10-14.</p>
         <p class="source">Source: <code>https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees</code> · fetched 2026-11-13T10:05:15Z</p>
@@ -200,16 +200,16 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
       </section>
 
       <section class="chart">
-        <h3>7 · Sensitivity — what has to be true for $3.60?</h3>
+        <h3>7 · Sensitivity — what has to be true for $3.50?</h3>
         <p class="desc">Implied NEAR value per token across capture rate (15/25/35%) × perpetual fee growth (0/10/20%) at a 12% discount rate.</p>
-        <img src="assets/chart07_sensitivity_heatmap.svg" alt="7 · Sensitivity — what has to be true for $3.60?" loading="lazy">
+        <img src="assets/chart07_sensitivity_heatmap.svg" alt="7 · Sensitivity — what has to be true for $3.50?" loading="lazy">
         <p class="takeaway"><strong>Takeaway:</strong> No cell in the grid reaches the current $3.50 price — the best valid cell (35% capture, 10% growth, r=12%) is $1.07. The market is paying for fee growth and/or capture beyond this grid. Cells where growth meets or exceeds the discount rate are invalid in a Gordon model and shown as n/a.</p>
         <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-13T10:05:42Z</p>
       </section>
 
       <section class="chart">
         <h3>8 · Daily transactions & active accounts — the usage collapse</h3>
-        <p class="desc">Daily transactions and daily active accounts on NEAR, Jul 2020 – today (2,303 daily points, log scale), with all-time peaks marked.</p>
+        <p class="desc">Daily transactions and daily active accounts on NEAR, Jul 2020 – today (2,306 daily points, log scale), with all-time peaks marked.</p>
         <img src="assets/chart08_daily_activity.svg" alt="8 · Daily transactions & active accounts — the usage collapse" loading="lazy">
         <p class="takeaway"><strong>Takeaway:</strong> Both series are far below their peaks: 891,523 txns on 2026-11-12 vs a peak of 13,935,402 on 2023-12-01 (93.6% below peak; 30d average 669,188, -23.1% vs the prior 30 days), and 85,370 active accounts vs a peak of 2,256,512 on 2024-04-22 (96.2% below peak). New accounts are slowing too: 287,996 in the last 30 days vs 344,576 the 30 days before (-16.4%). This is the honest bear leg of the thesis: base-layer usage has collapsed from its peaks even while Intents fees grew — the toll road's moat is the Intents product, not base-layer activity.</p>
         <p class="source">Source: <code>https://api.nearblocks.io/v1/charts</code> · fetched 2026-11-13T10:04:59Z</p>
@@ -450,7 +450,7 @@ case uses the 30d rate, not the lifetime rate.</p>
 <h2>Limitations — what this thesis cannot show</h2>
 <ul>
 <li><strong>Daily activity is now measured — and it is weak.</strong> The
-NEARBlocks <code>/v1/charts</code> endpoint (2,303 daily points from 21 Jul 2020)
+NEARBlocks <code>/v1/charts</code> endpoint (2,306 daily points from 21 Jul 2020)
 gives daily transactions, active accounts and new accounts; the research-phase
 claim that &ldquo;no daily endpoint exists&rdquo; was wrong — the bare
 <code>/v1/charts</code> path was never tested, only suffixed paths (all 404).
