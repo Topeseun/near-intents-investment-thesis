@@ -60,7 +60,11 @@ bridge:
   # Supply basis their per-token figures use (their page: 1.31B NEAR).
   toll_supply_basis_near: 1310000000
   # What the $3.60 market price needs under their model: 63%/yr volume
-  # growth for 5 years (12x today).
+  # growth for 5 years (12x today). The $3.60 is THEIR published price
+  # (their page, section 10, "At base-case inputs, $3.60 needs 63% volume
+  # growth a year for five years") — NOT our live price. Do not substitute
+  # the live price here; the 63%/12x implication is quoted against $3.60.
+  toll_price_implied_price_usd: 3.60
   toll_price_implied_growth_5y: 0.63
   toll_price_implied_growth_multiple_5y: 12
   # ... or a 40x exit (7x).

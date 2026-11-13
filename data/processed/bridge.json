@@ -41,6 +41,8 @@
   "sensitivity_grid_max_valid_value_per_token_usd": 1.0733,
   "market_price_implied_under_rival_model": {
     "price_usd": 3.5,
+    "quoted_price_usd": 3.6,
+    "quoted_price_note": "Toll Audit's published price (their page, section 10) \u2014 the 63%/12x implication is quoted against $3.60, not the live price.",
     "volume_growth_per_year_5y": 0.63,
     "volume_growth_multiple_5y": 12,
     "exit_multiple": 40,

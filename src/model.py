@@ -981,7 +981,8 @@ def main() -> int:
                 if val_base else None),
             "reading": (f"At today's fees and the measured "
                         f"~{capture_measured * 100:.0f}% capture, retained "
-                        "revenue alone supports only a fraction of the $4.7B market "
+                        f"revenue alone supports only a fraction of the "
+                        f"${mcap / 1e9:.2f}B market "
                         "cap. The thesis case is the option value: the multiple is "
                         "a bet on fee growth (g) and capture (c) rising — see the "
                         "sensitivity grid."),
@@ -1013,6 +1014,33 @@ def main() -> int:
                           "value_per_token_usd": (val_base / supply_circ if val_base else None)},
             "note": "Cells with growth >= discount are null (Gordon growth "
                     "requires g < r); the invalid zone is shown explicitly."}
+
+    # ---------------- growth-assumption check ----------------
+    # The base case assumes g=10%/yr forever. The data's own trend is the
+    # trailing-365d log-regression CAGR on trailing-30d fees (M2) — about
+    # flat, not 10%. Show the DCF at the measured growth rate and at g=0%
+    # (both at base r and measured capture), so the dashboard shows the
+    # model under the data's own trend. g=0% rows already exist in the
+    # grid; this surfaces them explicitly next to the measured rate.
+    _m2 = metrics["M2_intents_fee_growth"]
+    _g_meas = _m2["log_regression_cagr_last_365d"]["cagr"]
+    _v_meas = dcf_value(r0_base, _g_meas, r_base)
+    _v_g0 = dcf_value(r0_base, 0.0, r_base)
+    sens["growth_assumption_check"] = {
+        "base_growth_rate": g_base,
+        "measured_growth_rate_365d_log_regression": _g_meas,
+        "measured_growth_source": "M2 log_regression_cagr_last_365d",
+        "discount_rate_r": r_base,
+        "capture_rate_30d": capture_measured,
+        "dcf_value_per_token_at_measured_growth_usd": (
+            _v_meas / supply_circ if _v_meas is not None else None),
+        "dcf_value_per_token_at_zero_growth_usd": (
+            _v_g0 / supply_circ if _v_g0 is not None else None),
+        "note": ("Base g=10%/yr is a forward assumption, not a trend "
+                 "extrapolation: the measured trailing-365d growth is "
+                 "essentially flat. At the measured rate the DCF is roughly "
+                 "a third of the base case."),
+    }
 
     # ---------------- bridge: what would have to be true for $2.05? ------
     # A fellow entry (NEAR Toll Audit) corroborates our core measurements
@@ -1080,6 +1108,10 @@ def main() -> int:
         "sensitivity_grid_max_valid_value_per_token_usd": sens_max,
         "market_price_implied_under_rival_model": {
             "price_usd": price,
+            "quoted_price_usd": br["toll_price_implied_price_usd"],
+            "quoted_price_note": ("Toll Audit's published price (their page, "
+                                  "section 10) — the 63%/12x implication is "
+                                  "quoted against $3.60, not the live price."),
             "volume_growth_per_year_5y": br["toll_price_implied_growth_5y"],
             "volume_growth_multiple_5y": br["toll_price_implied_growth_multiple_5y"],
             "exit_multiple": br["toll_price_implied_exit_multiple"],
@@ -1120,7 +1152,7 @@ def main() -> int:
     _ceil_equity = _gross_fees_annual_now * (1 + g_base) / (r_base - g_base)
     _ceil_vpt = _ceil_equity / supply_circ
     reverse_dcf = {
-        "title": "Path to $3.51 — what the market price implies (reverse DCF)",
+        "title": f"Path to ${price:,.2f} — what the market price implies (reverse DCF)",
         "inputs": {
             "price_usd": price,
             "supply_near": supply_circ,

@@ -1,5 +1,7 @@
 # NEAR as a Cross-Chain Settlement Business — Investment Thesis
 
+**Verdict: overvalued on retained revenue.** Retained revenue alone supports $0.41 per token — 11.7% of the $3.50 price; the price is justified only if retained revenue rises to $114.8M/yr (4.9× today's R₀), the break-even where buybacks stop the token inflating (net +26,145,681 NEAR/yr). The case for NEAR is the option on fee growth and rising capture, not today's cash flow.
+
 **NEAR Hackathon 2026 · Investment Thesis track** · Development ends **Fri 14 Nov 2026, 23:59 UTC** · Solo builder, free resources only, no paid APIs.
 
 **Live dashboard: https://topeseun.github.io/near-intents-investment-thesis/**
@@ -22,18 +24,18 @@
 
 NEAR's base layer barely earns anything — its Intents layer already grossed $5,807,392 of fees in 30 days, keeps about a third of it (measured 30-day capture rate 33.37%) for NEAR buybacks, and is the only part of NEAR with a compounding, measurable revenue curve. The long-term investment case is not "cheap fast L1" but "toll road on cross-chain volume": this repo values NEAR on retained Intents revenue (fee-capture DCF), with base-layer usage and staking economics as the supporting chapters that test whether the toll road has a moat.
 
-## Headline results (data fetched 2026-11-13 ~10:06 UTC)
+## Headline results (data fetched 2026-11-13 ~11:05 UTC)
 
 | Figure | Value |
 |---|---|
-| NEAR price / market cap | $3.50 / ~$4.59B |
+| NEAR price / market cap | $3.50 / ~$4.60B |
 | F₃₀ — trailing-30d Intents gross fees | **$5,807,392** (DefiLlama) |
 | Intents 30d volume (new, M₁₅) | **$3,774,153,452** (DefiLlama dexs daily series; endpoint total agrees exactly) — −21.6% vs prior 30d; implied gross fee rate **15.39 bps** |
 | Measured 30d capture rate (retained ÷ gross) | **33.37%** (revenue.near.org; rising: 19.2% all-time → 23.0% YTD → 33.4% 30d) |
 | R₀ — annualised retained revenue | **$23,255,121/yr** |
 | DCF base value/token (r=15%, g=10%, c=33.37%) | **$0.41 vs $3.50 price — 11.7% of the price** |
-| Market cap / retained revenue | **197.5×** (gross-fee basis: 65.9×) |
-| NEAR issued/yr vs bought/yr | 32,789,356 vs 6,644,320 — net **+26,145,036 NEAR/yr, still inflationary** |
+| Market cap / retained revenue | **197.7×** (gross-fee basis: 66.0×) |
+| NEAR issued/yr vs bought/yr | 32,790,001 vs 6,644,320 — net **+26,145,681 NEAR/yr, still inflationary** |
 | Break-even retained revenue | **$114.8M/yr, ~4.9× current R₀** |
 | Daily txns / active accounts (new, M₁₂–M₁₃) | 891,523 txns/day (**93.6% below** the 13,935,402 peak of 2023-12-01) · 85,370 active accounts/day (**96.2% below** the 2,256,512 peak of 2024-04-22) |
 | New accounts, 30d (new, M₁₄) | 287,996 (−16.4% vs prior 30d); net +269,289 after deletions |
@@ -48,7 +50,9 @@ NEAR's base layer barely earns anything — its Intents layer already grossed $5
 
 ## Dated predictions — score this thesis against reality
 
-Committed 2026-11-10 ([PREDICTIONS.md](PREDICTIONS.md) — timestamped by git history; machine-readable mirror `data/predictions.json`). These predictions are derived from the thesis's own numbers — no threshold here is invented. **A missed prediction counts against the thesis.** That is the point: a thesis that cannot be wrong is not evidence. Live values below are as of the latest fetch (2026-11-13 ~10:06 UTC) — a point-in-time read against the threshold, *not* the final outcome: no prediction has resolved yet (earliest resolution date 2026-12-31). Current tally: **6 on track, 1 off track**.
+Committed 2026-11-10 ([PREDICTIONS.md](PREDICTIONS.md) — timestamped by git history; machine-readable mirror `data/predictions.json`). These predictions are derived from the thesis's own numbers — no threshold here is invented. **A missed prediction counts against the thesis.** That is the point: a thesis that cannot be wrong is not evidence. Live values below are as of the latest fetch (2026-11-13 ~11:05 UTC) — a point-in-time read against the threshold, *not* the final outcome: no prediction has resolved yet (earliest resolution date 2026-12-31). Current tally: **6 on track, 1 off track**.
+
+P₁ ($5,578,208) and P₂ (35.97%) are set at the thesis's own November levels — the trailing-30d fees and 30d capture rate exactly as measured on the commit date (2026-11-10) — so the bar is the thesis's own starting point, not an external target. Both started exactly at their bar; P₂ has since fallen off track (33.37%), and that is disclosed here and on the dashboard, not hidden.
 
 | ID | Prediction | Threshold | Resolves | Live value | Status |
 |---|---|---|---|---|---|
@@ -64,7 +68,7 @@ The one miss is honest news, not a rounding error: the capture rate sits 2.60pp 
 
 ## Falsification — what would prove this thesis wrong
 
-A thesis that cannot be wrong is not evidence — so here are the six kill conditions, committed 2026-11-11. If one triggers, the thesis (or the part of it the condition tests) is wrong and must be revised, not defended. Live values below are as of the latest fetch (2026-11-13 ~10:06 UTC). Current tally: **0 triggered, 6 not triggered**.
+A thesis that cannot be wrong is not evidence — so here are the six kill conditions, committed 2026-11-11. If one triggers, the thesis (or the part of it the condition tests) is wrong and must be revised, not defended. Live values below are as of the latest fetch (2026-11-13 ~11:05 UTC). Current tally: **0 triggered, 6 not triggered**.
 
 | ID | Condition | Threshold | Live value | Status |
 |---|---|---|---|---|
@@ -79,7 +83,7 @@ Three conditions overlap the dated predictions — deliberately, not by accident
 
 ## The bridge — what would have to be true for $2.05?
 
-A fellow entry, [NEAR Toll Audit](https://apps.swiftbotlab.workers.dev/near-toll-audit/) (@swiftbotlab), corroborates this thesis's core measurements — 35.9% capture vs our 33.37%, $22.3M/yr captured revenue vs our $23,255,121/yr — but values NEAR at **$2.05 base / $2.91 weighted**, far above our $0.41 DCF. The gap is not a measurement dispute. It is what each model includes. Bridging our number to theirs, in dollars (figures as of the 2026-11-13 build, data fetched 2026-11-13 ~10:06 UTC):
+A fellow entry, [NEAR Toll Audit](https://apps.swiftbotlab.workers.dev/near-toll-audit/) (@swiftbotlab), corroborates this thesis's core measurements — 35.9% capture vs our 33.37%, $22.3M/yr captured revenue vs our $23,255,121/yr — but values NEAR at **$2.05 base / $2.91 weighted**, far above our $0.41 DCF. The gap is not a measurement dispute. It is what each model includes. Bridging our number to theirs, in dollars (figures as of the 2026-11-13 build, data fetched 2026-11-13 ~11:05 UTC):
 
 | Component | Equity value | Per token* |
 |---|---|---|
@@ -90,7 +94,7 @@ A fellow entry, [NEAR Toll Audit](https://apps.swiftbotlab.workers.dev/near-toll
 
 \* Per-token figures on their 1.31B supply basis; our headline $0.41 uses CoinGecko circulating supply (~1.25B NEAR). On their basis our DCF is $0.39 — a ~5% difference, disclosed, not hidden.
 
-Three things follow. First, **no parameter tweak closes the gap**: the best valid cell in our 27-cell sensitivity grid is $1.07 (35% capture, 10% growth, r=12%) — still about half their base case. The difference is structural, not parametric. Second, **their base case is 62% chain value** ($1.66B of $2.69B), and they say so themselves: chain value "is an assumption". Our DCF is the conservative floor — retained revenue only, no chain value, no exit value. Third, **the market price implies even more**: under their model, $3.51 needs 63%/yr volume growth for five years (12×), or a 40× exit (7×), or a $3.9B chain value (3×).
+Three things follow. First, **no parameter tweak closes the gap**: the best valid cell in our 27-cell sensitivity grid is $1.07 (35% capture, 10% growth, r=12%) — still about half their base case. The difference is structural, not parametric. Second, **their base case is 62% chain value** ($1.66B of $2.69B), and they say so themselves: chain value "is an assumption". Our DCF is the conservative floor — retained revenue only, no chain value, no exit value. Third, **the market price implies even more**: under their model, $3.60 needs 63%/yr volume growth for five years (12×), or a 40× exit (7×), or a $3.9B chain value (3×). ($3.60 is their published price — their page, section 10 — not our live price; the 63%/12× implication is quoted against it.)
 
 This section is computed by the pipeline (`src/model.py` → `data/processed/bridge.json`; rival figures are quoted constants from their published page, 2026-11-13 — only our side refreshes with each fetch) and rendered live on the dashboard. It does not change our thesis: it prices the disagreement.
 
@@ -115,7 +119,7 @@ This section is computed by the pipeline (`src/model.py` → `data/processed/bri
 │       ├── dcf.json              # Base-case DCF inputs + outputs
 │       ├── sensitivity.json      # 27-cell grid (capture × growth × discount)
 │       ├── bridge.json           # Bridge to the rival $2.05 valuation (chain + exit value)
-│       ├── reverse_dcf.json      # Path to $3.50: required volume / 30d fees / capture (reverse DCF)
+│       ├── reverse_dcf.json      # Reverse DCF: required volume / 30d fees / capture to reach the live price
 │       ├── benchmarks.json       # NEAR vs SOL/AVAX/ETH + Intents competitors
 │       ├── predictions.json      # M₁₈ dated predictions: committed thresholds + live values + statuses
 │       ├── falsification.json    # M₁₉ falsification conditions: committed thresholds + live values + statuses
@@ -131,7 +135,7 @@ This section is computed by the pipeline (`src/model.py` → `data/processed/bri
 
 What the code does, exactly:
 
-- `src/fetch.py` fetches NEARBlocks stats/validators/blocks/accounts **and the full daily `/v1/charts` series (2,306 points, 2020-07-21 → today)**, NEAR RPC status/gas price/protocol config, CoinGecko prices + 365d market charts (4 coins), DefiLlama Intents/chain/competitor fees + TVL **and the Intents daily volume series (`summary/dexs/near-intents`, 701 points from 2024-12-10)**, and parses the revenue.near.org server-rendered payload for the measured capture rate. Every response is cached to `data/raw/` with a timestamped manifest. No API keys. CoinGecko: 5 calls, 2.5 s sleep between them (30/min limit); a 429 gets one retry after a 60 s backoff.
+- `src/fetch.py` fetches NEARBlocks stats/validators/blocks/accounts **and the full daily `/v1/charts` series (2,306 points, 2020-07-21 → today)**, NEAR RPC status/gas price/protocol config, CoinGecko prices + 365d market charts (4 coins), DefiLlama Intents/chain/competitor fees + TVL **and the Intents daily volume series (`summary/dexs/near-intents`, 703 points from 2024-12-10)**, and parses the revenue.near.org server-rendered payload for the measured capture rate. Every response is cached to `data/raw/` with a timestamped manifest. No API keys. CoinGecko: 5 calls, 2.5 s sleep between them (30/min limit); a 429 gets one retry after a 60 s backoff.
 - `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R₁/(r−g), R₀ = F₃₀ × 12 × capture), the 19 metrics M₁–M₁₉, the 27-cell sensitivity grid, the bridge to the rival valuation (`bridge.json`), the reverse DCF to the live price (`reverse_dcf.json`), and the peer/competitor benchmarks — all from the cache, no network.
 - `src/charts.py` renders the 10 charts as PNGs (+ SVG twins) from the model outputs.
 - `src/build_dashboard.py` renders `dashboard/index.html` from `data/processed/*.json`. Every number on the page is formatted from those JSONs — nothing is hardcoded — so re-running the pipeline and this script regenerates a dashboard that always matches the model.
@@ -152,7 +156,7 @@ Verified: a clean re-run (`rm -rf data && python3 src/fetch.py && python3 src/bu
 python3 -m unittest discover -s tests -v
 ```
 
-Stdlib `unittest` only — no new dependencies. 29 tests: every `data/processed/*.json` exists and parses; F₃₀/capture/R₀/DCF arithmetic is internally consistent (R₀ = F₃₀ × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M₁₂–M₁₇ sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); M₁₈ dated predictions (thresholds and dates match the committed `data/predictions.json`, live values sane and traced to the metrics they come from, statuses consistent with the thresholds); M₁₉ falsification (thresholds match the committed `data/falsification.json`, live values sane and traced to the metrics they come from, statuses consistent with thresholds and persistence windows, dashboard renders all 6 conditions with live values and statuses); the bridge to the rival $2.05 valuation (dollar and per-token components sum to the rival base case, our side traces to `dcf.json`, chain value is the majority of the rival total, no sensitivity cell reaches the rival base case, dashboard renders it); the reverse DCF to the live price (required R₀, volume, 30d fees and capture recompute from the inputs, capture-alone is impossible, the 100%-capture ceiling is below the price); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs and renders all 7 predictions with live values and statuses; `docs/` mirrors `dashboard/index.html` byte-for-byte; the dashboard uses subscripted F₃₀ throughout (no unsubscripted form) and the headline capture card renders the live M₄ windows; the dashboard contains no stale hardcoded figures (Chart 7's title carries the live price, Charts 1/8 carry the live day/point counts); the README contains the headline numbers (fee-stable figures + the all-time activity peaks), the falsification section, and the descriptive figures for charts #1/#8/#9 and Assumptions matched to `metrics.json`.
+Stdlib `unittest` only — no new dependencies. 31 tests: every `data/processed/*.json` exists and parses; F₃₀/capture/R₀/DCF arithmetic is internally consistent (R₀ = F₃₀ × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; the growth-assumption check (DCF at the measured trailing-365d growth rate and at g=0%) recomputes via Gordon growth and sits below the base case; buyback-vs-issuance arithmetic; M₁₂–M₁₇ sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); M₁₈ dated predictions (thresholds and dates match the committed `data/predictions.json`, live values sane and traced to the metrics they come from, statuses consistent with the thresholds); M₁₉ falsification (thresholds match the committed `data/falsification.json`, live values sane and traced to the metrics they come from, statuses consistent with thresholds and persistence windows, dashboard renders all 6 conditions with live values and statuses); the bridge to the rival $2.05 valuation (dollar and per-token components sum to the rival base case, our side traces to `dcf.json`, chain value is the majority of the rival total, no sensitivity cell reaches the rival base case, dashboard renders it); the reverse DCF to the live price (required R₀, volume, 30d fees and capture recompute from the inputs, capture-alone is impossible, the 100%-capture ceiling is below the price, and the `reverse_dcf.json` title carries the live price); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs and renders all 7 predictions with live values and statuses; the dashboard renders the one-line verdict (overvalued on retained revenue, with the live DCF, price, break-even multiple and net issuance); `docs/` mirrors `dashboard/index.html` byte-for-byte; the dashboard uses subscripted F₃₀ throughout (no unsubscripted form) and the headline capture card renders the live M₄ windows; the dashboard contains no stale hardcoded figures (Chart 7's title carries the live price, Charts 1/8 carry the live day/point counts, the 365d growth rate and fee-anomaly date are live, and the only $3.60 on the page is Toll Audit's quoted price in the bridge); the README contains the headline numbers (fee-stable figures + the all-time activity peaks + the live price and market cap), the falsification section, and the descriptive figures for charts #1/#8/#9 and Assumptions matched to `metrics.json`.
 
 ## GitHub Pages
 
@@ -178,7 +182,7 @@ The dashboard is published from `docs/`: copy `dashboard/index.html` + `dashboar
 | Source | What it gives | URL |
 |---|---|---|
 | DefiLlama API | NEAR Intents daily fees + aggregates; base-chain fees; peer/competitor fees; NEAR TVL | https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees |
-| DefiLlama API | NEAR Intents daily volume (701 pts, 2024-12-10 → today) | https://api.llama.fi/summary/dexs/near-intents |
+| DefiLlama API | NEAR Intents daily volume (703 pts, 2024-12-10 → today) | https://api.llama.fi/summary/dexs/near-intents |
 | NEARBlocks API | Daily activity series — txns, active/new accounts, gas fees, price (2,306 pts, 2020-07-21 → today) | https://api.nearblocks.io/v1/charts |
 | revenue.near.org | Measured capture rate (30d net revenue ÷ gross fees, cross-checked vs per-mechanism split) | https://revenue.near.org/ |
 | CoinGecko free API | Prices/market caps (NEAR, SOL, AVAX, ETH); 365d price/mcap history | https://api.coingecko.com/api/v3/simple/price |
@@ -189,20 +193,25 @@ Every cached response is listed with its source URL and fetch timestamp in `data
 
 ## Assumptions
 
-All model assumptions live in one file: [`src/assumptions.yaml`](src/assumptions.yaml). The DCF base case is r=15% (discount rate, WACC proxy), g=10% (perpetual growth of retained revenue — a forward assumption, *not* a trend extrapolation: trailing-30d **fees** are −29.1% vs the prior 30 days — the −21.6% figure in the headline table is **volume**, not fees, a different series — and the 365-day log-regression growth is ≈ −0.4%), capture scenarios 15/25/35% (the measured 30d rate, 33.37%, is the base case). Gordon growth requires g < r; cells with g ≥ r are null and shown as invalid.
+All model assumptions live in one file: [`src/assumptions.yaml`](src/assumptions.yaml). The DCF base case is r=15% (discount rate, WACC proxy), g=10% (perpetual growth of retained revenue — a forward assumption, *not* a trend extrapolation: trailing-30d **fees** are −29.1% vs the prior 30 days — the −21.6% figure in the headline table is **volume**, not fees, a different series — and the 365-day log-regression growth is +0.8%/yr), capture scenarios 15/25/35% (the measured 30d rate, 33.37%, is the base case). Gordon growth requires g < r; cells with g ≥ r are null and shown as invalid.
+
+**Growth-assumption check:** the base case assumes g=10%/yr, but the measured trailing-365d log-regression growth is +0.8%/yr — essentially flat. At the measured growth rate (r=15%, measured capture) the DCF is $0.13/token; at g=0% it is $0.12/token (base case $0.41). The 10% base case is a forward assumption about the future, not a read of the trend. The full check (recomputed by the pipeline into `data/processed/sensitivity.json`) is rendered on the dashboard under the sensitivity grid.
+
+Note on two near-identical figures: the −31.6% Oct 1–4 2026 outage drop (F₃, Limitations) is a different number from the −29.1% trailing-30d fees vs prior 30 days above — 4-day Intents *volume* vs the prior matching week, not 30-day *fees* vs the prior 30 days. They are close by coincidence (both are ~30% declines in related series), not by construction; the outage figure was verified against the raw DefiLlama volume series (Oct 1–4 $390,161,724 vs Sep 24–27 $570,480,703).
 
 ## Limitations
 
 - **Daily activity is measured — and it is weak.** The research-phase claim that "NEARBlocks has no public daily-stats endpoint" was wrong: the bare `/v1/charts` path (never tested — only suffixed paths like `/v1/charts/daily-txns`, all 404) returns the full daily series from 21 Jul 2020 (2,306 points). Daily txns are 93.6% below their 1 Dec 2023 peak (13,935,402/day) and daily active accounts 96.2% below their 22 Apr 2024 peak (2,256,512/day) — this **confirms** the ">90% decline from peak" claim, it does not contradict it. Early rows have gaps: `multichain_txns` is null before 14 Nov 2024 and `txn_volume` is null on 11 days in Jul–Aug 2020; neither field is used in any metric. Paging `/v1/txns` backwards stays cut (measured: ~10,400 pages / ~4.6 h for one day) — now unnecessary.
-- **Volume is measured, with a shorter window.** DefiLlama `summary/dexs/near-intents` gives a daily Intents *volume* series (701 points from 10 Dec 2024): 30d volume $3,774,153,452 from the daily series, agreeing exactly with the endpoint's own 30d total. The implied gross fee rate (30d fees ÷ 30d volume) is 15.39 bps, matching the ~15 bps quoted in secondary sources — two independent series agreeing. The volume series starts Dec 2024, so it covers a shorter window than the fee series (May 2025) and the activity series (Jul 2020).
+- **Volume is measured, with a shorter window.** DefiLlama `summary/dexs/near-intents` gives a daily Intents *volume* series (703 points from 10 Dec 2024): 30d volume $3,774,153,452 from the daily series, agreeing exactly with the endpoint's own 30d total. The implied gross fee rate (30d fees ÷ 30d volume) is 15.39 bps, matching the ~15 bps quoted in secondary sources — two independent series agreeing. The volume series starts Dec 2024, so it covers a shorter window than the fee series (May 2025) and the activity series (Jul 2020).
 - **365-day price cap.** CoinGecko's free tier limits history to 365 days.
 - **24-hour fee anomaly.** Intents fees for 12 Nov 2026 were $16,604 vs a 7-day daily average of ~$206,697 — a full-day value, so either a real one-day drop or a DefiLlama reporting lag. No single day is ever annualised; all annualisation uses 7d/30d trailing figures.
 - **Fees are volatile, not a ramp.** Trailing-30d fees peaked at $8,236,902 on 14 Oct 2026 and are −29.5% below that peak. The full-series launch-ramp CAGR is a May–Aug 2025 artefact and is not quoted anywhere.
-- **Revenue-dashboard caveats.** Its headline revenue figure ($11.64M) has an unlabelled window in the page payload and is never used as a model input. Its wallet table is partial: the live NEARBlocks balance of buybacks.multisignature.near (2,245,764 NEAR) exceeds the dashboard's traced all-time inflow (1,742,346.3 NEAR).
-- **TVL endpoints disagree.** DefiLlama's NEAR historical-series last point ($168.9M) vs its /chains headline ($363.0M). The auditable series value is used.
+- **Revenue-dashboard caveats.** Its headline revenue figure ($11.79M) has an unlabelled window in the page payload and is never used as a model input. Its wallet table is partial: the live NEARBlocks balance of buybacks.multisignature.near (2,274,249 NEAR) exceeds the dashboard's traced all-time inflow (1,771,956.8 NEAR).
+- **TVL endpoints disagree.** DefiLlama's NEAR historical-series last point ($163.3M) vs its /chains headline ($349.8M). The auditable series value is used.
 - **Peer fees undercount.** DefiLlama chain-fee totals can miss revenue other methodologies include (notably Solana). Benchmarks rank within this dataset only.
 - **LI.FI dropped from the benchmark.** DefiLlama returns 404 ("Fees for lifi not found").
 - **Intents flow is concentrated in one routing provider.** [Faultline](https://github.com/Dare0x/Faultline) (a fellow Investment Thesis entry) measured from NearStats routing data, 30 days to 8 Nov 2026, that a single provider, SwapKit, carried $260.99M of $765.65M observed 1Click volume (34.1%, across 48 apps). An outage or pause at that provider is a concentration risk to the Intents flow — and therefore to the fee capture this thesis values: its simulation displaces 10.2% of total observed volume even if 70% of SwapKit's flow reroutes. The Oct 1 service pause is the live precedent: Oct 1–4 volume ran 31.6% below the prior matching week.
+- **Model limitations.** The DCF is a single-stage Gordon model: one perpetual growth rate (g=10%) applied forever, so it cannot represent a ramp, a plateau, or a regime change in fees. Buybacks reduce issuance rather than paying holders directly — the DCF values the buyback stream as if it were a dividend, which overstates what a holder receives in cash. And the capture rate is a point-in-time measurement from a single 30-day window, not a contracted rate; it has moved 19% → 33% across windows and can fall as fast as it rose.
 
 Full detail: `data/processed/BUILD_NOTES.md`.
 
@@ -214,4 +223,4 @@ Built for the NEAR Hackathon 2026 Investment Thesis track — "build a long-term
 
 Built with AI assistance, as the hackathon rules allow (HACKATHON.md Q-005): the code, analysis and dashboard were produced by an AI coding agent (Muse Spark, working as "Rio") under the author's direction. All data is fetched live from the cited public sources, and every figure is reproducible with the one-command pipeline above; the thesis, conclusions and dated predictions are the author's.
 
-*Not investment advice. All figures are as fetched on 2026-11-13 ~10:06 UTC; re-run the pipeline for current data.*
+*Not investment advice. All figures are as fetched on 2026-11-13 ~11:05 UTC; re-run the pipeline for current data.*

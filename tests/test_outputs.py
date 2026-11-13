@@ -137,6 +137,31 @@ class TestProcessedOutputs(unittest.TestCase):
                                        delta=1e-3)
                 self.assertIsNone(cell["invalid_reason"])
 
+    def test_growth_assumption_check(self):
+        """Sensitivity output carries a growth-assumption check: the DCF at
+        the measured trailing-365d growth rate and at g=0% (both at base r
+        and measured capture). Both recompute via Gordon growth and sit
+        well below the base case, since the measured trend is ~flat."""
+        sens = load_processed("sensitivity.json")
+        m = load_processed("metrics.json")
+        dcf = load_processed("dcf.json")
+        gac = sens["growth_assumption_check"]
+        m2 = m["M2_intents_fee_growth"]
+        g_meas = m2["log_regression_cagr_last_365d"]["cagr"]
+        self.assertAlmostEqual(
+            gac["measured_growth_rate_365d_log_regression"], g_meas, delta=1e-12)
+        self.assertAlmostEqual(gac["base_growth_rate"], 0.10, delta=1e-12)
+        self.assertLess(g_meas, gac["base_growth_rate"],
+                        "measured trailing growth must be below the 10% base assumption")
+        r0 = dcf["inputs"]["F30_trailing_30d_gross_fees_usd"] * 12 * gac["capture_rate_30d"]
+        supply = dcf["inputs"]["circulating_supply_near"]
+        r = gac["discount_rate_r"]
+        for key, g in (("dcf_value_per_token_at_measured_growth_usd", g_meas),
+                       ("dcf_value_per_token_at_zero_growth_usd", 0.0)):
+            v = r0 * (1 + g) / (r - g) / supply
+            self.assertAlmostEqual(gac[key], v, delta=1e-3)
+            self.assertLess(gac[key], dcf["base_case"]["value_per_token_usd"])
+
     def test_buyback_vs_issuance_consistent(self):
         m = load_processed("metrics.json")
         m6 = m["M6_buyback_vs_issuance"]
@@ -677,6 +702,13 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertIn(f"{capture * 100:.2f}%", readme)
         self.assertIn(f"${r0:,.0f}", readme)
         self.assertIn(f"${vpt:.2f}", readme)
+        # Price-dependent figures: the live price and market cap move with
+        # every fetch, so the README must be re-aligned after each refresh
+        # (this is what drifted to $3.50 on 2026-11-13 while the price was $3.49).
+        price = m["snapshot"]["near_price_usd"]
+        mcap = m["snapshot"]["market_cap_usd"]
+        self.assertIn(f"${price:,.2f}", readme)
+        self.assertIn(f"${mcap / 1e9:.2f}B", readme)
         # All-time activity peaks (stable — peaks are in 2023/2024).
         m12, m13 = m["M12_daily_txns"], m["M13_daily_active_accounts"]
         self.assertIn(f"{m12['all_time_peak']['value']:,.0f}", readme)
@@ -754,19 +786,52 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertIn(expected, html)
         self.assertNotIn("36.0% 30d", html)
 
+    def test_dashboard_renders_verdict(self):
+        """The one-line verdict under the title states the thesis is
+        overvalued on retained revenue and cites the live DCF, price,
+        break-even multiple and net issuance — all traced to the model."""
+        html = (REPO / "dashboard/index.html").read_text()
+        m = load_processed("metrics.json")
+        dcf = load_processed("dcf.json")
+        m6 = m["M6_buyback_vs_issuance"]
+        price = m["snapshot"]["near_price_usd"]
+        vpt = dcf["base_case"]["value_per_token_usd"]
+        self.assertIn("Verdict: overvalued on retained revenue", html)
+        self.assertIn(f"${vpt:.2f}", html)
+        self.assertIn(f"${price:,.2f}", html)
+        self.assertIn(f"{m6['break_even_multiple_of_current_R0']:.1f}", html)
+        self.assertIn(f"+{m6['net_supply_change_base_near_per_year']:,.0f} NEAR/yr", html)
+
     def test_dashboard_no_stale_hardcoded_figures(self):
         """Chart titles/descriptions must render live data, not stale
         hardcoded strings (Chart 7 said $3.60 while the price was $3.50;
-        Charts 1/8 said 549 days / 2,303 points — both out of date)."""
+        Charts 1/8 said 549 days / 2,303 points — both out of date; the
+        reverse-DCF title said $3.51; the growth figure said -0.7% and the
+        fee-anomaly date said 9 Nov 2026 — all stale). One legitimate
+        exception: the bridge quotes Toll Audit's published $3.60 price,
+        which is their constant, not our live price."""
         for name in ("dashboard/index.html", "docs/index.html"):
             html = (REPO / name).read_text()
-            self.assertNotIn("$3.60", html, f"stale price in {name}")
+            self.assertNotIn("what has to be true for $3.60?", html,
+                             f"stale Chart 7 price in {name}")
+            self.assertNotIn("$3.51", html, f"stale reverse-DCF price in {name}")
             self.assertNotIn("2,303", html, f"stale point count in {name}")
             self.assertNotIn("549 days", html, f"stale day count in {name}")
+            self.assertNotIn("9 Nov 2026", html, f"stale anomaly date in {name}")
+            self.assertIn("$3.60 needs", html,
+                          f"Toll Audit $3.60 quote missing from {name}")
         html = (REPO / "dashboard/index.html").read_text()
         m = load_processed("metrics.json")
         price = m["snapshot"]["near_price_usd"]
         self.assertIn(f"what has to be true for ${price:,.2f}?", html)
+        rev = load_processed("reverse_dcf.json")
+        self.assertIn(f"${price:,.2f}", rev["title"],
+                      "reverse_dcf.json title must carry the live price")
+        self.assertNotIn("−0.7%", html, "stale 365d growth figure in dashboard")
+        self.assertNotIn("−0.4%", html, "stale 365d growth figure in dashboard")
+        self.assertIn(
+            f"{m['M2_intents_fee_growth']['log_regression_cagr_last_365d']['cagr'] * 100:+.1f}%/yr",
+            html, "dashboard must render the live 365d growth rate")
         c1 = load_processed("chart_01_data.json")
         self.assertIn(f"({len(c1['dates'])} days, log scale)", html)
         m12 = m["M12_daily_txns"]

@@ -593,8 +593,8 @@ ${bridge['our_dcf']['value_per_token_on_rival_supply_basis_usd']:.2f} — a ~5%
 difference, disclosed, not hidden. Rival figures as published
 {bridge['as_published']}; only our side refreshes with each fetch.</p>
 <p>{escape(bridge['reading'])}</p>
-<p>And the market price implies even more under their model:
-${_imp['price_usd']:,.2f} needs
+<p>And the market price implies even more under their model: as published,
+${_imp['quoted_price_usd']:,.2f} needs
 {_imp['volume_growth_per_year_5y'] * 100:.0f}%/yr volume growth for five years
 ({_imp['volume_growth_multiple_5y']}×), or a {_imp['exit_multiple']}× exit
 ({_imp['exit_multiple_growth']}×), or a {money(_imp['chain_value_usd'])}
@@ -688,8 +688,8 @@ ${price:,.2f} price is a bet on volume growth, not on retention. Full
 arithmetic: <code>data/processed/reverse_dcf.json</code>.</p>
 """
     else:
-        reverse_dcf_section = """
-<h2>What the market is pricing in — the path to $3.51</h2>
+        reverse_dcf_section = f"""
+<h2>What the market is pricing in — the path to ${price:,.2f}</h2>
 <p>The reverse-DCF milestones (<code>data/processed/reverse_dcf.json</code>)
 could not be computed on the latest run — see that file for the reason. No
 reverse-DCF figures are shown rather than fabricated; re-run
@@ -764,12 +764,14 @@ code{{font-size:.92em}}
   &ldquo;toll road on cross-chain volume&rdquo;: value NEAR on retained Intents
   revenue (fee-capture DCF), with base-layer usage and staking economics as the
   supporting chapters that test whether the toll road has a moat.</p>
-  <div class="verdict"><b>Honest verdict up front:</b> at today&rsquo;s fees and the
+  <div class="verdict"><b>Verdict: overvalued on retained revenue.</b> At today&rsquo;s fees and the
   measured {pct(capture)} capture rate, retained revenue alone supports
-  ${vpt:.2f} per token — {vpt_pct:.1f}% of the ${price:,.2f} price. The case for
-  owning NEAR is the <em>option</em> on fee growth and rising capture, not
-  today&rsquo;s cash flow. Everything below is built to test that option, not to
-  sell it.</div>
+  ${vpt:.2f} per token — {vpt_pct:.1f}% of the ${price:,.2f} price. The price is
+  justified only if retained revenue rises to {money(be)}/yr ({be_mult:.1f}&times; today&rsquo;s
+  R&#8320;) — the break-even where buybacks stop the token inflating (net
+  +{num(net)} NEAR/yr today). The case for owning NEAR is the <em>option</em> on fee
+  growth and rising capture, not today&rsquo;s cash flow. Everything below is built to
+  test that option, not to sell it.</div>
   <p class="note">Data fetched {gen} (see per-chart source lines).
   Reproduce it: <code>python3 src/fetch.py &amp;&amp; python3 src/build.py &amp;&amp; python3 src/build_dashboard.py</code>.
   All figures trace to cached API responses in <code>data/raw/</code> or to labelled
@@ -800,7 +802,7 @@ ${vpt:.4f}/token at r=15%, g=10%, measured capture {pct(capture)}.
 The 10% growth rate is a forward <em>assumption</em> (see
 <code>src/assumptions.yaml</code>), not a trend extrapolation: trailing-30d fees
 are down {M2['trailing_30d_vs_prior_30d_pct']:.1f}% vs the prior 30 days and the
-365-day log-regression growth is ≈ −0.7%. The full-series log-regression is
+365-day log-regression growth is {M2['log_regression_cagr_last_365d']['cagr'] * 100:+.1f}%/yr. The full-series log-regression is
 dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
 <strong>not quoted anywhere in this thesis</strong> as a growth rate.</p>
 
@@ -859,6 +861,15 @@ requires growth below the discount rate, so no value is computed there. Even
 the best valid cell (35% capture, 10% growth, r=12%) is
 ${c7['values_per_token_usd'][2][1]:.2f} — well under the ${price:,.2f} price.
 Full 27-cell grid (r = 10/12/15%): <code>data/processed/sensitivity.json</code>.</p>
+<p><strong>Growth-assumption check.</strong> The base case assumes g=10%/yr, but the
+measured trailing-365d log-regression growth is
+{sens['growth_assumption_check']['measured_growth_rate_365d_log_regression'] * 100:+.1f}%/yr
+— essentially flat. At the measured growth rate (r=15%, measured capture) the DCF is
+${sens['growth_assumption_check']['dcf_value_per_token_at_measured_growth_usd']:.2f}/token;
+at g=0% it is
+${sens['growth_assumption_check']['dcf_value_per_token_at_zero_growth_usd']:.2f}/token
+(base case ${vpt:.2f}). The 10% base case is a forward assumption about the future,
+not a read of the trend.</p>
 
 <h2>Capture is rising — the one trend that matters</h2>
 <p>Retained ÷ gross fees by window (revenue.near.org, measured from its
@@ -887,7 +898,7 @@ peak. Early rows have gaps: <code>multichain_txns</code> is null before
 neither field is used in any metric.</li>
 <li><strong>Volume is now measured too — with a shorter window.</strong> DefiLlama
 <code>summary/dexs/near-intents</code> gives a daily Intents <em>volume</em> series
-(699 points from 10 Dec 2024), so the growth story finally has its own x-axis:
+({M15['daily_points']} points from 10 Dec 2024), so the growth story finally has its own x-axis:
 {money(M15['total_30d_usd_from_daily_series'])} in 30 days, implying a
 {M15['implied_gross_fee_rate_30d_bps']:.2f} bps gross fee rate. The volume series
 starts Dec 2024, not at the May 2025 fee-series start — the two series cover
@@ -897,7 +908,7 @@ last 30 daily points because its rolling window ends at fetch time, after the
 last daily point.</li>
 <li><strong>365-day price cap.</strong> CoinGecko&rsquo;s free tier limits history to
 365 days (days=max returns 401). All price history here is one year.</li>
-<li><strong>24-hour fee anomaly.</strong> Intents fees for 9 Nov 2026 were
+<li><strong>24-hour fee anomaly.</strong> Intents fees for {fmt_date(M1['last_daily_date'])} were
 {money_exact(M1['total_24h_usd'])} vs a 7-day daily average of
 {money_exact(M1['total_7d_usd'] / 7)} — a full-day value in the series, so
 either a real one-day drop or a DefiLlama reporting lag. No single day is
@@ -930,6 +941,14 @@ the fee capture this thesis values: its simulation displaces 10.2% of total
 observed volume even if 70% of SwapKit&rsquo;s flow reroutes. The Oct 1
 service pause is the live precedent: Oct 1&ndash;4 volume ran 31.6% below
 the prior matching week.</li>
+<li><strong>Model limitations.</strong> The DCF is a single-stage Gordon model:
+one perpetual growth rate (g=10%) applied forever, so it cannot represent a
+ramp, a plateau, or a regime change in fees. Buybacks reduce issuance rather
+than paying holders directly — the DCF values the buyback stream as if it were
+a dividend, which overstates what a holder receives in cash. And the capture
+rate is a point-in-time measurement from a single 30-day window, not a
+contracted rate; it has moved 19% → 33% across windows and can fall as fast
+as it rose.</li>
 </ul>
 
 <h2>Sources</h2>
