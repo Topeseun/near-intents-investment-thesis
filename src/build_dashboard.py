@@ -337,7 +337,7 @@ def main():
             f"{M17['rival_reported']['r_squared']:.2f} on 73 months — the same "
             f"disconnect, weaker on this series. Caveat, not buried: from Jan "
             f"2024 the monthly slope is {_rs['slope']:.2f} (r "
-            f"{_rs['pearson_r']:.2f}), the joint fall from the Apr 2024 "
+            f"{_rs['pearson_r']:.2f}), the rise to and joint fall from the Apr 2024 "
             f"activity peak — the relation flips sign across sub-periods, so "
             f"it is not a stable law. Net: value NEAR on fees, not users.",
             M17["source"], M17["fetched_at_utc"]))
@@ -437,7 +437,7 @@ NEAR Demand Ledger, reports slope {M17['rival_reported']['slope']:.2f} and R²
 this series (activity definitions move the numbers; the shared conclusion is
 what matters). The honest caveat: from Jan 2024 the monthly slope is
 {_rs['slope']:.2f} (r {_rs['pearson_r']:.2f}) — price and users have moved
-together more in the recent window, driven by the joint fall from the Apr 2024
+together more in the recent window, driven by the rise to and joint fall from the Apr 2024
 activity peak. The relation flips sign across sub-periods, so it is not a
 stable law. The takeaway for the thesis: value NEAR on fees, not on users —
 the fee thesis stands on its own numbers, and no user-count story rescues the

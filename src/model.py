@@ -879,7 +879,7 @@ def main() -> int:
             f"check). One caveat, reported not buried: from Jan 2024 onwards "
             f"the monthly slope is {s_sub} with r {r_sub} — price and users "
             f"have moved together more in the recent window, driven by the "
-            f"joint fall from the Apr 2024 activity peak. The relation flips "
+            f"rise to and joint fall from the Apr 2024 activity peak. The relation flips "
             f"sign across sub-periods (2020-2023 slope ≈ 0), so it is not a "
             f"stable law. Net: value NEAR on fees, not on users — the fee "
             f"thesis stands on its own numbers, and the user-count story "

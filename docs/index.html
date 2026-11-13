@@ -74,7 +74,7 @@ code{font-size:.92em}
   buybacks match issuance (net +26,145,681 NEAR/yr today). The case for owning NEAR is the <em>option</em> on fee
   growth and rising capture, not today&rsquo;s cash flow. Everything below is built to
   test that option, not to sell it.</div>
-  <p class="note">Data fetched 2026-11-13T13:10:18Z (see per-chart source lines).
+  <p class="note">Data fetched 2026-11-13T13:29:45Z (see per-chart source lines).
   Reproduce it: <code>python3 src/fetch.py &amp;&amp; python3 src/build.py &amp;&amp; python3 src/build_dashboard.py</code>.
   All figures trace to cached API responses in <code>data/raw/</code> or to labelled
   assumptions in <code>src/assumptions.yaml</code>. Nothing here is investment advice.</p>
@@ -206,7 +206,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
         <p class="desc">Implied NEAR value per token across capture rate (15/25/35%) × perpetual fee growth (0/10/20%) at a 12% discount rate.</p>
         <img src="assets/chart07_sensitivity_heatmap.svg" alt="7 · Sensitivity — what has to be true for $3.50?" loading="lazy">
         <p class="takeaway"><strong>Takeaway:</strong> No cell in the grid reaches the current $3.50 price — the best valid cell (35% capture, 10% growth, r=12%) is $1.07. The market is paying for fee growth and/or capture beyond this grid. Cells where growth meets or exceeds the discount rate are invalid in a Gordon model and shown as n/a.</p>
-        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-13T13:10:18Z</p>
+        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-13T13:29:45Z</p>
       </section>
 
       <section class="chart">
@@ -229,7 +229,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
         <h3>10 · Metcalfe check — price does not follow users</h3>
         <p class="desc">NEAR price vs daily active accounts, monthly log-log (74 months, 2020-10-14 to 2026-11-12), plus the cumulative-transactions partial check.</p>
         <img src="assets/chart10_metcalfe_price_vs_users.svg" alt="10 · Metcalfe check — price does not follow users" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> On the full window the log-log slope is 0.02 (SE 0.04) with R² 0.004 — statistically zero, against the strict-Metcalfe slope of 2.0. The daily regression agrees (slope 0.01, R² 0.001, n=2,221 days). Even market cap on users gives only slope 0.19, R² 0.270. A fellow entry (NEAR Demand Ledger) reports slope 0.21, R² 0.28 on 73 months — the same disconnect, weaker on this series. Caveat, not buried: from Jan 2024 the monthly slope is 0.33 (r 0.64), the joint fall from the Apr 2024 activity peak — the relation flips sign across sub-periods, so it is not a stable law. Net: value NEAR on fees, not users.</p>
+        <p class="takeaway"><strong>Takeaway:</strong> On the full window the log-log slope is 0.02 (SE 0.04) with R² 0.004 — statistically zero, against the strict-Metcalfe slope of 2.0. The daily regression agrees (slope 0.01, R² 0.001, n=2,221 days). Even market cap on users gives only slope 0.19, R² 0.270. A fellow entry (NEAR Demand Ledger) reports slope 0.21, R² 0.28 on 73 months — the same disconnect, weaker on this series. Caveat, not buried: from Jan 2024 the monthly slope is 0.33 (r 0.64), the rise to and joint fall from the Apr 2024 activity peak — the relation flips sign across sub-periods, so it is not a stable law. Net: value NEAR on fees, not users.</p>
         <p class="source">Source: <code>https://api.nearblocks.io/v1/charts</code> · fetched 2026-11-13T11:03:46Z</p>
       </section>
 
@@ -265,7 +265,7 @@ NEAR Demand Ledger, reports slope 0.21 and R²
 this series (activity definitions move the numbers; the shared conclusion is
 what matters). The honest caveat: from Jan 2024 the monthly slope is
 0.33 (r 0.64) — price and users have moved
-together more in the recent window, driven by the joint fall from the Apr 2024
+together more in the recent window, driven by the rise to and joint fall from the Apr 2024
 activity peak. The relation flips sign across sub-periods, so it is not a
 stable law. The takeaway for the thesis: value NEAR on fees, not on users —
 the fee thesis stands on its own numbers, and no user-count story rescues the
@@ -281,7 +281,7 @@ the git history of <a href="https://github.com/Topeseun/near-intents-investment-
 and derived from the thesis&rsquo;s own numbers — no threshold here is
 invented. <strong>A missed prediction counts against the thesis.</strong>
 That is the point: a thesis that cannot be wrong is not evidence. Live
-values below are as of 2026-11-13T13:10:18Z — a point-in-time read
+values below are as of 2026-11-13T13:29:45Z — a point-in-time read
 against the threshold, <em>not</em> the final outcome: no prediction has
 resolved yet (earliest resolution date 2026-12-31). Current tally:
 6 on track, 1 off track,
@@ -301,7 +301,7 @@ in PREDICTIONS.md.</p>
 <p>Committed 2026-11-11: a thesis that cannot be wrong is not
 evidence, so here are the six kill conditions. If one triggers, the thesis
 (or the part of it the condition tests) is wrong and must be revised, not
-defended. Live values below are as of 2026-11-13T13:10:18Z.
+defended. Live values below are as of 2026-11-13T13:29:45Z.
 Current tally: 0 triggered,
 6 not triggered,
 0 not yet measurable. Three conditions
@@ -540,7 +540,7 @@ as it rose.</li>
 
 <footer>
 <p>NEAR Hackathon 2026 — Investment Thesis track. Built with free, keyless data
-only. Generated 2026-11-13T13:10:18Z from <code>data/processed/*.json</code> by
+only. Generated 2026-11-13T13:29:45Z from <code>data/processed/*.json</code> by
 <code>src/build_dashboard.py</code>. Not investment advice. NEAR payout account for
 prizes (if awarded): <code>topeseun20.near</code>.</p>
 </footer>
