@@ -43,6 +43,40 @@ dcf:
   # Heatmap (Chart 7): capture x growth at this fixed discount rate.
   heatmap_discount_rate: 0.12
 
+# The bridge — what would have to be true for a rival's higher valuation.
+# RIVAL PUBLISHED FIGURES (not measurements, not assumptions of this thesis):
+# NEAR Toll Audit (fellow Investment Thesis entry, @swiftbotlab), as published
+# at https://apps.swiftbotlab.workers.dev/near-toll-audit/ on 2026-11-13.
+# Their model: 5-year discounted holder earnings + exit value + chain value.
+# These figures are constants quoted from their published page; only OUR side
+# of the bridge (DCF, R0, capture, supply, price) refreshes with each fetch.
+bridge:
+  # Their base case value per token (-43% vs the $3.60 price).
+  toll_base_value_per_token: 2.05
+  # Probability-weighted value per token (bear 35% / base 45% / bull 20%).
+  toll_weighted_value_per_token: 2.91
+  # Their base-case chain value in USD: $1.66B = 62% of their $2.69B total.
+  toll_chain_value_usd: 1660000000
+  # Supply basis their per-token figures use (their page: 1.31B NEAR).
+  toll_supply_basis_near: 1310000000
+  # What the $3.60 market price needs under their model: 63%/yr volume
+  # growth for 5 years (12x today).
+  toll_price_implied_growth_5y: 0.63
+  toll_price_implied_growth_multiple_5y: 12
+  # ... or a 40x exit (7x).
+  toll_price_implied_exit_multiple: 40
+  toll_price_implied_exit_growth: 7
+  # ... or a $3.9B chain value (3x).
+  toll_price_implied_chain_value_usd: 3900000000
+  toll_price_implied_chain_growth: 3
+  # Corroboration (their published measurements, same page): 35.9% capture
+  # (vs our measured 33.92%) and $22.3M/yr captured revenue on the last
+  # three months (vs our R0 $22.22M/yr) — the gap is not a measurement dispute.
+  toll_capture_30d: 0.359
+  toll_captured_revenue_annualised_usd: 22300000
+  toll_source_url: "https://apps.swiftbotlab.workers.dev/near-toll-audit/"
+  toll_as_published: "2026-11-13"
+
 # Issuance-offset (deflation test). No assumptions: issued/yr =
 # max_inflation * total_supply; bought/yr = R₀ / price; break-even retained
 # revenue = issued/yr * price. All recomputed live in model.py.

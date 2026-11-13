@@ -2,7 +2,7 @@
 """Render dashboard/index.html from data/processed/*.json (no network).
 
 Usage:  python3 src/build_dashboard.py
-Reads metrics.json, dcf.json, sensitivity.json, benchmarks.json,
+Reads metrics.json, dcf.json, sensitivity.json, bridge.json, benchmarks.json,
 predictions.json, falsification.json and the chart_0*_data.json files, and writes
 dashboard/index.html. Every number on the page is formatted from those JSONs
 — nothing is hardcoded — so re-running fetch.py + build.py and then this
@@ -76,6 +76,10 @@ def main():
         fals = load("falsification.json")
     except Exception:
         fals = None
+    try:
+        bridge = load("bridge.json")
+    except Exception:
+        bridge = None
 
     M1 = m["M1_intents_gross_fees"]
     M2 = m["M2_intents_fee_growth"]
@@ -544,6 +548,55 @@ condition status is shown rather than fabricated; re-run
 <code>src/build.py</code> to restore it.</p>
 """
 
+    # Bridge: what would have to be true for the rival's $2.05?
+    if bridge and bridge.get("bridge_to_rival_base_usd"):
+        _b = bridge["bridge_to_rival_base_usd"]
+        _pt = bridge["bridge_per_token_on_rival_supply_basis_usd"]
+        _co = bridge["corroboration"]
+        _imp = bridge["market_price_implied_under_rival_model"]
+        _rb = bridge["rival_base_case"]
+        _rw = bridge["rival_weighted_case"]
+        bridge_section = f"""
+<h2>The bridge — what would have to be true for $2.05?</h2>
+<p>A fellow entry, <a href="{bridge['source_url']}">NEAR Toll Audit</a>
+(@swiftbotlab), corroborates this thesis&rsquo;s core measurements —
+{pct(_co['rival_capture_30d'])} capture vs our {pct(_co['our_capture_30d'])},
+{money(_co['rival_captured_revenue_annualised_usd'])}/yr captured revenue vs
+our {money(_co['our_r0_usd'])}/yr — but values NEAR at
+<strong>${_rb['value_per_token_usd']:.2f} base /
+${_rw['value_per_token_usd']:.2f} weighted</strong>, far above our
+${vpt:.2f} DCF. The gap is not a measurement dispute. It is what each model
+includes. Bridging our number to theirs, in dollars:</p>
+<div class="tbl-wrap"><table>
+<tr><th>Component</th><th>Equity value</th><th>Per token*</th></tr>
+<tr><td>Retained-revenue DCF (this thesis)</td><td>{money(_b['retained_revenue_dcf'])}</td><td>${_pt['retained_revenue_dcf']:.2f}</td></tr>
+<tr><td>+ Chain value (their assumption)</td><td>{money(_b['plus_chain_value'])}</td><td>${_pt['plus_chain_value']:.2f}</td></tr>
+<tr><td>+ Exit value &amp; horizon difference (their 5-yr model + exit)</td><td>{money(_b['plus_exit_value_and_horizon_difference'])}</td><td>${_pt['plus_exit_value_and_horizon_difference']:.2f}</td></tr>
+<tr><td><strong>= Their base case</strong></td><td><strong>{money(_b['equals_rival_base_total'])}</strong></td><td><strong>${_pt['equals_rival_base']:.2f}</strong></td></tr>
+</table></div>
+<p class="note">* Per-token figures on their {_rb['supply_basis_near'] / 1e9:.2f}B
+supply basis; our headline ${vpt:.2f} uses CoinGecko circulating supply
+({num(snap['circulating_supply_near'])} NEAR). On their basis our DCF is
+${bridge['our_dcf']['value_per_token_on_rival_supply_basis_usd']:.2f} — a ~5%
+difference, disclosed, not hidden. Rival figures as published
+{bridge['as_published']}; only our side refreshes with each fetch.</p>
+<p>{escape(bridge['reading'])}</p>
+<p>And the market price implies even more under their model:
+${_imp['price_usd']:,.2f} needs
+{_imp['volume_growth_per_year_5y'] * 100:.0f}%/yr volume growth for five years
+({_imp['volume_growth_multiple_5y']}×), or a {_imp['exit_multiple']}× exit
+({_imp['exit_multiple_growth']}×), or a {money(_imp['chain_value_usd'])}
+chain value ({_imp['chain_value_growth']}×).</p>
+"""
+    else:
+        bridge_section = """
+<h2>The bridge — what would have to be true for $2.05?</h2>
+<p>The bridge to the rival valuation (<code>data/processed/bridge.json</code>)
+could not be computed on the latest run — see that file for the reason. No
+bridge figures are shown rather than fabricated; re-run
+<code>src/build.py</code> to restore it.</p>
+"""
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -656,6 +709,7 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
 {metcalfe_section}
 {predictions_section}
 {falsification_section}
+{bridge_section}
 
 <h2>Benchmarks — NEAR vs SOL / AVAX / ETH</h2>
 <div class="tbl-wrap"><table>

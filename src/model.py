@@ -1014,6 +1014,89 @@ def main() -> int:
             "note": "Cells with growth >= discount are null (Gordon growth "
                     "requires g < r); the invalid zone is shown explicitly."}
 
+    # ---------------- bridge: what would have to be true for $2.05? ------
+    # A fellow entry (NEAR Toll Audit) corroborates our core measurements
+    # (35.9% capture vs our 33.92%; $22.3M/yr captured revenue vs our
+    # $22.22M/yr) but values NEAR at $2.05 base / $2.91 weighted by adding
+    # chain value + exit value to a 5-year holder-earnings model. Their
+    # figures are quoted constants (assumptions.yaml "bridge"); only our
+    # side refreshes with each fetch. The bridge is in dollars (equity
+    # value), which is supply-basis free; per-token figures use their
+    # 1.31B basis, with our DCF restated on the same basis for comparison.
+    br = A.get("bridge", {})
+    toll_base_vpt = br["toll_base_value_per_token"]
+    toll_weighted_vpt = br["toll_weighted_value_per_token"]
+    toll_chain_usd = br["toll_chain_value_usd"]
+    toll_supply = br["toll_supply_basis_near"]
+    toll_base_total = toll_base_vpt * toll_supply
+    toll_weighted_total = toll_weighted_vpt * toll_supply
+    gap_base = toll_base_total - val_base
+    residual_usd = gap_base - toll_chain_usd
+    sens_max = max(c["value_per_token_usd"] for c in grid
+                   if c["value_per_token_usd"] is not None)
+    bridge = {
+        "rival": "NEAR Toll Audit (@swiftbotlab)",
+        "source_url": br["toll_source_url"],
+        "as_published": br["toll_as_published"],
+        "corroboration": {
+            "rival_capture_30d": br["toll_capture_30d"],
+            "our_capture_30d": capture_measured,
+            "rival_captured_revenue_annualised_usd": (
+                br["toll_captured_revenue_annualised_usd"]),
+            "our_r0_usd": r0_base,
+        },
+        "our_dcf": {
+            "equity_value_usd": val_base,
+            "value_per_token_usd": (val_base / supply_circ if val_base else None),
+            "value_per_token_on_rival_supply_basis_usd": (
+                val_base / toll_supply if val_base else None),
+            "supply_basis_near": supply_circ,
+        },
+        "rival_base_case": {
+            "value_per_token_usd": toll_base_vpt,
+            "total_equity_value_usd": toll_base_total,
+            "chain_value_usd": toll_chain_usd,
+            "chain_value_share_of_total_pct": round(
+                100 * toll_chain_usd / toll_base_total, 1),
+            "supply_basis_near": toll_supply,
+        },
+        "rival_weighted_case": {
+            "value_per_token_usd": toll_weighted_vpt,
+            "total_equity_value_usd": toll_weighted_total,
+        },
+        "bridge_to_rival_base_usd": {
+            "retained_revenue_dcf": val_base,
+            "plus_chain_value": toll_chain_usd,
+            "plus_exit_value_and_horizon_difference": residual_usd,
+            "equals_rival_base_total": toll_base_total,
+            "gap_usd": gap_base,
+        },
+        "bridge_per_token_on_rival_supply_basis_usd": {
+            "retained_revenue_dcf": val_base / toll_supply,
+            "plus_chain_value": toll_chain_usd / toll_supply,
+            "plus_exit_value_and_horizon_difference": residual_usd / toll_supply,
+            "equals_rival_base": toll_base_vpt,
+        },
+        "sensitivity_grid_max_valid_value_per_token_usd": sens_max,
+        "market_price_implied_under_rival_model": {
+            "price_usd": price,
+            "volume_growth_per_year_5y": br["toll_price_implied_growth_5y"],
+            "volume_growth_multiple_5y": br["toll_price_implied_growth_multiple_5y"],
+            "exit_multiple": br["toll_price_implied_exit_multiple"],
+            "exit_multiple_growth": br["toll_price_implied_exit_growth"],
+            "chain_value_usd": br["toll_price_implied_chain_value_usd"],
+            "chain_value_growth": br["toll_price_implied_chain_growth"],
+        },
+        "reading": (
+            "No parameter tweak closes the gap: the best valid sensitivity "
+            f"cell is ${sens_max:.2f}, still half the rival's base case, so "
+            "the difference is structural — what is included (chain value + "
+            "exit value), not the parameters. The rival's base case is "
+            f"{round(100 * toll_chain_usd / toll_base_total)}% chain value, "
+            "an assumption they state themselves; our DCF is the "
+            "conservative floor (retained revenue only)."),
+    }
+
     # ---------------- benchmarks ----------------
     bench = {"peers": {}, "intents_competitors": {}, "dropped": []}
     peer_defs = {"solana": ("solana", "defillama_fees_solana.json"),
@@ -1761,6 +1844,7 @@ def main() -> int:
     (PROC / "metrics.json").write_text(json.dumps(metrics, indent=2))
     (PROC / "dcf.json").write_text(json.dumps(dcf, indent=2))
     (PROC / "sensitivity.json").write_text(json.dumps(sens, indent=2))
+    (PROC / "bridge.json").write_text(json.dumps(bridge, indent=2))
     (PROC / "benchmarks.json").write_text(json.dumps(bench, indent=2))
     (PROC / "predictions.json").write_text(json.dumps(predictions_out, indent=2))
     (PROC / "falsification.json").write_text(json.dumps(falsification_out, indent=2))
@@ -1774,6 +1858,10 @@ def main() -> int:
     print(f"R₀ base (annualised retained): ${r0_base:,.0f}")
     print(f"DCF base value/token (r={r_base}, g={g_base}): "
           f"${val_base / supply_circ:.4f} vs price ${price:.2f}")
+    print(f"Bridge to rival base ${toll_base_vpt:.2f}: ours "
+          f"${val_base / toll_supply:.4f}/token on their {toll_supply / 1e9:.2f}B "
+          f"basis + chain ${toll_chain_usd / toll_supply:.2f} + exit/horizon "
+          f"${residual_usd / toll_supply:.2f}; sensitivity max ${sens_max:.2f}")
     print(f"Break-even retained revenue: ${breakeven_r:,.0f}/yr "
           f"({breakeven_r / r0_base:.1f}x current R₀)")
     print(f"Mcap / R₀ base: {mcap / r0_base:.1f}x")

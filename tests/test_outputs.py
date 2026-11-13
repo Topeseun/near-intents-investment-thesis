@@ -42,7 +42,8 @@ RAW = REPO / "data" / "raw"
 ASSETS = REPO / "dashboard" / "assets"
 
 PROCESSED_JSONS = [
-    "metrics.json", "dcf.json", "sensitivity.json", "benchmarks.json",
+    "metrics.json", "dcf.json", "sensitivity.json", "bridge.json",
+    "benchmarks.json",
     "predictions.json", "falsification.json",
     "chart_01_data.json", "chart_02_data.json", "chart_03_data.json",
     "chart_04_data.json", "chart_05_data.json", "chart_06_data.json",
@@ -551,6 +552,61 @@ class TestDashboardAndReadme(unittest.TestCase):
                           f"{row['id']} status reason missing")
         # No raw "<" from a threshold may survive into the rendered HTML.
         self.assertNotIn("ratio < 1.0", html_text)
+
+    def test_bridge_arithmetic_consistent(self):
+        """Bridge components must sum to the rival base case, on both bases."""
+        br = load_processed("bridge.json")
+        dcf = load_processed("dcf.json")
+        sens = load_processed("sensitivity.json")
+        b = br["bridge_to_rival_base_usd"]
+        pt = br["bridge_per_token_on_rival_supply_basis_usd"]
+        # Dollar bridge: ours + chain + residual == rival base total.
+        self.assertAlmostEqual(
+            b["retained_revenue_dcf"] + b["plus_chain_value"]
+            + b["plus_exit_value_and_horizon_difference"],
+            b["equals_rival_base_total"], delta=1.0)
+        self.assertAlmostEqual(b["gap_usd"],
+                               b["equals_rival_base_total"]
+                               - b["retained_revenue_dcf"], delta=1.0)
+        # Per-token bridge on the rival supply basis sums to the base case.
+        self.assertAlmostEqual(
+            pt["retained_revenue_dcf"] + pt["plus_chain_value"]
+            + pt["plus_exit_value_and_horizon_difference"],
+            pt["equals_rival_base"], delta=1e-6)
+        # Our side traces to dcf.json.
+        self.assertAlmostEqual(b["retained_revenue_dcf"],
+                               dcf["base_case"]["equity_value_usd"], delta=1.0)
+        self.assertAlmostEqual(
+            pt["retained_revenue_dcf"],
+            br["our_dcf"]["value_per_token_on_rival_supply_basis_usd"],
+            delta=1e-9)
+        # Chain value is the majority of the rival base case.
+        self.assertGreater(
+            br["rival_base_case"]["chain_value_share_of_total_pct"], 50)
+        self.assertLess(
+            br["rival_base_case"]["chain_value_share_of_total_pct"], 100)
+        # Weighted case exceeds the base case.
+        self.assertGreater(
+            br["rival_weighted_case"]["value_per_token_usd"],
+            br["rival_base_case"]["value_per_token_usd"])
+        # No sensitivity cell reaches the rival base case (structural gap).
+        sens_max = max(c["value_per_token_usd"] for c in sens["grid"]
+                       if c["value_per_token_usd"] is not None)
+        self.assertAlmostEqual(
+            br["sensitivity_grid_max_valid_value_per_token_usd"],
+            sens_max, delta=1e-9)
+        self.assertLess(sens_max,
+                        br["rival_base_case"]["value_per_token_usd"])
+
+    def test_dashboard_renders_bridge(self):
+        html_text = (REPO / "dashboard" / "index.html").read_text()
+        self.assertIn("The bridge", html_text)
+        br = load_processed("bridge.json")
+        self.assertIn("NEAR Toll Audit", html_text)
+        self.assertIn("swiftbotlab", html_text)
+        self.assertIn("$2.05", html_text)
+        self.assertIn("$2.91", html_text)
+        self.assertIn(br["source_url"], html_text)
 
     def test_docs_mirror_dashboard(self):
         docs = REPO / "docs"

@@ -61,6 +61,23 @@ A thesis that cannot be wrong is not evidence — so here are the six kill condi
 
 Three conditions overlap the dated predictions — deliberately, not by accident: F₁ tests the same revenue base as P₁ (but at the kill level, $2M, not the November level), F₂ the same capture rate as P₂ (at the 15% floor, not the 35.97% level), and F₄ the same competitive lead as P₅ (at parity, not 1.5×). A prediction going off track is a warning; a falsification condition triggering is the thesis failing. Persistence is counted from the commitment date (2026-11-11) and re-evaluated on every daily refresh: F₁, F₄ and F₆ are scored against the stored daily series, so their persistence is measured, not asserted; F₂'s capture rate is a point-in-time fetch with no stored history, so its 90-day clock is carried forward through `data/processed/falsification.json` across runs; F₃ is event-based — the 31.6% figure is the Oct 1–4 2026 pause precedent, the largest single-provider outage drop on record, and the condition is re-checked when a new outage is reported. F₅ has no persistence window by design: a single recomputation at or above 100% is enough. Committed thresholds: `data/falsification.json`. Method and honesty notes: `data/processed/BUILD_NOTES.md` (M₁₉). The live dashboard renders this table from `data/processed/falsification.json` (M₁₉) on every refresh.
 
+## The bridge — what would have to be true for $2.05?
+
+A fellow entry, [NEAR Toll Audit](https://apps.swiftbotlab.workers.dev/near-toll-audit/) (@swiftbotlab), corroborates this thesis's core measurements — 35.9% capture vs our 33.92%, $22.3M/yr captured revenue vs our $22,217,798/yr — but values NEAR at **$2.05 base / $2.91 weighted**, far above our $0.39 DCF. The gap is not a measurement dispute. It is what each model includes. Bridging our number to theirs, in dollars (figures as of the 2026-11-13 build, data fetched 2026-11-11 ~09:25 UTC):
+
+| Component | Equity value | Per token* |
+|---|---|---|
+| Retained-revenue DCF (this thesis) | $0.49B | $0.37 |
+| + Chain value (their assumption) | $1.66B | $1.27 |
+| + Exit value & horizon difference (their 5-yr model + exit) | $0.54B | $0.41 |
+| = Their base case | $2.69B | $2.05 |
+
+\* Per-token figures on their 1.31B supply basis; our headline $0.39 uses CoinGecko circulating supply (~1.25B NEAR). On their basis our DCF is $0.37 — a ~5% difference, disclosed, not hidden.
+
+Three things follow. First, **no parameter tweak closes the gap**: the best valid cell in our 27-cell sensitivity grid is $1.01 (35% capture, 10% growth, r=12%) — still half their base case. The difference is structural, not parametric. Second, **their base case is 62% chain value** ($1.66B of $2.69B), and they say so themselves: chain value "is an assumption". Our DCF is the conservative floor — retained revenue only, no chain value, no exit value. Third, **the market price implies even more**: under their model, $3.58 needs 63%/yr volume growth for five years (12×), or a 40× exit (7×), or a $3.9B chain value (3×).
+
+This section is computed by the pipeline (`src/model.py` → `data/processed/bridge.json`; rival figures are quoted constants from their published page, 2026-11-13 — only our side refreshes with each fetch) and rendered live on the dashboard. It does not change our thesis: it prices the disagreement.
+
 ## What this repo contains
 
 ```
@@ -81,6 +98,7 @@ Three conditions overlap the dated predictions — deliberately, not by accident
 │       ├── metrics.json          # M₁–M₁₈, each with source + fetched_at
 │       ├── dcf.json              # Base-case DCF inputs + outputs
 │       ├── sensitivity.json      # 27-cell grid (capture × growth × discount)
+│       ├── bridge.json           # Bridge to the rival $2.05 valuation (chain + exit value)
 │       ├── benchmarks.json       # NEAR vs SOL/AVAX/ETH + Intents competitors
 │       ├── predictions.json      # M₁₈ dated predictions: committed thresholds + live values + statuses
 │       ├── falsification.json    # M₁₉ falsification conditions: committed thresholds + live values + statuses
@@ -97,7 +115,7 @@ Three conditions overlap the dated predictions — deliberately, not by accident
 What the code does, exactly:
 
 - `src/fetch.py` fetches NEARBlocks stats/validators/blocks/accounts **and the full daily `/v1/charts` series (2,304 points, 2020-07-21 → today)**, NEAR RPC status/gas price/protocol config, CoinGecko prices + 365d market charts (4 coins), DefiLlama Intents/chain/competitor fees + TVL **and the Intents daily volume series (`summary/dexs/near-intents`, 701 points from 2024-12-10)**, and parses the revenue.near.org server-rendered payload for the measured capture rate. Every response is cached to `data/raw/` with a timestamped manifest. No API keys. CoinGecko: 5 calls, 2.5 s sleep between them (30/min limit); a 429 gets one retry after a 60 s backoff.
-- `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R₁/(r−g), R₀ = F₃₀ × 12 × capture), the 19 metrics M₁–M₁₉, the 27-cell sensitivity grid, and the peer/competitor benchmarks — all from the cache, no network.
+- `src/model.py` computes the fee-capture DCF (Gordon growth: Value = R₁/(r−g), R₀ = F₃₀ × 12 × capture), the 19 metrics M₁–M₁₉, the 27-cell sensitivity grid, the bridge to the rival valuation (`bridge.json`), and the peer/competitor benchmarks — all from the cache, no network.
 - `src/charts.py` renders the 10 charts as PNGs (+ SVG twins) from the model outputs.
 - `src/build_dashboard.py` renders `dashboard/index.html` from `data/processed/*.json`. Every number on the page is formatted from those JSONs — nothing is hardcoded — so re-running the pipeline and this script regenerates a dashboard that always matches the model.
 
@@ -117,7 +135,7 @@ Verified: a clean re-run (`rm -rf data && python3 src/fetch.py && python3 src/bu
 python3 -m unittest discover -s tests -v
 ```
 
-Stdlib `unittest` only — no new dependencies. 22 tests: every `data/processed/*.json` exists and parses; F₃₀/capture/R₀/DCF arithmetic is internally consistent (R₀ = F₃₀ × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M₁₂–M₁₇ sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); M₁₈ dated predictions (thresholds and dates match the committed `data/predictions.json`, live values sane and traced to the metrics they come from, statuses consistent with the thresholds); M₁₉ falsification (thresholds match the committed `data/falsification.json`, live values sane and traced to the metrics they come from, statuses consistent with thresholds and persistence windows, dashboard renders all 6 conditions with live values and statuses); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs and renders all 7 predictions with live values and statuses; `docs/` mirrors `dashboard/index.html` byte-for-byte; the README contains the headline numbers (fee-stable figures + the all-time activity peaks) and the falsification section.
+Stdlib `unittest` only — no new dependencies. 24 tests: every `data/processed/*.json` exists and parses; F₃₀/capture/R₀/DCF arithmetic is internally consistent (R₀ = F₃₀ × 12 × capture; Gordon growth; value/token = Value ÷ supply); the sensitivity grid is 3 × 3 × 3 = 27 cells with invalid g ≥ r cells null and valid cells matching the formula; buyback-vs-issuance arithmetic; M₁₂–M₁₇ sanity (peaks above current, percentages in range, volume positive, implied fee rate 1–100 bps, correlation in [−1, 1], Metcalfe slope/R² in range); M₁₈ dated predictions (thresholds and dates match the committed `data/predictions.json`, live values sane and traced to the metrics they come from, statuses consistent with the thresholds); M₁₉ falsification (thresholds match the committed `data/falsification.json`, live values sane and traced to the metrics they come from, statuses consistent with thresholds and persistence windows, dashboard renders all 6 conditions with live values and statuses); the bridge to the rival $2.05 valuation (dollar and per-token components sum to the rival base case, our side traces to `dcf.json`, chain value is the majority of the rival total, no sensitivity cell reaches the rival base case, dashboard renders it); all 10 charts exist as PNG + SVG; the dashboard references all 10 SVGs and renders all 7 predictions with live values and statuses; `docs/` mirrors `dashboard/index.html` byte-for-byte; the README contains the headline numbers (fee-stable figures + the all-time activity peaks) and the falsification section.
 
 ## GitHub Pages
 
