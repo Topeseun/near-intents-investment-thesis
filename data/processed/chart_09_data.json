@@ -3218,22 +3218,22 @@
     228625.0,
     252865.0,
     187467.0,
-    194710.0,
+    194711.0,
     263808.0,
     297452.0,
-    233973.0,
-    16604.0
+    233899.0,
+    257492.0
   ],
   "volume_30d_usd": 3774153452.0,
   "volume_30d_vs_prior_30d_pct": -21.6,
-  "fees_30d_usd": 5807392.0,
-  "implied_gross_fee_rate_30d_bps": 15.39,
+  "fees_30d_usd": 6048207.0,
+  "implied_gross_fee_rate_30d_bps": 16.03,
   "peak_daily_volume": {
     "date": "2026-09-17",
     "volume_usd": 303419794.0
   },
   "source": {
     "source": "https://api.llama.fi/summary/dexs/near-intents",
-    "fetched_at_utc": "2026-11-13T11:04:10Z"
+    "fetched_at_utc": "2026-11-13T14:12:37Z"
   }
 }
