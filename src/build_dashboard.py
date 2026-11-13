@@ -779,7 +779,7 @@ code{{font-size:.92em}}
   <div class="verdict"><b>Verdict: overvalued on retained revenue.</b> At today&rsquo;s fees and the
   measured {pct(capture)} capture rate, retained revenue alone supports
   ${vpt:.2f} per token — {vpt_pct:.1f}% of the ${price:,.2f} price. {price_implied}Separately,
-  buybacks only stop the token inflating when retained revenue reaches
+  buybacks only stop the token from inflating when retained revenue reaches
   {money(be)}/yr ({be_mult:.1f}&times; today&rsquo;s R&#8320;) — the break-even where
   buybacks match issuance (net +{num(net)} NEAR/yr today). The case for owning NEAR is the <em>option</em> on fee
   growth and rising capture, not today&rsquo;s cash flow. Everything below is built to

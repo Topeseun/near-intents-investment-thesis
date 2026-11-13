@@ -825,7 +825,7 @@ class TestDashboardAndReadme(unittest.TestCase):
                           f"implied multiple missing in {name}")
             self.assertIn("Separately", verdict,
                           f"split word missing in {name}")
-            self.assertIn("buybacks only stop the token inflating",
+            self.assertIn("buybacks only stop the token from inflating",
                           verdict, f"break-even sentence missing in {name}")
             self.assertIn(be_m, verdict,
                           f"break-even revenue missing in {name}")
@@ -835,7 +835,7 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertIn("The price itself implies retained revenue of", readme)
         self.assertIn(req_m_1dp, readme)
         self.assertIn("Separately", readme)
-        self.assertIn("buybacks only stop the token inflating", readme)
+        self.assertIn("buybacks only stop the token from inflating", readme)
         self.assertIn(be_m_1dp, readme)
 
     def test_dashboard_no_stale_hardcoded_figures(self):
