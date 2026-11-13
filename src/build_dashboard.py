@@ -123,6 +123,18 @@ def main():
     vpt_pct = dcf["base_case"]["value_per_token_vs_price_pct"]
     be = M6["break_even_retained_revenue_usd_per_year"]
     be_mult = M6["break_even_multiple_of_current_R0"]
+    # Price-implied revenue (reverse DCF) is a valuation condition, NOT the
+    # buyback break-even above (a supply condition). Keep the two apart in
+    # the verdict: the price implies one number, inflation stops at another.
+    if rev:
+        price_implied = (
+            f"The price itself implies retained revenue of "
+            f"{money(rev['required_r0_annualised_retained_revenue_usd'])}/yr "
+            f"({rev['required_multiple_of_current_r0']:.1f}&times; today&rsquo;s "
+            f"R&#8320;). "
+        )
+    else:
+        price_implied = ""
     mcap_r0 = M7["mcap_div_R0_base"]
     issued = M6["issued_per_year_near"]
     bought = M6["bought_per_year_base_near"]
@@ -766,10 +778,10 @@ code{{font-size:.92em}}
   supporting chapters that test whether the toll road has a moat.</p>
   <div class="verdict"><b>Verdict: overvalued on retained revenue.</b> At today&rsquo;s fees and the
   measured {pct(capture)} capture rate, retained revenue alone supports
-  ${vpt:.2f} per token — {vpt_pct:.1f}% of the ${price:,.2f} price. The price is
-  justified only if retained revenue rises to {money(be)}/yr ({be_mult:.1f}&times; today&rsquo;s
-  R&#8320;) — the break-even where buybacks stop the token inflating (net
-  +{num(net)} NEAR/yr today). The case for owning NEAR is the <em>option</em> on fee
+  ${vpt:.2f} per token — {vpt_pct:.1f}% of the ${price:,.2f} price. {price_implied}Separately,
+  buybacks only stop the token inflating when retained revenue reaches
+  {money(be)}/yr ({be_mult:.1f}&times; today&rsquo;s R&#8320;) — the break-even where
+  buybacks match issuance (net +{num(net)} NEAR/yr today). The case for owning NEAR is the <em>option</em> on fee
   growth and rising capture, not today&rsquo;s cash flow. Everything below is built to
   test that option, not to sell it.</div>
   <p class="note">Data fetched {gen} (see per-chart source lines).

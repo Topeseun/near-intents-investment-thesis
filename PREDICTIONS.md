@@ -13,7 +13,10 @@ P₁ ($5,578,208) and P₂ (35.97%) are the trailing-30d fees and 30d capture ra
 exactly as measured on the commit date (2026-11-10 ~03:05 UTC) — the bar is the
 thesis's own November level, not an external target. Both started exactly at
 their bar; P₂ has since fallen off track (33.37% on the latest fetch), and that
-is disclosed here and on the dashboard, not hidden.
+is disclosed here and on the dashboard, not hidden. P₁ also went off track —
+on the Nov 11 fetch trailing-30d fees had fallen to $5,458,382, below the
+$5,578,208 bar — then recovered above it on the latest fetch ($5,807,392),
+so P₁ is back on track; P₂ is the one miss.
 
 ## Baselines (2026-11-10 ~03:05 UTC)
 

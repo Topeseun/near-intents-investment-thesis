@@ -802,6 +802,42 @@ class TestDashboardAndReadme(unittest.TestCase):
         self.assertIn(f"{m6['break_even_multiple_of_current_R0']:.1f}", html)
         self.assertIn(f"+{m6['net_supply_change_base_near_per_year']:,.0f} NEAR/yr", html)
 
+    def test_verdict_separates_price_implied_from_breakeven(self):
+        """The verdict must not conflate the two conditions: the revenue the
+        price implies (reverse DCF, a valuation condition) and the revenue
+        at which buybacks match issuance (a supply condition). Both numbers
+        must appear, in separate sentences, in the dashboard verdict and in
+        the README verdict — all traced to the model, refresh-proof."""
+        rev = load_processed("reverse_dcf.json")
+        m = load_processed("metrics.json")
+        m6 = m["M6_buyback_vs_issuance"]
+        req_m = f"${rev['required_r0_annualised_retained_revenue_usd'] / 1e6:,.2f}M"
+        req_mult = f"{rev['required_multiple_of_current_r0']:.1f}"
+        be_m = f"${m6['break_even_retained_revenue_usd_per_year'] / 1e6:,.2f}M"
+        for name in ("dashboard/index.html", "docs/index.html"):
+            html = (REPO / name).read_text()
+            verdict = re.search(
+                r'<div class="verdict">(.*?)</div>', html, re.S).group(1)
+            self.assertIn("The price itself implies retained revenue of",
+                          verdict, f"price-implied sentence missing in {name}")
+            self.assertIn(req_m, verdict, f"implied revenue missing in {name}")
+            self.assertIn(req_mult, verdict,
+                          f"implied multiple missing in {name}")
+            self.assertIn("Separately", verdict,
+                          f"split word missing in {name}")
+            self.assertIn("buybacks only stop the token inflating",
+                          verdict, f"break-even sentence missing in {name}")
+            self.assertIn(be_m, verdict,
+                          f"break-even revenue missing in {name}")
+        readme = (REPO / "README.md").read_text()
+        req_m_1dp = f"${rev['required_r0_annualised_retained_revenue_usd'] / 1e6:,.1f}M"
+        be_m_1dp = f"${m6['break_even_retained_revenue_usd_per_year'] / 1e6:,.1f}M"
+        self.assertIn("The price itself implies retained revenue of", readme)
+        self.assertIn(req_m_1dp, readme)
+        self.assertIn("Separately", readme)
+        self.assertIn("buybacks only stop the token inflating", readme)
+        self.assertIn(be_m_1dp, readme)
+
     def test_dashboard_no_stale_hardcoded_figures(self):
         """Chart titles/descriptions must render live data, not stale
         hardcoded strings (Chart 7 said $3.60 while the price was $3.50;
