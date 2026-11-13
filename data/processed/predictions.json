@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-12T14:51:12Z",
+  "generated_at_utc": "2026-11-13T07:24:41Z",
   "committed": "2026-11-10",
   "note": "Live values are point-in-time reads against the committed thresholds, not final outcomes. Earliest resolution date 2026-12-31.",
   "counts": {
@@ -16,8 +16,8 @@
       "threshold_op": ">=",
       "resolves": "2026-12-31",
       "source_short": "DefiLlama summary/fees/near-intents total30d",
-      "live_value": 5991511.0,
-      "live_value_display": "$5,991,511",
+      "live_value": 5807392.0,
+      "live_value_display": "$5,807,392",
       "status": "on track",
       "status_reason": null
     },
@@ -29,8 +29,8 @@
       "threshold_op": ">=",
       "resolves": "2027-01-31",
       "source_short": "revenue.near.org, 30d window",
-      "live_value": 0.3382,
-      "live_value_display": "33.82%",
+      "live_value": 0.3325,
+      "live_value_display": "33.25%",
       "status": "off track",
       "status_reason": null
     },
@@ -42,8 +42,8 @@
       "threshold_op": "<",
       "resolves": "2027-02-28",
       "source_short": "Re-run src/model.py; CoinGecko price",
-      "live_value": 0.12588720738331238,
-      "live_value_display": "12.6% of price",
+      "live_value": 0.11489337600225774,
+      "live_value_display": "11.5% of price",
       "status": "on track",
       "status_reason": null
     },
@@ -55,8 +55,8 @@
       "threshold_op": ">=",
       "resolves": "2026-12-31",
       "source_short": "DefiLlama summary/dexs/near-intents",
-      "live_value": 3731354987.0,
-      "live_value_display": "$3,731,354,987",
+      "live_value": 3774153452.0,
+      "live_value_display": "$3,774,153,452",
       "status": "on track",
       "status_reason": null
     },
@@ -68,8 +68,8 @@
       "threshold_op": ">=",
       "resolves": "2027-01-31",
       "source_short": "DefiLlama summary/fees/{near-intents,chainflip}",
-      "live_value": 2.053160006716492,
-      "live_value_display": "2.05\u00d7",
+      "live_value": 1.9547848097857186,
+      "live_value_display": "1.95\u00d7",
       "status": "on track",
       "status_reason": null
     },
@@ -81,8 +81,8 @@
       "threshold_op": "<",
       "resolves": "2027-02-28",
       "source_short": "NEARBlocks /v1/charts",
-      "live_value": 62933.1,
-      "live_value_display": "62,933/day",
+      "live_value": 63922.6,
+      "live_value_display": "63,923/day",
       "status": "on track",
       "status_reason": null
     },
@@ -94,8 +94,8 @@
       "threshold_op": "<",
       "resolves": "2026-12-31",
       "source_short": "CoinGecko price + DefiLlama fees",
-      "live_value": 0.034,
-      "live_value_display": "|r| = 0.034",
+      "live_value": 0.055,
+      "live_value_display": "|r| = 0.055",
       "status": "on track",
       "status_reason": null
     }

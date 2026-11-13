@@ -60,19 +60,19 @@ code{font-size:.92em}
   <div class="eyebrow">NEAR Hackathon 2026 · Investment Thesis track</div>
   <h1>NEAR is becoming a cross-chain settlement business. Price it like one.</h1>
   <p class="lede">NEAR&rsquo;s base layer barely earns anything — its Intents layer already
-  grossed $5,991,511 of fees in 30 days, keeps a growing share for NEAR
+  grossed $5,807,392 of fees in 30 days, keeps a growing share for NEAR
   buybacks, and is the only part of NEAR with a compounding, measurable revenue
   curve. The long-term investment case is not &ldquo;cheap fast L1&rdquo; but
   &ldquo;toll road on cross-chain volume&rdquo;: value NEAR on retained Intents
   revenue (fee-capture DCF), with base-layer usage and staking economics as the
   supporting chapters that test whether the toll road has a moat.</p>
   <div class="verdict"><b>Honest verdict up front:</b> at today&rsquo;s fees and the
-  measured 33.8% capture rate, retained revenue alone supports
-  $0.43 per token — 12.6% of the $3.40 price. The case for
+  measured 33.2% capture rate, retained revenue alone supports
+  $0.41 per token — 11.5% of the $3.55 price. The case for
   owning NEAR is the <em>option</em> on fee growth and rising capture, not
   today&rsquo;s cash flow. Everything below is built to test that option, not to
   sell it.</div>
-  <p class="note">Data fetched 2026-11-12T14:51:12Z (see per-chart source lines).
+  <p class="note">Data fetched 2026-11-13T07:24:41Z (see per-chart source lines).
   Reproduce it: <code>python3 src/fetch.py &amp;&amp; python3 src/build.py &amp;&amp; python3 src/build_dashboard.py</code>.
   All figures trace to cached API responses in <code>data/raw/</code> or to labelled
   assumptions in <code>src/assumptions.yaml</code>. Nothing here is investment advice.</p>
@@ -80,28 +80,28 @@ code{font-size:.92em}
 
 <h2>Headline metrics</h2>
 <div class="metrics">
-  <div class="metric"><div class="v">$5,991,511</div><div class="k">Intents gross fees, trailing 30d</div><div class="n">DefiLlama · 2026-11-12T14:50:55Z</div></div>
-  <div class="metric"><div class="v">33.8%</div><div class="k">Measured 30d capture rate</div><div class="n">revenue.near.org SSR · rising: 19.1% all-time → 23.0% YTD → 36.0% 30d</div></div>
-  <div class="metric"><div class="v">$24.32M<small>/yr</small></div><div class="k">Annualised retained revenue (R₀)</div><div class="n">F₃₀ × 12 × capture</div></div>
-  <div class="metric"><div class="v">$0.43 <small>vs $3.40</small></div><div class="k">DCF value / token vs price</div><div class="n">r=15%, g=10%, c=33.8% · 12.6% of price</div></div>
-  <div class="metric"><div class="v">$111.48M<small>/yr</small></div><div class="k">Break-even retained revenue</div><div class="n">4.6× current R₀ — the deflation line</div></div>
-  <div class="metric"><div class="v">183.4×</div><div class="k">Market cap / retained revenue</div><div class="n">Mcap $4.46B · gross-fee basis 62.0×</div></div>
-  <div class="metric"><div class="v">7,151,749</div><div class="k">NEAR bought / yr (base)</div><div class="n">vs 32,788,103 issued/yr — net +25,636,353 NEAR/yr, still inflationary</div></div>
+  <div class="metric"><div class="v">$5,807,392</div><div class="k">Intents gross fees, trailing 30d</div><div class="n">DefiLlama · 2026-11-13T07:24:24Z</div></div>
+  <div class="metric"><div class="v">33.2%</div><div class="k">Measured 30d capture rate</div><div class="n">revenue.near.org SSR · rising: 19.1% all-time → 23.0% YTD → 36.0% 30d</div></div>
+  <div class="metric"><div class="v">$23.17M<small>/yr</small></div><div class="k">Annualised retained revenue (R₀)</div><div class="n">F₃₀ × 12 × capture</div></div>
+  <div class="metric"><div class="v">$0.41 <small>vs $3.55</small></div><div class="k">DCF value / token vs price</div><div class="n">r=15%, g=10%, c=33.2% · 11.5% of price</div></div>
+  <div class="metric"><div class="v">$116.40M<small>/yr</small></div><div class="k">Break-even retained revenue</div><div class="n">5.0× current R₀ — the deflation line</div></div>
+  <div class="metric"><div class="v">200.7×</div><div class="k">Market cap / retained revenue</div><div class="n">Mcap $4.65B · gross-fee basis 66.7×</div></div>
+  <div class="metric"><div class="v">6,527,181</div><div class="k">NEAR bought / yr (base)</div><div class="n">vs 32,789,358 issued/yr — net +26,262,177 NEAR/yr, still inflationary</div></div>
   <div class="metric"><div class="v">4.91% <small>APY</small></div><div class="k">Staking APY · real yield 2.41pp</div><div class="n">Max inflation 2.50% · 371 validators</div></div>
-  <div class="metric"><div class="v">$3.73B</div><div class="k">Intents volume, trailing 30d</div><div class="n">DefiLlama dexs · -21.7% vs prior 30d · implied fee rate 16.06 bps</div></div>
-  <div class="metric"><div class="v">77,831</div><div class="k">Daily active accounts</div><div class="n">96.6% below the 2024-04-22 peak · 30d avg 62,933</div></div>
+  <div class="metric"><div class="v">$3.77B</div><div class="k">Intents volume, trailing 30d</div><div class="n">DefiLlama dexs · -21.6% vs prior 30d · implied fee rate 15.39 bps</div></div>
+  <div class="metric"><div class="v">85,370</div><div class="k">Daily active accounts</div><div class="n">96.2% below the 2024-04-22 peak · 30d avg 63,923</div></div>
 </div>
 
 <h2>The model in one paragraph</h2>
 <p>Value = R₁ ÷ (r − g), where R₀ = trailing-30d Intents gross fees × 12 ×
 capture rate, R₁ = R₀ × (1 + g), and value per token = Value ÷ circulating
 supply (1,249,836,992 NEAR). Base case:
-R₀ = $24,315,948/yr, R₁ = $26,747,543,
-equity value $534.95M →
-$0.4280/token at r=15%, g=10%, measured capture 33.8%.
+R₀ = $23,171,494/yr, R₁ = $25,488,643,
+equity value $509.77M →
+$0.4079/token at r=15%, g=10%, measured capture 33.2%.
 The 10% growth rate is a forward <em>assumption</em> (see
 <code>src/assumptions.yaml</code>), not a trend extrapolation: trailing-30d fees
-are down -25.8% vs the prior 30 days and the
+are down -29.1% vs the prior 30 days and the
 365-day log-regression growth is ≈ −0.7%. The full-series log-regression is
 dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
 <strong>not quoted anywhere in this thesis</strong> as a growth rate.</p>
@@ -112,40 +112,40 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
         <h3>1 · Intents daily fees — the revenue curve</h3>
         <p class="desc">NEAR Intents daily fees, 10 May 2025 – 9 Nov 2026 (549 days, log scale) with a 30-day moving average.</p>
         <img src="assets/chart01_intents_daily_fees.svg" alt="1 · Intents daily fees — the revenue curve" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> Fees grew from $1/day at launch to a 7-day average of about $236,986/day — but they are volatile, not a smooth ramp. Trailing-30d fees are $5,991,511, -25.8% vs the prior 30 days, 48.0% vs a year ago, and -27.3% below the $8,236,902 peak of 2026-10-14.</p>
-        <p class="source">Source: <code>https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees</code> · fetched 2026-11-12T14:50:55Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> Fees grew from $1/day at launch to a 7-day average of about $206,697/day — but they are volatile, not a smooth ramp. Trailing-30d fees are $5,807,392, -29.1% vs the prior 30 days, 38.3% vs a year ago, and -29.5% below the $8,236,902 peak of 2026-10-14.</p>
+        <p class="source">Source: <code>https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees</code> · fetched 2026-11-13T07:24:24Z</p>
       </section>
 
       <section class="chart">
         <h3>2 · Intents fees vs base-chain gas fees</h3>
         <p class="desc">NEAR Intents daily fees vs NEAR base-layer gas fees, same log axis.</p>
         <img src="assets/chart02_intents_vs_base_fees.svg" alt="2 · Intents fees vs base-chain gas fees" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> Intents grossed $5,991,511 in 30 days while base-chain gas earned $3,365 in 24 hours ($18,392,998 all-time). Intents 30d fees are 59.4× one day of base fees. Gas is not the business — Intents is.</p>
-        <p class="source">Source: <code>https://api.llama.fi/summary/fees/NEAR?dataType=dailyFees</code> · fetched 2026-11-12T14:50:56Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> Intents grossed $5,807,392 in 30 days while base-chain gas earned $3,389 in 24 hours ($18,396,387 all-time). Intents 30d fees are 57.1× one day of base fees. Gas is not the business — Intents is.</p>
+        <p class="source">Source: <code>https://api.llama.fi/summary/fees/NEAR?dataType=dailyFees</code> · fetched 2026-11-13T07:24:25Z</p>
       </section>
 
       <section class="chart">
         <h3>3 · Price vs fees — do they move together?</h3>
         <p class="desc">NEAR price (CoinGecko, 365 days) vs trailing-30d Intents fees, both indexed to 100 at the start of the window.</p>
         <img src="assets/chart03_price_vs_fees_divergence.svg" alt="3 · Price vs fees — do they move together?" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> Over 12 months the price is up 34.2% and trailing-30d fees are up 36.3% — but in the last 30 days both fell hard: price -32.5%, fees -25.8%. Recently they move together, not apart; the divergence is a 30-day drawdown, not a decoupling.</p>
-        <p class="source">Source: <code>https://api.coingecko.com/api/v3/coins/near/market_chart?vs_currency=usd&days=365</code> · fetched 2026-11-12T14:50:47Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> Over 12 months the price is up 45.0% and trailing-30d fees are up 22.6% — but in the last 30 days both fell hard: price -27.4%, fees -29.1%. Recently they move together, not apart; the divergence is a 30-day drawdown, not a decoupling.</p>
+        <p class="source">Source: <code>https://api.coingecko.com/api/v3/coins/near/market_chart?vs_currency=usd&days=365</code> · fetched 2026-11-13T07:24:16Z</p>
       </section>
 
       <section class="chart">
         <h3>4 · Valuation multiples — NEAR vs the big L1s</h3>
         <p class="desc">Market cap ÷ annualised fees for NEAR (Intents gross and retained) vs Solana, Avalanche and Ethereum chain fees.</p>
         <img src="assets/chart04_valuation_multiples.svg" alt="4 · Valuation multiples — NEAR vs the big L1s" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> On gross Intents fees NEAR is the cheapest of the four (62.0× vs Solana 236.8×, Avalanche 912.8×, Ethereum 1019.9×). On retained revenue — the money NEAR actually keeps — it is 183.4×. Cheap on gross, expensive on retained: the gap is the capture rate.</p>
-        <p class="source">Source: <code>https://api.llama.fi/overview/fees</code> · fetched 2026-11-12T14:51:02Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> On gross Intents fees NEAR is the cheapest of the four (66.7× vs Solana 239.8×, Avalanche 904.6×, Ethereum 993.7×). On retained revenue — the money NEAR actually keeps — it is 200.7×. Cheap on gross, expensive on retained: the gap is the capture rate.</p>
+        <p class="source">Source: <code>https://api.llama.fi/overview/fees</code> · fetched 2026-11-13T07:24:31Z</p>
       </section>
 
       <section class="chart">
         <h3>5 · Buybacks vs issuance — still inflationary</h3>
         <p class="desc">NEAR bought per year from retained revenue (three capture scenarios plus the measured rate) vs NEAR issued per year at the 2.5% cap.</p>
         <img src="assets/chart05_buyback_vs_issuance.svg" alt="5 · Buybacks vs issuance — still inflationary" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> At the measured 33.8% capture, retained revenue buys 7,151,749 NEAR/yr against 32,788,103 NEAR/yr issued — a net increase of 25,636,353 NEAR/yr. NEAR turns net-deflationary only when retained revenue reaches $111.48M/yr, 4.6× today.</p>
-        <p class="source">Source: <code>https://rpc.mainnet.near.org#EXPERIMENTAL_protocol_config</code> · fetched 2026-11-12T14:51:11Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> At the measured 33.2% capture, retained revenue buys 6,527,181 NEAR/yr against 32,789,358 NEAR/yr issued — a net increase of 26,262,177 NEAR/yr. NEAR turns net-deflationary only when retained revenue reaches $116.40M/yr, 5.0× today.</p>
+        <p class="source">Source: <code>https://rpc.mainnet.near.org#EXPERIMENTAL_protocol_config</code> · fetched 2026-11-13T07:24:40Z</p>
       </section>
 
       <section class="chart">
@@ -153,59 +153,59 @@ dominated by the May–Aug 2025 launch ramp ($1/day → ~$200k/day) and is
         <p class="desc">Last-epoch staking APY vs the 2.5% max-inflation cap, total staked and validator concentration.</p>
         <img src="assets/chart06_staking_economics.svg" alt="6 · Staking economics — stakers win, holders dilute" loading="lazy">
         <p class="takeaway"><strong>Takeaway:</strong> Stakers earn 4.91% APY against 2.50% maximum inflation — a 2.41 percentage-point real yield. Non-stakers dilute 2.50% a year. 593,372,643 NEAR (45.2% of supply) is staked across 371 of 742 validators; the top 10 hold 36.2% of stake.</p>
-        <p class="source">Source: <code>https://api.nearblocks.io/v1/validators</code> · fetched 2026-11-12T14:50:40Z</p>
+        <p class="source">Source: <code>https://api.nearblocks.io/v1/validators</code> · fetched 2026-11-13T07:24:10Z</p>
       </section>
 
       <section class="chart">
         <h3>7 · Sensitivity — what has to be true for $3.60?</h3>
         <p class="desc">Implied NEAR value per token across capture rate (15/25/35%) × perpetual fee growth (0/10/20%) at a 12% discount rate.</p>
         <img src="assets/chart07_sensitivity_heatmap.svg" alt="7 · Sensitivity — what has to be true for $3.60?" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> No cell in the grid reaches the current $3.40 price — the best valid cell (35% capture, 10% growth, r=12%) is $1.11. The market is paying for fee growth and/or capture beyond this grid. Cells where growth meets or exceeds the discount rate are invalid in a Gordon model and shown as n/a.</p>
-        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-12T14:51:12Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> No cell in the grid reaches the current $3.55 price — the best valid cell (35% capture, 10% growth, r=12%) is $1.07. The market is paying for fee growth and/or capture beyond this grid. Cells where growth meets or exceeds the discount rate are invalid in a Gordon model and shown as n/a.</p>
+        <p class="source">Source: <code>Model output — data/processed/sensitivity.json</code> · fetched 2026-11-13T07:24:41Z</p>
       </section>
 
       <section class="chart">
         <h3>8 · Daily transactions & active accounts — the usage collapse</h3>
         <p class="desc">Daily transactions and daily active accounts on NEAR, Jul 2020 – today (2,303 daily points, log scale), with all-time peaks marked.</p>
         <img src="assets/chart08_daily_activity.svg" alt="8 · Daily transactions & active accounts — the usage collapse" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> Both series are far below their peaks: 891,297 txns on 2026-11-11 vs a peak of 13,935,402 on 2023-12-01 (93.6% below peak; 30d average 663,840, -23.4% vs the prior 30 days), and 77,831 active accounts vs a peak of 2,256,512 on 2024-04-22 (96.6% below peak). New accounts are slowing too: 284,950 in the last 30 days vs 348,039 the 30 days before (-18.1%). This is the honest bear leg of the thesis: base-layer usage has collapsed from its peaks even while Intents fees grew — the toll road's moat is the Intents product, not base-layer activity.</p>
-        <p class="source">Source: <code>https://api.nearblocks.io/v1/charts</code> · fetched 2026-11-12T14:50:41Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> Both series are far below their peaks: 891,523 txns on 2026-11-12 vs a peak of 13,935,402 on 2023-12-01 (93.6% below peak; 30d average 669,188, -23.1% vs the prior 30 days), and 85,370 active accounts vs a peak of 2,256,512 on 2024-04-22 (96.2% below peak). New accounts are slowing too: 287,996 in the last 30 days vs 344,576 the 30 days before (-16.4%). This is the honest bear leg of the thesis: base-layer usage has collapsed from its peaks even while Intents fees grew — the toll road's moat is the Intents product, not base-layer activity.</p>
+        <p class="source">Source: <code>https://api.nearblocks.io/v1/charts</code> · fetched 2026-11-13T07:24:11Z</p>
       </section>
 
       <section class="chart">
         <h3>9 · Intents volume & fees — the growth x-axis, finally measured</h3>
         <p class="desc">NEAR Intents daily swap volume (DefiLlama dexs) and daily fees (DefiLlama fees), Dec 2024 – today, log scale.</p>
         <img src="assets/chart09_intents_volume_and_fees.svg" alt="9 · Intents volume & fees — the growth x-axis, finally measured" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> Intents volume was $3.73B in the last 30 days (-21.7% vs the prior 30 days; peak single day $303.42M on 2026-09-17), against $5,991,511 of gross fees — an implied gross fee rate of 16.06 bps. Volume and fees are the same story told twice: fees are volume × the fee rate, so the DCF's growth assumption is really a bet on volume compounding at roughly this fee rate.</p>
-        <p class="source">Source: <code>https://api.llama.fi/summary/dexs/near-intents</code> · fetched 2026-11-12T14:50:58Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> Intents volume was $3.77B in the last 30 days (-21.6% vs the prior 30 days; peak single day $303.42M on 2026-09-17), against $5,807,392 of gross fees — an implied gross fee rate of 15.39 bps. Volume and fees are the same story told twice: fees are volume × the fee rate, so the DCF's growth assumption is really a bet on volume compounding at roughly this fee rate.</p>
+        <p class="source">Source: <code>https://api.llama.fi/summary/dexs/near-intents</code> · fetched 2026-11-13T07:24:29Z</p>
       </section>
 
       <section class="chart">
         <h3>10 · Metcalfe check — price does not follow users</h3>
-        <p class="desc">NEAR price vs daily active accounts, monthly log-log (74 months, 2020-10-14 to 2026-11-11), plus the cumulative-transactions partial check.</p>
+        <p class="desc">NEAR price vs daily active accounts, monthly log-log (74 months, 2020-10-14 to 2026-11-12), plus the cumulative-transactions partial check.</p>
         <img src="assets/chart10_metcalfe_price_vs_users.svg" alt="10 · Metcalfe check — price does not follow users" loading="lazy">
-        <p class="takeaway"><strong>Takeaway:</strong> On the full window the log-log slope is 0.02 (SE 0.04) with R² 0.004 — statistically zero, against the strict-Metcalfe slope of 2.0. The daily regression agrees (slope 0.01, R² 0.001, n=2,220 days). Even market cap on users gives only slope 0.19, R² 0.270. A fellow entry (NEAR Demand Ledger) reports slope 0.21, R² 0.28 on 73 months — the same disconnect, weaker on this series. Caveat, not buried: from Jan 2024 the monthly slope is 0.33 (r 0.64), the joint fall from the Apr 2024 activity peak — the relation flips sign across sub-periods, so it is not a stable law. Net: value NEAR on fees, not users.</p>
-        <p class="source">Source: <code>https://api.nearblocks.io/v1/charts</code> · fetched 2026-11-12T14:50:41Z</p>
+        <p class="takeaway"><strong>Takeaway:</strong> On the full window the log-log slope is 0.02 (SE 0.04) with R² 0.004 — statistically zero, against the strict-Metcalfe slope of 2.0. The daily regression agrees (slope 0.01, R² 0.001, n=2,221 days). Even market cap on users gives only slope 0.19, R² 0.270. A fellow entry (NEAR Demand Ledger) reports slope 0.21, R² 0.28 on 73 months — the same disconnect, weaker on this series. Caveat, not buried: from Jan 2024 the monthly slope is 0.33 (r 0.64), the joint fall from the Apr 2024 activity peak — the relation flips sign across sub-periods, so it is not a stable law. Net: value NEAR on fees, not users.</p>
+        <p class="source">Source: <code>https://api.nearblocks.io/v1/charts</code> · fetched 2026-11-13T07:24:11Z</p>
       </section>
 
 
 <h2>Network activity — the usage chapter in one paragraph</h2>
 <p>Base-layer usage is the thesis&rsquo;s bear leg, and it is now measured on a
-full daily series (NEARBlocks <code>/v1/charts</code>, 2,305 days
-from 2020-07-21): 891,297 transactions and
-77,831 active accounts on 2026-11-11 — respectively
-93.6% and 96.6% below
+full daily series (NEARBlocks <code>/v1/charts</code>, 2,306 days
+from 2020-07-21): 891,523 transactions and
+85,370 active accounts on 2026-11-12 — respectively
+93.6% and 96.2% below
 their all-time peaks (13,935,402 txns on
 2023-12-01; 2,256,512 accounts on
 2024-04-22). New accounts are slowing as well
-(284,950 in 30 days, -18.1% vs the
-prior 30). Over the last 365 days, weekly changes in NEAR&rsquo;s price and in Intents fees moved together with a Pearson correlation of 0.03 (n=366 weeks; price vs base-layer gas fees: 0.56) — a co-movement, not a lead-lag result and not evidence of causation. The investment question is therefore not whether NEAR&rsquo;s base layer is busy (it is not, relative to its peaks) but whether Intents volume — $3.73B in 30 days at a 16.06 bps fee rate — keeps compounding while the base layer does not.</p>
+(287,996 in 30 days, -16.4% vs the
+prior 30). Over the last 365 days, weekly changes in NEAR&rsquo;s price and in Intents fees moved together with a Pearson correlation of 0.06 (n=366 weeks; price vs base-layer gas fees: 0.56) — a co-movement, not a lead-lag result and not evidence of causation. The investment question is therefore not whether NEAR&rsquo;s base layer is busy (it is not, relative to its peaks) but whether Intents volume — $3.77B in 30 days at a 15.39 bps fee rate — keeps compounding while the base layer does not.</p>
 
 
 <h2>Metcalfe check — does price follow users?</h2>
 <p>Metcalfe&rsquo;s law says a network&rsquo;s value grows with the square of its
 users, so log(price) on log(users) should have a slope near 2.0. On the
-NEARBlocks daily series (2020-10-14 to 2026-11-11, 2,220 days,
+NEARBlocks daily series (2020-10-14 to 2026-11-12, 2,221 days,
 74 months) it does not: the monthly slope is 0.02
 (SE 0.04) with R² 0.004 and Pearson r
 0.07 — statistically indistinguishable from zero. The daily
@@ -224,7 +224,7 @@ together more in the recent window, driven by the joint fall from the Apr 2024
 activity peak. The relation flips sign across sub-periods, so it is not a
 stable law. The takeaway for the thesis: value NEAR on fees, not on users —
 the fee thesis stands on its own numbers, and no user-count story rescues the
-$3.40 price. Method: log(price) = a + b·log(users), month-end price vs
+$3.55 price. Method: log(price) = a + b·log(users), month-end price vs
 monthly mean active accounts; 85 pre-launch
 zero-price rows and 11 zero-user
 rows (all Jul–Oct 2020) dropped before taking logs.</p>
@@ -236,14 +236,14 @@ the git history of <a href="https://github.com/Topeseun/near-intents-investment-
 and derived from the thesis&rsquo;s own numbers — no threshold here is
 invented. <strong>A missed prediction counts against the thesis.</strong>
 That is the point: a thesis that cannot be wrong is not evidence. Live
-values below are as of 2026-11-12T14:51:12Z — a point-in-time read
+values below are as of 2026-11-13T07:24:41Z — a point-in-time read
 against the threshold, <em>not</em> the final outcome: no prediction has
 resolved yet (earliest resolution date 2026-12-31). Current tally:
 6 on track, 1 off track,
 0 not yet measurable.</p>
 <div class="tbl-wrap"><table>
 <tr><th>ID</th><th>Prediction</th><th>Threshold</th><th>Resolves</th><th>Live value</th><th>Status</th></tr>
-<tr><th scope='row'>P₁</th><td>Intents fees recover to their November level</td><td>Trailing-30d gross fees ≥ $5,578,208</td><td>2026-12-31</td><td>$5,991,511</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₂</th><td>The capture rate holds its level</td><td>30d capture rate ≥ 35.97%</td><td>2027-01-31</td><td>33.82%</td><td class="st-off">off track</td></tr><tr><th scope='row'>P₃</th><td>The DCF gap persists</td><td>DCF value/token &lt; 25% of NEAR price</td><td>2027-02-28</td><td>12.6% of price</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₄</th><td>Intents volume holds above $3B</td><td>Trailing-30d volume ≥ $3,000,000,000</td><td>2026-12-31</td><td>$3,731,354,987</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₅</th><td>NEAR keeps its lead over Chainflip</td><td>NEAR 30d fees ≥ 1.5× Chainflip 30d fees</td><td>2027-01-31</td><td>2.05×</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₆</th><td>Base-layer usage stays collapsed</td><td>30d avg daily active accounts &lt; 100,000/day</td><td>2027-02-28</td><td>62,933/day</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₇</th><td>The price still does not track Intents fees</td><td>Weekly Pearson |r| &lt; 0.30 (52w, M₁₆ method)</td><td>2026-12-31</td><td>|r| = 0.034</td><td class="st-on">on track</td></tr>
+<tr><th scope='row'>P₁</th><td>Intents fees recover to their November level</td><td>Trailing-30d gross fees ≥ $5,578,208</td><td>2026-12-31</td><td>$5,807,392</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₂</th><td>The capture rate holds its level</td><td>30d capture rate ≥ 35.97%</td><td>2027-01-31</td><td>33.25%</td><td class="st-off">off track</td></tr><tr><th scope='row'>P₃</th><td>The DCF gap persists</td><td>DCF value/token &lt; 25% of NEAR price</td><td>2027-02-28</td><td>11.5% of price</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₄</th><td>Intents volume holds above $3B</td><td>Trailing-30d volume ≥ $3,000,000,000</td><td>2026-12-31</td><td>$3,774,153,452</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₅</th><td>NEAR keeps its lead over Chainflip</td><td>NEAR 30d fees ≥ 1.5× Chainflip 30d fees</td><td>2027-01-31</td><td>1.95×</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₆</th><td>Base-layer usage stays collapsed</td><td>30d avg daily active accounts &lt; 100,000/day</td><td>2027-02-28</td><td>63,923/day</td><td class="st-on">on track</td></tr><tr><th scope='row'>P₇</th><td>The price still does not track Intents fees</td><td>Weekly Pearson |r| &lt; 0.30 (52w, M₁₆ method)</td><td>2026-12-31</td><td>|r| = 0.055</td><td class="st-on">on track</td></tr>
 </table></div>
 <p class="note">Live values are the same figures the model already computes
 (M₁ F₃₀, M₃ capture, base-case DCF ÷ live price, M₁₅ volume, F₃₀ ÷ Chainflip
@@ -256,7 +256,7 @@ in PREDICTIONS.md.</p>
 <p>Committed 2026-11-11: a thesis that cannot be wrong is not
 evidence, so here are the six kill conditions. If one triggers, the thesis
 (or the part of it the condition tests) is wrong and must be revised, not
-defended. Live values below are as of 2026-11-12T14:51:12Z.
+defended. Live values below are as of 2026-11-13T07:24:41Z.
 Current tally: 0 triggered,
 6 not triggered,
 0 not yet measurable. Three conditions
@@ -276,7 +276,7 @@ is reported. F₅ has no persistence window by design: a single recomputation
 at or above 100% is enough.</p>
 <div class="tbl-wrap"><table>
 <tr><th>ID</th><th>Condition</th><th>Threshold</th><th>Live value</th><th>Status</th></tr>
-<tr><th scope='row'>F₁</th><td>Revenue base too small</td><td>Trailing-30d Intents gross fees (F30) below $2,000,000 sustained for 90 consecutive days</td><td>$5,991,511</td><td class="st-on">not triggered<br><span class="note">No breach: F30 $5,991,511 is above the $2,000,000 bar; 0 of 90 persistence days.</span></td></tr><tr><th scope='row'>F₂</th><td>Retention fails</td><td>30d capture rate (retained ÷ gross) below 15% sustained for 90 consecutive days</td><td>33.82%</td><td class="st-on">not triggered<br><span class="note">No breach: capture 33.82% is above the 15% floor; 0 of 90 persistence days.</span></td></tr><tr><th scope='row'>F₃</th><td>Concentration kills the moat</td><td>A single routing-provider outage cuts observed 1Click volume by more than 50% for 7+ days</td><td>31.6% drop — Oct 1–4 2026 pause precedent</td><td class="st-on">not triggered<br><span class="note">Precedent only: the Oct 1–4 2026 pause ran 31.6% below the prior matching week — under the 50% bar. Event-based; re-evaluated when a new outage is reported.</span></td></tr><tr><th scope='row'>F₄</th><td>Competitive lead lost</td><td>A competitor&#x27;s trailing-30d Intents fees exceed NEAR&#x27;s (ratio &lt; 1.0) for 3 consecutive months</td><td>2.05×</td><td class="st-on">not triggered<br><span class="note">No breach: NEAR leads Chainflip 2.05×; 0 of 3 persistence months.</span></td></tr><tr><th scope='row'>F₅</th><td>Thesis too bearish (reverse falsification)</td><td>DCF value/token at or above 100% of NEAR price</td><td>12.6% of price</td><td class="st-on">not triggered<br><span class="note">No breach: DCF value/token is 12.6% of price — far below the 100% bar.</span></td></tr><tr><th scope='row'>F₆</th><td>Growth story dies</td><td>Trailing-30d fees fall more than 50% from the $8,236,902 peak of 14 Oct 2026 AND 30d volume falls more than 50% vs its prior 30d, both sustained for 90 consecutive days</td><td>72.7% of peak<br><span class="note">78.3% of prior 30d</span></td><td class="st-on">not triggered<br><span class="note">No breach: fees are 72.7% of peak and volume 78.3% of prior 30d — neither leg is below its 50% bar; 0 of 90 persistence days.</span></td></tr>
+<tr><th scope='row'>F₁</th><td>Revenue base too small</td><td>Trailing-30d Intents gross fees (F30) below $2,000,000 sustained for 90 consecutive days</td><td>$5,807,392</td><td class="st-on">not triggered<br><span class="note">No breach: F30 $5,807,392 is above the $2,000,000 bar; 0 of 90 persistence days.</span></td></tr><tr><th scope='row'>F₂</th><td>Retention fails</td><td>30d capture rate (retained ÷ gross) below 15% sustained for 90 consecutive days</td><td>33.25%</td><td class="st-on">not triggered<br><span class="note">No breach: capture 33.25% is above the 15% floor; 0 of 90 persistence days.</span></td></tr><tr><th scope='row'>F₃</th><td>Concentration kills the moat</td><td>A single routing-provider outage cuts observed 1Click volume by more than 50% for 7+ days</td><td>31.6% drop — Oct 1–4 2026 pause precedent</td><td class="st-on">not triggered<br><span class="note">Precedent only: the Oct 1–4 2026 pause ran 31.6% below the prior matching week — under the 50% bar. Event-based; re-evaluated when a new outage is reported.</span></td></tr><tr><th scope='row'>F₄</th><td>Competitive lead lost</td><td>A competitor&#x27;s trailing-30d Intents fees exceed NEAR&#x27;s (ratio &lt; 1.0) for 3 consecutive months</td><td>1.95×</td><td class="st-on">not triggered<br><span class="note">No breach: NEAR leads Chainflip 1.95×; 0 of 3 persistence months.</span></td></tr><tr><th scope='row'>F₅</th><td>Thesis too bearish (reverse falsification)</td><td>DCF value/token at or above 100% of NEAR price</td><td>11.5% of price</td><td class="st-on">not triggered<br><span class="note">No breach: DCF value/token is 11.5% of price — far below the 100% bar.</span></td></tr><tr><th scope='row'>F₆</th><td>Growth story dies</td><td>Trailing-30d fees fall more than 50% from the $8,236,902 peak of 14 Oct 2026 AND 30d volume falls more than 50% vs its prior 30d, both sustained for 90 consecutive days</td><td>70.5% of peak<br><span class="note">78.4% of prior 30d</span></td><td class="st-on">not triggered<br><span class="note">No breach: fees are 70.5% of peak and volume 78.4% of prior 30d — neither leg is below its 50% bar; 0 of 90 persistence days.</span></td></tr>
 </table></div>
 <p class="note">Committed thresholds live in
 <code>data/falsification.json</code>; live values are the same figures the
@@ -289,58 +289,58 @@ Method and honesty notes: <code>data/processed/BUILD_NOTES.md</code> (M₁₉).<
 <h2>Benchmarks — NEAR vs SOL / AVAX / ETH</h2>
 <div class="tbl-wrap"><table>
 <tr><th>Chain</th><th>Price</th><th>Market cap</th><th>30d fees</th><th>Annualised fees</th><th>Mcap / fees</th><th>TVL</th><th>Mcap / TVL</th></tr>
-<tr><th scope='row'>NEAR — Intents gross</th><td>$3.40</td><td>$4.46B</td><td>$5,991,511</td><td>$71.90M</td><td>62.0×</td><td>$164.44M</td><td>27.1×</td></tr>
-<tr><th scope='row'>NEAR — Intents retained (base)</th><td>$3.40</td><td>$4.46B</td><td>$5,991,511</td><td>$71.90M</td><td>183.4×</td><td>$164.44M</td><td>27.1×</td></tr>
-<tr><th scope='row'>Solana</th><td>$81.11</td><td>$48.00B</td><td>$16,893,399</td><td>$202.72M</td><td>236.8×</td><td>$11.55B</td><td>4.2×</td></tr>
-<tr><th scope='row'>Avalanche</th><td>$8.32</td><td>$3.71B</td><td>$338,567</td><td>$4.06M</td><td>912.8×</td><td>$1.25B</td><td>3.0×</td></tr>
-<tr><th scope='row'>Ethereum</th><td>$2,001.80</td><td>$244.65B</td><td>$19,988,915</td><td>$239.87M</td><td>1,019.9×</td><td>$91.92B</td><td>2.7×</td></tr>
+<tr><th scope='row'>NEAR — Intents gross</th><td>$3.55</td><td>$4.65B</td><td>$5,807,392</td><td>$69.69M</td><td>66.7×</td><td>$155.54M</td><td>29.9×</td></tr>
+<tr><th scope='row'>NEAR — Intents retained (base)</th><td>$3.55</td><td>$4.65B</td><td>$5,807,392</td><td>$69.69M</td><td>200.7×</td><td>$155.54M</td><td>29.9×</td></tr>
+<tr><th scope='row'>Solana</th><td>$80.52</td><td>$47.63B</td><td>$16,550,289</td><td>$198.60M</td><td>239.8×</td><td>$11.17B</td><td>4.3×</td></tr>
+<tr><th scope='row'>Avalanche</th><td>$8.34</td><td>$3.72B</td><td>$342,830</td><td>$4.11M</td><td>904.6×</td><td>$1.21B</td><td>3.1×</td></tr>
+<tr><th scope='row'>Ethereum</th><td>$1,943.35</td><td>$237.51B</td><td>$19,918,404</td><td>$239.02M</td><td>993.7×</td><td>$87.77B</td><td>2.7×</td></tr>
 </table></div>
 <p class="note">NEAR &ldquo;retained&rdquo; uses annualised retained revenue
-($24.32M/yr) in place of annualised fees, so its mcap/fees reads
-183.4×. Peer chain fees are DefiLlama 30d totals annualised — the same
+($23.17M/yr) in place of annualised fees, so its mcap/fees reads
+200.7×. Peer chain fees are DefiLlama 30d totals annualised — the same
 methodology for all four chains, but DefiLlama chain-fee totals can undercount
 vs other methodologies (e.g. Solana&rsquo;s total here is far below figures that
 include all validator/Jito revenue). Use for relative ranking within this
 dataset, not as absolute revenue. NEAR TVL is the DefiLlama historical-series
-last point (2026-11-12, $164.44M); the
-DefiLlama /chains headline for NEAR ($351.59M)
+last point (2026-11-13, $155.54M); the
+DefiLlama /chains headline for NEAR ($337.50M)
 disagrees — different inclusion methodology, recorded in
 <code>data/processed/benchmarks.json</code>.</p>
 
 <h2>Intents competitors — is NEAR winning the category?</h2>
 <div class="tbl-wrap"><table>
 <tr><th>Protocol</th><th>30d fees</th><th>7d fees</th><th>24h fees</th></tr>
-<tr><th scope='row'>NEAR Intents</th><td>$5,991,511</td><td>$1,658,900</td><td>$233,973</td></tr><tr><th scope='row'>Chainflip</th><td>$2,918,190</td><td>$577,986</td><td>$115,401</td></tr><tr><th scope='row'>deBridge</th><td>$453,958</td><td>$146,530</td><td>$9,721</td></tr><tr><th scope='row'>THORChain</th><td>$18,029</td><td>$8,523</td><td>$1,610</td></tr>
+<tr><th scope='row'>NEAR Intents</th><td>$5,807,392</td><td>$1,446,879</td><td>$16,604</td></tr><tr><th scope='row'>Chainflip</th><td>$2,970,860</td><td>$605,924</td><td>$144,202</td></tr><tr><th scope='row'>deBridge</th><td>$458,930</td><td>$116,041</td><td>$14,920</td></tr><tr><th scope='row'>THORChain</th><td>$18,421</td><td>$7,819</td><td>$700</td></tr>
 </table></div>
 <p class="note">Sources: DefiLlama <code>summary/fees/&#123;thorchain,chainflip,debridge&#125;</code>,
-fetched 2026-11-12T14:50:57Z. LI.FI was tested and dropped:
+fetched 2026-11-13T07:24:26Z. LI.FI was tested and dropped:
 DefiLlama returns 404 (&ldquo;Fees for lifi not found&rdquo;). THORChain&rsquo;s 30d
-figure is only $18,029 — its fee series is
+figure is only $18,421 — its fee series is
 thin on DefiLlama; do not over-claim from it. On this dataset NEAR Intents
 grosses about 2.0× Chainflip&rsquo;s 30d fees.</p>
 
 <h2>Sensitivity — implied value per token (USD)</h2>
 <p>Capture rate × perpetual fee growth, at a fixed 12% discount rate
-(Chart 7). Base case ($0.43) sits outside this grid: it uses the measured
-33.82% capture at r=15%, g=10%.</p>
+(Chart 7). Base case ($0.41) sits outside this grid: it uses the measured
+33.25% capture at r=15%, g=10%.</p>
 <div class="tbl-wrap"><table>
 <tr><th>Capture ↓ / Growth →</th><th>0%</th><th>10%</th><th>20%</th></tr>
-<tr><th scope='row'>15%</th><td>$0.07</td><td>$0.47</td><td class="invalid">n/a<br><span>g ≥ r</span></td></tr><tr><th scope='row'>25%</th><td>$0.12</td><td>$0.79</td><td class="invalid">n/a<br><span>g ≥ r</span></td></tr><tr><th scope='row'>35%</th><td>$0.17</td><td>$1.11</td><td class="invalid">n/a<br><span>g ≥ r</span></td></tr>
+<tr><th scope='row'>15%</th><td>$0.07</td><td>$0.46</td><td class="invalid">n/a<br><span>g ≥ r</span></td></tr><tr><th scope='row'>25%</th><td>$0.12</td><td>$0.77</td><td class="invalid">n/a<br><span>g ≥ r</span></td></tr><tr><th scope='row'>35%</th><td>$0.16</td><td>$1.07</td><td class="invalid">n/a<br><span>g ≥ r</span></td></tr>
 </table></div>
 <p class="note">Cells marked n/a are the invalid g ≥ r zone: a Gordon-growth model
 requires growth below the discount rate, so no value is computed there. Even
 the best valid cell (35% capture, 10% growth, r=12%) is
-$1.11 — well under the $3.40 price.
+$1.07 — well under the $3.55 price.
 Full 27-cell grid (r = 10/12/15%): <code>data/processed/sensitivity.json</code>.</p>
 
 <h2>Capture is rising — the one trend that matters</h2>
 <p>Retained ÷ gross fees by window (revenue.near.org, measured from its
 server-rendered payload, cross-checked against the per-mechanism split):
-all-time 19.1% → YTD
+all-time 19.2% → YTD
 23.0% → 7d
-27.8% → 30d
-33.8%. 30d split: direct fees
-19.8% + B2B
+25.9% → 30d
+33.2%. 30d split: direct fees
+19.2% + B2B
 10.4% + quote improvement
 3.6%. The model&rsquo;s base
 case uses the 30d rate, not the lifetime rate.</p>
@@ -354,42 +354,42 @@ claim that &ldquo;no daily endpoint exists&rdquo; was wrong — the bare
 <code>/v1/charts</code> path was never tested, only suffixed paths (all 404).
 Daily transactions are 93.6% below their
 2023-12-01 peak and daily active accounts
-96.6% below their 2024-04-22
+96.2% below their 2024-04-22
 peak. Early rows have gaps: <code>multichain_txns</code> is null before
 14 Nov 2024 and <code>txn_volume</code> is null on 11 days in Jul–Aug 2020;
 neither field is used in any metric.</li>
 <li><strong>Volume is now measured too — with a shorter window.</strong> DefiLlama
 <code>summary/dexs/near-intents</code> gives a daily Intents <em>volume</em> series
 (699 points from 10 Dec 2024), so the growth story finally has its own x-axis:
-$3.73B in 30 days, implying a
-16.06 bps gross fee rate. The volume series
+$3.77B in 30 days, implying a
+15.39 bps gross fee rate. The volume series
 starts Dec 2024, not at the May 2025 fee-series start — the two series cover
 different windows, and the endpoint&rsquo;s own 30d total
-($3.73B) differs slightly from the sum of the
+($3.77B) differs slightly from the sum of the
 last 30 daily points because its rolling window ends at fetch time, after the
 last daily point.</li>
 <li><strong>365-day price cap.</strong> CoinGecko&rsquo;s free tier limits history to
 365 days (days=max returns 401). All price history here is one year.</li>
 <li><strong>24-hour fee anomaly.</strong> Intents fees for 9 Nov 2026 were
-$233,973 vs a 7-day daily average of
-$236,986 — a full-day value in the series, so
+$16,604 vs a 7-day daily average of
+$206,697 — a full-day value in the series, so
 either a real one-day drop or a DefiLlama reporting lag. No single day is
 ever annualised; all annualisation uses 7d/30d trailing figures.</li>
 <li><strong>Fees are volatile, not a ramp.</strong> Trailing-30d fees peaked at
 $8,236,902 on
-2026-10-14 and are 27.3%
+2026-10-14 and are 29.5%
 below that peak. Do not quote the full-series launch-ramp CAGR.</li>
 <li><strong>Revenue-dashboard caveats.</strong> The revenue.near.org headline
-revenue figure ($11.71M) has
+revenue figure ($11.78M) has
 an unlabelled window in the page payload and is never used as a model input.
 Its wallet table is partial: the live NEARBlocks balance of
-buybacks.multisignature.near (2,255,175 NEAR)
+buybacks.multisignature.near (2,272,743 NEAR)
 is higher than the dashboard&rsquo;s traced all-time inflow
-(1,751,826 NEAR),
+(1,771,957 NEAR),
 so it must not be read as the full buyback total.</li>
 <li><strong>TVL endpoints disagree.</strong> DefiLlama&rsquo;s NEAR historical-series
-last point ($164.44M) vs its /chains headline
-($351.59M). The auditable series value is used.</li>
+last point ($155.54M) vs its /chains headline
+($337.50M). The auditable series value is used.</li>
 <li><strong>Peer fees undercount.</strong> DefiLlama chain-fee totals can miss
 revenue other methodologies include (notably Solana). Benchmarks rank within
 this dataset only.</li>
@@ -419,7 +419,7 @@ the prior matching week.</li>
 
 <footer>
 <p>NEAR Hackathon 2026 — Investment Thesis track. Built with free, keyless data
-only. Generated 2026-11-12T14:51:12Z from <code>data/processed/*.json</code> by
+only. Generated 2026-11-13T07:24:41Z from <code>data/processed/*.json</code> by
 <code>src/build_dashboard.py</code>. Not investment advice. NEAR payout account for
 prizes (if awarded): <code>topeseun20.near</code>.</p>
 </footer>
