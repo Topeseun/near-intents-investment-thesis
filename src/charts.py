@@ -259,11 +259,10 @@ def chart08():
              ylabel="Active accounts / day (log scale)")
     fig.text(0.01, 0.01,
              f"Latest day ({d['dates'][-1]}): {d['txns_current']:,.0f} txns "
-             f"({d['txns_pct_below_peak']}% below peak; 30d avg "
-             f"{d['txns_30d_avg']:,.0f}) and {d['accounts_current']:,.0f} active "
-             f"accounts ({d['accounts_pct_below_peak']}% below peak; 30d avg "
-             f"{d['accounts_30d_avg']:,.0f}). Source: NEARBlocks /v1/charts "
-             f"({len(dates)} daily points).",
+             f"({d['txns_pct_below_peak']}% below peak) · "
+             f"{d['accounts_current']:,.0f} active accounts "
+             f"({d['accounts_pct_below_peak']}% below peak). Source: "
+             f"NEARBlocks /v1/charts ({len(dates)} daily points).",
              fontsize=8, color=GREY)
     save(fig, "chart08_daily_activity.png")
 
@@ -347,20 +346,13 @@ def chart10():
              ylabel="NEAR price, month-end USD (log scale)")
     ax2.legend(frameon=False, loc="upper left", fontsize=9)
     ax2.text(0.02, 0.02,
-             "PARTIAL: cumulative txns only rises, so this test is "
-             "trend-dominated by construction.",
+             "PARTIAL: cumulative txns only rises — trend-dominated.",
              transform=ax2.transAxes, fontsize=8, color=GREY)
-    fig.text(0.01, -0.01,
-             f"Daily regression agrees (slope {d['slope_daily']:.2f}, "
-             f"R² {d['r_squared_daily']:.3f}, n=2,218 days). Market-cap version: "
-             f"slope {d['slope_mcap_monthly']:.2f}, R² "
-             f"{d['r_squared_mcap_monthly']:.3f}. A fellow entry (NEAR Demand "
-             f"Ledger) reports slope {d['rival_slope']:.2f}, R² "
-             f"{d['rival_r_squared']:.2f} on 73 months — same direction "
-             f"(disconnect), weaker on this series. Caveat: from Jan 2024 the "
-             f"monthly slope is {d['slope_subwindow_2024']:.2f} (r "
-             f"{d['r_subwindow_2024']:.2f}) — the joint fall from the Apr 2024 "
-             f"peak, not a stable law. Source: NEARBlocks /v1/charts.",
+    fig.text(0.01, 0.01,
+             f"From Jan 2024: slope {d['slope_subwindow_2024']:.2f} (r "
+             f"{d['r_subwindow_2024']:.2f}) — the rise to and joint fall from "
+             f"the Apr 2024 peak, not a stable law. Source: NEARBlocks "
+             f"/v1/charts.",
              fontsize=8, color=GREY)
     save(fig, "chart10_metcalfe_price_vs_users.png")
 
