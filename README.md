@@ -8,10 +8,12 @@
 
 ## Executive summary for judges
 
-1. **The thesis.** NEAR's base layer barely earns anything; its Intents layer grossed $5,807,392 of fees in 30 days and keeps a growing share for buybacks. Value NEAR as a toll road on cross-chain volume — retained Intents revenue, fee-capture DCF — not as a cheap fast L1.
-2. **The valuation floor.** At today's fees and the measured 33.37% capture, retained revenue alone supports **$0.41 per token — 11.7% of the $3.50 price** (r=15%, g=10%). That is the floor, not the target: the case is the option on fee growth and rising capture.
-3. **Key risks & kill conditions.** Six committed falsification conditions (F₁–F₆), **0 triggered**: revenue base too small, retention fails, SwapKit concentration (34.1% of observed 1Click volume), competitive lead lost, thesis too bearish, growth story dies. Base-layer usage is 93.6% (txns) and 96.2% (accounts) below peak — the moat, if there is one, is the Intents product, not base-layer activity.
-4. **Concrete upside catalysts.** See the matrix below — AI-agent cross-chain execution, Chain Signatures expansion, SwapKit concentration mitigation, and new retained-fee mechanisms raising capture toward the 35.97% P₂ bar.
+- **Key finding.** Retained revenue alone supports **$0.41 per token — 11.7% of the $3.50 price** (r=15%, g=10%, measured 33.37% capture). The price itself implies retained revenue of **$198.8M/yr (8.6× today's R₀)**; buybacks only stop the token inflating at **$114.8M/yr (4.9× R₀)**. The case is the option on fee growth and rising capture, not today's cash flow.
+- **Falsification.** Six committed conditions (F₁–F₆) that would kill the thesis — **0 triggered**: revenue base too small, retention fails, SwapKit concentration (34.1% of observed 1Click volume), competitive lead lost, thesis too bearish, growth story dies.
+- **Predictions.** Seven dated, committed predictions (P₁–P₇) scored against reality — **6 on track, 1 off track** (P₂: capture 33.37% vs the 35.97% bar). A missed prediction counts against the thesis.
+- **Thesis in one line.** NEAR's base layer barely earns anything; its Intents layer grossed $5,807,392 of fees in 30 days and keeps a growing share for buybacks. Value NEAR as a toll road on cross-chain volume — retained Intents revenue, fee-capture DCF — not as a cheap fast L1. Base-layer usage is 93.6% (txns) and 96.2% (accounts) below peak — the moat, if there is one, is the Intents product, not base-layer activity.
+
+Upside catalysts — AI-agent cross-chain execution, Chain Signatures expansion, SwapKit concentration mitigation, and new retained-fee mechanisms raising capture toward the 35.97% P₂ bar:
 
 | Catalyst | What it would do | What to watch (live metric) |
 |---|---|---|
@@ -146,9 +148,19 @@ What the code does, exactly:
 python3 src/fetch.py && python3 src/build.py && python3 src/build_dashboard.py
 ```
 
-Requirements: Python 3.12, `requests`, `pandas`, `matplotlib`, `PyYAML`, `numpy`. No API keys, no paid services, no server. Then open `dashboard/index.html` in any browser (or `python3 -m http.server` from `dashboard/`).
+Requirements: Python 3.12; pinned versions in `requirements.txt` (`pip install -r requirements.txt`). No API keys, no paid services, no server. Then open `dashboard/index.html` in any browser (or `python3 -m http.server` from `dashboard/`).
 
 Verified: a clean re-run (`rm -rf data && python3 src/fetch.py && python3 src/build.py`) reproduces the fee-derived numbers exactly (F₃₀ $5,807,392, capture 33.37%, R₀ $23,255,121, DCF $0.4093/token); price-dependent numbers move only with the live price tick. See `data/processed/BUILD_NOTES.md` and `dashboard/BUILD_NOTES.md`.
+
+## Quick verify (no network needed)
+
+```bash
+python3 -m unittest discover -s tests -v   # 32 tests, stdlib unittest only
+```
+
+Then open `docs/index.html` in any browser — it is the live dashboard, committed in this repo.
+
+The committed `data/` reproduces every number in this README and on the dashboard: the tests check the README and dashboard against `data/processed/*.json` and recompute the model arithmetic from them. No test calls any live API — the only step that touches the network is a fresh fetch (`python3 src/fetch.py`). Dependencies, if needed, are pinned in `requirements.txt` (`pip install -r requirements.txt`).
 
 ## Tests
 
