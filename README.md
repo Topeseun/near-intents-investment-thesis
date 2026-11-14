@@ -2,7 +2,7 @@
 
 **Verdict: overvalued on retained revenue.** Retained revenue alone supports $0.42 per token — 13.0% of the $3.22 price. The price itself implies retained revenue of $182.9M/yr (7.7× today's R₀). Separately, buybacks only stop the token from inflating when retained revenue reaches $105.6M/yr (4.4× today's R₀) — the break-even where buybacks match issuance (net +25,403,283 NEAR/yr today). The case for NEAR is the option on fee growth and rising capture, not today's cash flow.
 
-**NEAR Hackathon 2026 · Investment Thesis track** · Development ends **Fri 14 Nov 2026, 23:59 UTC** · Solo builder, free resources only, no paid APIs.
+**NEAR Hackathon 2026 · Investment Thesis track** · Development ends **Sat 14 Nov 2026, 23:59 UTC** · Solo builder, free resources only, no paid APIs.
 
 **Live dashboard: https://topeseun.github.io/near-intents-investment-thesis/**
 
