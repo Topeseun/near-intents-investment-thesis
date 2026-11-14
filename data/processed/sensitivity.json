@@ -4,34 +4,34 @@
       "capture": 0.15,
       "growth": 0.0,
       "discount": 0.1,
-      "R0_usd": 10886772.6,
-      "equity_value_usd": 108867726.0,
-      "value_per_token_usd": 0.0871,
+      "R0_usd": 10497479.4,
+      "equity_value_usd": 104974794.0,
+      "value_per_token_usd": 0.084,
       "invalid_reason": null
     },
     {
       "capture": 0.15,
       "growth": 0.0,
       "discount": 0.12,
-      "R0_usd": 10886772.6,
-      "equity_value_usd": 90723105.0,
-      "value_per_token_usd": 0.0726,
+      "R0_usd": 10497479.4,
+      "equity_value_usd": 87478995.0,
+      "value_per_token_usd": 0.07,
       "invalid_reason": null
     },
     {
       "capture": 0.15,
       "growth": 0.0,
       "discount": 0.15,
-      "R0_usd": 10886772.6,
-      "equity_value_usd": 72578484.0,
-      "value_per_token_usd": 0.0581,
+      "R0_usd": 10497479.4,
+      "equity_value_usd": 69983196.0,
+      "value_per_token_usd": 0.056,
       "invalid_reason": null
     },
     {
       "capture": 0.15,
       "growth": 0.1,
       "discount": 0.1,
-      "R0_usd": 10886772.6,
+      "R0_usd": 10497479.4,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -40,34 +40,25 @@
       "capture": 0.15,
       "growth": 0.1,
       "discount": 0.12,
-      "R0_usd": 10886772.6,
-      "equity_value_usd": 598772493.0,
-      "value_per_token_usd": 0.4791,
+      "R0_usd": 10497479.4,
+      "equity_value_usd": 577361367.0,
+      "value_per_token_usd": 0.4619,
       "invalid_reason": null
     },
     {
       "capture": 0.15,
       "growth": 0.1,
       "discount": 0.15,
-      "R0_usd": 10886772.6,
-      "equity_value_usd": 239508997.2,
-      "value_per_token_usd": 0.1916,
+      "R0_usd": 10497479.4,
+      "equity_value_usd": 230944546.8,
+      "value_per_token_usd": 0.1848,
       "invalid_reason": null
     },
     {
       "capture": 0.15,
       "growth": 0.2,
       "discount": 0.1,
-      "R0_usd": 10886772.6,
-      "equity_value_usd": null,
-      "value_per_token_usd": null,
-      "invalid_reason": "g >= r"
-    },
-    {
-      "capture": 0.15,
-      "growth": 0.2,
-      "discount": 0.12,
-      "R0_usd": 10886772.6,
+      "R0_usd": 10497479.4,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -75,8 +66,17 @@
     {
       "capture": 0.15,
       "growth": 0.2,
+      "discount": 0.12,
+      "R0_usd": 10497479.4,
+      "equity_value_usd": null,
+      "value_per_token_usd": null,
+      "invalid_reason": "g >= r"
+    },
+    {
+      "capture": 0.15,
+      "growth": 0.2,
       "discount": 0.15,
-      "R0_usd": 10886772.6,
+      "R0_usd": 10497479.4,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -85,34 +85,34 @@
       "capture": 0.25,
       "growth": 0.0,
       "discount": 0.1,
-      "R0_usd": 18144621.0,
-      "equity_value_usd": 181446210.0,
-      "value_per_token_usd": 0.1452,
+      "R0_usd": 17495799.0,
+      "equity_value_usd": 174957990.0,
+      "value_per_token_usd": 0.14,
       "invalid_reason": null
     },
     {
       "capture": 0.25,
       "growth": 0.0,
       "discount": 0.12,
-      "R0_usd": 18144621.0,
-      "equity_value_usd": 151205175.0,
-      "value_per_token_usd": 0.121,
+      "R0_usd": 17495799.0,
+      "equity_value_usd": 145798325.0,
+      "value_per_token_usd": 0.1167,
       "invalid_reason": null
     },
     {
       "capture": 0.25,
       "growth": 0.0,
       "discount": 0.15,
-      "R0_usd": 18144621.0,
-      "equity_value_usd": 120964140.0,
-      "value_per_token_usd": 0.0968,
+      "R0_usd": 17495799.0,
+      "equity_value_usd": 116638660.0,
+      "value_per_token_usd": 0.0933,
       "invalid_reason": null
     },
     {
       "capture": 0.25,
       "growth": 0.1,
       "discount": 0.1,
-      "R0_usd": 18144621.0,
+      "R0_usd": 17495799.0,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -121,25 +121,25 @@
       "capture": 0.25,
       "growth": 0.1,
       "discount": 0.12,
-      "R0_usd": 18144621.0,
-      "equity_value_usd": 997954155.0,
-      "value_per_token_usd": 0.7985,
+      "R0_usd": 17495799.0,
+      "equity_value_usd": 962268945.0,
+      "value_per_token_usd": 0.7699,
       "invalid_reason": null
     },
     {
       "capture": 0.25,
       "growth": 0.1,
       "discount": 0.15,
-      "R0_usd": 18144621.0,
-      "equity_value_usd": 399181662.0,
-      "value_per_token_usd": 0.3194,
+      "R0_usd": 17495799.0,
+      "equity_value_usd": 384907578.0,
+      "value_per_token_usd": 0.308,
       "invalid_reason": null
     },
     {
       "capture": 0.25,
       "growth": 0.2,
       "discount": 0.1,
-      "R0_usd": 18144621.0,
+      "R0_usd": 17495799.0,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -148,7 +148,7 @@
       "capture": 0.25,
       "growth": 0.2,
       "discount": 0.12,
-      "R0_usd": 18144621.0,
+      "R0_usd": 17495799.0,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -157,7 +157,7 @@
       "capture": 0.25,
       "growth": 0.2,
       "discount": 0.15,
-      "R0_usd": 18144621.0,
+      "R0_usd": 17495799.0,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -166,34 +166,34 @@
       "capture": 0.35,
       "growth": 0.0,
       "discount": 0.1,
-      "R0_usd": 25402469.4,
-      "equity_value_usd": 254024694.0,
-      "value_per_token_usd": 0.2032,
+      "R0_usd": 24494118.6,
+      "equity_value_usd": 244941186.0,
+      "value_per_token_usd": 0.196,
       "invalid_reason": null
     },
     {
       "capture": 0.35,
       "growth": 0.0,
       "discount": 0.12,
-      "R0_usd": 25402469.4,
-      "equity_value_usd": 211687245.0,
-      "value_per_token_usd": 0.1694,
+      "R0_usd": 24494118.6,
+      "equity_value_usd": 204117655.0,
+      "value_per_token_usd": 0.1633,
       "invalid_reason": null
     },
     {
       "capture": 0.35,
       "growth": 0.0,
       "discount": 0.15,
-      "R0_usd": 25402469.4,
-      "equity_value_usd": 169349796.0,
-      "value_per_token_usd": 0.1355,
+      "R0_usd": 24494118.6,
+      "equity_value_usd": 163294124.0,
+      "value_per_token_usd": 0.1307,
       "invalid_reason": null
     },
     {
       "capture": 0.35,
       "growth": 0.1,
       "discount": 0.1,
-      "R0_usd": 25402469.4,
+      "R0_usd": 24494118.6,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -202,25 +202,25 @@
       "capture": 0.35,
       "growth": 0.1,
       "discount": 0.12,
-      "R0_usd": 25402469.4,
-      "equity_value_usd": 1397135817.0,
-      "value_per_token_usd": 1.1179,
+      "R0_usd": 24494118.6,
+      "equity_value_usd": 1347176523.0,
+      "value_per_token_usd": 1.0779,
       "invalid_reason": null
     },
     {
       "capture": 0.35,
       "growth": 0.1,
       "discount": 0.15,
-      "R0_usd": 25402469.4,
-      "equity_value_usd": 558854326.8,
-      "value_per_token_usd": 0.4471,
+      "R0_usd": 24494118.6,
+      "equity_value_usd": 538870609.2,
+      "value_per_token_usd": 0.4312,
       "invalid_reason": null
     },
     {
       "capture": 0.35,
       "growth": 0.2,
       "discount": 0.1,
-      "R0_usd": 25402469.4,
+      "R0_usd": 24494118.6,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -229,7 +229,7 @@
       "capture": 0.35,
       "growth": 0.2,
       "discount": 0.12,
-      "R0_usd": 25402469.4,
+      "R0_usd": 24494118.6,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -238,7 +238,7 @@
       "capture": 0.35,
       "growth": 0.2,
       "discount": 0.15,
-      "R0_usd": 25402469.4,
+      "R0_usd": 24494118.6,
       "equity_value_usd": null,
       "value_per_token_usd": null,
       "invalid_reason": "g >= r"
@@ -262,20 +262,20 @@
     ]
   },
   "base_case": {
-    "capture": 0.3354,
+    "capture": 0.3141,
     "growth": 0.1,
     "discount": 0.15,
-    "value_per_token_usd": 0.4284895719192622
+    "value_per_token_usd": 0.38692876273705246
   },
   "note": "Cells with growth >= discount are null (Gordon growth requires g < r); the invalid zone is shown explicitly.",
   "growth_assumption_check": {
     "base_growth_rate": 0.1,
-    "measured_growth_rate_365d_log_regression": 0.009017400403878328,
+    "measured_growth_rate_365d_log_regression": 0.014751929874619263,
     "measured_growth_source": "M2 log_regression_cagr_last_365d",
     "discount_rate_r": 0.15,
-    "capture_rate_30d": 0.3354,
-    "dcf_value_per_token_at_measured_growth_usd": 0.13939613024996256,
-    "dcf_value_per_token_at_zero_growth_usd": 0.1298453248240188,
+    "capture_rate_30d": 0.3141,
+    "dcf_value_per_token_at_measured_growth_usd": 0.13195843095359094,
+    "dcf_value_per_token_at_zero_growth_usd": 0.1172511402233492,
     "note": "Base g=10%/yr is a forward assumption, not a trend extrapolation: the measured trailing-365d growth is essentially flat. At the measured rate the DCF is roughly a third of the base case."
   }
 }

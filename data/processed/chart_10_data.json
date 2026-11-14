@@ -151,7 +151,7 @@
     81046.19354838709,
     62939.46666666667,
     72046.48387096774,
-    81491.83333333333
+    81807.46153846153
   ],
   "monthly_price_month_end": [
     0.63071642,
@@ -227,7 +227,7 @@
     1.81812328,
     4.88659264,
     4.287445,
-    3.58539248
+    3.41914019
   ],
   "monthly_cum_txns_month_end": [
     212417.0,
@@ -303,34 +303,34 @@
     5425901786.0,
     5449906319.0,
     5472534254.0,
-    5481376677.0
+    5482413001.0
   ],
   "fit_price_vs_users": {
     "slope": 0.0216,
-    "intercept": 0.8686
+    "intercept": 0.8679
   },
   "fit_price_vs_cum_txns": {
-    "slope": -0.0122,
-    "intercept": 1.3544
+    "slope": -0.0125,
+    "intercept": 1.3587
   },
   "slope_monthly": 0.0216,
   "r_squared_monthly": 0.0045,
-  "pearson_r_monthly": 0.0673,
+  "pearson_r_monthly": 0.0674,
   "slope_daily": 0.0112,
   "r_squared_daily": 0.0012,
   "slope_mcap_monthly": 0.1859,
-  "r_squared_mcap_monthly": 0.2704,
-  "slope_cum_txns": -0.0122,
-  "r_squared_cum_txns": 0.0021,
-  "slope_subwindow_2024": 0.3275,
-  "r_subwindow_2024": 0.6393,
+  "r_squared_mcap_monthly": 0.2708,
+  "slope_cum_txns": -0.0125,
+  "r_squared_cum_txns": 0.0022,
+  "slope_subwindow_2024": 0.3296,
+  "r_subwindow_2024": 0.6437,
   "n_months": 74,
-  "window": "2020-10-14 to 2026-11-12",
-  "total_cumulative_txns": 5481376677.0,
+  "window": "2020-10-14 to 2026-11-13",
+  "total_cumulative_txns": 5482413001.0,
   "rival_slope": 0.21,
   "rival_r_squared": 0.28,
   "source": {
     "source": "https://api.nearblocks.io/v1/charts",
-    "fetched_at_utc": "2026-11-13T14:12:20Z"
+    "fetched_at_utc": "2026-11-14T07:23:12Z"
   }
 }

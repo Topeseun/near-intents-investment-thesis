@@ -1,179 +1,179 @@
 {
   "nearblocks_stats.json": {
     "source_url": "https://api.nearblocks.io/v1/stats",
-    "fetched_at_utc": "2026-11-13T14:12:18Z",
+    "fetched_at_utc": "2026-11-14T07:23:10Z",
     "bytes": 479,
     "status": 200
   },
   "nearblocks_validators.json": {
     "source_url": "https://api.nearblocks.io/v1/validators",
-    "fetched_at_utc": "2026-11-13T14:12:19Z",
+    "fetched_at_utc": "2026-11-14T07:23:11Z",
     "bytes": 19924,
     "status": 200
   },
   "nearblocks_blocks_latest.json": {
     "source_url": "https://api.nearblocks.io/v1/blocks/latest",
-    "fetched_at_utc": "2026-11-13T14:12:19Z",
-    "bytes": 2459,
+    "fetched_at_utc": "2026-11-14T07:23:11Z",
+    "bytes": 2455,
     "status": 200
   },
   "nearblocks_account_intents.json": {
     "source_url": "https://api.nearblocks.io/v1/account/intents.near",
-    "fetched_at_utc": "2026-11-13T14:12:20Z",
-    "bytes": 360,
+    "fetched_at_utc": "2026-11-14T07:23:11Z",
+    "bytes": 359,
     "status": 200
   },
   "nearblocks_account_buybacks.json": {
     "source_url": "https://api.nearblocks.io/v1/account/buybacks.multisignature.near",
-    "fetched_at_utc": "2026-11-13T14:12:20Z",
-    "bytes": 377,
+    "fetched_at_utc": "2026-11-14T07:23:11Z",
+    "bytes": 376,
     "status": 200
   },
   "nearblocks_charts.json": {
     "source_url": "https://api.nearblocks.io/v1/charts",
-    "fetched_at_utc": "2026-11-13T14:12:20Z",
-    "bytes": 1544022,
+    "fetched_at_utc": "2026-11-14T07:23:12Z",
+    "bytes": 1544699,
     "status": 200
   },
   "coingecko_simple_price.json": {
     "source_url": "https://api.coingecko.com/api/v3/simple/price?ids=near,solana,avalanche-2,ethereum&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true",
-    "fetched_at_utc": "2026-11-13T14:12:23Z",
-    "bytes": 511,
+    "fetched_at_utc": "2026-11-14T07:23:14Z",
+    "bytes": 512,
     "status": 200
   },
   "coingecko_market_chart_near_365.json": {
     "source_url": "https://api.coingecko.com/api/v3/coins/near/market_chart?vs_currency=usd&days=365",
-    "fetched_at_utc": "2026-11-13T14:12:26Z",
+    "fetched_at_utc": "2026-11-14T07:23:17Z",
     "bytes": 37945,
     "status": 200
   },
   "coingecko_market_chart_solana_365.json": {
     "source_url": "https://api.coingecko.com/api/v3/coins/solana/market_chart?vs_currency=usd&days=365",
-    "fetched_at_utc": "2026-11-13T14:12:28Z",
-    "bytes": 37637,
+    "fetched_at_utc": "2026-11-14T07:23:19Z",
+    "bytes": 37635,
     "status": 200
   },
   "coingecko_market_chart_avalanche-2_365.json": {
     "source_url": "https://api.coingecko.com/api/v3/coins/avalanche-2/market_chart?vs_currency=usd&days=365",
-    "fetched_at_utc": "2026-11-13T14:12:31Z",
-    "bytes": 37739,
+    "fetched_at_utc": "2026-11-14T07:23:22Z",
+    "bytes": 37740,
     "status": 200
   },
   "coingecko_market_chart_ethereum_365.json": {
     "source_url": "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=365",
-    "fetched_at_utc": "2026-11-13T14:12:33Z",
-    "bytes": 37965,
+    "fetched_at_utc": "2026-11-14T07:23:25Z",
+    "bytes": 37968,
     "status": 200
   },
   "defillama_fees_near-intents.json": {
     "source_url": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:34Z",
-    "bytes": 39142,
+    "fetched_at_utc": "2026-11-14T07:23:26Z",
+    "bytes": 39204,
     "status": 200
   },
   "defillama_fees_NEAR.json": {
     "source_url": "https://api.llama.fi/summary/fees/NEAR?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:35Z",
-    "bytes": 122342,
+    "fetched_at_utc": "2026-11-14T07:23:26Z",
+    "bytes": 122396,
     "status": 200
   },
   "defillama_fees_thorchain.json": {
     "source_url": "https://api.llama.fi/summary/fees/thorchain?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:35Z",
-    "bytes": 130093,
+    "fetched_at_utc": "2026-11-14T07:23:27Z",
+    "bytes": 130156,
     "status": 200
   },
   "defillama_fees_chainflip.json": {
     "source_url": "https://api.llama.fi/summary/fees/chainflip?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:35Z",
-    "bytes": 75161,
+    "fetched_at_utc": "2026-11-14T07:23:31Z",
+    "bytes": 75231,
     "status": 200
   },
   "defillama_fees_debridge.json": {
     "source_url": "https://api.llama.fi/summary/fees/debridge?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:36Z",
-    "bytes": 687544,
+    "fetched_at_utc": "2026-11-14T07:23:32Z",
+    "bytes": 688509,
     "status": 200
   },
   "defillama_fees_lifi.json": {
     "source_url": "https://api.llama.fi/summary/fees/lifi?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:36Z",
+    "fetched_at_utc": "2026-11-14T07:23:33Z",
     "bytes": 79,
     "status": 400
   },
   "defillama_fees_solana.json": {
     "source_url": "https://api.llama.fi/summary/fees/solana?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:36Z",
-    "bytes": 133048,
+    "fetched_at_utc": "2026-11-14T07:23:33Z",
+    "bytes": 133106,
     "status": 200
   },
   "defillama_fees_avalanche.json": {
     "source_url": "https://api.llama.fi/summary/fees/avalanche?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:37Z",
-    "bytes": 97741,
+    "fetched_at_utc": "2026-11-14T07:23:40Z",
+    "bytes": 97809,
     "status": 200
   },
   "defillama_fees_ethereum.json": {
     "source_url": "https://api.llama.fi/summary/fees/ethereum?dataType=dailyFees",
-    "fetched_at_utc": "2026-11-13T14:12:37Z",
-    "bytes": 273731,
+    "fetched_at_utc": "2026-11-14T07:23:40Z",
+    "bytes": 273798,
     "status": 200
   },
   "defillama_dexs_near-intents.json": {
     "source_url": "https://api.llama.fi/summary/dexs/near-intents",
-    "fetched_at_utc": "2026-11-13T14:12:37Z",
-    "bytes": 50658,
+    "fetched_at_utc": "2026-11-14T07:23:40Z",
+    "bytes": 50729,
     "status": 200
   },
   "defillama_historical_tvl_NEAR.json": {
     "source_url": "https://api.llama.fi/v2/historicalChainTvl/NEAR",
-    "fetched_at_utc": "2026-11-13T14:12:38Z",
-    "bytes": 68068,
+    "fetched_at_utc": "2026-11-14T07:23:40Z",
+    "bytes": 68104,
     "status": 200
   },
   "defillama_chains.json": {
     "source_url": "https://api.llama.fi/chains",
-    "fetched_at_utc": "2026-11-13T14:12:38Z",
-    "bytes": 60745,
+    "fetched_at_utc": "2026-11-14T07:23:40Z",
+    "bytes": 60740,
     "status": 200
   },
   "defillama_overview_fees.json": {
     "source_url": "https://api.llama.fi/overview/fees",
-    "fetched_at_utc": "2026-11-13T14:12:40Z",
-    "bytes": 31267588,
+    "fetched_at_utc": "2026-11-14T07:23:43Z",
+    "bytes": 31333416,
     "status": 200
   },
   "rpc_status.json": {
     "source_url": "https://rpc.mainnet.near.org#status",
-    "fetched_at_utc": "2026-11-13T14:12:44Z",
-    "bytes": 4871,
+    "fetched_at_utc": "2026-11-14T07:23:46Z",
+    "bytes": 4872,
     "status": 200
   },
   "rpc_gas_price.json": {
     "source_url": "https://rpc.mainnet.near.org#gas_price",
-    "fetched_at_utc": "2026-11-13T14:12:47Z",
+    "fetched_at_utc": "2026-11-14T07:23:49Z",
     "bytes": 69,
     "status": 200
   },
   "rpc_protocol_config.json": {
     "source_url": "https://rpc.mainnet.near.org#EXPERIMENTAL_protocol_config",
-    "fetched_at_utc": "2026-11-13T14:12:50Z",
+    "fetched_at_utc": "2026-11-14T07:23:52Z",
     "bytes": 9677,
     "status": 200
   },
   "revenue_near_org.html": {
     "source_url": "https://revenue.near.org/",
-    "fetched_at_utc": "2026-11-13T14:12:51Z",
-    "bytes": 500079,
+    "fetched_at_utc": "2026-11-14T07:23:53Z",
+    "bytes": 500799,
     "status": 200
   },
   "revenue_near_org_parsed.json": {
     "source_url": "https://revenue.near.org/ (parsed SSR payload)",
-    "fetched_at_utc": "2026-11-13T14:12:51Z",
-    "bytes": 1536,
+    "fetched_at_utc": "2026-11-14T07:23:53Z",
+    "bytes": 1538,
     "status": 200
   },
-  "_fetch_completed_utc": "2026-11-13T14:12:51Z",
+  "_fetch_completed_utc": "2026-11-14T07:23:53Z",
   "_failures": [
     [
       "defillama_fees_lifi.json",

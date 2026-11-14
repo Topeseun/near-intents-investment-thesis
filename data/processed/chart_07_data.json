@@ -13,21 +13,21 @@
   "discount_rate": 0.12,
   "values_per_token_usd": [
     [
-      0.0726,
-      0.4791,
+      0.07,
+      0.4619,
       null
     ],
     [
-      0.121,
-      0.7985,
+      0.1167,
+      0.7699,
       null
     ],
     [
-      0.1694,
-      1.1179,
+      0.1633,
+      1.0779,
       null
     ]
   ],
-  "current_price_usd": 3.57,
-  "base_case_value_per_token_usd": 0.4284895719192622
+  "current_price_usd": 3.32,
+  "base_case_value_per_token_usd": 0.38692876273705246
 }
