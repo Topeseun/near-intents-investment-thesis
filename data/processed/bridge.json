@@ -4,14 +4,14 @@
   "as_published": "2026-11-13",
   "corroboration": {
     "rival_capture_30d": 0.359,
-    "our_capture_30d": 0.316,
+    "our_capture_30d": 0.3164,
     "rival_captured_revenue_annualised_usd": 22300000,
-    "our_r0_usd": 22114689.936
+    "our_r0_usd": 23793425.544
   },
   "our_dcf": {
-    "equity_value_usd": 486523178.5920002,
-    "value_per_token_usd": 0.38926930603281945,
-    "value_per_token_on_rival_supply_basis_usd": 0.37139173938320624,
+    "equity_value_usd": 523455361.9680001,
+    "value_per_token_usd": 0.41881890618683093,
+    "value_per_token_on_rival_supply_basis_usd": 0.39958424577709933,
     "supply_basis_near": 1249836992.159308
   },
   "rival_base_case": {
@@ -26,21 +26,21 @@
     "total_equity_value_usd": 3812100000.0
   },
   "bridge_to_rival_base_usd": {
-    "retained_revenue_dcf": 486523178.5920002,
+    "retained_revenue_dcf": 523455361.9680001,
     "plus_chain_value": 1660000000,
-    "plus_exit_value_and_horizon_difference": 538976821.408,
+    "plus_exit_value_and_horizon_difference": 502044638.03200006,
     "equals_rival_base_total": 2685500000.0,
-    "gap_usd": 2198976821.408
+    "gap_usd": 2162044638.032
   },
   "bridge_per_token_on_rival_supply_basis_usd": {
-    "retained_revenue_dcf": 0.37139173938320624,
+    "retained_revenue_dcf": 0.39958424577709933,
     "plus_chain_value": 1.2671755725190839,
-    "plus_exit_value_and_horizon_difference": 0.41143268809770994,
+    "plus_exit_value_and_horizon_difference": 0.38324018170381685,
     "equals_rival_base": 2.05
   },
-  "sensitivity_grid_max_valid_value_per_token_usd": 1.0779,
+  "sensitivity_grid_max_valid_value_per_token_usd": 1.1582,
   "market_price_implied_under_rival_model": {
-    "price_usd": 3.32,
+    "price_usd": 3.22,
     "quoted_price_usd": 3.6,
     "quoted_price_note": "Toll Audit's published price (their page, section 10) \u2014 the 63%/12x implication is quoted against $3.60, not the live price.",
     "volume_growth_per_year_5y": 0.63,
@@ -50,5 +50,5 @@
     "chain_value_usd": 3900000000,
     "chain_value_growth": 3
   },
-  "reading": "No parameter tweak closes the gap: the best valid sensitivity cell is $1.08, still half the rival's base case, so the difference is structural \u2014 what is included (chain value + exit value), not the parameters. The rival's base case is 62% chain value, an assumption they state themselves; our DCF is the conservative floor (retained revenue only)."
+  "reading": "No parameter tweak closes the gap: the best valid sensitivity cell is $1.16, still half the rival's base case, so the difference is structural \u2014 what is included (chain value + exit value), not the parameters. The rival's base case is 62% chain value, an assumption they state themselves; our DCF is the conservative floor (retained revenue only)."
 }

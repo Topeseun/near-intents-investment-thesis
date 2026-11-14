@@ -1,33 +1,33 @@
 {
-  "title": "Path to $3.32 \u2014 what the market price implies (reverse DCF)",
+  "title": "Path to $3.22 \u2014 what the market price implies (reverse DCF)",
   "inputs": {
-    "price_usd": 3.32,
+    "price_usd": 3.22,
     "supply_near": 1249836992.159308,
     "discount_rate_r": 0.15,
     "growth_rate_g": 0.1,
-    "capture_rate_30d": 0.316,
-    "fee_rate_30d_bps": 15.36,
-    "f30_trailing_30d_gross_fees_usd": 5831933.0,
+    "capture_rate_30d": 0.3164,
+    "fee_rate_30d_bps": 16.5,
+    "f30_trailing_30d_gross_fees_usd": 6266705.0,
     "volume_30d_usd": 3797462047.0,
-    "r0_annualised_retained_revenue_usd": 22114689.936,
-    "dcf_value_per_token_usd": 0.38926930603281945
+    "r0_annualised_retained_revenue_usd": 23793425.544,
+    "dcf_value_per_token_usd": 0.41881890618683093
   },
-  "required_equity_value_usd": 4149458813.968902,
-  "required_r0_annualised_retained_revenue_usd": 188611764.27131367,
-  "required_r1_next_year_retained_revenue_usd": 207472940.69844505,
-  "required_multiple_of_current_r0": 8.52879985281986,
-  "a_required_annual_gross_volume_usd": 388588979000.43195,
+  "required_equity_value_usd": 4024475114.7529716,
+  "required_r0_annualised_retained_revenue_usd": 182930687.03422594,
+  "required_r1_next_year_retained_revenue_usd": 201223755.73764855,
+  "required_multiple_of_current_r0": 7.688287115108386,
+  "a_required_annual_gross_volume_usd": 350401653132.25665,
   "a_current_annualised_volume_usd": 45569544564.0,
-  "a_required_multiple_of_current_volume": 8.527383425012717,
-  "b_required_30d_gross_fees_usd": 49739389.31205529,
-  "b_required_multiple_of_current_f30": 8.52879985281986,
-  "c_required_capture_rate_if_volume_flat": 2.6951007534910763,
+  "a_required_multiple_of_current_volume": 7.689382382133229,
+  "b_required_30d_gross_fees_usd": 48180227.3056853,
+  "b_required_multiple_of_current_f30": 7.688287115108386,
+  "c_required_capture_rate_if_volume_flat": 2.4325740432202934,
   "c_feasible": false,
   "ceiling_at_100pct_capture_flat_volume": {
-    "r0_annualised_retained_revenue_usd": 69983196.0,
-    "equity_value_usd": 1539630312.0000005,
-    "value_per_token_usd": 1.2318648925089222,
-    "value_per_token_vs_price_pct": 37.10436423219645
+    "r0_annualised_retained_revenue_usd": 75200460.0,
+    "equity_value_usd": 1654410120.0000005,
+    "value_per_token_usd": 1.3237007148762039,
+    "value_per_token_vs_price_pct": 41.10871785329825
   },
-  "reading": "At r=15%, g=10%, the $3.32 price needs retained revenue of $188,611,764/yr \u2014 8.5x today's R\u2080. At the current 31.60% capture and 15.36 bps fee rate that means $388.6B of annual Intents volume (8.5x today's annualised volume), or $49,739,389 of gross fees every 30 days. Capture alone cannot get there: with volume flat, the price needs a 270% capture rate \u2014 impossible. Even at 100% capture with volume flat, the DCF ceiling is $1.23 (37% of the price). The price is a bet on volume growth, not on retention."
+  "reading": "At r=15%, g=10%, the $3.22 price needs retained revenue of $182,930,687/yr \u2014 7.7x today's R\u2080. At the current 31.64% capture and 16.50 bps fee rate that means $350.4B of annual Intents volume (7.7x today's annualised volume), or $48,180,227 of gross fees every 30 days. Capture alone cannot get there: with volume flat, the price needs a 243% capture rate \u2014 impossible. Even at 100% capture with volume flat, the DCF ceiling is $1.32 (41% of the price). The price is a bet on volume growth, not on retention."
 }

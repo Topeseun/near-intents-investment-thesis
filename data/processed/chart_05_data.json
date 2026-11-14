@@ -1,23 +1,23 @@
 {
   "title": "NEAR bought/yr from retained revenue vs NEAR issued/yr",
-  "issued_per_year_near": 32791908.696036484,
+  "issued_per_year_near": 32792545.351498336,
   "scenarios": [
     {
       "capture": 0.15,
-      "bought_per_year_near": 3161891.3855421687
+      "bought_per_year_near": 3503127.0186335403
     },
     {
       "capture": 0.25,
-      "bought_per_year_near": 5269818.975903614
+      "bought_per_year_near": 5838545.0310559
     },
     {
       "capture": 0.35,
-      "bought_per_year_near": 7377746.56626506
+      "bought_per_year_near": 8173963.043478261
     }
   ],
   "measured": {
-    "capture": 0.316,
-    "bought_per_year_near": 6661051.185542169
+    "capture": 0.3164,
+    "bought_per_year_near": 7389262.591304347
   },
-  "break_even_retained_revenue_usd": 108869136.87084112
+  "break_even_retained_revenue_usd": 105591996.03182465
 }
