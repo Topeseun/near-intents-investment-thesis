@@ -262,10 +262,10 @@
     ]
   },
   "base_case": {
-    "capture": 0.3141,
+    "capture": 0.316,
     "growth": 0.1,
     "discount": 0.15,
-    "value_per_token_usd": 0.38692876273705246
+    "value_per_token_usd": 0.38926930603281945
   },
   "note": "Cells with growth >= discount are null (Gordon growth requires g < r); the invalid zone is shown explicitly.",
   "growth_assumption_check": {
@@ -273,9 +273,9 @@
     "measured_growth_rate_365d_log_regression": 0.014751929874619263,
     "measured_growth_source": "M2 log_regression_cagr_last_365d",
     "discount_rate_r": 0.15,
-    "capture_rate_30d": 0.3141,
-    "dcf_value_per_token_at_measured_growth_usd": 0.13195843095359094,
-    "dcf_value_per_token_at_zero_growth_usd": 0.1172511402233492,
+    "capture_rate_30d": 0.316,
+    "dcf_value_per_token_at_measured_growth_usd": 0.13275665132548467,
+    "dcf_value_per_token_at_zero_growth_usd": 0.117960395767521,
     "note": "Base g=10%/yr is a forward assumption, not a trend extrapolation: the measured trailing-365d growth is essentially flat. At the measured rate the DCF is roughly a third of the base case."
   }
 }

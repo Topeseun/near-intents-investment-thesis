@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T07:23:53Z",
+  "generated_at_utc": "2026-11-14T13:12:23Z",
   "committed": "2026-11-10",
   "note": "Live values are point-in-time reads against the committed thresholds, not final outcomes. Earliest resolution date 2026-12-31.",
   "counts": {
@@ -29,8 +29,8 @@
       "threshold_op": ">=",
       "resolves": "2027-01-31",
       "source_short": "revenue.near.org, 30d window",
-      "live_value": 0.3141,
-      "live_value_display": "31.41%",
+      "live_value": 0.316,
+      "live_value_display": "31.60%",
       "status": "off track",
       "status_reason": null
     },
@@ -42,7 +42,7 @@
       "threshold_op": "<",
       "resolves": "2027-02-28",
       "source_short": "Re-run src/model.py; CoinGecko price",
-      "live_value": 0.11654480805332906,
+      "live_value": 0.1172497909737408,
       "live_value_display": "11.7% of price",
       "status": "on track",
       "status_reason": null

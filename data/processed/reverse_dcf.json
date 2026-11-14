@@ -5,22 +5,22 @@
     "supply_near": 1249836992.159308,
     "discount_rate_r": 0.15,
     "growth_rate_g": 0.1,
-    "capture_rate_30d": 0.3141,
+    "capture_rate_30d": 0.316,
     "fee_rate_30d_bps": 15.36,
     "f30_trailing_30d_gross_fees_usd": 5831933.0,
     "volume_30d_usd": 3797462047.0,
-    "r0_annualised_retained_revenue_usd": 21981721.8636,
-    "dcf_value_per_token_usd": 0.38692876273705246
+    "r0_annualised_retained_revenue_usd": 22114689.936,
+    "dcf_value_per_token_usd": 0.38926930603281945
   },
   "required_equity_value_usd": 4149458813.968902,
   "required_r0_annualised_retained_revenue_usd": 188611764.27131367,
   "required_r1_next_year_retained_revenue_usd": 207472940.69844505,
-  "required_multiple_of_current_r0": 8.5803908102231,
-  "a_required_annual_gross_volume_usd": 390939564992.47534,
+  "required_multiple_of_current_r0": 8.52879985281986,
+  "a_required_annual_gross_volume_usd": 388588979000.43195,
   "a_current_annualised_volume_usd": 45569544564.0,
-  "a_required_multiple_of_current_volume": 8.578965814403116,
-  "b_required_30d_gross_fees_usd": 50040264.31903684,
-  "b_required_multiple_of_current_f30": 8.5803908102231,
+  "a_required_multiple_of_current_volume": 8.527383425012717,
+  "b_required_30d_gross_fees_usd": 49739389.31205529,
+  "b_required_multiple_of_current_f30": 8.52879985281986,
   "c_required_capture_rate_if_volume_flat": 2.6951007534910763,
   "c_feasible": false,
   "ceiling_at_100pct_capture_flat_volume": {
@@ -29,5 +29,5 @@
     "value_per_token_usd": 1.2318648925089222,
     "value_per_token_vs_price_pct": 37.10436423219645
   },
-  "reading": "At r=15%, g=10%, the $3.32 price needs retained revenue of $188,611,764/yr \u2014 8.6x today's R\u2080. At the current 31.41% capture and 15.36 bps fee rate that means $390.9B of annual Intents volume (8.6x today's annualised volume), or $50,040,264 of gross fees every 30 days. Capture alone cannot get there: with volume flat, the price needs a 270% capture rate \u2014 impossible. Even at 100% capture with volume flat, the DCF ceiling is $1.23 (37% of the price). The price is a bet on volume growth, not on retention."
+  "reading": "At r=15%, g=10%, the $3.32 price needs retained revenue of $188,611,764/yr \u2014 8.5x today's R\u2080. At the current 31.60% capture and 15.36 bps fee rate that means $388.6B of annual Intents volume (8.5x today's annualised volume), or $49,739,389 of gross fees every 30 days. Capture alone cannot get there: with volume flat, the price needs a 270% capture rate \u2014 impossible. Even at 100% capture with volume flat, the DCF ceiling is $1.23 (37% of the price). The price is a bet on volume growth, not on retention."
 }
